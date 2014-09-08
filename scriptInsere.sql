@@ -6,6 +6,11 @@
  * Turma 03
  * Trabalho Prático 01
  *
- * Script de Inserção
+ * Script de Inserção < scriptInsere.sql >
  * 
  */
+ /
+ -- Inserção de Eventos
+ -- add pelo menos 2
+ /
+ /
