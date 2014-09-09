@@ -73,7 +73,7 @@ CREATE TABLE edicao (
 	numEd Number(5) NOT NULL, -- Chave primária para diferenciar de evento
 	dataInicioEd Date, -- Máscara da data DD/MM/YYYY
 	dataFimEd Date, -- Máscara da data DD/MM/YYYY
-	localEd Varchar2(20), -- Cidade, País
+	localEd Varchar2(150), -- Cidade, País
 	taxaEd Number(10,2), -- Valor inteiro da taxa de inscrição
 	saldoFinanceiroEd Number(30), -- atributo derivado que mostra o saldo da edição
 	qtdArtigosApresentadosEd Number(10), -- atributo derivado que soma a quantidade de artigos apresentados na edição
