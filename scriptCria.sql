@@ -44,7 +44,7 @@ CREATE TABLE evento (
 	descricaoEv Varchar2(1000),
 	websiteEv Varchar2(200),
 	totalArtigosApresentadosEv Number(20), -- Atributo derivado que representa o total de artigos apresentados
-	CONSTRAINT PK_EVENTO PRIMARY KEY (codEv) -- PK_EVENTO define a restrição de chave primária
+	CONSTRAINT PK_EVENTO PRIMARY KEY (codEv), -- PK_EVENTO define a restrição de chave primária
 	CONSTRAINT UN_NOME_EV UNIQUE(nomeEv) -- UN_NOME_EV define a restrição UNIQUE (chave secundária)
 );
 /
@@ -130,11 +130,11 @@ CREATE TABLE despesa (
 	codEvPat Number(5), -- Chave Estrangeira de patrocinio
 	numEdPat Number(5), -- Chave Estrangeira de patrocinio
 	dataDesp Date,
-	valorDesp Number(1000),
+	valorDesp Number(10),
 	descricaoDesp Varchar2(500),
 	CONSTRAINT PK_DESPESA PRIMARY KEY (codEv, numEd, codDesp), -- PK_DESPESA 
 	CONSTRAINT FK_DESPESA_EDICAO FOREIGN KEY (codEv, numEd) REFERENCES edicao(codEv, numEd) ON DELETE CASCADE, 
-	CONSTRAINT FK_DESPESA_PATROCINIO FOREIGN KEY (cnpjPat, codEvPat, numEdPat) ON DELETE SET NULL
+	CONSTRAINT FK_DESPESA_PATROCINIO FOREIGN KEY (cnpjPat, codEvPat, numEdPat) REFERENCES patrocinio(cnpjPat, codEvPat, numEdPat) ON DELETE SET NULL
 );
 /
 
