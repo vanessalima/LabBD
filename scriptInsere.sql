@@ -36,6 +36,11 @@ DROP SEQUENCE SEQ_CODDESP_DESPESA
 /
 /
 /
+DELETE FROM evento;
+DELETE FROM edicao;
+/
+/
+/
 -- Criação da sequência para codEv da tabela evento
 CREATE SEQUENCE SEQ_CODEV_EVENTO
 	MINVALUE 0
@@ -104,18 +109,11 @@ INSERT INTO evento(codEv, nomeEv, descricaoEv, websiteEv)
 INSERT INTO evento(codEv, nomeEv, descricaoEv, websiteEv)
 	VALUES(
 	 	SEQ_CODEV_EVENTO.NEXTVAL, -- codigo do evento
-	 	'Brazilian Symposium on Geoinformatics', -- nome do evento
-	 	'The GeoInfo series (Brazilian Symposium on Geoinformatics) is an annual conference 
-	 	for exploring ongoing research, development and innovative applications on geographic 
-	 	information science and related areas. Papers should describe original research, ongoing 
-	 	(preferably) or recently completed and are reviewed by an international scientific committee.
-		The GeoInfo conferences also aim to bring to Brazil leading GIScience and spatial database 
-		researchers, to present to the local community a perspective of the state-of-the-art in the 
-		area. Past speakers have included Max Egenhofer, Gary Hunter, Andrew Frank, Roger Bivand, 
-		Mike Worboys, Werner Kuhn, Stefano Spaccapietra, Ralf Guting, Shashi Shekhar, Christopher 
-		Jones, Martin Kulldorff, Andrea Rodriguez, Max Craglia, Stephen Winter, Edzer Pebesma, Fosca 
-		Giannotti, Christian Freksa, Thomas Bittner, and Markus Schneider.', -- descrição do evento
-	 	'http://www.geoinfo.info/'-- website do evento
+	 	'International Conference on Database Systems for Advanced Applications', -- nome do evento
+	 	'DASFAA is an annual international forum for academic exchanges and technical 
+	 	discussions among researchers, developers and users of databases from academia, 
+	 	business and industry.', -- descrição do evento
+	 	'http://www.dasfaa2014.org'-- website do evento
 );
 /
 /
@@ -170,19 +168,53 @@ INSERT INTO edicao(codEv, nomeEv, codEd, dataInicioEd, dataFimEd, localEd, taxaE
 /
 /
 /
+/
+-- Inserção da edição de 2014 do terceiro evento
+INSERT INTO edicao(codEv, nomeEv, codEd, dataInicioEd, dataFimEd, localEd, taxaEd)
+	VALUES(
+		3, -- código do evento
+		'International Conference on Database Systems for Advanced Applications', -- nome do evento
+		SEQ_NUMED_EDICAO.NEXTVAL,
+		TO_DATE('21/04/2014', 'DD/MM/YYYY'), -- data de início
+		TO_DATE('24/04/2014', 'DD/MM/YYYY'), -- data de fim
+		'Bali, Indonesia',-- local onde a edição ocorreu na forma de Cidade, País
+		750.00-- valor da inscrição
+);
+/
 -- Inserção da edição de 2013 do terceiro evento
 INSERT INTO edicao(codEv, nomeEv, codEd, dataInicioEd, dataFimEd, localEd, taxaEd)
 	VALUES(
 		3, -- código do evento
-		'Brazilian Symposium on Geoinformatics', -- nome do evento
+		'International Conference on Database Systems for Advanced Applications', -- nome do evento
 		SEQ_NUMED_EDICAO.NEXTVAL,
-		TO_DATE('26/10/2010', 'DD/MM/YYYY'), -- data de início
-		TO_DATE('30/10/2010', 'DD/MM/YYYY'), -- data de fim
-		'Toronto, Canada',-- local onde a edição ocorreu na forma de Cidade, País
-		1580.00-- valor da inscrição
+		TO_DATE('', 'DD/MM/YYYY'), -- data de início
+		TO_DATE('', 'DD/MM/YYYY'), -- data de fim
+		'',-- local onde a edição ocorreu na forma de Cidade, País
+		1-- valor da inscrição
 );
-
-
-
+/
+-- Inserção da edição de 2012 do terceiro evento
+INSERT INTO edicao(codEv, nomeEv, codEd, dataInicioEd, dataFimEd, localEd, taxaEd)
+	VALUES(
+		3, -- código do evento
+		'International Conference on Database Systems for Advanced Applications', -- nome do evento
+		SEQ_NUMED_EDICAO.NEXTVAL,
+		TO_DATE('', 'DD/MM/YYYY'), -- data de início
+		TO_DATE('', 'DD/MM/YYYY'), -- data de fim
+		'',-- local onde a edição ocorreu na forma de Cidade, País
+		1-- valor da inscrição
+);
+/
+-- Inserção da edição de 2011 do terceiro evento
+INSERT INTO edicao(codEv, nomeEv, codEd, dataInicioEd, dataFimEd, localEd, taxaEd)
+	VALUES(
+		3, -- código do evento
+		'International Conference on Database Systems for Advanced Applications', -- nome do evento
+		SEQ_NUMED_EDICAO.NEXTVAL,
+		TO_DATE('', 'DD/MM/YYYY'), -- data de início
+		TO_DATE('', 'DD/MM/YYYY'), -- data de fim
+		'',-- local onde a edição ocorreu na forma de Cidade, País
+		1-- valor da inscrição
+);
 
 
