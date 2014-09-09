@@ -11,7 +11,7 @@
  */
 /
 -- Configuração do uso de caracteres especiais
-ALTER SESSION SET NLS_LANGUAGE= 'PORTUGUESE' NLS_TERRITORY= 'BRAZIL'
+ALTER SESSION SET NLS_LANGUAGE= 'PORTUGUESE' NLS_TERRITORY= 'BRAZIL';
 /
 -- Evita problemas com a criação incorreta de sequências 
 ALTER SESSION SET deferred_segment_creation = FALSE;
@@ -43,7 +43,7 @@ CREATE TABLE evento (
 	nomeEv Varchar2(100) NOT NULL, -- Cláusula unica (chave secundária)
 	descricaoEv Varchar2(1000),
 	websiteEv Varchar2(200),
-	totalArtigosApresentadosEv Number(100), -- Atributo derivado que representa o total de artigos apresentados
+	totalArtigosApresentadosEv Number(20), -- Atributo derivado que representa o total de artigos apresentados
 	CONSTRAINT PK_EVENTO PRIMARY KEY (codEv) -- PK_EVENTO define a restrição de chave primária
 	CONSTRAINT UN_NOME_EV UNIQUE(nomeEv) -- UN_NOME_EV define a restrição UNIQUE (chave secundária)
 );
@@ -68,12 +68,12 @@ CREATE TABLE evento (
  */
 CREATE TABLE edicao (
 	codEv Number(5) NOT NULL,	-- Chave primária e estrangeira (identifica identidade fraca)
-	numEd Number(10) NOT NULL, -- Chave primária para diferenciar de evento
+	numEd Number(5) NOT NULL, -- Chave primária para diferenciar de evento
 	dataInicioEd Date, -- Máscara da data DD/MM/YYYY
 	dataFimEd Date, -- Máscara da data DD/MM/YYYY
 	localEd Varchar2(20), -- Cidade, País
-	taxaEd Number(20), -- Valor inteiro da taxa de inscrição
-	saldoFinanceiroEd Number(50), -- atributo derivado que mostra o saldo da edição
+	taxaEd Number(10), -- Valor inteiro da taxa de inscrição
+	saldoFinanceiroEd Number(30), -- atributo derivado que mostra o saldo da edição
 	qtdArtigosApresentadosEd Number(10), -- atributo derivado que soma a quantidade de artigos apresentados na edição
 	CONSTRAINT PK_EDICAO PRIMARY KEY (codEv, numEd), -- PK_EDICAO define a restrição de chave primária
 	CONSTRAINT FK_EDICAO_EVENTO FOREIGN KEY (codEv) REFERENCES evento(codEv) ON DELETE CASCADE -- FK_EDICAO_EVENTO define uma restrição
@@ -106,10 +106,10 @@ CREATE TABLE patrocinador (
 CREATE TABLE patrocinio (
 	cnpjPat	Number(14) NOT NULL, -- Chave estrangeira e primária
 	codEv Number(5) NOT NULL,	-- Chave primária e estrangeira (identifica identidade fraca)
-	numEd Number(10) NOT NULL, -- Chave primária e estrangeira (identifica identidade fraca)
+	numEd Number(5) NOT NULL, -- Chave primária e estrangeira (identifica identidade fraca)
 	dataPat Date,
-	valorPat Number(50),
-	saldoPat Number(100), -- atributo derivado do valor do patrocinio e o que foi gasto em 
+	valorPat Number(10),
+	saldoPat Number(10), -- atributo derivado do valor do patrocinio e o que foi gasto em 
 							-- auxílios ou despesas
 	CONSTRAINT PK_PATROCINIO PRIMARY KEY (cnpjPat, codEv, numEd), -- PK_PATROCINIO define a restrição de chave primária
 	CONSTRAINT FK_PATROCINIO_PATROCINADOR FOREIGN KEY (cnpjPat) REFERENCES patrocinador(cnpjPat) ON DELETE CASCADE, -- FK_PATROCINIO_PATROCINADOR 
@@ -124,11 +124,11 @@ CREATE TABLE patrocinio (
  */
 CREATE TABLE despesa (
 	codEv Number(5) NOT NULL,	-- Chave primária e estrangeira (identifica identidade fraca)
-	numEd Number(10) NOT NULL, -- Chave primária e estrangeira (identifica identidade fraca)
+	numEd Number(5) NOT NULL, -- Chave primária e estrangeira (identifica identidade fraca)
 	codDesp Number(10) NOT NULL, -- Chave primária para diferenciar de evento
 	cnpjPat	Number(14), -- Chave Estrangeira de patrocinio
 	codEvPat Number(5), -- Chave Estrangeira de patrocinio
-	numEdPat Number(10), -- Chave Estrangeira de patrocinio
+	numEdPat Number(5), -- Chave Estrangeira de patrocinio
 	dataDesp Date,
 	valorDesp Number(1000),
 	descricaoDesp Varchar2(500),
@@ -137,20 +137,6 @@ CREATE TABLE despesa (
 	CONSTRAINT FK_DESPESA_PATROCINIO FOREIGN KEY (cnpjPat, codEvPat, numEdPat) ON DELETE SET NULL
 );
 /
--- Criação da tabela Pessoa
-/*
- *
- */
-CREATE TABLE PESSOA (
-	idPe Number(100),
-	emailPe Varchar2(250),
-
-	CONSTRAINT PK_PESSOA PRIMARY KEY (idPe, emailPe)
-);
-
-
-
-
 
 
 
