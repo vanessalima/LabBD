@@ -246,9 +246,5 @@ CREATE TABLE auxilio (
 	-- CONSTRAINT CHECK_TIPO_AUXILIO CHECK(tipoAux in () ) ??? ***
 );
 /
-
-
-
-
-
-
+/
+/
