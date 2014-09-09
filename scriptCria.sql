@@ -29,10 +29,6 @@ DROP TABLE patrocinio CASCADE CONSTRAINT;
 DROP TABLE despesa CASCADE CONSTRAINT;
 DROP TABLE auxilio CASCADE CONSTRAINT;
 /
--- Remoção das Sequências
-DROP SEQUENCE SEQ_CODEV_EVENTO;
-DROP SEQUENCE SEQ_NUMED_EDICAO;
-/
 -- Criação da tabela Evento
 /*
  * Esta tabela contém os dados de um evento no qual:
@@ -127,7 +123,8 @@ CREATE TABLE inscrito (
         dataInsc Date,
         tipoApresentador Char(1),
         CONSTRAINT PK_INSCRITO PRIMARY KEY (codEv, numEd, idPart),
-        CONSTRAINT PK_INSCRITO_EDICAO FOREIGN KEY (codEv, numEd) REFERENCES edicao ON DELETE CASCADE
+        CONSTRAINT FK_INSCRITO_PESSOA FOREIGN KEY (idPart) REFERENCES pessoa(idPe),
+        CONSTRAINT PK_INSCRITO_EDICAO FOREIGN KEY (codEv, numEd) REFERENCES edicao(codEv, numEd) ON DELETE CASCADE
 );
 /
 -- Criação da tabela artigo
@@ -144,7 +141,7 @@ CREATE TABLE artigo (
         idApr Number(5) NOT NULL,
         CONSTRAINT PK_ARTIGO PRIMARY KEY (idArt),
         CONSTRAINT PK_ARTIGO_INSCRITO FOREIGN KEY (codEv, numEd, idApr) REFERENCES inscrito(codEv, numEd, idPart) ON DELETE CASCADE       
-        );
+);
 /
 -- Criação da tabela escreve
 /*

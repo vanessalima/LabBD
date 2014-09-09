@@ -109,20 +109,26 @@ INSERT INTO evento(codEv, nomeEv, descricaoEv, websiteEv)
 INSERT INTO evento(codEv, nomeEv, descricaoEv, websiteEv)
 	VALUES(
 	 	SEQ_CODEV_EVENTO.NEXTVAL, -- codigo do evento
-	 	'International Conference on Database Systems for Advanced Applications', -- nome do evento
-	 	'DASFAA is an annual international forum for academic exchanges and technical 
-	 	discussions among researchers, developers and users of databases from academia, 
-	 	business and industry.', -- descrição do evento
-	 	'http://www.dasfaa2014.org'-- website do evento
+	 	'ACM SIGSPATIAL International Conference on Advances in Geographic Information Systems', -- nome do evento
+	 	'The ACM SIGSPATIAL International Conference on Advances in Geographic Information Systems 
+	 	2014 (ACM SIGSPATIAL 2014) is the twenty-second event in a series of symposia and workshops 
+	 	that began in 1993 with the aim of bringing together researchers, developers, users, and 
+	 	practitioners in relation to novel systems based on geo-spatial data and knowledge, and fostering 
+	 	interdisciplinary discussions and research in all aspects of geographic information systems. The 
+	 	conference provides a forum for original research contributions covering all conceptual, design, 
+	 	and implementation aspects of geospatial data ranging from applications, user interfaces, and visualization 
+	 	to data storage and query processing and indexing. The conference is the premier annual event of the ACM 
+	 	Special Interest Group on Spatial Information (ACM SIGSPATIAL). Researchers, students, and practitioners 
+	 	are invited to submit their contributions to ACM SIGSPATIAL 2014.', -- descrição do evento
+	 	'http://sigspatial2014.sigspatial.org'-- website do evento
 );
 /
 /
 /
 -- Inserção da edição de 2013 do primeiro evento
-INSERT INTO edicao(codEv, nomeEv, codEd, dataInicioEd, dataFimEd, localEd, taxaEd)
+INSERT INTO edicao(codEv, numEd, dataInicioEd, dataFimEd, localEd, taxaEd)
 	VALUES(
 		1, -- código do evento
-		'ACM International Conference on Information and Knowlege Managment', -- nome do evento
 		SEQ_NUMED_EDICAO.NEXTVAL,
 		TO_DATE('27/10/2013', 'DD/MM/YYYY'), -- data de início
 		TO_DATE('01/11/2013', 'DD/MM/YYYY'), -- data de fim
@@ -131,10 +137,9 @@ INSERT INTO edicao(codEv, nomeEv, codEd, dataInicioEd, dataFimEd, localEd, taxaE
 );
 /
 -- Inserção da edição de 2012 do primeiro evento
-INSERT INTO edicao(codEv, nomeEv, codEd, dataInicioEd, dataFimEd, localEd, taxaEd)
+INSERT INTO edicao(codEv, numEd, dataInicioEd, dataFimEd, localEd, taxaEd)
 	VALUES(
 		1, -- código do evento
-		'ACM International Conference on Information and Knowlege Managment', -- nome do evento
 		SEQ_NUMED_EDICAO.NEXTVAL,
 		TO_DATE('29/10/2012', 'DD/MM/YYYY'), -- data de início
 		TO_DATE('02/11/2012', 'DD/MM/YYYY'), -- data de fim
@@ -143,10 +148,9 @@ INSERT INTO edicao(codEv, nomeEv, codEd, dataInicioEd, dataFimEd, localEd, taxaE
 );
 /
 -- Inserção da edição de 2011 do primeiro evento
-INSERT INTO edicao(codEv, nomeEv, codEd, dataInicioEd, dataFimEd, localEd, taxaEd)
+INSERT INTO edicao(codEv, numEd, dataInicioEd, dataFimEd, localEd, taxaEd)
 	VALUES(
 		1, -- código do evento
-		'ACM International Conference on Information and Knowlege Managment', -- nome do evento
 		SEQ_NUMED_EDICAO.NEXTVAL,
 		TO_DATE('23/10/2011', 'DD/MM/YYYY'), -- data de início
 		TO_DATE('28/10/2011', 'DD/MM/YYYY'), -- data de fim
@@ -155,10 +159,9 @@ INSERT INTO edicao(codEv, nomeEv, codEd, dataInicioEd, dataFimEd, localEd, taxaE
 );
 /
 -- Inserção da edição de 2010 do primeiro evento
-INSERT INTO edicao(codEv, nomeEv, codEd, dataInicioEd, dataFimEd, localEd, taxaEd)
+INSERT INTO edicao(codEv, numEd, dataInicioEd, dataFimEd, localEd, taxaEd)
 	VALUES(
 		1, -- código do evento
-		'ACM International Conference on Information and Knowlege Managment', -- nome do evento
 		SEQ_NUMED_EDICAO.NEXTVAL,
 		TO_DATE('26/10/2010', 'DD/MM/YYYY'), -- data de início
 		TO_DATE('30/10/2010', 'DD/MM/YYYY'), -- data de fim
@@ -168,53 +171,91 @@ INSERT INTO edicao(codEv, nomeEv, codEd, dataInicioEd, dataFimEd, localEd, taxaE
 /
 /
 /
-/
--- Inserção da edição de 2014 do terceiro evento
-INSERT INTO edicao(codEv, nomeEv, codEd, dataInicioEd, dataFimEd, localEd, taxaEd)
+-- Inserção da edição de 2014 do segundo evento
+INSERT INTO edicao(codEv, numEd, dataInicioEd, dataFimEd, localEd, taxaEd)
 	VALUES(
-		3, -- código do evento
-		'International Conference on Database Systems for Advanced Applications', -- nome do evento
+		2, -- código do evento
 		SEQ_NUMED_EDICAO.NEXTVAL,
-		TO_DATE('21/04/2014', 'DD/MM/YYYY'), -- data de início
-		TO_DATE('24/04/2014', 'DD/MM/YYYY'), -- data de fim
-		'Bali, Indonesia',-- local onde a edição ocorreu na forma de Cidade, País
-		750.00-- valor da inscrição
+    TO_DATE('01/09/2014', 'DD/MM/YYYY'),
+    TO_DATE('05/09/2014', 'DD/MM/YYYY'),
+    'Hangzhou, China',
+    1100.00
+);
+-- Inserção da edição de 2013 do segundo evento
+INSERT INTO edicao(codEv, numEd, dataInicioEd, dataFimEd, localEd, taxaEd)
+	VALUES(
+		2, -- código do evento
+		SEQ_NUMED_EDICAO.NEXTVAL,
+    TO_DATE('26/08/2013', 'DD/MM/YYYY'),
+    TO_DATE('30/08/2013', 'DD/MM/YYYY'),
+    'Trento, Italy',
+    1100.00
+);
+-- Inserção da edição de 2012 do segundo evento
+INSERT INTO edicao(codEv, numEd, dataInicioEd, dataFimEd, localEd, taxaEd)
+	VALUES(
+		2, -- código do evento
+		SEQ_NUMED_EDICAO.NEXTVAL,
+    TO_DATE('27/08/2012', 'DD/MM/YYYY'),
+    TO_DATE('31/08/2012', 'DD/MM/YYYY'),
+    'Istanbul, Turkey',
+    1100.00
+);
+-- Inserção da edição de 2011 do segundo evento
+INSERT INTO edicao(codEv, numEd, dataInicioEd, dataFimEd, localEd, taxaEd)
+	VALUES(
+		2, -- código do evento
+		SEQ_NUMED_EDICAO.NEXTVAL,
+    TO_DATE('29/08/2011', 'DD/MM/YYYY'),
+    TO_DATE('03/09/2011', 'DD/MM/YYYY'),
+    'Seattle, Washington',
+    1220.00
 );
 /
+/
+/
 -- Inserção da edição de 2013 do terceiro evento
-INSERT INTO edicao(codEv, nomeEv, codEd, dataInicioEd, dataFimEd, localEd, taxaEd)
+INSERT INTO edicao(codEv, numEd, dataInicioEd, dataFimEd, localEd, taxaEd)
 	VALUES(
 		3, -- código do evento
-		'International Conference on Database Systems for Advanced Applications', -- nome do evento
 		SEQ_NUMED_EDICAO.NEXTVAL,
-		TO_DATE('', 'DD/MM/YYYY'), -- data de início
-		TO_DATE('', 'DD/MM/YYYY'), -- data de fim
-		'',-- local onde a edição ocorreu na forma de Cidade, País
-		1-- valor da inscrição
+		TO_DATE('05/11/2013', 'DD/MM/YYYY'), -- data de início
+		TO_DATE('08/11/2013', 'DD/MM/YYYY'), -- data de fim
+		'Orlando, United States',-- local onde a edição ocorreu na forma de Cidade, País
+		650.00-- valor da inscrição
 );
 /
 -- Inserção da edição de 2012 do terceiro evento
-INSERT INTO edicao(codEv, nomeEv, codEd, dataInicioEd, dataFimEd, localEd, taxaEd)
+INSERT INTO edicao(codEv, numEd, dataInicioEd, dataFimEd, localEd, taxaEd)
 	VALUES(
 		3, -- código do evento
-		'International Conference on Database Systems for Advanced Applications', -- nome do evento
 		SEQ_NUMED_EDICAO.NEXTVAL,
-		TO_DATE('', 'DD/MM/YYYY'), -- data de início
-		TO_DATE('', 'DD/MM/YYYY'), -- data de fim
-		'',-- local onde a edição ocorreu na forma de Cidade, País
-		1-- valor da inscrição
+		TO_DATE('06/11/2012', 'DD/MM/YYYY'), -- data de início
+		TO_DATE('09/11/2012', 'DD/MM/YYYY'), -- data de fim
+		'Redondo Beach, United States',-- local onde a edição ocorreu na forma de Cidade, País
+		650.00-- valor da inscrição
 );
 /
 -- Inserção da edição de 2011 do terceiro evento
-INSERT INTO edicao(codEv, nomeEv, codEd, dataInicioEd, dataFimEd, localEd, taxaEd)
+INSERT INTO edicao(codEv, numEd, dataInicioEd, dataFimEd, localEd, taxaEd)
 	VALUES(
 		3, -- código do evento
-		'International Conference on Database Systems for Advanced Applications', -- nome do evento
 		SEQ_NUMED_EDICAO.NEXTVAL,
-		TO_DATE('', 'DD/MM/YYYY'), -- data de início
-		TO_DATE('', 'DD/MM/YYYY'), -- data de fim
-		'',-- local onde a edição ocorreu na forma de Cidade, País
-		1-- valor da inscrição
+		TO_DATE('01/11/2011', 'DD/MM/YYYY'), -- data de início
+		TO_DATE('04/11/2011', 'DD/MM/YYYY'), -- data de fim
+		'Chicago, United States',-- local onde a edição ocorreu na forma de Cidade, País
+		650.00-- valor da inscrição
+);
+/
+-- Inserção da edição de 2010 do terceiro evento
+INSERT INTO edicao(codEv, numEd, dataInicioEd, dataFimEd, localEd, taxaEd)
+	VALUES(
+		3, -- código do evento
+		SEQ_NUMED_EDICAO.NEXTVAL,
+		TO_DATE('02/11/2010', 'DD/MM/YYYY'), -- data de início
+		TO_DATE('05/11/2010', 'DD/MM/YYYY'), -- data de fim
+		'San Jose, United States',-- local onde a edição ocorreu na forma de Cidade, País
+		650.00-- valor da inscrição
 );
 
 
