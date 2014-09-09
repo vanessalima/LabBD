@@ -78,7 +78,7 @@ CREATE TABLE edicao (
 	dataInicioEd Date, -- Máscara da data DD/MM/YYYY
 	dataFimEd Date, -- Máscara da data DD/MM/YYYY
 	localEd Varchar2(20), -- Cidade, País
-	taxaEd Number(10), -- Valor inteiro da taxa de inscrição
+	taxaEd Number(10,2), -- Valor inteiro da taxa de inscrição
 	saldoFinanceiroEd Number(30), -- atributo derivado que mostra o saldo da edição
 	qtdArtigosApresentadosEd Number(10), -- atributo derivado que soma a quantidade de artigos apresentados na edição
 	CONSTRAINT PK_EDICAO PRIMARY KEY (codEv, numEd), -- PK_EDICAO define a restrição de chave primária
@@ -200,8 +200,8 @@ CREATE TABLE patrocinio (
 	codEv Number(5) NOT NULL,	-- Chave primária e estrangeira (identifica identidade fraca)
 	numEd Number(5) NOT NULL, -- Chave primária e estrangeira (identifica identidade fraca)
 	dataPat Date,
-	valorPat Number(10),
-	saldoPat Number(10), -- atributo derivado do valor do patrocinio e o que foi gasto em 
+	valorPat Number(10,2),
+	saldoPat Number(10,2), -- atributo derivado do valor do patrocinio e o que foi gasto em 
 							-- auxílios ou despesas
 	CONSTRAINT PK_PATROCINIO PRIMARY KEY (cnpjPat, codEv, numEd), -- PK_PATROCINIO define a restrição de chave primária
 	CONSTRAINT FK_PATROCINIO_PATROCINADOR FOREIGN KEY (cnpjPat) REFERENCES patrocinador(cnpjPat) ON DELETE CASCADE, -- FK_PATROCINIO_PATROCINADOR 
@@ -238,7 +238,7 @@ CREATE TABLE auxilio (
 	numEdApr Number(5) NOT NULL, -- Chave primária e estrangeira de inscrito (identidade fraca)
 	idApr Number(5) NOT NULL, -- Chave primária e estrangeira de inscrito (identidade fraca)
 	tipoAux Char(1) NOT NULL, -- Chave primária para diferenciar do inscrito
-	valorAux Number(5), 
+	valorAux Number(5,2), 
 	dataAux Date, -- Máscara da data DD/MM/YYYY
 	cnpjPat	Number(14), -- Chave Estrangeira de patrocinio
 	codEvPat Number(5), -- Chave Estrangeira de patrocinio
@@ -248,20 +248,6 @@ CREATE TABLE auxilio (
 	CONSTRAINT FK_AUXILIO_INSCRITO FOREIGN KEY (codEvApr, numEdApr, idApr) REFERENCES inscrito(codEv, numEd, idPart) ON DELETE CASCADE
 	-- CONSTRAINT CHECK_TIPO_AUXILIO CHECK(tipoAux in () ) ??? ***
 );
-/
-/
-/
--- Criação da sequência para codEv da tabela evento
-CREATE SEQUENCE SEQ_CODEV_EVENTO
-	MINVALUE 0
-	START WITH 1
-	INCREMENT BY 1;
-/
--- Criação da sequência para numEd da tabela edicao
-CREATE SEQUENCE SEQ_NUMED_EDICAO
-	MINVALUE 0
-	START WITH 1
-	INCREMENT BY 1;
 /
 
 

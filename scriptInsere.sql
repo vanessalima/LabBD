@@ -122,16 +122,46 @@ INSERT INTO edicao(codEv, nomeEv, codEd, dataInicioEd, dataFimEd, localEd, taxaE
 		1, -- código do evento
 		'ACM International Conference on Information and Knowlege Managment', -- nome do evento
 		SEQ_NUMED_EDICAO.NEXTVAL,
-
+		TO_DATE('27/10/2013', 'DD/MM/YYYY'), -- data de início
+		TO_DATE('01/11/2013', 'DD/MM/YYYY'), -- data de fim
+		'San Francisco, USA',-- local onde a edição ocorreu na forma de Cidade, País
+		1365.00-- valor da inscrição (Considerando a mais cara)
 );
-
-
-codEv Number(10) NOT NULL,	-- Chave primária e estrangeira (identifica identidade fraca)
-	nomeEv Varchar2(15) NOT NULL, -- Chave primária e estrangeira (identifica identidade fraca)
-	codEd Number(10) NOT NULL, -- Chave primária para diferenciar de evento
-	dataInicioEd Date,
-	dataFimEd Date,
-	localEd Varchar2(20), -- *** seria essa a melhor variável??? 
-	taxaEd Number(20),
-
+/
+-- Inserção da edição de 2012 do primeiro evento
+INSERT INTO edicao(codEv, nomeEv, codEd, dataInicioEd, dataFimEd, localEd, taxaEd)
+	VALUES(
+		1, -- código do evento
+		'ACM International Conference on Information and Knowlege Managment', -- nome do evento
+		SEQ_NUMED_EDICAO.NEXTVAL,
+		TO_DATE('', 'DD/MM/YYYY'), -- data de início
+		TO_DATE('', 'DD/MM/YYYY'), -- data de fim
+		'',-- local onde a edição ocorreu na forma de Cidade, País
+		1-- valor da inscrição
+);
+/
+-- Inserção da edição de 2011 do primeiro evento
+INSERT INTO edicao(codEv, nomeEv, codEd, dataInicioEd, dataFimEd, localEd, taxaEd)
+	VALUES(
+		1, -- código do evento
+		'ACM International Conference on Information and Knowlege Managment', -- nome do evento
+		SEQ_NUMED_EDICAO.NEXTVAL,
+		TO_DATE('', 'DD/MM/YYYY'), -- data de início
+		TO_DATE('', 'DD/MM/YYYY'), -- data de fim
+		'',-- local onde a edição ocorreu na forma de Cidade, País
+		1-- valor da inscrição
+);
+/
+-- Inserção da edição de 2010 do primeiro evento
+INSERT INTO edicao(codEv, nomeEv, codEd, dataInicioEd, dataFimEd, localEd, taxaEd)
+	VALUES(
+		1, -- código do evento
+		'ACM International Conference on Information and Knowlege Managment', -- nome do evento
+		SEQ_NUMED_EDICAO.NEXTVAL,
+		TO_DATE('', 'DD/MM/YYYY'), -- data de início
+		TO_DATE('', 'DD/MM/YYYY'), -- data de fim
+		'',-- local onde a edição ocorreu na forma de Cidade, País
+		1-- valor da inscrição
+);
+/
 
