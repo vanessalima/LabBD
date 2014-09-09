@@ -10,6 +10,64 @@
  * 
  */
 /
+/
+/*
+- evento: pelo menos 1
+- edição por evento: pelo menos 3
+- artigos por edição: pelo menos 15
+- inscritos por edição: pelo menos 30
+- patrocinadores: pelo menos 4
+- patrocínios: pelo menos 4 por edição
+- despesas por edição: pelo menos 8
+- auxílios por edição: pelo menos 10
+- organizadores por edição: pelo menos 4
+- autores por artigo: variável (apenas 10% dos artigos podem possuir 1
+autor, ou seja, a maioria dos artigos devem possuir 2 ou mais autores)
+*/
+/
+/
+/
+-- Deleta as sequências para iniciar a inserção de dados
+DROP SEQUENCE SEQ_CODEV_EVENTO;
+DROP SEQUENCE SEQ_NUMED_EDICAO;
+DROP SEQUENCE SEQ_IDPE_PESSOA;
+DROP SEQUENCE SEQ_IDART_ARTIGO;
+DROP SEQUENCE SEQ_CODDESP_DESPESA
+/
+/
+/
+-- Criação da sequência para codEv da tabela evento
+CREATE SEQUENCE SEQ_CODEV_EVENTO
+	MINVALUE 0
+	START WITH 1
+	INCREMENT BY 1;
+/
+-- Criação da sequência para numEd da tabela edicao
+CREATE SEQUENCE SEQ_NUMED_EDICAO
+	MINVALUE 0
+	START WITH 1
+	INCREMENT BY 1;
+/
+-- Criação da sequência para idPe da tabela pessoa
+CREATE SEQUENCE SEQ_IDPE_PESSOA
+	MINVALUE 0
+	START WITH 1
+	INCREMENT BY 1;
+/
+-- Criação da sequência para idArt da tabela artigo
+CREATE SEQUENCE SEQ_IDART_ARTIGO
+	MINVALUE 0
+	START WITH 1
+	INCREMENT BY 1;
+/
+-- Criação da sequência para codDesp da tabela despesa
+CREATE SEQUENCE SEQ_CODDESP_DESPESA
+	MINVALUE 0
+	START WITH 1
+	INCREMENT BY 1;
+/
+/
+/
 -- Inserção do primeiro Evento
 INSERT INTO evento(codEv, nomeEv, descricaoEv, websiteEv)
 	VALUES(
@@ -21,7 +79,7 @@ INSERT INTO evento(codEv, nomeEv, descricaoEv, websiteEv)
 	 	challenging problems facing the development of future knowledge and information 
 	 	systems, and to shape future research directions through the publication of high 
 	 	quality, applied and theoretical research findings.', -- descrição do evento
-	 	'http://cikm2014.fudan.edu.cn',-- website do evento
+	 	'http://cikm2014.fudan.edu.cn'-- website do evento
 );
 /
 -- Inserção do segundo Evento
@@ -35,7 +93,7 @@ INSERT INTO evento(codEv, nomeEv, descricaoEv, websiteEv)
 	 	It will cover current issues in data management, database and information systems 
 	 	research. Data management and databases remain among the main technological 
 	 	cornerstones of emerging applications of the twenty-first century.', -- descrição do evento
-	 	'http://www.vldb.org/',-- website do evento
+	 	'http://www.vldb.org/'-- website do evento
 );
 /
 -- Inserção do terceiro Evento
@@ -53,7 +111,7 @@ INSERT INTO evento(codEv, nomeEv, descricaoEv, websiteEv)
 		Mike Worboys, Werner Kuhn, Stefano Spaccapietra, Ralf Guting, Shashi Shekhar, Christopher 
 		Jones, Martin Kulldorff, Andrea Rodriguez, Max Craglia, Stephen Winter, Edzer Pebesma, Fosca 
 		Giannotti, Christian Freksa, Thomas Bittner, and Markus Schneider.', -- descrição do evento
-	 	'http://www.geoinfo.info/',-- website do evento
+	 	'http://www.geoinfo.info/'-- website do evento
 );
 /
 /
@@ -64,7 +122,7 @@ INSERT INTO edicao(codEv, nomeEv, codEd, dataInicioEd, dataFimEd, localEd, taxaE
 		1, -- código do evento
 		'ACM International Conference on Information and Knowlege Managment', -- nome do evento
 		SEQ_NUMED_EDICAO.NEXTVAL,
-		
+
 );
 
 
