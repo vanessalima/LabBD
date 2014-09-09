@@ -19,9 +19,15 @@ ALTER SESSION SET deferred_segment_creation = FALSE;
 -- Remoção das Tabelas
 DROP TABLE evento CASCADE CONSTRAINT;
 DROP TABLE edicao CASCADE CONSTRAINT;
+DROP TABLE pessoa CASCADE CONSTRAINT;
+DROP TABLE inscrito CASCADE CONSTRAINT;
+DROP TABLE artigo CASCADE CONSTRAINT;
+DROP TABLE escreve CASCADE CONSTRAINT;
+DROP TABLE organiza CASCADE CONSTRAINT;
 DROP TABLE patrocinador CASCADE CONSTRAINT;
 DROP TABLE patrocinio CASCADE CONSTRAINT;
 DROP TABLE despesa CASCADE CONSTRAINT;
+DROP TABLE auxilio CASCADE CONSTRAINT;
 /
 -- Remoção das Sequências
 DROP SEQUENCE SEQ_CODEV_EVENTO;
@@ -78,6 +84,92 @@ CREATE TABLE edicao (
 	CONSTRAINT PK_EDICAO PRIMARY KEY (codEv, numEd), -- PK_EDICAO define a restrição de chave primária
 	CONSTRAINT FK_EDICAO_EVENTO FOREIGN KEY (codEv) REFERENCES evento(codEv) ON DELETE CASCADE -- FK_EDICAO_EVENTO define uma restrição
 																									-- de integridade referencial
+);
+/
+-- Criação da tabela Pessoa
+/*
+ * Esta tabela contém dados relevantes de todas as pessoas relacionadas ao evento
+ * tais como:
+ * idPe
+ * nomePe
+ * emailPe
+ * instituicaoPe
+ * telefonePe
+ * nacionalidadePe
+ * enderecoPe
+ * tipoOrganizador
+ * tipoParticipante
+ * tipoAutor
+ */
+ CREATE TABLE pessoa(
+        idPe Number(5) NOT NULL,
+        nomePe Varchar2(100) NOT NULL,
+        emailPe Varchar2(200) NOT NULL,
+        instituicaoPe Varchar2(100) NOT NULL,
+        telefonePe Varchar2(16), -- +XX(XX)XXXX-XXXX
+        nacionalidadePe Varchar2(50),
+        enderecoPe Varchar2(100),
+        tipoOrganizador Char(1),
+        tipoParticipante Char(1),
+        tipoAutor Char(1),
+        CONSTRAINT PK_PESSOA PRIMARY KEY (idPe),
+        CONSTRAINT UN_EMAIL UNIQUE (emailPe)
+);
+/  
+-- Criação da tabela Inscrito
+/*
+ *
+ */      
+CREATE TABLE inscrito ( 
+        codEv Number(5) NOT NULL,	
+        numEd Number(5) NOT NULL,
+        idPart Number(5) NOT NULL,
+        dataInsc Date,
+        tipoApresentador Char(1),
+        CONSTRAINT PK_INSCRITO PRIMARY KEY (codEv, numEd, idPart),
+        CONSTRAINT PK_INSCRITO_EDICAO FOREIGN KEY (codEv, numEd) REFERENCES edicao ON DELETE CASCADE
+);
+/
+-- Criação da tabela artigo
+/*
+ *
+ */
+CREATE TABLE artigo (
+        idArt Number(5) NOT NULL,
+        tituloArt Varchar2(200) NOT NULL,
+        dataApresArt Date,
+        horaApresArt Date,
+        codEv Number(5) NOT NULL,
+        numEd Number(5) NOT NULL,
+        idApr Number(5) NOT NULL,
+        CONSTRAINT PK_ARTIGO PRIMARY KEY (idArt),
+        CONSTRAINT PK_ARTIGO_INSCRITO FOREIGN KEY (codEv, numEd, idApr) REFERENCES inscrito(codEv, numEd, idPart) ON DELETE CASCADE       
+        );
+/
+-- Criação da tabela escreve
+/*
+ *
+ */
+CREATE TABLE escreve(
+      idAutor Number(5) NOT NULL,
+      idArt Number(5) NOT NULL,
+      CONSTRAINT PK_ESCREVE PRIMARY KEY (idAutor, idArt),
+      CONSTRAINT PK_ESCREVE_ARTIGO FOREIGN KEY (idArt) REFERENCES artigo(idArt) ON DELETE CASCADE       
+);
+/
+-- Criação da tabela Organiza
+/*
+ *
+ */
+CREATE TABLE organiza (
+	idOrg Number(5), -- chave primária e estarngeira da tabela pessoa
+	codEv Number(5), -- chave primária e estrangeira da tabela edicao
+	numEd Number(5), -- chave primária e estrangeira da tabela edicao
+	cargoOrg Varchar2(100),
+	CONSTRAINT PK_ORGANIZA PRIMARY KEY (idOrg, codEv, numEd),
+	CONSTRAINT FK_ORGANIZA_PESSOA FOREIGN KEY (idOrg) REFERENCES pessoa(idPe) ON DELETE CASCADE,
+	CONSTRAINT FK_ORGANIZA_PESSOA FOREIGN KEY (codEv, numEd) REFERENCES edicao(codEv, numEd) ON DELETE CASCADE
+	-- CONSTRAINT PARA O CARGO ??? ***
 );
 /
 -- Criação da tabela de Patrocinador
@@ -137,9 +229,28 @@ CREATE TABLE despesa (
 	CONSTRAINT FK_DESPESA_PATROCINIO FOREIGN KEY (cnpjPat, codEvPat, numEdPat) REFERENCES patrocinio(cnpjPat, codEv, numEd) ON DELETE SET NULL
 );
 /
-
-
-
+-- Criação da tabela Auxilio
+/*
+ *
+ */
+CREATE TABLE auxilio (
+	codEvApr Number(5) NOT NULL, -- Chave primária e estrangeira de inscrito (identidade fraca)
+	numEdApr Number(5) NOT NULL, -- Chave primária e estrangeira de inscrito (identidade fraca)
+	idApr Number(5) NOT NULL, -- Chave primária e estrangeira de inscrito (identidade fraca)
+	tipoAux Char(1) NOT NULL, -- Chave primária para diferenciar do inscrito
+	valorAux Number(5), 
+	dataAux Date, -- Máscara da data DD/MM/YYYY
+	cnpjPat	Number(14), -- Chave Estrangeira de patrocinio
+	codEvPat Number(5), -- Chave Estrangeira de patrocinio
+	numEdPat Number(5), -- Chave Estrangeira de patrocinio
+	CONSTRAINT PK_AUXILIO PRIMARY KEY (codEvApr, numEdApr, idApr, tipoAux),
+	CONSTRAINT FK_AUXILIO_PATROCINIO FOREIGN KEY (cnpjPat, codEvPat, numEdPat) REFERENCES patrocinio(cnpjPat, codEv, numEd) ON DELETE SET NULL,
+	CONSTRAINT FK_AUXILIO_PATROCINIO FOREIGN KEY (codEvApr, numEdApr, idApr) REFERENCES inscrito(codEv, numEd, idPart) ON DELETE CASCADE,
+	-- CONSTRAINT CHECK_TIPO_AUXILIO CHECK(tipoAux in () ) ??? ***
+);
+/
+/
+/
 -- Criação da sequência para codEv da tabela evento
 CREATE SEQUENCE SEQ_CODEV_EVENTO
 	MINVALUE 0
