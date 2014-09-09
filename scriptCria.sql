@@ -109,7 +109,10 @@ CREATE TABLE edicao (
         tipoParticipante Char(1),
         tipoAutor Char(1),
         CONSTRAINT PK_PESSOA PRIMARY KEY (idPe),
-        CONSTRAINT UN_EMAIL UNIQUE (emailPe)
+        CONSTRAINT UN_EMAIL UNIQUE (emailPe),
+        CONSTRAINT CHECK_TIPO_ORGANIZADOR CHECK (tipoOrganizador IN ('0', '1') ),
+        CONSTRAINT CHECK_TIPO_PARTICIPANTE CHECK (tipoParticipante IN ('0', '1') ),
+        CONSTRAINT CHECK_TIPO_AUTOR CHECK (tipoAutor IN ('0', '1') )
 );
 /  
 -- Criação da tabela Inscrito
