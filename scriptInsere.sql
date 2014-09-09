@@ -63,7 +63,7 @@ INSERT INTO edicao(codEv, nomeEv, codEd, dataInicioEd, dataFimEd, localEd, taxaE
 	VALUES(
 		1, -- código do evento
 		'ACM International Conference on Information and Knowlege Managment', -- nome do evento
-		SEQ_CODED_EDICAO.NEXTVAL,
+		SEQ_NUMED_EDICAO.NEXTVAL,
 		
 );
 
