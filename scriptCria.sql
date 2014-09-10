@@ -16,6 +16,8 @@ ALTER SESSION SET NLS_LANGUAGE= 'PORTUGUESE' NLS_TERRITORY= 'BRAZIL';
 -- Evita problemas com a criação incorreta de sequências 
 ALTER SESSION SET deferred_segment_creation = FALSE;
 /
+/
+/
 -- Remoção das Tabelas
 DROP TABLE evento CASCADE CONSTRAINT;
 DROP TABLE edicao CASCADE CONSTRAINT;
@@ -187,7 +189,7 @@ CREATE TABLE patrocinador (
 	cnpjPat	Number(14) NOT NULL, -- Chave primária
 	razaoSocialPat Varchar2(150),
 	telefonePat Varchar2(18), -- +XXX(XXX)XXXX-XXXX
-	enderecoPat	Varchar(80),
+	enderecoPat	Varchar(150),
 	CONSTRAINT PK_PATROCINADOR PRIMARY KEY (cnpjPat) -- PK_PATROCINADOR define a restrição de chave primária
 );
 /
