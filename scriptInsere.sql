@@ -127,86 +127,40 @@ INSERT INTO evento(codEv, nomeEv, descricaoEv, websiteEv)
 /
 /
 /
--- Inserção da edição de 2013 do primeiro evento
+-- Inserção da edição de 2014 do primeiro evento
 INSERT INTO edicao(codEv, numEd, dataInicioEd, dataFimEd, localEd, taxaEd)
 	VALUES(
 		1, -- código do evento
-		22,--SEQ_NUMED_EDICAO.NEXTVAL,
-		TO_DATE('27/10/2013', 'DD/MM/YYYY'), -- data de início
-		TO_DATE('01/11/2013', 'DD/MM/YYYY'), -- data de fim
-		'San Francisco, United States',-- local onde a edição ocorreu na forma de Cidade, País
-		1365.00 -- valor da inscrição (Considerando a mais cara)
-);
-/
--- Inserção da edição de 2012 do primeiro evento
-INSERT INTO edicao(codEv, numEd, dataInicioEd, dataFimEd, localEd, taxaEd)
-	VALUES(
-		1, -- código do evento
-		21,--SEQ_NUMED_EDICAO.NEXTVAL,
-		TO_DATE('29/10/2012', 'DD/MM/YYYY'), -- data de início
-		TO_DATE('02/11/2012', 'DD/MM/YYYY'), -- data de fim
-		'Sheraton, Maui Hawaii',-- local onde a edição ocorreu na forma de Cidade, País
-		1355.00-- valor da inscrição
-);
-/
--- Inserção da edição de 2011 do primeiro evento
-INSERT INTO edicao(codEv, numEd, dataInicioEd, dataFimEd, localEd, taxaEd)
-	VALUES(
-		1, -- código do evento
-		20,--SEQ_NUMED_EDICAO.NEXTVAL,
-		TO_DATE('23/10/2011', 'DD/MM/YYYY'), -- data de início
-		TO_DATE('28/10/2011', 'DD/MM/YYYY'), -- data de fim
-		'Glasgow, United Kingdom',-- local onde a edição ocorreu na forma de Cidade, País
-		1040.00-- valor da inscrição
-);
-/
--- Inserção da edição de 2010 do primeiro evento
-INSERT INTO edicao(codEv, numEd, dataInicioEd, dataFimEd, localEd, taxaEd)
-	VALUES(
-		1, -- código do evento
-		19,--SEQ_NUMED_EDICAO.NEXTVAL,
-		TO_DATE('26/10/2010', 'DD/MM/YYYY'), -- data de início
-		TO_DATE('30/10/2010', 'DD/MM/YYYY'), -- data de fim
-		'Toronto, Canada',-- local onde a edição ocorreu na forma de Cidade, País
-		1580.00-- valor da inscrição
-);
-/
-/
-/
--- Inserção da edição de 2014 do segundo evento
-INSERT INTO edicao(codEv, numEd, dataInicioEd, dataFimEd, localEd, taxaEd)
-	VALUES(
-		2, -- código do evento
 		40,--SEQ_NUMED_EDICAO.NEXTVAL,
     	TO_DATE('01/09/2014', 'DD/MM/YYYY'),
     	TO_DATE('05/09/2014', 'DD/MM/YYYY'),
     	'Hangzhou, China',
     	1100.00
 );
--- Inserção da edição de 2013 do segundo evento
+-- Inserção da edição de 2013 do primeiro evento
 INSERT INTO edicao(codEv, numEd, dataInicioEd, dataFimEd, localEd, taxaEd)
 	VALUES(
-		2, -- código do evento
+		1, -- código do evento
 		39,--SEQ_NUMED_EDICAO.NEXTVAL,
     	TO_DATE('26/08/2013', 'DD/MM/YYYY'),
     	TO_DATE('30/08/2013', 'DD/MM/YYYY'),
     	'Trento, Italy',
     	1100.00
 );
--- Inserção da edição de 2012 do segundo evento
+-- Inserção da edição de 2012 do primeiro evento
 INSERT INTO edicao(codEv, numEd, dataInicioEd, dataFimEd, localEd, taxaEd)
 	VALUES(
-		2, -- código do evento
+		1, -- código do evento
 		38,--SEQ_NUMED_EDICAO.NEXTVAL,
     	TO_DATE('27/08/2012', 'DD/MM/YYYY'),
     	TO_DATE('31/08/2012', 'DD/MM/YYYY'),
     	'Istanbul, Turkey',
     	1100.00
 );
--- Inserção da edição de 2011 do segundo evento
+-- Inserção da edição de 2011 do primeiro evento
 INSERT INTO edicao(codEv, numEd, dataInicioEd, dataFimEd, localEd, taxaEd)
 	VALUES(
-		2, -- código do evento
+		1, -- código do evento
 		37,--SEQ_NUMED_EDICAO.NEXTVAL,
     	TO_DATE('29/08/2011', 'DD/MM/YYYY'),
     	TO_DATE('03/09/2011', 'DD/MM/YYYY'),
@@ -216,10 +170,10 @@ INSERT INTO edicao(codEv, numEd, dataInicioEd, dataFimEd, localEd, taxaEd)
 /
 /
 /
--- Inserção da edição de 2013 do terceiro evento
+-- Inserção da edição de 2013 do segundo evento
 INSERT INTO edicao(codEv, numEd, dataInicioEd, dataFimEd, localEd, taxaEd)
 	VALUES(
-		3, -- código do evento
+		2, -- código do evento
 		21,--SEQ_NUMED_EDICAO.NEXTVAL,
 		TO_DATE('05/11/2013', 'DD/MM/YYYY'), -- data de início
 		TO_DATE('08/11/2013', 'DD/MM/YYYY'), -- data de fim
@@ -227,10 +181,10 @@ INSERT INTO edicao(codEv, numEd, dataInicioEd, dataFimEd, localEd, taxaEd)
 		650.00-- valor da inscrição
 );
 /
--- Inserção da edição de 2012 do terceiro evento
+-- Inserção da edição de 2012 do segundo evento
 INSERT INTO edicao(codEv, numEd, dataInicioEd, dataFimEd, localEd, taxaEd)
 	VALUES(
-		3, -- código do evento
+		2, -- código do evento
 		20,--SEQ_NUMED_EDICAO.NEXTVAL,
 		TO_DATE('06/11/2012', 'DD/MM/YYYY'), -- data de início
 		TO_DATE('09/11/2012', 'DD/MM/YYYY'), -- data de fim
@@ -238,10 +192,10 @@ INSERT INTO edicao(codEv, numEd, dataInicioEd, dataFimEd, localEd, taxaEd)
 		650.00-- valor da inscrição
 );
 /
--- Inserção da edição de 2011 do terceiro evento
+-- Inserção da edição de 2011 do segundo evento
 INSERT INTO edicao(codEv, numEd, dataInicioEd, dataFimEd, localEd, taxaEd)
 	VALUES(
-		3, -- código do evento
+		2, -- código do evento
 		19,--SEQ_NUMED_EDICAO.NEXTVAL,
 		TO_DATE('01/11/2011', 'DD/MM/YYYY'), -- data de início
 		TO_DATE('04/11/2011', 'DD/MM/YYYY'), -- data de fim
@@ -249,10 +203,10 @@ INSERT INTO edicao(codEv, numEd, dataInicioEd, dataFimEd, localEd, taxaEd)
 		650.00-- valor da inscrição
 );
 /
--- Inserção da edição de 2010 do terceiro evento
+-- Inserção da edição de 2010 do segundo evento
 INSERT INTO edicao(codEv, numEd, dataInicioEd, dataFimEd, localEd, taxaEd)
 	VALUES(
-		3, -- código do evento
+		2, -- código do evento
 		18,--SEQ_NUMED_EDICAO.NEXTVAL,
 		TO_DATE('02/11/2010', 'DD/MM/YYYY'), -- data de início
 		TO_DATE('05/11/2010', 'DD/MM/YYYY'), -- data de fim
@@ -263,6 +217,52 @@ INSERT INTO edicao(codEv, numEd, dataInicioEd, dataFimEd, localEd, taxaEd)
 /
 /
 /
+-- Inserção da edição de 2013 do terceiro evento
+INSERT INTO edicao(codEv, numEd, dataInicioEd, dataFimEd, localEd, taxaEd)
+	VALUES(
+		3, -- código do evento
+		22,--SEQ_NUMED_EDICAO.NEXTVAL,
+		TO_DATE('27/10/2013', 'DD/MM/YYYY'), -- data de início
+		TO_DATE('01/11/2013', 'DD/MM/YYYY'), -- data de fim
+		'San Francisco, United States',-- local onde a edição ocorreu na forma de Cidade, País
+		1365.00 -- valor da inscrição (Considerando a mais cara)
+);
+/
+-- Inserção da edição de 2012 do terceiro evento
+INSERT INTO edicao(codEv, numEd, dataInicioEd, dataFimEd, localEd, taxaEd)
+	VALUES(
+		3, -- código do evento
+		21,--SEQ_NUMED_EDICAO.NEXTVAL,
+		TO_DATE('29/10/2012', 'DD/MM/YYYY'), -- data de início
+		TO_DATE('02/11/2012', 'DD/MM/YYYY'), -- data de fim
+		'Sheraton, Maui Hawaii',-- local onde a edição ocorreu na forma de Cidade, País
+		1355.00-- valor da inscrição
+);
+/
+-- Inserção da edição de 2011 do terceiro evento
+INSERT INTO edicao(codEv, numEd, dataInicioEd, dataFimEd, localEd, taxaEd)
+	VALUES(
+		3, -- código do evento
+		20,--SEQ_NUMED_EDICAO.NEXTVAL,
+		TO_DATE('23/10/2011', 'DD/MM/YYYY'), -- data de início
+		TO_DATE('28/10/2011', 'DD/MM/YYYY'), -- data de fim
+		'Glasgow, United Kingdom',-- local onde a edição ocorreu na forma de Cidade, País
+		1040.00-- valor da inscrição
+);
+/
+-- Inserção da edição de 2010 do terceiro evento
+INSERT INTO edicao(codEv, numEd, dataInicioEd, dataFimEd, localEd, taxaEd)
+	VALUES(
+		3, -- código do evento
+		19,--SEQ_NUMED_EDICAO.NEXTVAL,
+		TO_DATE('26/10/2010', 'DD/MM/YYYY'), -- data de início
+		TO_DATE('30/10/2010', 'DD/MM/YYYY'), -- data de fim
+		'Toronto, Canada',-- local onde a edição ocorreu na forma de Cidade, País
+		1580.00-- valor da inscrição
+);
+/
+/
+/
 /
 /
 /
@@ -270,56 +270,56 @@ INSERT INTO edicao(codEv, numEd, dataInicioEd, dataFimEd, localEd, taxaEd)
 INSERT INTO patrocinador VALUES(
 	06990590000204,--CNPJ
 	'GOOGLE BRASIL INTERNET LTDA.', -- razão social
-	'+55(11)3797-1263' -- telefone +XXX(XXX)XXXX-XXXX
+	'+55(11)3797-1263', -- telefone +XXX(XXX)XXXX-XXXX
 	'Av. Brigadeiro Faria Lima, 3900, 5 andar. São Paulo, SP - CEP 04538-132'
 );
 /
 INSERT INTO patrocinador VALUES(
 	60316817000103,--CNPJ
 	'Microsoft Informatica Ltda.', -- razão social
-	'+55(11)5504-2155' -- telefone +XXX(XXX)XXXX-XXXX
+	'+55(11)5504-2155', -- telefone +XXX(XXX)XXXX-XXXX
 	'Av. Nações Unidas, 12.901 - São Paulo, SP - Brasil'
 );
 /
 INSERT INTO patrocinador VALUES(
 	59456277000176,--CNPJ
 	'Oracle do Brasil Sistemas Ltda.', -- razão social
-	'+55(11)5189-1000' -- telefone +XXX(XXX)XXXX-XXXX
+	'+55(11)5189-1000', -- telefone +XXX(XXX)XXXX-XXXX
 	'Rua Dr. José Aureo Bustamante - São Paulo, SP - Brasil'
 );
 /
 INSERT INTO patrocinador VALUES(
 	33372251000156,--CNPJ
 	'IBM Brasil Ltda.', -- razão social
-	'+55(080)0707-1426' -- telefone +XXX(XXX)XXXX-XXXX
+	'+55(080)0707-1426', -- telefone +XXX(XXX)XXXX-XXXX
 	'Av. Pasteur, 138/146 Botafogo - Rio de Janeiro - RJ CEP: 22296-903'
 );
 /
 INSERT INTO patrocinador VALUES(
 	10322194000103,--CNPJ
 	'Facebook Serviços Online do Brasil Ltda.', -- razão social
-	'+1(650)543-4800' -- telefone +XXX(XXX)XXXX-XXXX
+	'+1(650)543-4800', -- telefone +XXX(XXX)XXXX-XXXX
 	'Avenida da Liberdade, 130 - São Paulo, SP - Brasil'
 );
 /
 INSERT INTO patrocinador VALUES(
 	57286247000133,--CNPJ
 	'Intel Semicondutores do Brasil Ltda.', -- razão social
-	'+55(11)3365-5500' -- telefone +XXX(XXX)XXXX-XXXX
+	'+55(11)3365-5500', -- telefone +XXX(XXX)XXXX-XXXX
 	'Av. Chucri Zaidan, 940 - 10º andarTorre II, CEP: 04583-110 - São Paulo, SP - Brasil'
 );
 /
 INSERT INTO patrocinador VALUES(
 	61797924000155,--CNPJ
 	'Hewlett-Packard Brasil Ltda.', -- razão social
-	'+55(11)4197-8000' -- telefone +XXX(XXX)XXXX-XXXX
+	'+55(11)4197-8000', -- telefone +XXX(XXX)XXXX-XXXX
 	'Alameda Rio Negro - Barueri, SP - Brasil'
 );
 /
 INSERT INTO patrocinador VALUES(
 	19758880000198,--CNPJ
 	'Vmware Software e Servicos Brasil LTDA.', -- razão social
-	'+55(11)5509-7200' -- telefone +XXX(XXX)XXXX-XXXX
+	'+55(11)5509-7200', -- telefone +XXX(XXX)XXXX-XXXX
 	'Edificio Brasil 21-SHS Quadra 6, Conjunto A, Bloco E-Salas 902/905 - Brasilia, Brazil 70322'
 );
 /
