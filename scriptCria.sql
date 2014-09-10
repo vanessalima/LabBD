@@ -102,7 +102,7 @@ CREATE TABLE edicao (
         nomePe Varchar2(100) NOT NULL,
         emailPe Varchar2(200) NOT NULL,
         instituicaoPe Varchar2(100) NOT NULL,
-        telefonePe Varchar2(15), -- +XXX(XXX)XXXX-XXXX
+        telefonePe Varchar2(18), -- +XXX(XXX)XXXX-XXXX
         nacionalidadePe Varchar2(50),
         enderecoPe Varchar2(100),
         tipoOrganizador Char(1),
@@ -186,7 +186,7 @@ CREATE TABLE organiza (
 CREATE TABLE patrocinador (
 	cnpjPat	Number(14) NOT NULL, -- Chave primária
 	razaoSocialPat Varchar2(150),
-	telefonePat Varchar2(15), -- +XXX(XXX)XXXX-XXXX
+	telefonePat Varchar2(18), -- +XXX(XXX)XXXX-XXXX
 	enderecoPat	Varchar(80),
 	CONSTRAINT PK_PATROCINADOR PRIMARY KEY (cnpjPat) -- PK_PATROCINADOR define a restrição de chave primária
 );

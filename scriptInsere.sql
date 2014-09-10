@@ -38,6 +38,7 @@ DROP SEQUENCE SEQ_CODDESP_DESPESA
 /
 DELETE FROM evento;
 DELETE FROM edicao;
+DELETE FROM pessoa;
 /
 /
 /
@@ -265,6 +266,67 @@ INSERT INTO edicao(codEv, numEd, dataInicioEd, dataFimEd, localEd, taxaEd)
 /
 /
 /
+-- Insersão dos Patrocinadores
+INSERT INTO patrocinador VALUES(
+	06990590000204,--CNPJ
+	'GOOGLE BRASIL INTERNET LTDA.', -- razão social
+	'+55(11)3797-1263' -- telefone +XXX(XXX)XXXX-XXXX
+	'Av. Brigadeiro Faria Lima, 3900, 5 andar. São Paulo, SP - CEP 04538-132'
+);
+/
+INSERT INTO patrocinador VALUES(
+	60316817000103,--CNPJ
+	'Microsoft Informatica Ltda.', -- razão social
+	'+55(11)5504-2155' -- telefone +XXX(XXX)XXXX-XXXX
+	'Av. Nações Unidas, 12.901 - São Paulo, SP - Brasil'
+);
+/
+INSERT INTO patrocinador VALUES(
+	59456277000176,--CNPJ
+	'Oracle do Brasil Sistemas Ltda.', -- razão social
+	'+55(11)5189-1000' -- telefone +XXX(XXX)XXXX-XXXX
+	'Rua Dr. José Aureo Bustamante - São Paulo, SP - Brasil'
+);
+/
+INSERT INTO patrocinador VALUES(
+	33372251000156,--CNPJ
+	'IBM Brasil Ltda.', -- razão social
+	'+55(080)0707-1426' -- telefone +XXX(XXX)XXXX-XXXX
+	'Av. Pasteur, 138/146 Botafogo - Rio de Janeiro - RJ CEP: 22296-903'
+);
+/
+INSERT INTO patrocinador VALUES(
+	10322194000103,--CNPJ
+	'Facebook Serviços Online do Brasil Ltda.', -- razão social
+	'+1(650)543-4800' -- telefone +XXX(XXX)XXXX-XXXX
+	'Avenida da Liberdade, 130 - São Paulo, SP - Brasil'
+);
+/
+INSERT INTO patrocinador VALUES(
+	57286247000133,--CNPJ
+	'Intel Semicondutores do Brasil Ltda.', -- razão social
+	'+55(11)3365-5500' -- telefone +XXX(XXX)XXXX-XXXX
+	'Av. Chucri Zaidan, 940 - 10º andarTorre II, CEP: 04583-110 - São Paulo, SP - Brasil'
+);
+/
+INSERT INTO patrocinador VALUES(
+	61797924000155,--CNPJ
+	'Hewlett-Packard Brasil Ltda.', -- razão social
+	'+55(11)4197-8000' -- telefone +XXX(XXX)XXXX-XXXX
+	'Alameda Rio Negro - Barueri, SP - Brasil'
+);
+/
+INSERT INTO patrocinador VALUES(
+	19758880000198,--CNPJ
+	'Vmware Software e Servicos Brasil LTDA.', -- razão social
+	'+55(11)5509-7200' -- telefone +XXX(XXX)XXXX-XXXX
+	'Edificio Brasil 21-SHS Quadra 6, Conjunto A, Bloco E-Salas 902/905 - Brasilia, Brazil 70322'
+);
+/
+
+
+
+
 -- Inserção dos artigos, sem os 
 
 CREATE TABLE artigo (
@@ -278,4 +340,19 @@ CREATE TABLE artigo (
         CONSTRAINT PK_ARTIGO PRIMARY KEY (idArt),
         CONSTRAINT PK_ARTIGO_INSCRITO FOREIGN KEY (codEv, numEd, idApr) REFERENCES inscrito(codEv, numEd, idPart) ON DELETE CASCADE       
 );
+
+
+
+ADD 8 patrocinadores
+
+ 1- coffee break
+ 2- aluguel do espaço
+ 3- palestrantes
+ 4- materiais de divulgação (marketing)
+ 5- empréstimo de equipamentos e utencilios
+ 6- pagamento do servidor ou e-commerce
+ 7- limpeza do local
+ 8- serviços de transporte
+ 9- construção de stands
+ 10- kit do evento (brindes)
 
