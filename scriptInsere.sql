@@ -16,8 +16,8 @@
 - edição por evento: pelo menos 3 OK
 - artigos por edição: pelo menos 15
 - inscritos por edição: pelo menos 30
-- patrocinadores: pelo menos 4
-- patrocínios: pelo menos 4 por edição
+- patrocinadores: pelo menos 4 OK
+- patrocínios: pelo menos 4 por edição - 5 por edição OK
 - despesas por edição: pelo menos 8
 - auxílios por edição: pelo menos 10
 - organizadores por edição: pelo menos 4
@@ -32,7 +32,7 @@ DROP SEQUENCE SEQ_CODEV_EVENTO;
 --DROP SEQUENCE SEQ_NUMED_EDICAO;
 DROP SEQUENCE SEQ_IDPE_PESSOA;
 DROP SEQUENCE SEQ_IDART_ARTIGO;
-DROP SEQUENCE SEQ_CODDESP_DESPESA
+DROP SEQUENCE SEQ_CODDESP_DESPESA;
 /
 /
 /
@@ -1373,12 +1373,393 @@ INSERT INTO pessoa VALUES(
         '1' -- se é autor (0 ou 1)
 );
 /
+INSERT INTO pessoa VALUES(
+        SEQ_IDPE_PESSOA.NEXTVAL, -- código da pessoa
+        'Abdullah Ahmed', -- nome da pessoa
+        'a.ahmed@gmail.com', --email
+        'University of Waterloo', -- instituição
+        '+1(519)888-4567', -- +XXX(XXX)XXXX-XXXX
+        'Arabic', -- nacionalidade
+        '200 University Ave W, Waterloo, ON N2L 3G1, Canada', -- endereço
+        '0', -- se é organizador (0 ou 1)
+        '1', -- se é participante (0 ou 1)
+        '0' -- se é autor (0 ou 1)
+);
 /
 /
 /
 /
 /
+/
+/
+/
+-- Inscritos 
+INSERT INTO inscrito(codEv, numEd, idPart, dataInsc, tipoApresentador)
+  values(
+    2,
+    19,
+    (SELECT P.idPe FROM pessoa P WHERE P.emailPe = ''),
+    TO_DATE('/10/2010', 'DD/MM/YYYY'),
+    ''
+);
+/
+/
+/
+/
+/
+-- NAO AUTOR MAS APRESENTADOR
+INSERT INTO inscrito(codEv, numEd, idPart, dataInsc, tipoApresentador)
+  values(
+    2,
+    19,
+    (SELECT P.idPe FROM pessoa P WHERE P.emailPe = 'kroeger@dbs.ifi.lmu.de'),
+    TO_DATE('01/10/2010', 'DD/MM/YYYY'),
+    '1'
+);
+/
+-- AUTOR E APRESENTADOR
+INSERT INTO inscrito(codEv, numEd, idPart, dataInsc, tipoApresentador)
+  values(
+    2,
+    19,
+    (SELECT P.idPe FROM pessoa P WHERE P.emailPe = 'gabriel.ghinita@umb.edu'),
+    TO_DATE('03/10/2010', 'DD/MM/YYYY'),
+    '1'
+);
+/
+-- AUTOR MAS NÃO APRESENTADOR
+INSERT INTO inscrito(codEv, numEd, idPart, dataInsc, tipoApresentador)
+  values(
+    2,
+    19,
+    (SELECT P.idPe FROM pessoa P WHERE P.emailPe = 'elisa.bertino@umb.edu'),
+    TO_DATE('02/10/2010', 'DD/MM/YYYY'),
+    '0'
+);
+/
+-- AUTOR E APRESENTADOR
+INSERT INTO inscrito(codEv, numEd, idPart, dataInsc, tipoApresentador)
+  values(
+    2,
+    19,
+    (SELECT P.idPe FROM pessoa P WHERE P.emailPe = 'ryan.carlson@cs.swarthmore.edu'),
+    TO_DATE('05/10/2010', 'DD/MM/YYYY'),
+    '1'
+);
+/
+-- AUTOR MAS NÃO APRESENTADOR
+INSERT INTO inscrito(codEv, numEd, idPart, dataInsc, tipoApresentador)
+  values(
+    2,
+    19,
+    (SELECT P.idPe FROM pessoa P WHERE P.emailPe = 'cvicente@cs.aau.dk'),
+    TO_DATE('18/10/2010', 'DD/MM/YYYY'),
+    '0'
+);
+/
+-- AUTOR E APRESENTADOR
+INSERT INTO inscrito(codEv, numEd, idPart, dataInsc, tipoApresentador)
+  values(
+    2,
+    19,
+    (SELECT P.idPe FROM pessoa P WHERE P.emailPe = 'mick.kroepfl@microsoft.com'),
+    TO_DATE('11/10/2010', 'DD/MM/YYYY'),
+    '1'
+);
+/
+-- AUTOR MAS NÃO APRESENTADOR
+INSERT INTO inscrito(codEv, numEd, idPart, dataInsc, tipoApresentador)
+  values(
+    2,
+    19,
+    (SELECT P.idPe FROM pessoa P WHERE P.emailPe = 'eyal_ofek@microsoft.com'),
+    TO_DATE('07/10/2010', 'DD/MM/YYYY'),
+    '0'
+);
+/
+-- AUTOR E APRESENTADOR
+INSERT INTO inscrito(codEv, numEd, idPart, dataInsc, tipoApresentador)
+  values(
+    2,
+    19,
+    (SELECT P.idPe FROM pessoa P WHERE P.emailPe = 'arifd@cise.ufl.edu'),
+    TO_DATE('17/10/2010', 'DD/MM/YYYY'),
+    '1'
+);
+/
+-- AUTOR E APRESENTADOR
+INSERT INTO inscrito(codEv, numEd, idPart, dataInsc, tipoApresentador)
+  values(
+    2,
+    19,
+    (SELECT P.idPe FROM pessoa P WHERE P.emailPe = 'sarana.natanong@unimelb.edu.au'),
+    TO_DATE('14/10/2010', 'DD/MM/YYYY'),
+    '1'
+);
+/
+-- AUTOR MAS NÃO APRESENTADOR
+INSERT INTO inscrito(codEv, numEd, idPart, dataInsc, tipoApresentador)
+  values(
+    2,
+    19,
+    (SELECT P.idPe FROM pessoa P WHERE P.emailPe = 'egemen@unimelb.edu.au'),
+    TO_DATE('21/10/2010', 'DD/MM/YYYY'),
+    '0'
+);
+/
+-- AUTOR MAS NÃO APRESENTADOR
+INSERT INTO inscrito(codEv, numEd, idPart, dataInsc, tipoApresentador)
+  values(
+    2,
+    19,
+    (SELECT P.idPe FROM pessoa P WHERE P.emailPe = 'm.enus.ali@unimelb.edu.au'),
+    TO_DATE('12/10/2010', 'DD/MM/YYYY'),
+    '0'
+);
+/
+-- AUTOR E APRESENTADOR
+INSERT INTO inscrito(codEv, numEd, idPart, dataInsc, tipoApresentador)
+  values(
+    2,
+    19,
+    (SELECT P.idPe FROM pessoa P WHERE P.emailPe = 'eppstein@ics.uci.edu'),
+    TO_DATE('09/10/2010', 'DD/MM/YYYY'),
+    '1'
+);
+/
+-- AUTOR E APRESENTADOR
+INSERT INTO inscrito(codEv, numEd, idPart, dataInsc, tipoApresentador)
+  values(
+    2,
+    19,
+    (SELECT P.idPe FROM pessoa P WHERE P.emailPe = 'sattam@ics.uci.edu'),
+    TO_DATE('19/10/2010', 'DD/MM/YYYY'),
+    '1'
+);
+/
+-- AUTOR MAS NÃO APRESENTADOR
+INSERT INTO inscrito(codEv, numEd, idPart, dataInsc, tipoApresentador)
+  values(
+    2,
+    19,
+    (SELECT P.idPe FROM pessoa P WHERE P.emailPe = 'chen_li@ics.uci.edu'),
+    TO_DATE('21/10/2010', 'DD/MM/YYYY'),
+    '0'
+);
+/
+-- AUTOR E APRESENTADOR
+INSERT INTO inscrito(codEv, numEd, idPart, dataInsc, tipoApresentador)
+  values(
+    2,
+    19,
+    (SELECT P.idPe FROM pessoa P WHERE P.emailPe = 'newsam@ics.uci.edu'),
+    TO_DATE('12/10/2010', 'DD/MM/YYYY'),
+    '1'
+);
+/
+-- AUTOR MAS NÃO APRESENTADOR
+INSERT INTO inscrito(codEv, numEd, idPart, dataInsc, tipoApresentador)
+  values(
+    2,
+    19,
+    (SELECT P.idPe FROM pessoa P WHERE P.emailPe = 'w8luo@cs.uwaterloo.ca'),
+    TO_DATE('10/10/2010', 'DD/MM/YYYY'),
+    '0'
+);
+/
+-- NÃO AUTOR MAS APRESENTADOR
+INSERT INTO inscrito(codEv, numEd, idPart, dataInsc, tipoApresentador)
+  values(
+    2,
+    19,
+    (SELECT P.idPe FROM pessoa P WHERE P.emailPe = 'a.ahmed@gmail.com'),
+    TO_DATE('21/10/2010', 'DD/MM/YYYY'),
+    '1'
+);
+/
+-- AUTOR MAS NÃO APRESENTADOR
+INSERT INTO inscrito(codEv, numEd, idPart, dataInsc, tipoApresentador)
+  values(
+    2,
+    19,
+    (SELECT P.idPe FROM pessoa P WHERE P.emailPe = 'urs@cs.uwaterloo.ca'),
+    TO_DATE('24/10/2010', 'DD/MM/YYYY'),
+    '0'
+);
+/
+-- AUTOR E APRESENTADOR
+INSERT INTO inscrito(codEv, numEd, idPart, dataInsc, tipoApresentador)
+  values(
+    2,
+    19,
+    (SELECT P.idPe FROM pessoa P WHERE P.emailPe = 'as@ipvs.uni-stuttgart.de'),
+    TO_DATE('22/10/2010', 'DD/MM/YYYY'),
+    '1'
+);
+/
+-- AUTOR E APRESENTADOR
+INSERT INTO inscrito(codEv, numEd, idPart, dataInsc, tipoApresentador)
+  values(
+    2,
+    19,
+    (SELECT P.idPe FROM pessoa P WHERE P.emailPe = 'sxing@us.ibm.com'),
+    TO_DATE('21/10/2010', 'DD/MM/YYYY'),
+    '1'
+);
+/
+-- AUTOR MAS NÃO APRESENTADOR
+INSERT INTO inscrito(codEv, numEd, idPart, dataInsc, tipoApresentador)
+  values(
+    2,
+    19,
+    (SELECT P.idPe FROM pessoa P WHERE P.emailPe = 'cshahabi@css.edu'),
+    TO_DATE('13/10/2010', 'DD/MM/YYYY'),
+    '0'
+);
+/
+-- AUTOR E APRESENTADOR
+INSERT INTO inscrito(codEv, numEd, idPart, dataInsc, tipoApresentador)
+  values(
+    2,
+    19,
+    (SELECT P.idPe FROM pessoa P WHERE P.emailPe = 'ritesh.j.agrawal@att.com'),
+    TO_DATE('14/10/2010', 'DD/MM/YYYY'),
+    '1'
+);
+/
+-- AUTOR MAS NÃO APRESENTADOR
+INSERT INTO inscrito(codEv, numEd, idPart, dataInsc, tipoApresentador)
+  values(
+    2,
+    19,
+    (SELECT P.idPe FROM pessoa P WHERE P.emailPe = 'james.g@att.com'),
+    TO_DATE('17/10/2010', 'DD/MM/YYYY'),
+    '0'
+);
+/
+-- AUTOR E APRESENTADOR
+INSERT INTO inscrito(codEv, numEd, idPart, dataInsc, tipoApresentador)
+  values(
+    2,
+    19,
+    (SELECT P.idPe FROM pessoa P WHERE P.emailPe = 'gwilke@vienna.edu'),
+    TO_DATE('23/10/2010', 'DD/MM/YYYY'),
+    '1'
+);
+/
+-- AUTOR MAS NÃO APRESENTADOR
+INSERT INTO inscrito(codEv, numEd, idPart, dataInsc, tipoApresentador)
+  values(
+    2,
+    19,
+    (SELECT P.idPe FROM pessoa P WHERE P.emailPe = 'aufrank@vienna.edu'),
+    TO_DATE('07/10/2010', 'DD/MM/YYYY'),
+    '0'
+);
+/
+-- AUTOR MAS NÃO APRESENTADOR
+INSERT INTO inscrito(codEv, numEd, idPart, dataInsc, tipoApresentador)
+  values(
+    2,
+    19,
+    (SELECT P.idPe FROM pessoa P WHERE P.emailPe = 'jan-henrik@uni-osnabrueck.de'),
+    TO_DATE('09/10/2010', 'DD/MM/YYYY'),
+    '0'
+);
+/
+-- AUTOR MAS NÃO APRESENTADOR
+INSERT INTO inscrito(codEv, numEd, idPart, dataInsc, tipoApresentador)
+  values(
+    2,
+    19,
+    (SELECT P.idPe FROM pessoa P WHERE P.emailPe = 'aWolff@uni-osnabrueck.de'),
+    TO_DATE('10/10/2010', 'DD/MM/YYYY'),
+    '0'
+);
+/
+-- AUTOR E APRESENTADOR
+INSERT INTO inscrito(codEv, numEd, idPart, dataInsc, tipoApresentador)
+  values(
+    2,
+    19,
+    (SELECT P.idPe FROM pessoa P WHERE P.emailPe = 'anandp@jet.com'),
+    TO_DATE('08/10/2010', 'DD/MM/YYYY'),
+    '1'
+);
+/
+-- AUTOR MAS NÃO APRESENTADOR
+INSERT INTO inscrito(codEv, numEd, idPart, dataInsc, tipoApresentador)
+  values(
+    2,
+    19,
+    (SELECT P.idPe FROM pessoa P WHERE P.emailPe = 'ashit_talukder@jet.com'),
+    TO_DATE('21/10/2010', 'DD/MM/YYYY'),
+    '0'
+);
+/
+-- AUTOR E APRESENTADOR
+INSERT INTO inscrito(codEv, numEd, idPart, dataInsc, tipoApresentador)
+  values(
+    2,
+    19,
+    (SELECT P.idPe FROM pessoa P WHERE P.emailPe = 'jan@bremen.org'),
+    TO_DATE('16/10/2010', 'DD/MM/YYYY'),
+    '1'
+);
+/
+-- AUTOR MAS NÃO APRESENTADOR
+INSERT INTO inscrito(codEv, numEd, idPart, dataInsc, tipoApresentador)
+  values(
+    2,
+    19,
+    (SELECT P.idPe FROM pessoa P WHERE P.emailPe = 'kay-florian@bremen.org'),
+    TO_DATE('18/10/2010', 'DD/MM/YYYY'),
+    '0'
+);
+/
+-- AUTOR E APRESENTADOR
+INSERT INTO inscrito(codEv, numEd, idPart, dataInsc, tipoApresentador)
+  values(
+    2,
+    19,
+    (SELECT P.idPe FROM pessoa P WHERE P.emailPe = 'xutong@tech.virginia.com'),
+    TO_DATE('09/10/2010', 'DD/MM/YYYY'),
+    '1'
+);
+/
+-- AUTOR MAS NÃO APRESENTADOR
+INSERT INTO inscrito(codEv, numEd, idPart, dataInsc, tipoApresentador)
+  values(
+    2,
+    19,
+    (SELECT P.idPe FROM pessoa P WHERE P.emailPe = 'tien-lu@tech.virginia.com'),
+    TO_DATE('21/10/2010', 'DD/MM/YYYY'),
+    '0'
+);
+/
+-- AUTOR MAS NÃO APRESENTADOR
+INSERT INTO inscrito(codEv, numEd, idPart, dataInsc, tipoApresentador)
+  values(
+    2,
+    19,
+    (SELECT P.idPe FROM pessoa P WHERE P.emailPe = 'jckrumm@microsoft.com'),
+    TO_DATE('21/10/2010', 'DD/MM/YYYY'),
+    '0'
+);
+/
+/
+/
+INSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
+  SELECT SEQ_IDART_ARTIGO.NEXTVAL,
+    'Distributed Threshold Querying of General Functions by a Difference of Monotonic Representation',
+    TO_DATE('30/08/2011', 'DD/MM/YYYY'),
+    TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
+    I.codEv, 
+    I.numEd, 
+    I.idPart FROM inscrito I, pessoa P WHERE P.emailPe = 'guy@techion.email' and I.idPart = P.idPe;
+
 /*
+
 -- Inserção dos artigos, sem os 
 
 CREATE TABLE artigo (
@@ -1393,6 +1774,13 @@ CREATE TABLE artigo (
         CONSTRAINT PK_ARTIGO_INSCRITO FOREIGN KEY (codEv, numEd, idApr) REFERENCES inscrito(codEv, numEd, idPart) ON DELETE CASCADE       
 );
 
+-- Escreve
+CREATE TABLE escreve(
+      idAutor Number(5) NOT NULL,
+      idArt Number(5) NOT NULL,
+      CONSTRAINT PK_ESCREVE PRIMARY KEY (idAutor, idArt),
+      CONSTRAINT PK_ESCREVE_ARTIGO FOREIGN KEY (idArt) REFERENCES artigo(idArt) ON DELETE CASCADE       
+);
 
 
 ADD 8 patrocinadores
