@@ -130,7 +130,7 @@ CREATE TABLE inscrito (
         CONSTRAINT PK_INSCRITO PRIMARY KEY (codEv, numEd, idPart),
         CONSTRAINT FK_INSCRITO_PESSOA FOREIGN KEY (idPart) REFERENCES pessoa(idPe),
         CONSTRAINT PK_INSCRITO_EDICAO FOREIGN KEY (codEv, numEd) REFERENCES edicao(codEv, numEd) ON DELETE CASCADE,
-        CONSTRAINT CHECK_TIPO_AUTOR CHECK (tipoAutor IN ('0', '1') )
+        CONSTRAINT CHECK_TIPO_APRESENTADOR CHECK (tipoApresentador IN ('0', '1') )
 );
 /
 -- Criação da tabela artigo
