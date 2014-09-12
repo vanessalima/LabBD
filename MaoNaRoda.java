@@ -31,6 +31,104 @@ public class MaoNaRoda {
 		ht = new Hashtable<String, Dado>();
 		reader = new Scanner(System.in);
 
+		// Para inscrição
+		int dinicio = reader.nextInt();
+		int dfim = reader.nextInt();
+		int minicio = reader.nextInt();
+		int mfim = reader.nextInt();
+
+		int day = 0, month = 0;
+
+		// Para a apresentação
+		int adinicio = reader.nextInt();
+		int adfim = reader.nextInt();
+		int aminicio = reader.nextInt();
+		int amfim = reader.nextInt();
+
+		System.out.println(dinicio+"/"+minicio+" - "+dfim+"/"+mfim);
+		System.out.println(adinicio+"/"+aminicio+" - "+adfim+"/"+amfim);
+
+		if(minicio == mfim) {
+			month = minicio;
+			if(dinicio == dfim) {
+				day = dinicio;
+			}
+			else if(dinicio > dfim) {
+				System.out.println("ERRROOOORRRRR!!!!!!!!! ***********\n\n\n\n");
+			}
+			else {
+				int range = dfim - dinicio + 1;
+				day = (int) (Math.random() * range + dinicio);
+			}
+		}
+		else if(minicio > mfim) {
+			System.out.println("ERRROOOORRRRR!!!!!!!!! ***********\n\n\n\n");
+		}
+		else {
+			// considerando que são 2 meses consecutivos
+			int range = mfim - minicio + 1;
+			month = (int) (Math.random() * range + minicio);
+			// calcular o dia
+			if(Math.random() > 0.5) {
+				int range2 = 30 - dinicio;
+				day = (int) (Math.random() * range2 + dinicio);
+			}
+			else {
+				int range2 = dfim - 1;
+				day = (int) (Math.random() * range2 + 1);
+			}
+
+		}
+
+		int aday = 0, amonth = 0;
+		if(aminicio == amfim) {
+			amonth = aminicio;
+			if(adinicio == adfim) {
+				aday = adinicio;
+			}
+			else if(adinicio > adfim) {
+				System.out.println("ERRROOOORRRRR!!!!!!!!! ***********\n\n\n\n");
+			}
+			else {
+				int range = adfim - adinicio + 1;
+				aday = (int) (Math.random() * range + adinicio);
+			}
+		}
+		else if(aminicio > amfim) {
+			System.out.println("ERRROOOORRRRR!!!!!!!!! ***********\n\n\n\n");
+		}
+		else {
+			// considerando que são 2 meses consecutivos
+			int range = amfim - aminicio + 1;
+			amonth = (int) (Math.random() * range + aminicio);
+			// calcular o dia
+			if(Math.random() > 0.5) {
+				int range2 = 30 - adinicio;
+				aday = (int) (Math.random() * range2 + adinicio);
+			}
+			else {
+				int range2 = adfim - 1;
+				aday = (int) (Math.random() * range2 + 1);
+			}
+
+		}
+
+		// hora e minutos
+		int horas = 12;
+		while(horas == 12) {
+			horas = (int) (Math.random() * 9 + 8);
+		}
+		ArrayList<Integer>  lista = new ArrayList<Integer>();
+		lista.add(00);
+		lista.add(15);
+		lista.add(30);
+		lista.add(45);
+		Random r = new Random();
+		int minutos = lista.get(r.nextInt(lista.size()));
+
+		//System.out.format("%02d/%02d\n", day, month);
+		//System.out.format("%02d:%02d\n", horas, minutos);
+
 		//Populando a hashtable
 		int n = reader.nextInt(); //quantidade de instituicoes
 		reader.nextLine();
@@ -44,15 +142,6 @@ public class MaoNaRoda {
 			ht.put(instituicao, new Dado(email, telefone, nacionalidade, endereco));
 		}
 
-		/*// Para inscrição
-		int inicio = reader.nextInt();
-		int fim = reader.nextInt();
-
-		// Para apresentações
-		int ini_ap = reader.nextInt();
-		int fim_ap = reader.nextInt();		
-*/
-
 		//montando as SQLs da vida
 		//INSERCAO NA TABELA PESSOA:
 		String sqlPessoaInicio = "INSERT INTO pessoa(IDPE, NOMEPE, EMAILPE, INSTITUICAOPE, TELEFONEPE, NACIONALIDADEPE, ENDERECOPE, TIPOORGANIZADOR, TIPOPARTICIPANTE, TIPOAUTOR)\n  values(\n\tSEQ_IDPE_PESSOA.NEXTVAL,\n\t'";
@@ -62,17 +151,17 @@ public class MaoNaRoda {
 		String aux = "";
 		
 		String sqlInscritoInicio = "INSERT INTO inscrito(codEv, numEd, idPart, dataInsc, tipoApresentador)\n  values(\n\t1,\n\t37,\n\t(SELECT P.idPe FROM pessoa P WHERE P.emailPe = '";
-		String sqlInscritoFim = "'),\n\tTO_DATE('27/07/2011', 'DD/MM/YYYY'),\n\t"; //TODO alterar manualmente por edicao !
+		String sqlInscritoFim = "'),\n\tTO_DATE('"+day+"/"+month+"/2011', 'DD/MM/YYYY'),\n\t"; //TODO alterar manualmente por edicao !
 		String sqlInscrito = "";
 
 		String nomeArtigo = "";
 		String sqlArtigoInicio = "INSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)\n\tSELECT SEQ_IDART_ARTIGO.NEXTVAL,\n\t'";
-		String sqlArtigoMeio = "',\n\tTO_DATE('30/08/2011', 'DD/MM/YYYY'),\n\tTO_TIMESTAMP('30/08/2011, 10:30:00','DD/MM/YYYY, HH24:MI:SS'),\n\tI.codEv,\n\tI.numEd,\n\tI.idPart FROM inscrito I, pessoa P\n\tWHERE P.emailPe = '";
+		String sqlArtigoMeio = "',\n\tTO_DATE('"+aday+"/"+amonth+"/2011', 'DD/MM/YYYY'),\n\tTO_TIMESTAMP('"+aday+"/"+amonth+"/2011, "+horas+":"+minutos+":00','DD/MM/YYYY, HH24:MI:SS'),\n\tI.codEv,\n\tI.numEd,\n\tI.idPart FROM inscrito I, pessoa P\n\tWHERE P.emailPe = '";
 		String sqlArtigoFim = "' and I.idPart = P.idPe and P.tipoParticipante = '1';";
 		String sqlArtigo = "";
 
-		String sqlEscreveInicio = "INSERT INTO escreve (idAutor, idArt)\n\tSELECT P.idPe,\n\tA.idArt\n\tFROM pessoa P, artigo A\n\tWHERE P.emailPe='";
-		String sqlEscreveFim = "' and A.idArt=SEQ_IDART_ARTIGO.CURRVAL;";
+		String sqlEscreveInicio = "INSERT INTO escreve (idAutor, idArt)\n\tSELECT P.idPe,\n\tSEQ_IDART_ARTIGO.CURRVAL\n\tFROM pessoa P\n\tWHERE P.emailPe='";
+		String sqlEscreveFim = "';";
 		String sqlEscreve = null;
 
 		Dado info;
