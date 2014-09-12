@@ -43,19 +43,6 @@ public class MaoNaRoda {
 			// System.out.println(instituicao+" | "+email+" | "+telefone+" | "+nacionalidade+" | "+endereco+"\n");
 			ht.put(instituicao, new Dado(email, telefone, nacionalidade, endereco));
 		}
-// INSERT INTO pessoa(IDPE, NOMEPE, EMAILPE, INSTITUICAOPE, TELEFONEPE, NACIONALIDADEPE, ENDERECOPE, TIPOORGANIZADOR, TIPOPARTICIPANTE, TIPOAUTOR)
-//   values(
-//     SEQ_IDPE_PESSOA.NEXTVAL,
-//     'Panagiotis Papadimitriou',
-//     'papa@stanford.edu',
-//     'Stanford University',
-//     '+413(545)0111-0012', --Telefone +XXX(XXX)XXXX-XXXX
-//     'American',
-//     'Stanford, California 94305', --endereco
-//     '0', --organizador
-//     '1', --participante
-//     '1' --autor
-//     );
 
 		/*// Para inscrição
 		int inicio = reader.nextInt();
@@ -65,8 +52,6 @@ public class MaoNaRoda {
 		int ini_ap = reader.nextInt();
 		int fim_ap = reader.nextInt();		
 */
-
-
 
 		//montando as SQLs da vida
 		//INSERCAO NA TABELA PESSOA:
@@ -113,15 +98,16 @@ public class MaoNaRoda {
 			email = nomeVetor[nomeVetor.length-1]+info.email;
 			sqlPessoa = sqlPessoaInicio+autor+"',\n\t'"+email+"',\n\t'"+instituicao+"',\n\t'"+info.telefone+"',\n\t'"+info.nacionalidade+"',\n\t'"+info.endereco+"',\n\t";
 			sqlPessoa = sqlPessoa + sqlPessoaFim;
+
 			System.out.println(sqlPessoa+"\n/");
 
 			//Insercao na tab inscrito c/ tipoApresentador=1
 			sqlInscrito = sqlInscritoInicio+email+sqlInscritoFim+"'1'\n\t);";
 			System.out.println("--Inscrito - apresentador:\n"+sqlInscrito+"\n/");
-			
 
 			//Insercao na tabela artigo, eh so aqui pois so o 1 kra apresenta
 			sqlArtigo = sqlArtigoInicio+nomeArtigo.trim()+sqlArtigoMeio+email+sqlArtigoFim;
+
 			System.out.println("--Artigo\n"+sqlArtigo+"\n/");
 
 			//Insercao na tabela escreve
@@ -183,4 +169,7 @@ public class MaoNaRoda {
 
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> d465661b329ef5452f4ff58229289213bee5190e
