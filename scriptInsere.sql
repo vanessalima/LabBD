@@ -136,100 +136,11 @@ INSERT INTO evento(codEv, nomeEv, descricaoEv, websiteEv)
 /
 /
 /
--- Inserção da edição de 2014 do primeiro evento
-INSERT INTO edicao(codEv, numEd, dataInicioEd, dataFimEd, localEd, taxaEd)
-	VALUES(
-		1, -- código do evento
-		40,--SEQ_NUMED_EDICAO.NEXTVAL,
-    	TO_DATE('01/09/2014', 'DD/MM/YYYY'),
-    	TO_DATE('05/09/2014', 'DD/MM/YYYY'),
-    	'Hangzhou, China',
-    	1100.00
-);
--- Inserção da edição de 2013 do primeiro evento
-INSERT INTO edicao(codEv, numEd, dataInicioEd, dataFimEd, localEd, taxaEd)
-	VALUES(
-		1, -- código do evento
-		39,--SEQ_NUMED_EDICAO.NEXTVAL,
-    	TO_DATE('26/08/2013', 'DD/MM/YYYY'),
-    	TO_DATE('30/08/2013', 'DD/MM/YYYY'),
-    	'Trento, Italy',
-    	1100.00
-);
--- Inserção da edição de 2012 do primeiro evento
-INSERT INTO edicao(codEv, numEd, dataInicioEd, dataFimEd, localEd, taxaEd)
-	VALUES(
-		1, -- código do evento
-		38,--SEQ_NUMED_EDICAO.NEXTVAL,
-    	TO_DATE('27/08/2012', 'DD/MM/YYYY'),
-    	TO_DATE('31/08/2012', 'DD/MM/YYYY'),
-    	'Istanbul, Turkey',
-    	1100.00
-);
--- Inserção da edição de 2011 do primeiro evento
-INSERT INTO edicao(codEv, numEd, dataInicioEd, dataFimEd, localEd, taxaEd)
-	VALUES(
-		1, -- código do evento
-		37,--SEQ_NUMED_EDICAO.NEXTVAL,
-    	TO_DATE('29/08/2011', 'DD/MM/YYYY'),
-    	TO_DATE('03/09/2011', 'DD/MM/YYYY'),
-    	'Seattle, Washington',
-    	1220.00
-);
-/
-/
-/
--- Inserção da edição de 2013 do segundo evento
-INSERT INTO edicao(codEv, numEd, dataInicioEd, dataFimEd, localEd, taxaEd)
-	VALUES(
-		2, -- código do evento
-		21,--SEQ_NUMED_EDICAO.NEXTVAL,
-		TO_DATE('05/11/2013', 'DD/MM/YYYY'), -- data de início
-		TO_DATE('08/11/2013', 'DD/MM/YYYY'), -- data de fim
-		'Orlando, United States',-- local onde a edição ocorreu na forma de Cidade, País
-		650.00-- valor da inscrição
-);
-/
--- Inserção da edição de 2012 do segundo evento
-INSERT INTO edicao(codEv, numEd, dataInicioEd, dataFimEd, localEd, taxaEd)
-	VALUES(
-		2, -- código do evento
-		20,--SEQ_NUMED_EDICAO.NEXTVAL,
-		TO_DATE('06/11/2012', 'DD/MM/YYYY'), -- data de início
-		TO_DATE('09/11/2012', 'DD/MM/YYYY'), -- data de fim
-		'Redondo Beach, United States',-- local onde a edição ocorreu na forma de Cidade, País
-		650.00-- valor da inscrição
-);
-/
--- Inserção da edição de 2011 do segundo evento
-INSERT INTO edicao(codEv, numEd, dataInicioEd, dataFimEd, localEd, taxaEd)
-	VALUES(
-		2, -- código do evento
-		19,--SEQ_NUMED_EDICAO.NEXTVAL,
-		TO_DATE('01/11/2011', 'DD/MM/YYYY'), -- data de início
-		TO_DATE('04/11/2011', 'DD/MM/YYYY'), -- data de fim
-		'Chicago, United States',-- local onde a edição ocorreu na forma de Cidade, País
-		650.00-- valor da inscrição
-);
-/
--- Inserção da edição de 2010 do segundo evento
-INSERT INTO edicao(codEv, numEd, dataInicioEd, dataFimEd, localEd, taxaEd)
-	VALUES(
-		2, -- código do evento
-		18,--SEQ_NUMED_EDICAO.NEXTVAL,
-		TO_DATE('02/11/2010', 'DD/MM/YYYY'), -- data de início
-		TO_DATE('05/11/2010', 'DD/MM/YYYY'), -- data de fim
-		'San Jose, United States',-- local onde a edição ocorreu na forma de Cidade, País
-		650.00-- valor da inscrição
-);
-/
-/
-/
 /
 -- Inserção da edição de 2013 do terceiro evento
 INSERT INTO edicao(codEv, numEd, dataInicioEd, dataFimEd, localEd, taxaEd)
 	VALUES(
-		3, -- código do evento
+		1, -- código do evento
 		22,--SEQ_NUMED_EDICAO.NEXTVAL,
 		TO_DATE('27/10/2013', 'DD/MM/YYYY'), -- data de início
 		TO_DATE('01/11/2013', 'DD/MM/YYYY'), -- data de fim
@@ -240,7 +151,7 @@ INSERT INTO edicao(codEv, numEd, dataInicioEd, dataFimEd, localEd, taxaEd)
 -- Inserção da edição de 2012 do terceiro evento
 INSERT INTO edicao(codEv, numEd, dataInicioEd, dataFimEd, localEd, taxaEd)
 	VALUES(
-		3, -- código do evento
+		1, -- código do evento
 		21,--SEQ_NUMED_EDICAO.NEXTVAL,
 		TO_DATE('29/10/2012', 'DD/MM/YYYY'), -- data de início
 		TO_DATE('02/11/2012', 'DD/MM/YYYY'), -- data de fim
@@ -251,7 +162,7 @@ INSERT INTO edicao(codEv, numEd, dataInicioEd, dataFimEd, localEd, taxaEd)
 -- Inserção da edição de 2011 do terceiro evento
 INSERT INTO edicao(codEv, numEd, dataInicioEd, dataFimEd, localEd, taxaEd)
 	VALUES(
-		3, -- código do evento
+		1, -- código do evento
 		20,--SEQ_NUMED_EDICAO.NEXTVAL,
 		TO_DATE('23/10/2011', 'DD/MM/YYYY'), -- data de início
 		TO_DATE('28/10/2011', 'DD/MM/YYYY'), -- data de fim
@@ -262,7 +173,7 @@ INSERT INTO edicao(codEv, numEd, dataInicioEd, dataFimEd, localEd, taxaEd)
 -- Inserção da edição de 2010 do terceiro evento
 INSERT INTO edicao(codEv, numEd, dataInicioEd, dataFimEd, localEd, taxaEd)
 	VALUES(
-		3, -- código do evento
+		1, -- código do evento
 		19,--SEQ_NUMED_EDICAO.NEXTVAL,
 		TO_DATE('26/10/2010', 'DD/MM/YYYY'), -- data de início
 		TO_DATE('30/10/2010', 'DD/MM/YYYY'), -- data de fim
@@ -270,6 +181,95 @@ INSERT INTO edicao(codEv, numEd, dataInicioEd, dataFimEd, localEd, taxaEd)
 		1580.00-- valor da inscrição
 );
 /
+/
+/
+-- Inserção da edição de 2014 do primeiro evento
+INSERT INTO edicao(codEv, numEd, dataInicioEd, dataFimEd, localEd, taxaEd)
+	VALUES(
+		2, -- código do evento
+		40,--SEQ_NUMED_EDICAO.NEXTVAL,
+    	TO_DATE('01/09/2014', 'DD/MM/YYYY'),
+    	TO_DATE('05/09/2014', 'DD/MM/YYYY'),
+    	'Hangzhou, China',
+    	1100.00
+);
+-- Inserção da edição de 2013 do primeiro evento
+INSERT INTO edicao(codEv, numEd, dataInicioEd, dataFimEd, localEd, taxaEd)
+	VALUES(
+		2, -- código do evento
+		39,--SEQ_NUMED_EDICAO.NEXTVAL,
+    	TO_DATE('26/08/2013', 'DD/MM/YYYY'),
+    	TO_DATE('30/08/2013', 'DD/MM/YYYY'),
+    	'Trento, Italy',
+    	1100.00
+);
+-- Inserção da edição de 2012 do primeiro evento
+INSERT INTO edicao(codEv, numEd, dataInicioEd, dataFimEd, localEd, taxaEd)
+	VALUES(
+		2, -- código do evento
+		38,--SEQ_NUMED_EDICAO.NEXTVAL,
+    	TO_DATE('27/08/2012', 'DD/MM/YYYY'),
+    	TO_DATE('31/08/2012', 'DD/MM/YYYY'),
+    	'Istanbul, Turkey',
+    	1100.00
+);
+-- Inserção da edição de 2011 do primeiro evento
+INSERT INTO edicao(codEv, numEd, dataInicioEd, dataFimEd, localEd, taxaEd)
+	VALUES(
+		2, -- código do evento
+		37,--SEQ_NUMED_EDICAO.NEXTVAL,
+    	TO_DATE('29/08/2011', 'DD/MM/YYYY'),
+    	TO_DATE('03/09/2011', 'DD/MM/YYYY'),
+    	'Seattle, Washington',
+    	1220.00
+);
+/
+/
+/
+/
+-- Inserção da edição de 2013 do segundo evento
+INSERT INTO edicao(codEv, numEd, dataInicioEd, dataFimEd, localEd, taxaEd)
+	VALUES(
+		3, -- código do evento
+		21,--SEQ_NUMED_EDICAO.NEXTVAL,
+		TO_DATE('05/11/2013', 'DD/MM/YYYY'), -- data de início
+		TO_DATE('08/11/2013', 'DD/MM/YYYY'), -- data de fim
+		'Orlando, United States',-- local onde a edição ocorreu na forma de Cidade, País
+		650.00-- valor da inscrição
+);
+/
+-- Inserção da edição de 2012 do segundo evento
+INSERT INTO edicao(codEv, numEd, dataInicioEd, dataFimEd, localEd, taxaEd)
+	VALUES(
+		3, -- código do evento
+		20,--SEQ_NUMED_EDICAO.NEXTVAL,
+		TO_DATE('06/11/2012', 'DD/MM/YYYY'), -- data de início
+		TO_DATE('09/11/2012', 'DD/MM/YYYY'), -- data de fim
+		'Redondo Beach, United States',-- local onde a edição ocorreu na forma de Cidade, País
+		650.00-- valor da inscrição
+);
+/
+-- Inserção da edição de 2011 do segundo evento
+INSERT INTO edicao(codEv, numEd, dataInicioEd, dataFimEd, localEd, taxaEd)
+	VALUES(
+		3, -- código do evento
+		19,--SEQ_NUMED_EDICAO.NEXTVAL,
+		TO_DATE('01/11/2011', 'DD/MM/YYYY'), -- data de início
+		TO_DATE('04/11/2011', 'DD/MM/YYYY'), -- data de fim
+		'Chicago, United States',-- local onde a edição ocorreu na forma de Cidade, País
+		650.00-- valor da inscrição
+);
+/
+-- Inserção da edição de 2010 do segundo evento
+INSERT INTO edicao(codEv, numEd, dataInicioEd, dataFimEd, localEd, taxaEd)
+	VALUES(
+		3, -- código do evento
+		18,--SEQ_NUMED_EDICAO.NEXTVAL,
+		TO_DATE('02/11/2010', 'DD/MM/YYYY'), -- data de início
+		TO_DATE('05/11/2010', 'DD/MM/YYYY'), -- data de fim
+		'San Jose, United States',-- local onde a edição ocorreu na forma de Cidade, País
+		650.00-- valor da inscrição
+);
 /
 /
 /
@@ -1795,5 +1795,17 @@ ADD 8 patrocinadores
  8- serviços de transporte
  9- construção de stands
  10- kit do evento (brindes)
+
+
+
+-- Atualiza valor do atributo derivado nroFuncionariosDe na tabela departamento
+UPDATE departamento
+SET nroFuncionariosDe = (
+SELECT DISTINCT count(trabalho.idDe) FROM trabalho
+WHERE trabalho.idDe = departamento.idDe);
+
+
+
+
 
 */

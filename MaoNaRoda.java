@@ -31,6 +31,11 @@ public class MaoNaRoda {
 		ht = new Hashtable<String, Dado>();
 		reader = new Scanner(System.in);
 
+		int total_inscritos = 0;
+
+		int codEv = reader.nextInt();
+		int numEd = reader.nextInt();
+
 		// Para inscrição
 		int dinicio = reader.nextInt();
 		int dfim = reader.nextInt();
@@ -45,8 +50,10 @@ public class MaoNaRoda {
 		int aminicio = reader.nextInt();
 		int amfim = reader.nextInt();
 
-		System.out.println(dinicio+"/"+minicio+" - "+dfim+"/"+mfim);
-		System.out.println(adinicio+"/"+aminicio+" - "+adfim+"/"+amfim);
+		int ano = reader.nextInt();
+
+		//System.out.println(dinicio+"/"+minicio+" - "+dfim+"/"+mfim);
+		//System.out.println(adinicio+"/"+aminicio+" - "+adfim+"/"+amfim);
 
 		if(minicio == mfim) {
 			month = minicio;
@@ -150,13 +157,13 @@ public class MaoNaRoda {
 		String autor = "";
 		String aux = "";
 		
-		String sqlInscritoInicio = "INSERT INTO inscrito(codEv, numEd, idPart, dataInsc, tipoApresentador)\n  values(\n\t1,\n\t37,\n\t(SELECT P.idPe FROM pessoa P WHERE P.emailPe = '";
-		String sqlInscritoFim = "'),\n\tTO_DATE('"+day+"/"+month+"/2011', 'DD/MM/YYYY'),\n\t"; //TODO alterar manualmente por edicao !
+		String sqlInscritoInicio = "INSERT INTO inscrito(codEv, numEd, idPart, dataInsc, tipoApresentador)\n  values(\n\t"+codEv+",\n\t"+numEd+",\n\t(SELECT P.idPe FROM pessoa P WHERE P.emailPe = '";
+		String sqlInscritoFim = "'),\n\tTO_DATE('"+day+"/"+month+"/"+ano+"', 'DD/MM/YYYY'),\n\t"; //TODO alterar manualmente por edicao !
 		String sqlInscrito = "";
 
 		String nomeArtigo = "";
 		String sqlArtigoInicio = "INSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)\n\tSELECT SEQ_IDART_ARTIGO.NEXTVAL,\n\t'";
-		String sqlArtigoMeio = "',\n\tTO_DATE('"+aday+"/"+amonth+"/2011', 'DD/MM/YYYY'),\n\tTO_TIMESTAMP('"+aday+"/"+amonth+"/2011, "+horas+":"+minutos+":00','DD/MM/YYYY, HH24:MI:SS'),\n\tI.codEv,\n\tI.numEd,\n\tI.idPart FROM inscrito I, pessoa P\n\tWHERE P.emailPe = '";
+		String sqlArtigoMeio = "',\n\tTO_DATE('"+aday+"/"+amonth+"/"+ano+"', 'DD/MM/YYYY'),\n\tTO_TIMESTAMP('"+aday+"/"+amonth+"/"+ano+", "+horas+":"+minutos+":00','DD/MM/YYYY, HH24:MI:SS'),\n\tI.codEv,\n\tI.numEd,\n\tI.idPart FROM inscrito I, pessoa P\n\tWHERE P.emailPe = '";
 		String sqlArtigoFim = "' and I.idPart = P.idPe and P.tipoParticipante = '1';";
 		String sqlArtigo = "";
 
@@ -193,6 +200,7 @@ public class MaoNaRoda {
 			//Insercao na tab inscrito c/ tipoApresentador=1
 			sqlInscrito = sqlInscritoInicio+email+sqlInscritoFim+"'1'\n\t);";
 			System.out.println("--Inscrito - apresentador:\n"+sqlInscrito+"\n/");
+			total_inscritos++;
 
 			//Insercao na tabela artigo, eh so aqui pois so o 1 kra apresenta
 			sqlArtigo = sqlArtigoInicio+nomeArtigo.trim()+sqlArtigoMeio+email+sqlArtigoFim;
@@ -219,8 +227,11 @@ public class MaoNaRoda {
 				System.out.println(sqlPessoa+"\n/");
 
 				//Insercao na tab inscrito c/ tipoApresentador=0
-				sqlInscrito = sqlInscritoInicio+email+sqlInscritoFim+"'0'\n\t);";
-				System.out.println("--Inscrito\n"+sqlInscrito+"\n/");
+				if(Math.random() > 0.3) {
+					total_inscritos++;
+					sqlInscrito = sqlInscritoInicio+email+sqlInscritoFim+"'0'\n\t);";
+					System.out.println("--Inscrito\n"+sqlInscrito+"\n/");
+				}
 
 				//Insercao na tabela escreve
 				sqlEscreve = sqlEscreveInicio+email+sqlEscreveFim;
@@ -229,5 +240,6 @@ public class MaoNaRoda {
 				aux = reader.nextLine().trim();
 			}
 		}
+		System.out.println(total_inscritos);
 	}
 }

@@ -1,0 +1,142 @@
+15
+10
+09
+10
+26
+30
+10
+10
+2010
+16
+University of California
+@uc.edu
++413(805)0893-8000
+American
+Santa Barbara, CA 93106, United States
+NTNU
+@ntnu.edu
++407(805)0893-1452
+Norwegian
+Høgskoleringen 1, 7491 Trondheim, Norway
+University of Massachusetts
+@umassp.edu
++413(545)0111-0000
+American
+Amherst, MA 01003, United States
+The University of Hong Kong
+@hku.edu
++123(285)9211-0901
+Chinese
+Hong Kong, China
+Ludwig-Maximilians-University
+@lmu.edu
++490(898)2180-2326
+German
+Professor-Huber-Platz 2, 80539 München, Germany
+University of Pennsylvania
+@upenn.edu
++234(898)1232-4532
+American
+Philadelphia, PA 19104, United States
+National University of Singapore
+@nus.edu.sg
++467(898)1232-8098
+Singaporean
+21 Lower Kent Ridge Rd, Singapore 119077
+Stanford University
+@stanford.edu
++190(285)9211-2101
+American
+450 Serra Mall, Stanford, CA 94305, United States
+Yahoo!
+@yahoo.com
++413(545)0111-0458
+American
+Sunnyvale, CA, United States
+Bloomberg
+@bloomberg.com
++413(545)0111-0001
+American
+Stanford, California 94305
+University of Waterloo
+@uwaterloo.edu
++001(519)8888-4567
+Canadian
+200 University Ave W, Waterloo, ON N2L 3G1, Canada
+The Ohio State University
+@osu.edu
++413(545)0111-4725
+American
+Columbus, OH 43210, United States
+IBM Research
+@ibmresearch.com
++142(175)1475-4569
+German
+Rueschlikon, Switzerland
+Microsoft Research
+@microsoft.com
++190(285)9211-9999
+American
+1065 La Avenida, Mountain View, CA 94043, United States
+University of Glasgow 
+@gla.ac.uk
++440(141)3300-2000
+British
+Glasgow G12 8QQ, United Kingdom
+CUHK
+@cuhk.edu.hk
++852(394)0003-7000
+Chinese
+Shatin, Hong Kong, China
+Components for Information Extraction: Ontology-Based Information Extractors and Generic Platforms
+Daya Wimalasuriya
+ and UNIVERSIDADE *******
+Dejing Dou
+>
+Automatically Acquiring a Semantic Network of Related Concepts, Sean Szumlanski and Fernando Gomez
+>
+Online Annotation of Text Streams with Structured Entities, Ken Pu, Richard Drake, Oktie Hassanzadeh and Renee Miller
+>
+Automatic Extraction of Web Data Records Containing User-Generated Content, Xinying Song, Jing Liu, Cao Yunbo and Chin-Yew Lin
+>
+An Efficient Algorithm for Mining Time Interval-based Patterns in Large Database, Yi-cheng Chen, Ji-Chiang Jiang, Wen-Chih  Peng and Suh-Yin Lee
+>
+What can Quantum Theory Bring to Information Retrieval? Benjamin Piwowarski, Ingo Frommholz, Mounia Lalmas and Keith van Rijsbergen
+>
+Entity Ranking using Wikipedia as a Pivot, Rianne Kaptein, Jaap Kamps, Pavel Serdyukov and Arjen de Vries
+>
+Ranking under Temporal Constraints, Lidan Wang, Donald Metzler and Jimmy Lin
+>
+Examining the Information Retrieval Process from an Inductive Perspective, Ronan Cummins, Mounia Lalmas and Colm O'Riordan
+>
+On Identifying Representative Relevant Documents, Fiana Raiber and Oren Kurland
+>
+On the Selectivity of Multidimensional Routing Indices, Christos Doulkeridis, Akrivi Vlachou, Kjetil Noervaag, Yannis Kotidis and Michalis Vazirgiannis
+>
+Path-Hop: Efficiently Indexing Large Graphs for Reachability Queries, Jing Cai and Chung Keung Poon
+>
+On Wavelet Decomposition of Uncertain Time Series Data Sets, Yuchen Zhao, Charu Aggarwal and Philip Yu
+>
+Efficient Set-Correlation Operator inside Databases, Shaoxu Song and Lei Chen
+>
+Online Update of B-trees, Marina Barsky, Alex Thomo, Zoltan Toth and Calisto Zuzarte
+>
+Wisdom of the Ages: Toward Delivering the Children's Web with the Link-based AgeRank Algorithm, Karl Gyllstrom and Marie-Francine Moens
+>
+A Cross-lingual Framework for Monolingual Biomedical Information Retrieval, Dolf Trieschnigg, Djoerd Hiemstra, Franciska de Jong and Wessel Kraaij
+>
+Multi-Modal Multi-Correlation Personal News Retrieval, Zechao Li, Jing Liu, Xiaobin Zhu and Hanqing Lu
+>
+Bringing Order to Your Photos: Event-Driven Classification of Flickr Images Based on Social Knowledge, Claudiu Firan, Mihai Georgescu, Wolfgang Nejdl and Raluca Paiu
+>
+Mining Topic-Level Influence in Heterogeneous Networks, Lu Liu, Jie Tang, Meng Jiang, Jiawei Han and Shiqiang Yang
+>
+Mining Interesting Link Formation Rules in Social Networks, Cane Wing-ki Leung, Ee-Peng Lim, David Lo and Jianshu Weng
+>
+SHRINK: A Structural Clustering Algorithm for Detecting Hierarchical Communities in Networks, Jianbin Huang, Heli Sun, Jiawei Han, Hongbo Deng and Yizhou Sun
+>
+Outcome Aware Ranking in Interaction Networks, S Kameshwaran, Sameep Mehta and Vinayaka  Pandit
+>
+Expansion and Search in Networks, Arun Maiya and Tanya Berger-Wolf
+>
+EOF

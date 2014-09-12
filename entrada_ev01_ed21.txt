@@ -1,0 +1,159 @@
+01
+20
+09
+10
+29
+02
+10
+11
+2012
+16
+University of California
+@uc.edu
++413(805)0893-8000
+American
+Santa Barbara, CA 93106, United States
+NTNU
+@ntnu.edu
++407(805)0893-1452
+Norwegian
+Høgskoleringen 1, 7491 Trondheim, Norway
+University of Massachusetts
+@umassp.edu
++413(545)0111-0000
+American
+Amherst, MA 01003, United States
+The University of Hong Kong
+@hku.edu
++123(285)9211-0901
+Chinese
+Hong Kong, China
+Ludwig-Maximilians-University
+@lmu.edu
++490(898)2180-2326
+German
+Professor-Huber-Platz 2, 80539 München, Germany
+University of Pennsylvania
+@upenn.edu
++234(898)1232-4532
+American
+Philadelphia, PA 19104, United States
+National University of Singapore
+@nus.edu.sg
++467(898)1232-8098
+Singaporean
+21 Lower Kent Ridge Rd, Singapore 119077
+Stanford University
+@stanford.edu
++190(285)9211-2101
+American
+450 Serra Mall, Stanford, CA 94305, United States
+Yahoo!
+@yahoo.com
++413(545)0111-0458
+American
+Sunnyvale, CA, United States
+Bloomberg
+@bloomberg.com
++413(545)0111-0001
+American
+Stanford, California 94305
+University of Waterloo
+@uwaterloo.edu
++001(519)8888-4567
+Canadian
+200 University Ave W, Waterloo, ON N2L 3G1, Canada
+The Ohio State University
+@osu.edu
++413(545)0111-4725
+American
+Columbus, OH 43210, United States
+IBM Research
+@ibmresearch.com
++142(175)1475-4569
+German
+Rueschlikon, Switzerland
+Microsoft Research
+@microsoft.com
++190(285)9211-9999
+American
+1065 La Avenida, Mountain View, CA 94043, United States
+University of Glasgow 
+@gla.ac.uk
++440(141)3300-2000
+British
+Glasgow G12 8QQ, United Kingdom
+CUHK
+@cuhk.edu.hk
++852(394)0003-7000
+Chinese
+Shatin, Hong Kong, China
+Collective Intelligence in the Online Social Network of Yahoo!Answers and Its Implications
+Ze Li
+,UNIVERSIDADE ***** 
+Haiying Shen
+, 
+Joseph Edward Grant
+>
+Social Contextual Recommendation
+Meng Jiang, Peng Cui, Rui Liu, Qiang Yang, Fei Wang, Wenwu Zhu, Shiqiang Yang
+Local Anomaly Descriptor: A Robust Unsupervised Algorithm for Anomaly Detection based on Diffusion Space
+Hao Huang, Hong Qin, Shinjae Yoo, Dantong Yu
+PARMA: A Parallel Randomized Algorithm for Approximate Association Rules Mining in MapReduce
+Matteo Riondato, Justin A DeBrabant, Rodrigo Fonseca, Eli Upfal
+Document-Topic Hierarchies from Document Graphs
+Tim Weninger, Yonatan Bisk, Jiawei Han
+Interactive Pattern Mining on Hidden Data: A Sampling-based Solution
+Mansurul Bhuiyan, Snehasis Mukhopadhyay, Mohammad Al Hasan
+Enabling Direct Interest-Aware Audience Selection
+Ariel Fuxman, Anitha Kannan, Zhenhui Li, Panayiotis Tsaparas
+On the Design of LDA Models for Aspect-based Opinion Mining
+Samaneh Moghaddam, Martin Ester
+A Unified Learning Framework for Auto Face Annotation by Mining Web Facial Images
+Dayong Wang, Steven Chu Hong Hoi, Ying He
+From Face-to-Face Gathering To Social Structure
+Chunyan Wang, Mao Ye, Wang-chien Lee
+Right-Protected Data Publishing with Hierarchical Clustering Preservation
+Michail Vlachos, Aleksander Wieczorek, Johannes Schneider
+Mining High Utility Itemsets without Candidate Generation
+Mengchi Liu, Junfeng Qu
+A General Framework to Encode Heterogeneous Information Sources for Contextual Pattern Mining
+Weishan Dong, Wei Fan, Lei Shi, Changjin Zhou, Xifeng Yan
+Matching Product Titles using Web-based Enrichment
+Vishrawas Gopalakrishnan, Suresh Parthasarathy Iyengar, Amit Madaan, Rajeev Rastogi, Srinivasan Sengamedu
+Daily-Deal Selection for Revenue Maximization
+Theodoros Lappas, Evimaria Terzi
+TCSST: Transfer Classification of Short & Sparse Text Using External Data
+Guodong Long, Ling Chen, Xingquan Zhu, Chengqi Zhang
+Modeling Semantic Relations between Visual Attributes and Object Categories via Dirichlet Forest Prior
+Xin Chen, Xiaohua Hu, Zhongna Zhou, Yuan An, Tingting He, E.K. Park
+CoNet: Feature Generation for Multi-View Semi-Supervised Learning with Partially Observed Views
+Brian Quanz, Jun Huan
+Incorporating Occupancy into Frequent Pattern Mining for High Quality Pattern Recommendation
+Linpeng Tang, Lei Zhang, Ping Luo, Min Wang
+MEET: A Generalized Framework for Reciprocal Recommender Systems
+Lei Li, Tao Li
+Delineating Social Network Data Anonymization via Random Edge Perturbation
+Mingqiang Xue, Panagiotis Karras, Raissi Chedy, Panos Kalnis, Hung Keng Pung
+Improving Document Clustering Using Automated Machine Translation
+Xiang Wang, Buyue Qian, Ian Davidson
+TUT: A Statistical Model for Detecting Trends, Topics and User Interests in Social Media
+Xuning Tang, Christopher C. Yang
+Learning to Discover Complex Mappings from Web Forms to Ontologies
+Yuan An, Xiaohua Hu, Il-Yeol Song
+Model the Complex Dependence Structures of Financial Variables by Using Canonical Vine
+Wei Wei, Xuhui Fan, Jinyan Li, Longbing Cao
+Automated Feature Weighting in Naive Bayes for High-dimensional Data Classification
+Lifei Chen, Shengrui Wang
+Predicting Aggregate Social Activities Using Continuous-Time Stochastic Process
+Shu Huang, Min Chen, Bo Luo, Dongwon Lee
+Density Index and Proximity Search in Large Graphs
+Nan Li, Xifeng Yan, Zhen Wen, Arijit Khan
+Gelling, and Melting, Large Graphs by Edge Manipulation
+Hanghang Tong, B. Aditya Prakash, Tina Eliassi-Rad, Michalis Faloutsos, Christos Faloutsos
+Utilizing Common Substructures to Speedup Tensor Factorization for Mining Dynamic Graphs
+Wei Liu, Jeffrey Chan, James Bailey, Christopher Leckie, Ramamohanarao Kotagiri
+Graph Classification: A Diversified Discriminative FeatureSelection Approach
+Yuanyuan Zhu, Jeffrey Xu Yu, Hong Cheng, Lu Qin
+>
+EOF

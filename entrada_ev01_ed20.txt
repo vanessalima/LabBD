@@ -1,0 +1,387 @@
+12
+10
+09
+10
+24
+28
+10
+10
+2011
+16
+University of California
+@uc.edu
++413(805)0893-8000
+American
+Santa Barbara, CA 93106, United States
+NTNU
+@ntnu.edu
++407(805)0893-1452
+Norwegian
+Høgskoleringen 1, 7491 Trondheim, Norway
+University of Massachusetts
+@umassp.edu
++413(545)0111-0000
+American
+Amherst, MA 01003, United States
+The University of Hong Kong
+@hku.edu
++123(285)9211-0901
+Chinese
+Hong Kong, China
+Ludwig-Maximilians-University
+@lmu.edu
++490(898)2180-2326
+German
+Professor-Huber-Platz 2, 80539 München, Germany
+University of Pennsylvania
+@upenn.edu
++234(898)1232-4532
+American
+Philadelphia, PA 19104, United States
+National University of Singapore
+@nus.edu.sg
++467(898)1232-8098
+Singaporean
+21 Lower Kent Ridge Rd, Singapore 119077
+Stanford University
+@stanford.edu
++190(285)9211-2101
+American
+450 Serra Mall, Stanford, CA 94305, United States
+Yahoo!
+@yahoo.com
++413(545)0111-0458
+American
+Sunnyvale, CA, United States
+Bloomberg
+@bloomberg.com
++413(545)0111-0001
+American
+Stanford, California 94305
+University of Waterloo
+@uwaterloo.edu
++001(519)8888-4567
+Canadian
+200 University Ave W, Waterloo, ON N2L 3G1, Canada
+The Ohio State University
+@osu.edu
++413(545)0111-4725
+American
+Columbus, OH 43210, United States
+IBM Research
+@ibmresearch.com
++142(175)1475-4569
+German
+Rueschlikon, Switzerland
+Microsoft Research
+@microsoft.com
++190(285)9211-9999
+American
+1065 La Avenida, Mountain View, CA 94043, United States
+University of Glasgow 
+@gla.ac.uk
++440(141)3300-2000
+British
+Glasgow G12 8QQ, United Kingdom
+CUHK
+@cuhk.edu.hk
++852(394)0003-7000
+Chinese
+Shatin, Hong Kong, China
+A Framework for Personalized and Collaborative Clustering of Search Results
+David C Anastasiu
+Texas State University-San Marcos
+Byron J Gao
+Texas State University-San Marcos
+David Buttler
+Lawrence Livermore National Laboratory
+>
+A Linear-Time Approximation of the Earth Mover's Distance
+Min-Hee Jang
+Hanyang University
+Sang-Wook Kim
+Hanyang University
+Christos Faloutsos
+Carnegie Mellon University
+Sunju Park
+Yonsei University
+>
+A Pairwise Ranking Based Approach to Learning with Positive and Unlabeled Examples
+Sundararajan Sellamanickam (Yahoo! Labs)
+Priyanka Garg (The Chinese University of Hong Kong)
+Sathiya Keerthi Selvaraj (Yahoo! Labs)
+
+A Parallel Algorithm for Computing Borders
+Nicolas Hanusse (University of Bordeaux)
+Sofian Maabout (University of Bordeaux)
+
+A Probabilistic Method for Inferring Preferences from Clicks
+Katja Hofmann (University of Amsterdam)
+Shimon Whiteson (University of Amsterdam)
+Maarten de Rijke (University of Amsterdam)
+
+A Quasi-Synchronous Dependence Model for Information Retrieval
+Jae Hyun Park (University of Massachusetts Amherst)
+W. Bruce Croft (University of Massachusetts Amherst)
+David A. Smith (University of Massachusetts Amherst)
+
+A Task Level Metric for Measuring Web Search Satisfaction and its Application on Improving Relevance Estimation
+Ahmed Hassan (Microsoft Research)
+Yang Song (Microsoft Research)
+Li-wei He (Microsoft)
+
+Adaptive Parallel Approximate Similarity Search for Responsive Multimedia Retrieval
+George Teodoro (University of Maryland)
+Eduardo Valle (Unicamp)
+Nathan Mariano (UFMG)
+Ricardo Torres (Unicamp)
+Wagner Meira Jr. (UFMG)
+
+Adding Structure to Top-K: From Items to Expansions
+Xueyao Liang (University of British Columbia)
+Min Xie (University of British Columbia)
+Laks V.S. Lakshmanan (University of British Columbia)
+
+Assigning Documents to Master Sites in Distributed Search
+Roi Blanco (Yahoo! Research)
+B. Barla Cambazoglu (Yahoo! Research)
+Flavio P. Junqueira (Yahoo! Research)
+Ivan Kelly (Yahoo! Research)
+Vincent Leroy (Yahoo! Research)
+
+Assisting Web Search Users by Destination Reachability
+Chi-Hoon Lee (Nokia Research Center)
+Alpa Jain (Yahoo! Labs)
+Larry Lai (Yahoo! Labs)
+
+Automated Feature Generation from Structured Knowledge
+Weiwei Cheng (University of Marburg)
+Gjergji Kasneci (Microsoft Research)
+Thore Graepel (Microsoft Research)
+David Stern (Microsoft Research)
+Ralf Herbrich (Microsoft Research)
+
+Bayesian Latent Variable Models for Collaborative Item Rating Prediction
+Morgan Harvey (University of Erlangen)
+Mark J. Carman (Monash University)
+Ian Ruthven (Strathclyde University)
+Fabio Crestani (University of Lugano)
+
+Behavior-driven Clustering of Queries into Topics
+Luca Maria Aiello (Università di Torino)
+Debora Donato (Yahoo! Labs)
+Umut Ozertem (Yahoo! Labs)
+Filippo Menczer (Indiana University)
+
+Building Directories for Social Tagging Systems
+Denis Helic (Knowledge Management Institute, Graz University of Technology)
+Markus Strohmaier (Knowledge Management Institute and Know-Center, Graz University of Technology)
+
+CLUES: A Unified Framework Supporting Interactive Exploration of Density-Based Clusters in Streams
+Di Yang (WPI)
+Zhenyu Guo (WPI)
+Elke A Rundensteiner (WPI)
+Matthew O Ward (WPI)
+
+CP-Index: On The Efficient Indexing of Large Graphs
+Yan Xie (University of Illinois at Chicago)
+Philip S. Yu (University of Illinois at Chicago)
+
+Can Irrelevant Data Help Semi-supervised Learning, Why and How?
+Haiqin Yang (The Chinese University of Hong Kong)
+Shenghuo Zhu (NEC Laboratories America)
+Irwin King (The Chinese University of Hong Kong & AT&T Labs Research)
+Michael R. Lyu (The Chinese University of Hong Kong)
+
+Click the Search Button and Be Happy: Evaluating Direct and Immediate Information Access
+Tetsuya Sakai (Microsoft Research Asia)
+Makoto P Kato (Kyoto University)
+Young-In Song (Microsoft Research Asia)
+
+Cloning for Privacy Protection in Multiple Independent Data Publications
+Muzammil M Baig (University of South Australia)
+Jiuyong Li (University of South Australia)
+Jixue Liu (University of South Australia)
+Hua Wang (University of Southern Queensland)
+
+Collective Prediction with Latent Graphs
+Xiaoxiao Shi (University of Illinois at Urbana-Champaign)
+Yao Li (University of Illinois at Urbana-Champaign)
+Philip Yu (University of Illinois at Urbana-Champaign)
+
+Context-Aware Search Personalization with Concept Preference
+Di Jiang (The Hong Kong University of Science and Technology)
+Kenneth Wai-Ting Leung (The Hong Kong University of Science and Technology)
+Wilfred Ng (The Hong Kong University of Science and Technology)
+
+Coreference Aware Web Object Retrieval
+Jeffrey Dalton (University of Massachusetts Amherst)
+Roi Blanco (Yahoo! Research)
+Peter Mika (Yahoo! Research)
+
+Correlated Multi-Label Feature Selection
+Quanquan Gu (University of Illinois at Urbana-Champaign)
+Zhenhui Li (University of Illinois at Urbana-Champaign)
+Jiawei Han (University of Illinois at Urbana-Champaign)
+
+Coupling or Decoupling for KNN Search on Road Networks? A Hybrid Framework on User Query Patterns
+Ying-Ju Chen (National Taiwan University)
+Kun-Ta Chuang (National Cheng Kung University)
+Ming-Syan Chen (National Taiwan University & Academia Sinica)
+
+DELTA: Indexing and Querying Multi-labeled Graphs
+Jiong Yang (Case Western Reserve University)
+Shijie Zhang (Case Western Reserve University)
+Wei Jin (Case Western Reserve University)
+
+Discovering Missing Click-through Query Language Information for Web Search
+Xing Yi (University of Massachusetts, Amherst)
+James Allan (University of Massachusetts, Amherst)
+
+Discovering Top-k Teams of Experts with/without a Leader in Social Networks
+Mehdi Kargar (York University)
+Aijun An (York University)
+
+Discovering URLs through User Feedback
+Xiao Bai (Yahoo! Research)
+B. Barla Cambazoglu (Yahoo! Research)
+Flavio P. Junqueira (Yahoo! Research)
+
+Duplicate Detection Through Structure Optimization
+Luís Leitão (IST/INESC-ID)
+Pável Calado (IST/INESC-ID)
+
+Effective Stratification For Low Selectivity Queries on Deep Web Data Sources
+Fan Wang (The Ohio State University)
+Gagan Agrawal (The Ohio State University)
+
+Effective and Efficient Polarity Estimation in Blogs based on Sentence-Level Evidence
+Jose M Chenlo (Universidade de Santiago de Compostela)
+David E. Losada (Universidade de Santiago de Compostela)
+
+Efficiency Optimizations for Interpolating Subqueries
+Marc-Allen Cartright (University of Massachusetts Amherst)
+James Allan (University of Massachusetts Amherst)
+
+Efficient Methods for Finding Influential Locations with Adaptive Grids
+Da Yan (The Hong Kong University of Science and Technology)
+Raymond Chi-Wing Wong (The Hong Kong University of Science and Technology)
+Wilfred Ng (The Hong Kong University of Science and Technology)
+
+Efficient Resource Attribute Retrieval in RDF Triple Stores
+Andreas Brodt (Universität Stuttgart)
+Oliver Schiller (Universität Stuttgart)
+Bernhard Mitschang (Universität Stuttgart)
+
+Efficient Similarity Search: Arbitrary Similarity Measures, Arbitrary Composition
+Dustin Lange (Hasso Plattner Institute)
+Felix Naumann (Hasso Plattner Institute)
+
+Efficiently Encoding Term Co-occurrences in Inverted Indexes
+Marcus Fontoura (Google Inc.)
+Maxim Gurevich (Yahoo! Research)
+Vanja Josifovski (Yahoo! Research)
+Sergei Vassilvitskii (Yahoo! Research)
+
+Emerging Topic Detection using Dictionary Learning
+Shiva Prasad Kasiviswanathan (IBM TJ Watson Research)
+Prem Melville (IBM TJ Watson Research)
+Arindam Banerjee (University of Minnesota)
+Vikas Sindhwani (IBM TJ Watson Research)
+
+Enabling Information Extraction by Inference of Regular Expressions from Sample Entities
+Falk Brauer (SAP AG)
+Robert Rieger (SAP AG)
+Adrian Mocan (SAP AG)
+Wojciech M. Barczynski (SAP AG)
+
+Enriching Textbooks with Images
+Rakesh Agrawal (Microsoft Research)
+Sreenivas Gollapudi (Microsoft Research)
+Anitha Kannan (Microsoft Research)
+Krishnaram Kenthapadi (Microsoft Research)
+
+Estimating Selectivity for Joined RDF Triple Patterns
+Hai Huang (Swinburne University of Technology)
+Chengfei Liu (Swinburne University of Technology)
+
+Evaluation of Set-based Queries with AggregationConstraints
+Quoc Trung Tran (National University of Singapore)
+Chee-Yong Chan (National University of Singapore)
+Guoping Wang (National University of Singapore)
+
+Evolving Social Search Based on Bookmarks and Status Messages from Social Networks
+Bastian Karweg (Mobile Advertising GmbH)
+Christian Huetter (Karlsruhe Institute of Technology)
+Klemens Boehm (Karlsruhe Institute of Technology)
+
+Exploring the Corporate Ecosystem with a Semi-Supervised Entity Graph
+Hassan H Malik (Thomson Reuters)
+Ian MacGillivray (Thomson Reuters)
+Mans Olof-Ors (Thomson Reuters)
+Siming Sun (Thomson Reuters)
+Shailesh Saroha (Thomson Reuters)
+
+External Evaluation Measures for Subspace Clustering
+Stephan Günnemann (RWTH Aachen University)
+Ines Färber (RWTH Aachen University)
+Emmanuel Müller (Karlsruhe Institute of Technology)
+Ira Assent (Aarhus University)
+Thomas Seidl (RWTH Aachen University)
+
+Facilitating Pattern Discovery for Relation Extraction with Semantic-Signature-based Clustering
+Yunyao Li (IBM Research - Almaden)
+Vivian Chu (IBM Research - Almaden)
+Sebastian Blohm (Microsoft Corporation)
+Huaiyu Zhu (IBM Research - Almaden)
+Howard Ho (IBM Research - Almaden)
+
+Fast Fully Dynamic Landmark-based Estimation of Shortest Path Distances in Very Large Graphs
+Konstantin Tretyakov (University of Tartu)
+Abel Armas-Cervantes (University of Tartu)
+Luciano García-Bañuelos (University of Tartu)
+Jaak Vilo (University of Tartu)
+Marlon Dumas (University of Tartu)
+
+Fast Metadata-driven Multiresolution Tensor Decomposition
+Claudio Schifanella (University of Torino)
+K. Selçuk Candan (Arizona State University)
+Maria Luisa Sapino (University of Torino)
+
+Filtering and Clustering Relations for Unsupervised Information Extraction in Open Domain
+Wei Wang (CEA LIST)
+Romaric Besançon (CEA LIST)
+Olivier Ferret (CEA LIST)
+Brigitte Grau (LIMSI CNRS)
+
+Finding All Justifications of OWL Entailments Using TMS and MapReduce
+Gang Wu (Ministry of Education & Northeastern University China)
+Guilin Qi (Southeast University)
+Jianfeng Du (Guangdong University of Foreign Studies & Chinese Academy of Sciences)
+
+Finding Dimensions for Queries
+Zhicheng Dou (Microsoft Research Asia)
+Sha Hu (Renmin University of China)
+Yulong Luo (Shanghai Jiaotong University)
+Ruihua Song (Microsoft Research Asia)
+Ji-Rong Wen (Microsoft Research Asia)
+
+Finding Information Nebula over Large Networks
+Lijun Chang (The Chinese University of Hong Kong)
+Jeffrey Xu Yu (The Chinese University of Hong Kong)
+Lu Qin (The Chinese University of Hong Kong)
+Yuanyuan Zhu (The Chinese University of Hong Kong)
+Haixun Wang (Microsoft Research Asia)
+
+Finding Relevant Information of Certain Types from Enterprise Data
+Xitong Liu (University of Delaware)
+Hui Fang (University of Delaware)
+Cong-Lei Yao (HP Labs)
+Min Wang (HP Labs)
+
+Focusing on Novelty: A Crawling Strategy to Build Diverse Language Models
+Luciano Barbosa (AT&T Labs Research)
+Srinivas Bangalore (AT&T Labs Research)
+
+>
+EOF
