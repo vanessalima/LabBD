@@ -1,3 +1,75 @@
 Finding the Most Accessible Locations - Reverse Path Nearest Neighbor Query in Road Networks
-Shuo Shang (University of Queensland), Bo Yuan lalalal (Tsinghua University), Ke Deng (University of Queensland), Kexin Xie (University of Queensland), Xiaofang Zhou (University of Queensland), Joshua Schpok (Google), Xing Xie (Microsoft Research Asia)
+Shuo Shang (University of Queensland), Bo Yuan lalalal (Tsinghua University), Ke Deng (University of Queensland), Kexin Xie (University of Queensland), Xiaofang Zhou (University of Queensland)
+Discovering Interesting Sub-paths in Spatiotemporal Datasets: A Summary of Results
+Xun Zhou (University of Minnesota), Shashi Shekhar (University of Minnesota), Pradeep Mohan (University of Minnesota, Stefan Liess (University of Minnesota), Peter Snyder (University of Minnesota)
+Fast GPU-based Locality Sensitive Hashing for K-Nearest Neighbor Computation
+Jia Pan (UNC Chapel Hill), Dinesh Manocha (UNC Chapel Hill)
+A spatial neighborhood graph approach to regional co-location pattern discovery: A summary of results
+Pradeep Mohan (University of Minnesota), Shashi Shekhar (University of Minnesota), James Shine (Engineer Research and Development Center), James Rogers (Engineer Research and Development Center), Zhe Jiang (University of Minnesota), Nicole Wayant (Geospatial Engineering and Research Division)
+Similarity Search on a Large Collection of Point Sets
+Marco Adelfio (University of Maryland), Sarana Nutanong (University of Maryland), Hanan Samet (University of Maryland)
+Pedestrian-movement Prediction based on Mixed Markov-chain Model
+Akinori Asahara (Hitachi Ltd), Akiko Sato (Hitachi Ltd), Kishiko Maruyama (Hitachi Ltd), Koichi Seto (Hitachi Ltd)
+Learning Location Naming from User Check-In Histories
+Defu Lian (University of Science and Technology of China), Xing Xie (Microsoft Research Asia)
+Natural Neighbor Interpolation on a 3D Grid using a GPU
+Alex Beutel (Carnegie Mellon University), Thomas Molhave (Duke University), Pankaj Agarwal (Duke University), Arnold Boedihardjo (Army Research Office), James Shine (Engineer Research and Development Center)
+Planar Segments of Building Roofs from Aerial Photogrammetry
+Philipp Meixner (Graz University of Technology), Franz Leberl (Graz University of Technology), Mathieu Bredif (Institute Geographique Nationale, France)
+Path Shapes - An Alternative Method for Map Matching and Fully Autonomous Self-Localization
+Stefan Funke (University of Stuttgart), Sabine Storandt (University of Stuttgart)
+Semantic Trajectory Mining for Next Location Prediction
+Jia-Ching Ying (National Cheng Kung University), Tz-Chiao Weng (National Cheng Kung University), Wang-Chien Lee (Pennsylvania State University), Vincent Tseng (National Cheng Kung University)
+Median trajectories using well-visited regions and shortest paths
+Marc Van Kreveld (Utrecht University, the Netherlands), Lionov Wiratma (Parahyangan Catholic University)
+On Efficient Obstructed Reverse Nearest Neighbor Query Processing
+Yunjun Gao (Zhejiang University), Jiacheng Yang (Zhejiang University), Gang Chen (Zhejiang University), Baihua Zheng (Zhejiang University), Lidan Shou (Zhejiang University)
+A splitting line model for directional relations
+Kevin Buchin (TU Eindhoven), Vincent Kusters (TU Eindhoven), Bettina Speckmann (TU Eindhoven), Frank Staals (TU Eindhoven, Bogdan Vasilescu (TU Eindhoven)
+Conflation of Road Network and Geo-referenced Image Using Sparse Matching
+Jiantong Zhang (TUM), yueqin Zhu (TUM), Liqiu Meng (TUM)
+Transportation Mode Detection using Mobile Devices and GIS Information
+Leon Stenneth (University of Illinois Chicago), Ouri Wolfson (University of Illinois Chicago), Philip Yu (University of Illinois Chicago), Bo Xu (University of Illinois Chicago)
+Constructing Geo-Ontologies by Reification of Observation Data
+Benjamin Adams (University of California at Santa Barbara), Krzysztof Janowicz (University of California at Santa Barbara)
+Multi-Approximate-Keyword Routing in GIS Data
+Bin Yao (Shanghai Jiao Tong University), Mingwang Tang (University of Utah), Feifei Li (University of Utah)
+What You Are is When You Are - The Temporal Dimension of Feature Types in Location-based Social Networks
+Mao Ye (Pennsylvania State University), Krzysztof Janowicz (University of California at Santa Barbara), Wang-Chien Lee (Pennsylvania State University), Christoph Mulligann (University of Munster)
+EnAcq: Energy-efficient Trajectory Data Acquisition Based on Improved Map Matching
+Shunkai Fang (National University of Singapore), Roger Zimmermann (National University of Singapore)
+Data-Driven Trajectory Smoothing
+Frederic Chazal (INRIA Saclay-lle-de-France), Daniel Chen (Stanford University), Leo Guibas (Stanford University), Xiaoye Jiang (Stanford University), Christian Sommer (MIT)
+Privacy-Preserving Assessment of Location Data Trustworthiness
+Chenyun Dai (Purdue University), Fang-Yu Rao (Purdue University), Gabriel Ghinita (Purdue University), Elisa Bertino (Purdue University)
+Kinetic space-time prisms
+Walied Othman (IFGI), Harvey Miller (University of Utah), Bart Kuijpers (Hasselt University)
+Exact and Approximate Computations of Watersheds on Triangulated Terrains
+Constantinos Tsirogiannis (TU Eindhoven), Mark de Berg (TU Eindhoven)
+Flow on Noisy Terrains: An Experimental Evaluation
+Constantinos Tsirogiannis (TU Eindhoven), Herman Haverkort (TU Eindhoven)
+Evaluating and Minimizing Ambiguities in Qualitative Route Instructions
+Matthias Westphal (University of Freiburg), Jochen Renz (Australian National University)
+Boundary-Labeling Algorithms for Panorama Images
+Andreas Gemsa (KIT), Jan-Henrik Haunert (University of Wurzburg), Martin Noellenburg (KIT)
+The PR-star octree: A spatio-topological data structure for tetrahedral meshes
+Kenneth Weiss (University of Maryland), Riccardo Fellegara (University of Genova), Leila De Floriani (University of Genova), Marcello Velloso (University of Maryland)
+A New Method for Subdivision Simplification with Applications to Urban-Area Generalization
+Kevin Buchin (TU Eindhoven), Wouter Meulemans (TU Eindhoven), Bettina Speckmann (TU Eindhoven)
+Delineating Imprecise Regions via Shortest-Path Graphs
+Mark de Berg (TU Eindhoven), Wouter Meulemans (TU Eindhoven), Bettina Speckmann (TU Eindhoven)
+Exploration and Comparison of Geographic Information Sources using Distance Statistics
+Christian Sengstock (University of Heidelberg), Michael Gertz (University of Heidelberg)
+Parking Slot Assignment Games
+Daniel Ayala (University of Illinois at Chicago), Ouri Wolfson (University of Illinois at Chicago), Bo Xu (University of Illinois at Chicago), Bhaskar Dasgupta (University of Illinois at Chicago), Jane Lin (University of Illinois at Chicago)
+3D Building Roof Reconstruction from Point Clouds via Generative Models
+Hai Huang (Leibniz University Hannover), Claus Brenner (Leibniz University Hannover), Monika Sester (Leibniz University Hannover)
+A Kinematics-based GIS Methodology to Represent and Analyze Spatiotemporal Patterns of Precipitation Change
+James Bothwell (University of Oklahoma), May Yuan (University of Oklahoma)
+Prox-RBAC: A Proximity-based Spatially Aware RBAC
+Michael Kirkpatrick (Purdue University), Maria Luisa Damiani (University of Milan), Elisa Bertino (Purdue University)
+Geometric Overpass Extraction from Vector Road Data and DSMs (Industry)
+Joshua Schpok (Google)
+Parking Slot Assignment Games
+Daniel Ayala (University of Illinois at Chicago), Ouri Wolfson (University of Illinois at Chicago), Bo Xu (University of Illinois at Chicago), Bhaskar Dasgupta (University of Illinois at Chicago), Jane Lin (University of Illinois at Chicago)
 END
