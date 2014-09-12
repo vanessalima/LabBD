@@ -57,6 +57,15 @@ public class MaoNaRoda {
 //     '1' --autor
 //     );
 
+		/*// Para inscrição
+		int inicio = reader.nextInt();
+		int fim = reader.nextInt();
+
+		// Para apresentações
+		int ini_ap = reader.nextInt();
+		int fim_ap = reader.nextInt();		
+*/
+
 
 
 		//montando as SQLs da vida
@@ -77,9 +86,9 @@ public class MaoNaRoda {
 		String sqlArtigoFim = "' and I.idPart = P.idPe and P.tipoParticipante = '1';";
 		String sqlArtigo = "";
 
-		String sqlEscreveInicio = "INSERT INTO escreve (idAut, idArt)\n\tSELECT P.idPe,\n\tA.idArt\n\tFROM pessoa P, artigo A\n\tP.emailPe='";
-		String sqlEscreveMeio = "' and A.tituloArt='";
-		String sqlEscreve = "";
+		String sqlEscreveInicio = "INSERT INTO escreve (idAutor, idArt)\n\tSELECT P.idPe,\n\tA.idArt\n\tFROM pessoa P, artigo A\n\tWHERE P.emailPe='";
+		String sqlEscreveFim = "' and A.idArt=SEQ_IDART_ARTIGO.CURRVAL;";
+		String sqlEscreve = null;
 
 		Dado info;
 		// aux = aux.trim();
@@ -104,20 +113,20 @@ public class MaoNaRoda {
 			email = nomeVetor[nomeVetor.length-1]+info.email;
 			sqlPessoa = sqlPessoaInicio+autor+"',\n\t'"+email+"',\n\t'"+instituicao+"',\n\t'"+info.telefone+"',\n\t'"+info.nacionalidade+"',\n\t'"+info.endereco+"',\n\t";
 			sqlPessoa = sqlPessoa + sqlPessoaFim;
-			System.out.println(sqlPessoa+"\n\\");
+			System.out.println(sqlPessoa+"\n/");
 
 			//Insercao na tab inscrito c/ tipoApresentador=1
 			sqlInscrito = sqlInscritoInicio+email+sqlInscritoFim+"'1'\n\t);";
-			System.out.println("--Inscrito - apresentador:\n"+sqlInscrito+"\n\\");
+			System.out.println("--Inscrito - apresentador:\n"+sqlInscrito+"\n/");
 			
 
 			//Insercao na tabela artigo, eh so aqui pois so o 1 kra apresenta
 			sqlArtigo = sqlArtigoInicio+nomeArtigo.trim()+sqlArtigoMeio+email+sqlArtigoFim;
-			System.out.println("--Artigo\n"+sqlArtigo+"\n\\");
+			System.out.println("--Artigo\n"+sqlArtigo+"\n/");
 
 			//Insercao na tabela escreve
-			sqlEscreve = sqlEscreveInicio+email+sqlEscreveMeio+nomeArtigo+"';";
-			System.out.println("--Escreve\n"+sqlEscreve+"\n\\");
+			sqlEscreve = sqlEscreveInicio+email+sqlEscreveFim;
+			System.out.println("--Escreve\n"+sqlEscreve+"\n/");
 
 			aux = reader.nextLine().trim();
 			while(!aux.matches(">")){
@@ -132,15 +141,15 @@ public class MaoNaRoda {
 				sqlPessoa = sqlPessoaInicio+autor+"',\n\t'"+email+"',\n\t'"+instituicao+"',\n\t'"+info.telefone+"',\n\t'"+info.nacionalidade+"',\n\t'"+info.endereco+"',\n\t";
 				sqlPessoa = sqlPessoa + sqlPessoaFim;
 
-				System.out.println(sqlPessoa+"\n\\");
+				System.out.println(sqlPessoa+"\n/");
 
 				//Insercao na tab inscrito c/ tipoApresentador=0
 				sqlInscrito = sqlInscritoInicio+email+sqlInscritoFim+"'0'\n\t);";
-				System.out.println("--Inscrito\n"+sqlInscrito+"\n\\");
+				System.out.println("--Inscrito\n"+sqlInscrito+"\n/");
 
 				//Insercao na tabela escreve
-				sqlEscreve = sqlEscreveInicio+email+sqlEscreveMeio+nomeArtigo+"';";
-				System.out.println("--Escreve\n"+sqlEscreve+"\n\\");
+				sqlEscreve = sqlEscreveInicio+email+sqlEscreveFim;
+				System.out.println("--Escreve\n"+sqlEscreve+"\n/");
 
 				aux = reader.nextLine().trim();
 			}
