@@ -225,7 +225,7 @@ CREATE TABLE despesa (
 	codEvPat Number(5), -- Chave Estrangeira de patrocinio
 	numEdPat Number(5), -- Chave Estrangeira de patrocinio
 	dataDesp Date,
-	valorDesp Number(10),
+	valorDesp Number(10,2),
 	descricaoDesp Varchar2(500),
 	CONSTRAINT PK_DESPESA PRIMARY KEY (codEv, numEd, codDesp), -- PK_DESPESA 
 	CONSTRAINT FK_DESPESA_EDICAO FOREIGN KEY (codEv, numEd) REFERENCES edicao(codEv, numEd) ON DELETE CASCADE, 
@@ -240,7 +240,7 @@ CREATE TABLE auxilio (
 	codEvApr Number(5) NOT NULL, -- Chave primária e estrangeira de inscrito (identidade fraca)
 	numEdApr Number(5) NOT NULL, -- Chave primária e estrangeira de inscrito (identidade fraca)
 	idApr Number(5) NOT NULL, -- Chave primária e estrangeira de inscrito (identidade fraca)
-	tipoAux Char(1) NOT NULL, -- Chave primária para diferenciar do inscrito
+	tipoAux Varchar2(50) NOT NULL, -- Chave primária para diferenciar do inscrito
 	valorAux Number(5,2), 
 	dataAux Date, -- Máscara da data DD/MM/YYYY
 	cnpjPat	Number(14), -- Chave Estrangeira de patrocinio

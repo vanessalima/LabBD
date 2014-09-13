@@ -1,13 +1,15 @@
+02
+19
 15
-10
+20
 09
 10
-26
-30
-10
-10
-2010
-16
+01
+04
+11
+11
+2011
+34
 University of California
 @uc.edu
 +413(805)0893-8000
@@ -88,55 +90,238 @@ CUHK
 +852(394)0003-7000
 Chinese
 Shatin, Hong Kong, China
-Components for Information Extraction: Ontology-Based Information Extractors and Generic Platforms
-Daya Wimalasuriya
- and UNIVERSIDADE *******
-Dejing Dou
+Vienna University of Techology
+@vienna.edu
++43(1)588-010
+Austrian
+Karlsplatz 13, 1040 Wien, Austria
+University of Melbourne
+@unimelb.edu.au
++61(3)9035-5511
+Australian
+Parkville VIC 3010, Australia
+Purdue University
+@umb.edu
++1(617)287-6479
+American
+West Lafayette, IN 47907, United States
+Georgia Institute of Technology
+@rutgers.edu
++8(48)932-8718
+American
+New Brunswick, NJ 08901
+University of Bremen
+@bremen.org
++49(818)421-2181
+German
+Bibliothekstrabe 1, 28359 Bremen, Germany
+USC
+@usc.edu
++1(213)740-2311
+American
+Los Angeles, CA 90089
+Karlsruhe Institute of Technology, IPD
+@kit.edu
++49(721)608-44316
+German
+76131 Karlsruhe, Germany
+University of Queensland
+@itee.uq.edu.au
++61(7)3365-1649
+Australian
+Brisbane QLD 4072 Australia
+Utrecht University
+@uu.nl
+Dutch
++31(30)253-3550
+3508 TC Utrecht, The Netherlands
+Aalborg University
+@cs.aau.dk
++45(99)40-9940
+Danish
+Selma Lagerlöfs Vej 300, DK-9220 Aalborg, Denmark
+Virginia Tech
+@tech.virginia.com
++1(54)-231-6000
+Chinese
+Blacksburg, VA 24061, United States
+University of Minnesota
+@uminnesota.com
++1(612)625-5000
+American
+Minneapolis, MN 55455, United States
+Swarthmore College
+@swarthmore.com
++1(610)328-8000
+American
+500 College Ave, Swarthmore, PA 19081, United States
+University of Maryland
+@umaryland.edu
++1(301)405-1000
+American
+College Park, MD 20742, United States
+Engineer Research and Development Center
+@army.gov
++1(601)636-3111
+American
+3909 Halls Ferry Road - Vicksburg, MS 39180-6199
+Zhejiang University
+@zhejiang.edu
++86(571)8517-2244
+Chinese
+38 Zheda Rd, Xihu, Hangzhou, Zhejiang, China, 310027
+TU Eindhoven
+@eindhoven.edu
++31(40)247-9111
+Dutch
+5612 AZ Eindhoven, Netherlands
+National Cheng Kung University
+@cku.edu
++886(6)275-7575
+Taiwan
+701, Taiwan, Tainan City, East District
+Finding the Most Accessible Locations - Reverse Path Nearest Neighbor Query in Road Networks
+Shuo Shang
+University of Queensland
+Ke Deng
+University of Queensland
+Kexin Xie
+University of Queensland
+Xiaofang Zhou
+University of Queensland
 >
-Automatically Acquiring a Semantic Network of Related Concepts, Sean Szumlanski and Fernando Gomez
+Discovering Interesting Sub-paths in Spatiotemporal Datasets: A Summary of Results
+Xun Zhou
+University of Minnesota
+Shashi Shekhar
+University of Minnesota
+Pradeep Mohan
+University of Minnesota
+Stefan Liess
+University of Minnesota
+Peter Snyder
+University of Minnesota
 >
-Online Annotation of Text Streams with Structured Entities, Ken Pu, Richard Drake, Oktie Hassanzadeh and Renee Miller
+A spatial neighborhood graph approach to regional co-location pattern discovery: A summary of results
+Pradeep Mohan
+University of Minnesota
+Shashi Shekhar
+University of Minnesota
+James Shine
+Engineer Research and Development Center
+James Rogers
+Engineer Research and Development Center
+Zhe Jiang
+University of Minnesota
+Nicole Wayant
+Engineer Research and Development Center
 >
-Automatic Extraction of Web Data Records Containing User-Generated Content, Xinying Song, Jing Liu, Cao Yunbo and Chin-Yew Lin
+Similarity Search on a Large Collection of Point Sets
+Marco Adelfio
+University of Maryland
+Sarana Nutanong
+University of Maryland
+Hanan Samet
+University of Maryland
 >
-An Efficient Algorithm for Mining Time Interval-based Patterns in Large Database, Yi-cheng Chen, Ji-Chiang Jiang, Wen-Chih  Peng and Suh-Yin Lee
+On Efficient Obstructed Reverse Nearest Neighbor Query Processing
+Yunjun Gao
+Zhejiang University
+Jiacheng Yang
+Zhejiang University
+Gang Chen
+Zhejiang University
+Baihua Zheng
+Zhejiang University
+Lidan Shou
+Zhejiang University
 >
-What can Quantum Theory Bring to Information Retrieval? Benjamin Piwowarski, Ingo Frommholz, Mounia Lalmas and Keith van Rijsbergen
+The PR-star octree: A spatio-topological data structure for tetrahedral meshes
+Kenneth Weiss
+University of Maryland
+Marcello Velloso
+University of Maryland
 >
-Entity Ranking using Wikipedia as a Pivot, Rianne Kaptein, Jaap Kamps, Pavel Serdyukov and Arjen de Vries
+A New Method for Subdivision Simplification with Applications to Urban-Area Generalization
+Kevin Buchin
+TU Eindhoven
+Wouter Meulemans
+TU Eindhoven
+Bettina Speckmann
+TU Eindhoven
 >
-Ranking under Temporal Constraints, Lidan Wang, Donald Metzler and Jimmy Lin
+Delineating Imprecise Regions via Shortest-Path Graphs
+Mark de Berg
+TU Eindhoven
+Wouter Meulemans
+TU Eindhoven
+Bettina Speckmann
+TU Eindhoven
 >
-Examining the Information Retrieval Process from an Inductive Perspective, Ronan Cummins, Mounia Lalmas and Colm O'Riordan
+Exact and Approximate Computations of Watersheds on Triangulated Terrains
+Constantinos Tsirogiannis
+TU Eindhoven
+Mark de Berg
+TU Eindhoven
 >
-On Identifying Representative Relevant Documents, Fiana Raiber and Oren Kurland
+Flow on Noisy Terrains: An Experimental Evaluation
+Constantinos Tsirogiannis
+TU Eindhoven
+Herman Haverkort
+TU Eindhoven
 >
-On the Selectivity of Multidimensional Routing Indices, Christos Doulkeridis, Akrivi Vlachou, Kjetil Noervaag, Yannis Kotidis and Michalis Vazirgiannis
+Privacy-Preserving Assessment of Location Data Trustworthiness
+Chenyun Dai
+Purdue University
+Fang-Yu Rao
+Purdue University
+Gabriel Ghinita
+Purdue University
+Elisa Bertino
+Purdue University
 >
-Path-Hop: Efficiently Indexing Large Graphs for Reachability Queries, Jing Cai and Chung Keung Poon
+Data-Driven Trajectory Smoothing
+Daniel Chen
+Stanford University
+Leo Guibas
+Stanford University
+Xiaoye Jiang
+Stanford University
 >
-On Wavelet Decomposition of Uncertain Time Series Data Sets, Yuchen Zhao, Charu Aggarwal and Philip Yu
+Constructing Geo-Ontologies by Reification of Observation Data
+Benjamin Adams
+University of California
+Krzysztof Janowicz
+University of California
 >
-Efficient Set-Correlation Operator inside Databases, Shaoxu Song and Lei Chen
+EnAcq: Energy-efficient Trajectory Data Acquisition Based on Improved Map Matching
+Shunkai Fang
+National University of Singapore
+Roger Zimmermann
+National University of Singapore
 >
-Online Update of B-trees, Marina Barsky, Alex Thomo, Zoltan Toth and Calisto Zuzarte
+A splitting line model for directional relations
+Kevin Buchin
+TU Eindhoven
+Vincent Kusters
+TU Eindhoven
+Bettina Speckmann
+TU Eindhoven
+Frank Staals
+TU Eindhoven
 >
-Wisdom of the Ages: Toward Delivering the Children's Web with the Link-based AgeRank Algorithm, Karl Gyllstrom and Marie-Francine Moens
+Natural Neighbor Interpolation on a 3D Grid using a GPU
+Arnold Boedihardjo
+Engineer Research and Development Center
+James Shine
+Engineer Research and Development Center
 >
-A Cross-lingual Framework for Monolingual Biomedical Information Retrieval, Dolf Trieschnigg, Djoerd Hiemstra, Franciska de Jong and Wessel Kraaij
->
-Multi-Modal Multi-Correlation Personal News Retrieval, Zechao Li, Jing Liu, Xiaobin Zhu and Hanqing Lu
->
-Bringing Order to Your Photos: Event-Driven Classification of Flickr Images Based on Social Knowledge, Claudiu Firan, Mihai Georgescu, Wolfgang Nejdl and Raluca Paiu
->
-Mining Topic-Level Influence in Heterogeneous Networks, Lu Liu, Jie Tang, Meng Jiang, Jiawei Han and Shiqiang Yang
->
-Mining Interesting Link Formation Rules in Social Networks, Cane Wing-ki Leung, Ee-Peng Lim, David Lo and Jianshu Weng
->
-SHRINK: A Structural Clustering Algorithm for Detecting Hierarchical Communities in Networks, Jianbin Huang, Heli Sun, Jiawei Han, Hongbo Deng and Yizhou Sun
->
-Outcome Aware Ranking in Interaction Networks, S Kameshwaran, Sameep Mehta and Vinayaka  Pandit
->
-Expansion and Search in Networks, Arun Maiya and Tanya Berger-Wolf
+Semantic Trajectory Mining for Next Location Prediction
+Jia-Ching Ying
+National Cheng Kung University
+Tz-Chiao Weng
+National Cheng Kung University
+Vincent Tseng
+National Cheng Kung University
 >
 EOF

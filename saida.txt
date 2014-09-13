@@ -1,1936 +1,268 @@
-FindinINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'g ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'shuo\.shang\@queensland\.edu' and I\.idPart = P\.idPe;')thINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'e ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'shuo\.shang\@queensland\.edu' and I\.idPart = P\.idPe;')MosINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	't ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'shuo\.shang\@queensland\.edu' and I\.idPart = P\.idPe;')AccessiblINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'e ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'shuo\.shang\@queensland\.edu' and I\.idPart = P\.idPe;')LocationINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	's ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'shuo\.shang\@queensland\.edu' and I\.idPart = P\.idPe;')- ReversINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'e ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'shuo\.shang\@queensland\.edu' and I\.idPart = P\.idPe;')PatINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'h ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'shuo\.shang\@queensland\.edu' and I\.idPart = P\.idPe;')NearesINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	't ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'shuo\.shang\@queensland\.edu' and I\.idPart = P\.idPe;')NeighboINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'r ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'shuo\.shang\@queensland\.edu' and I\.idPart = P\.idPe;')QuerINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'y ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'shuo\.shang\@queensland\.edu' and I\.idPart = P\.idPe;')iINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'n ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'shuo\.shang\@queensland\.edu' and I\.idPart = P\.idPe;')RoaINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'd ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'shuo\.shang\@queensland\.edu' and I\.idPart = P\.idPe;')Networks
-
-DiscoverinINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'g ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'xun\.zhou\@minnesota\.edu' and I\.idPart = P\.idPe;')InterestinINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'g ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'xun\.zhou\@minnesota\.edu' and I\.idPart = P\.idPe;')Sub-pathINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	's ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'xun\.zhou\@minnesota\.edu' and I\.idPart = P\.idPe;')iINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'n ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'xun\.zhou\@minnesota\.edu' and I\.idPart = P\.idPe;')SpatiotemporaINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'l ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'xun\.zhou\@minnesota\.edu' and I\.idPart = P\.idPe;')Datasets: INSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'A ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'xun\.zhou\@minnesota\.edu' and I\.idPart = P\.idPe;')SummarINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'y ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'xun\.zhou\@minnesota\.edu' and I\.idPart = P\.idPe;')oINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'f ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'xun\.zhou\@minnesota\.edu' and I\.idPart = P\.idPe;')Results
-
-FasINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	't ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'jia\.pan\@unc\.edu' and I\.idPart = P\.idPe;')GPU-baseINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'd ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'jia\.pan\@unc\.edu' and I\.idPart = P\.idPe;')LocalitINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'y ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'jia\.pan\@unc\.edu' and I\.idPart = P\.idPe;')SensitivINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'e ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'jia\.pan\@unc\.edu' and I\.idPart = P\.idPe;')HashinINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'g ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'jia\.pan\@unc\.edu' and I\.idPart = P\.idPe;')foINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'r ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'jia\.pan\@unc\.edu' and I\.idPart = P\.idPe;')K-NearesINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	't ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'jia\.pan\@unc\.edu' and I\.idPart = P\.idPe;')NeighboINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'r ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'jia\.pan\@unc\.edu' and I\.idPart = P\.idPe;')Computation
-
+--Artigo Improving Passage Ranking with User Behavior Information
+INSERT INTO pessoa(IDPE, NOMEPE, EMAILPE, INSTITUICAOPE, TELEFONEPE, NACIONALIDADEPE, ENDERECOPE, TIPOORGANIZADOR, TIPOPARTICIPANTE, TIPOAUTOR)
+  values(
+	SEQ_IDPE_PESSOA.NEXTVAL,
+	'Weize Kong',
+	'kong@umassp.edu',
+	'University of Massachusetts',
+	'+413(545)0111-0000',
+	'American',
+	'Amherst, MA 01003, United States',
+	'0',
+	'1',
+	'1'
+	);
+/
+--Inscrito - apresentador:
+INSERT INTO inscrito(codEv, numEd, idPart, dataInsc, tipoApresentador)
+  values(
+	2,
+	21,
+	(SELECT P.idPe FROM pessoa P WHERE P.emailPe = 'kong@umassp.edu'),
+	TO_DATE('10/10/2013', 'DD/MM/YYYY'),
+	'1'
+	);
+/
+--Artigo
 INSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'A ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'pradeep\.mohan\@minnesota\.edu' and I\.idPart = P\.idPe;')spatiaINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'l ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'pradeep\.mohan\@minnesota\.edu' and I\.idPart = P\.idPe;')neighborhooINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'd ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'pradeep\.mohan\@minnesota\.edu' and I\.idPart = P\.idPe;')grapINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'h ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'pradeep\.mohan\@minnesota\.edu' and I\.idPart = P\.idPe;')approacINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'h ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'pradeep\.mohan\@minnesota\.edu' and I\.idPart = P\.idPe;')tINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'o ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'pradeep\.mohan\@minnesota\.edu' and I\.idPart = P\.idPe;')regionaINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'l ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'pradeep\.mohan\@minnesota\.edu' and I\.idPart = P\.idPe;')co-locatioINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'n ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'pradeep\.mohan\@minnesota\.edu' and I\.idPart = P\.idPe;')patterINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'n ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'pradeep\.mohan\@minnesota\.edu' and I\.idPart = P\.idPe;')discovery: INSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'A ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'pradeep\.mohan\@minnesota\.edu' and I\.idPart = P\.idPe;')summarINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'y ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'pradeep\.mohan\@minnesota\.edu' and I\.idPart = P\.idPe;')oINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'f ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'pradeep\.mohan\@minnesota\.edu' and I\.idPart = P\.idPe;')results
-
-SimilaritINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'y ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'marco\.adelfio\@maryland\.edu' and I\.idPart = P\.idPe;')SearcINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'h ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'marco\.adelfio\@maryland\.edu' and I\.idPart = P\.idPe;')oINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'a ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'marco\.adelfio\@maryland\.edu' and I\.idPart = P\.idPe;')LargINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'e ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'marco\.adelfio\@maryland\.edu' and I\.idPart = P\.idPe;')CollectioINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'n ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'marco\.adelfio\@maryland\.edu' and I\.idPart = P\.idPe;')oINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'f ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'marco\.adelfio\@maryland\.edu' and I\.idPart = P\.idPe;')PoinINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	't ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'marco\.adelfio\@maryland\.edu' and I\.idPart = P\.idPe;')Sets
-
-Pedestrian-movemenINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	't ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'akinori\.asahara\@hitachi\.edu' and I\.idPart = P\.idPe;')PredictioINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'n ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'akinori\.asahara\@hitachi\.edu' and I\.idPart = P\.idPe;')baseINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'd ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'akinori\.asahara\@hitachi\.edu' and I\.idPart = P\.idPe;')oINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'n ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'akinori\.asahara\@hitachi\.edu' and I\.idPart = P\.idPe;')MixeINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'd ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'akinori\.asahara\@hitachi\.edu' and I\.idPart = P\.idPe;')Markov-chaiINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'n ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'akinori\.asahara\@hitachi\.edu' and I\.idPart = P\.idPe;')Model
-
-LearninINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'g ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'defu\.lian\@science\.edu' and I\.idPart = P\.idPe;')LocatioINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'n ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'defu\.lian\@science\.edu' and I\.idPart = P\.idPe;')NaminINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'g ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'defu\.lian\@science\.edu' and I\.idPart = P\.idPe;')froINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'm ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'defu\.lian\@science\.edu' and I\.idPart = P\.idPe;')UseINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'r ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'defu\.lian\@science\.edu' and I\.idPart = P\.idPe;')Check-IINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'n ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'defu\.lian\@science\.edu' and I\.idPart = P\.idPe;')Histories
-
-NaturaINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'l ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'alex\.beutel\@carnegie\.edu' and I\.idPart = P\.idPe;')NeighboINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'r ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'alex\.beutel\@carnegie\.edu' and I\.idPart = P\.idPe;')InterpolatioINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'n ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'alex\.beutel\@carnegie\.edu' and I\.idPart = P\.idPe;')oINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'a ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'alex\.beutel\@carnegie\.edu' and I\.idPart = P\.idPe;')3INSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'D ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'alex\.beutel\@carnegie\.edu' and I\.idPart = P\.idPe;')GriINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'd ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'alex\.beutel\@carnegie\.edu' and I\.idPart = P\.idPe;')usinINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'a ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'alex\.beutel\@carnegie\.edu' and I\.idPart = P\.idPe;')GPU
-
-PlanaINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'r ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'philipp\.meixner\@graz\.edu' and I\.idPart = P\.idPe;')SegmentINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	's ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'philipp\.meixner\@graz\.edu' and I\.idPart = P\.idPe;')oINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'f ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'philipp\.meixner\@graz\.edu' and I\.idPart = P\.idPe;')BuildinINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'g ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'philipp\.meixner\@graz\.edu' and I\.idPart = P\.idPe;')RoofINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	's ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'philipp\.meixner\@graz\.edu' and I\.idPart = P\.idPe;')froINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'm ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'philipp\.meixner\@graz\.edu' and I\.idPart = P\.idPe;')AeriaINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'l ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'philipp\.meixner\@graz\.edu' and I\.idPart = P\.idPe;')Photogrammetry
-
-PatINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'h ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'stefan\.funke\@stuttgart\.edu' and I\.idPart = P\.idPe;')ShapeINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	's ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'stefan\.funke\@stuttgart\.edu' and I\.idPart = P\.idPe;')- AINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'n ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'stefan\.funke\@stuttgart\.edu' and I\.idPart = P\.idPe;')AlternativINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'e ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'stefan\.funke\@stuttgart\.edu' and I\.idPart = P\.idPe;')MethoINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'd ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'stefan\.funke\@stuttgart\.edu' and I\.idPart = P\.idPe;')foINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'r ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'stefan\.funke\@stuttgart\.edu' and I\.idPart = P\.idPe;')MaINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'p ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'stefan\.funke\@stuttgart\.edu' and I\.idPart = P\.idPe;')MatchinINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'g ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'stefan\.funke\@stuttgart\.edu' and I\.idPart = P\.idPe;')anINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'd ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'stefan\.funke\@stuttgart\.edu' and I\.idPart = P\.idPe;')FullINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'y ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'stefan\.funke\@stuttgart\.edu' and I\.idPart = P\.idPe;')AutonomouINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	's ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'stefan\.funke\@stuttgart\.edu' and I\.idPart = P\.idPe;')Self-Localization
-
-SemantiINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'c ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'ching\.ying\@national\.edu' and I\.idPart = P\.idPe;')TrajectorINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'y ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'ching\.ying\@national\.edu' and I\.idPart = P\.idPe;')MininINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'g ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'ching\.ying\@national\.edu' and I\.idPart = P\.idPe;')foINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'r ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'ching\.ying\@national\.edu' and I\.idPart = P\.idPe;')NexINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	't ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'ching\.ying\@national\.edu' and I\.idPart = P\.idPe;')LocatioINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'n ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'ching\.ying\@national\.edu' and I\.idPart = P\.idPe;')Prediction
-
-MediaINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'n ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'marc\.van\@utrecht\.edu' and I\.idPart = P\.idPe;')trajectorieINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	's ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'marc\.van\@utrecht\.edu' and I\.idPart = P\.idPe;')usinINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'g ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'marc\.van\@utrecht\.edu' and I\.idPart = P\.idPe;')well-visiteINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'd ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'marc\.van\@utrecht\.edu' and I\.idPart = P\.idPe;')regionINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	's ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'marc\.van\@utrecht\.edu' and I\.idPart = P\.idPe;')anINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'd ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'marc\.van\@utrecht\.edu' and I\.idPart = P\.idPe;')shortesINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	't ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'marc\.van\@utrecht\.edu' and I\.idPart = P\.idPe;')paths
-
-OINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'n ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'yunjun\.gao\@zhejiang\.edu' and I\.idPart = P\.idPe;')EfficienINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	't ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'yunjun\.gao\@zhejiang\.edu' and I\.idPart = P\.idPe;')ObstructeINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'd ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'yunjun\.gao\@zhejiang\.edu' and I\.idPart = P\.idPe;')ReversINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'e ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'yunjun\.gao\@zhejiang\.edu' and I\.idPart = P\.idPe;')NearesINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	't ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'yunjun\.gao\@zhejiang\.edu' and I\.idPart = P\.idPe;')NeighboINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'r ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'yunjun\.gao\@zhejiang\.edu' and I\.idPart = P\.idPe;')QuerINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'y ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'yunjun\.gao\@zhejiang\.edu' and I\.idPart = P\.idPe;')Processing
-
+	SELECT SEQ_IDART_ARTIGO.NEXTVAL,
+	'Improving Passage Ranking with User Behavior Information',
+	TO_DATE('7/11/2013', 'DD/MM/YYYY'),
+	TO_TIMESTAMP('7/11/2013, 9:30:00','DD/MM/YYYY, HH24:MI:SS'),
+	I.codEv,
+	I.numEd,
+	I.idPart FROM inscrito I, pessoa P
+	WHERE P.emailPe = 'kong@umassp.edu' and I.idPart = P.idPe and P.tipoParticipante = '1';
+/
+--Escreve
+INSERT INTO escreve (idAutor, idArt)
+	SELECT P.idPe,
+	SEQ_IDART_ARTIGO.CURRVAL
+	FROM pessoa P
+	WHERE P.emailPe='kong@umassp.edu';
+/
+INSERT INTO pessoa(IDPE, NOMEPE, EMAILPE, INSTITUICAOPE, TELEFONEPE, NACIONALIDADEPE, ENDERECOPE, TIPOORGANIZADOR, TIPOPARTICIPANTE, TIPOAUTOR)
+  values(
+	SEQ_IDPE_PESSOA.NEXTVAL,
+	'Elif Aktolga',
+	'aktolga@umassp.edu',
+	'University of Massachusetts',
+	'+413(545)0111-0000',
+	'American',
+	'Amherst, MA 01003, United States',
+	'0',
+	'1',
+	'1'
+	);
+/
+--Inscrito
+INSERT INTO inscrito(codEv, numEd, idPart, dataInsc, tipoApresentador)
+  values(
+	2,
+	21,
+	(SELECT P.idPe FROM pessoa P WHERE P.emailPe = 'aktolga@umassp.edu'),
+	TO_DATE('10/10/2013', 'DD/MM/YYYY'),
+	'0'
+	);
+/
+--Escreve
+INSERT INTO escreve (idAutor, idArt)
+	SELECT P.idPe,
+	SEQ_IDART_ARTIGO.CURRVAL
+	FROM pessoa P
+	WHERE P.emailPe='aktolga@umassp.edu';
+/
+INSERT INTO pessoa(IDPE, NOMEPE, EMAILPE, INSTITUICAOPE, TELEFONEPE, NACIONALIDADEPE, ENDERECOPE, TIPOORGANIZADOR, TIPOPARTICIPANTE, TIPOAUTOR)
+  values(
+	SEQ_IDPE_PESSOA.NEXTVAL,
+	'James Allan',
+	'allan@umassp.edu',
+	'University of Massachusetts',
+	'+413(545)0111-0000',
+	'American',
+	'Amherst, MA 01003, United States',
+	'0',
+	'1',
+	'1'
+	);
+/
+--Inscrito
+INSERT INTO inscrito(codEv, numEd, idPart, dataInsc, tipoApresentador)
+  values(
+	2,
+	21,
+	(SELECT P.idPe FROM pessoa P WHERE P.emailPe = 'allan@umassp.edu'),
+	TO_DATE('10/10/2013', 'DD/MM/YYYY'),
+	'0'
+	);
+/
+--Escreve
+INSERT INTO escreve (idAutor, idArt)
+	SELECT P.idPe,
+	SEQ_IDART_ARTIGO.CURRVAL
+	FROM pessoa P
+	WHERE P.emailPe='allan@umassp.edu';
+/
+--Artigo Discovering and Managing Quantitative Association Rules
+INSERT INTO pessoa(IDPE, NOMEPE, EMAILPE, INSTITUICAOPE, TELEFONEPE, NACIONALIDADEPE, ENDERECOPE, TIPOORGANIZADOR, TIPOPARTICIPANTE, TIPOAUTOR)
+  values(
+	SEQ_IDPE_PESSOA.NEXTVAL,
+	'Chunyao Song',
+	'song@umassp.edu',
+	'University of Massachusetts',
+	'+413(545)0111-0000',
+	'American',
+	'Amherst, MA 01003, United States',
+	'0',
+	'1',
+	'1'
+	);
+/
+--Inscrito - apresentador:
+INSERT INTO inscrito(codEv, numEd, idPart, dataInsc, tipoApresentador)
+  values(
+	2,
+	21,
+	(SELECT P.idPe FROM pessoa P WHERE P.emailPe = 'song@umassp.edu'),
+	TO_DATE('10/10/2013', 'DD/MM/YYYY'),
+	'1'
+	);
+/
+--Artigo
 INSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'A ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'kevin\.buchin\@tu\.edu' and I\.idPart = P\.idPe;')splittinINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'g ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'kevin\.buchin\@tu\.edu' and I\.idPart = P\.idPe;')linINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'e ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'kevin\.buchin\@tu\.edu' and I\.idPart = P\.idPe;')modeINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'l ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'kevin\.buchin\@tu\.edu' and I\.idPart = P\.idPe;')foINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'r ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'kevin\.buchin\@tu\.edu' and I\.idPart = P\.idPe;')directionaINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'l ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'kevin\.buchin\@tu\.edu' and I\.idPart = P\.idPe;')relations
-
-ConflatioINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'n ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'jiantong\.zhang\@tum\.edu' and I\.idPart = P\.idPe;')oINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'f ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'jiantong\.zhang\@tum\.edu' and I\.idPart = P\.idPe;')RoaINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'd ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'jiantong\.zhang\@tum\.edu' and I\.idPart = P\.idPe;')NetworINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'k ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'jiantong\.zhang\@tum\.edu' and I\.idPart = P\.idPe;')anINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'd ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'jiantong\.zhang\@tum\.edu' and I\.idPart = P\.idPe;')Geo-referenceINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'd ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'jiantong\.zhang\@tum\.edu' and I\.idPart = P\.idPe;')ImagINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'e ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'jiantong\.zhang\@tum\.edu' and I\.idPart = P\.idPe;')UsinINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'g ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'jiantong\.zhang\@tum\.edu' and I\.idPart = P\.idPe;')SparsINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'e ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'jiantong\.zhang\@tum\.edu' and I\.idPart = P\.idPe;')Matching
-
-TransportatioINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'n ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'leon\.stenneth\@illinois\.edu' and I\.idPart = P\.idPe;')ModINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'e ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'leon\.stenneth\@illinois\.edu' and I\.idPart = P\.idPe;')DetectioINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'n ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'leon\.stenneth\@illinois\.edu' and I\.idPart = P\.idPe;')usinINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'g ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'leon\.stenneth\@illinois\.edu' and I\.idPart = P\.idPe;')MobilINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'e ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'leon\.stenneth\@illinois\.edu' and I\.idPart = P\.idPe;')DeviceINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	's ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'leon\.stenneth\@illinois\.edu' and I\.idPart = P\.idPe;')anINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'd ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'leon\.stenneth\@illinois\.edu' and I\.idPart = P\.idPe;')GIINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'S ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'leon\.stenneth\@illinois\.edu' and I\.idPart = P\.idPe;')Information
-
-ConstructinINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'g ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'benjamin\.adams\@california\.edu' and I\.idPart = P\.idPe;')Geo-OntologieINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	's ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'benjamin\.adams\@california\.edu' and I\.idPart = P\.idPe;')bINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'y ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'benjamin\.adams\@california\.edu' and I\.idPart = P\.idPe;')ReificatioINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'n ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'benjamin\.adams\@california\.edu' and I\.idPart = P\.idPe;')oINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'f ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'benjamin\.adams\@california\.edu' and I\.idPart = P\.idPe;')ObservatioINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'n ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'benjamin\.adams\@california\.edu' and I\.idPart = P\.idPe;')Data
-
-Multi-Approximate-KeyworINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'd ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'bin\.yao\@shanghai\.edu' and I\.idPart = P\.idPe;')RoutinINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'g ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'bin\.yao\@shanghai\.edu' and I\.idPart = P\.idPe;')iINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'n ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'bin\.yao\@shanghai\.edu' and I\.idPart = P\.idPe;')GIINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'S ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'bin\.yao\@shanghai\.edu' and I\.idPart = P\.idPe;')Data
-
-WhaINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	't ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'mao\.ye\@pennsylvania\.edu' and I\.idPart = P\.idPe;')YoINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'u ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'mao\.ye\@pennsylvania\.edu' and I\.idPart = P\.idPe;')ArINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'e ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'mao\.ye\@pennsylvania\.edu' and I\.idPart = P\.idPe;')iINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	's ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'mao\.ye\@pennsylvania\.edu' and I\.idPart = P\.idPe;')WheINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'n ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'mao\.ye\@pennsylvania\.edu' and I\.idPart = P\.idPe;')YoINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'u ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'mao\.ye\@pennsylvania\.edu' and I\.idPart = P\.idPe;')ArINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'e ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'mao\.ye\@pennsylvania\.edu' and I\.idPart = P\.idPe;')- ThINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'e ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'mao\.ye\@pennsylvania\.edu' and I\.idPart = P\.idPe;')TemporaINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'l ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'mao\.ye\@pennsylvania\.edu' and I\.idPart = P\.idPe;')DimensioINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'n ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'mao\.ye\@pennsylvania\.edu' and I\.idPart = P\.idPe;')oINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'f ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'mao\.ye\@pennsylvania\.edu' and I\.idPart = P\.idPe;')FeaturINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'e ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'mao\.ye\@pennsylvania\.edu' and I\.idPart = P\.idPe;')TypeINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	's ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'mao\.ye\@pennsylvania\.edu' and I\.idPart = P\.idPe;')iINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'n ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'mao\.ye\@pennsylvania\.edu' and I\.idPart = P\.idPe;')Location-baseINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'd ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'mao\.ye\@pennsylvania\.edu' and I\.idPart = P\.idPe;')SociaINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'l ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'mao\.ye\@pennsylvania\.edu' and I\.idPart = P\.idPe;')Networks
-
-EnAcq: Energy-efficienINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	't ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'shunkai\.fang\@national\.edu' and I\.idPart = P\.idPe;')TrajectorINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'y ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'shunkai\.fang\@national\.edu' and I\.idPart = P\.idPe;')DatINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'a ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'shunkai\.fang\@national\.edu' and I\.idPart = P\.idPe;')AcquisitioINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'n ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'shunkai\.fang\@national\.edu' and I\.idPart = P\.idPe;')BaseINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'd ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'shunkai\.fang\@national\.edu' and I\.idPart = P\.idPe;')oINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'n ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'shunkai\.fang\@national\.edu' and I\.idPart = P\.idPe;')ImproveINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'd ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'shunkai\.fang\@national\.edu' and I\.idPart = P\.idPe;')MaINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'p ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'shunkai\.fang\@national\.edu' and I\.idPart = P\.idPe;')Matching
-
-Data-DriveINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'n ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'frederic\.chazal\@inria\.edu' and I\.idPart = P\.idPe;')TrajectorINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'y ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'frederic\.chazal\@inria\.edu' and I\.idPart = P\.idPe;')Smoothing
-
-Privacy-PreservinINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'g ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'chenyun\.dai\@purdue\.edu' and I\.idPart = P\.idPe;')AssessmenINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	't ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'chenyun\.dai\@purdue\.edu' and I\.idPart = P\.idPe;')oINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'f ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'chenyun\.dai\@purdue\.edu' and I\.idPart = P\.idPe;')LocatioINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'n ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'chenyun\.dai\@purdue\.edu' and I\.idPart = P\.idPe;')DatINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'a ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'chenyun\.dai\@purdue\.edu' and I\.idPart = P\.idPe;')Trustworthiness
-
-KinetiINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'c ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'walied\.othman\@ifgi\.edu' and I\.idPart = P\.idPe;')space-timINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'e ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'walied\.othman\@ifgi\.edu' and I\.idPart = P\.idPe;')prisms
-
-ExacINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	't ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'constantinos\.tsirogiannis\@tu\.edu' and I\.idPart = P\.idPe;')anINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'd ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'constantinos\.tsirogiannis\@tu\.edu' and I\.idPart = P\.idPe;')ApproximatINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'e ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'constantinos\.tsirogiannis\@tu\.edu' and I\.idPart = P\.idPe;')ComputationINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	's ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'constantinos\.tsirogiannis\@tu\.edu' and I\.idPart = P\.idPe;')oINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'f ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'constantinos\.tsirogiannis\@tu\.edu' and I\.idPart = P\.idPe;')WatershedINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	's ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'constantinos\.tsirogiannis\@tu\.edu' and I\.idPart = P\.idPe;')oINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'n ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'constantinos\.tsirogiannis\@tu\.edu' and I\.idPart = P\.idPe;')TriangulateINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'd ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'constantinos\.tsirogiannis\@tu\.edu' and I\.idPart = P\.idPe;')Terrains
-
-FloINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'w ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'constantinos\.tsirogiannis\@tu\.edu' and I\.idPart = P\.idPe;')oINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'n ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'constantinos\.tsirogiannis\@tu\.edu' and I\.idPart = P\.idPe;')NoisINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'y ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'constantinos\.tsirogiannis\@tu\.edu' and I\.idPart = P\.idPe;')Terrains: AINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'n ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'constantinos\.tsirogiannis\@tu\.edu' and I\.idPart = P\.idPe;')ExperimentaINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'l ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'constantinos\.tsirogiannis\@tu\.edu' and I\.idPart = P\.idPe;')Evaluation
-
-EvaluatinINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'g ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'matthias\.westphal\@freiburg\.edu' and I\.idPart = P\.idPe;')anINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'd ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'matthias\.westphal\@freiburg\.edu' and I\.idPart = P\.idPe;')MinimizinINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'g ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'matthias\.westphal\@freiburg\.edu' and I\.idPart = P\.idPe;')AmbiguitieINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	's ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'matthias\.westphal\@freiburg\.edu' and I\.idPart = P\.idPe;')iINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'n ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'matthias\.westphal\@freiburg\.edu' and I\.idPart = P\.idPe;')QualitativINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'e ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'matthias\.westphal\@freiburg\.edu' and I\.idPart = P\.idPe;')RoutINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'e ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'matthias\.westphal\@freiburg\.edu' and I\.idPart = P\.idPe;')Instructions
-
-Boundary-LabelinINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'g ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'andreas\.gemsa\@kit\.edu' and I\.idPart = P\.idPe;')AlgorithmINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	's ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'andreas\.gemsa\@kit\.edu' and I\.idPart = P\.idPe;')foINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'r ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'andreas\.gemsa\@kit\.edu' and I\.idPart = P\.idPe;')PanoramINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'a ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'andreas\.gemsa\@kit\.edu' and I\.idPart = P\.idPe;')Images
-
-ThINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'e ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'kenneth\.weiss\@maryland\.edu' and I\.idPart = P\.idPe;')PR-staINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'r ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'kenneth\.weiss\@maryland\.edu' and I\.idPart = P\.idPe;')octree: INSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'A ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'kenneth\.weiss\@maryland\.edu' and I\.idPart = P\.idPe;')spatio-topologicaINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'l ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'kenneth\.weiss\@maryland\.edu' and I\.idPart = P\.idPe;')datINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'a ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'kenneth\.weiss\@maryland\.edu' and I\.idPart = P\.idPe;')structurINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'e ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'kenneth\.weiss\@maryland\.edu' and I\.idPart = P\.idPe;')foINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'r ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'kenneth\.weiss\@maryland\.edu' and I\.idPart = P\.idPe;')tetrahedraINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'l ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'kenneth\.weiss\@maryland\.edu' and I\.idPart = P\.idPe;')meshes
-
+	SELECT SEQ_IDART_ARTIGO.NEXTVAL,
+	'Discovering and Managing Quantitative Association Rules',
+	TO_DATE('7/11/2013', 'DD/MM/YYYY'),
+	TO_TIMESTAMP('7/11/2013, 9:30:00','DD/MM/YYYY, HH24:MI:SS'),
+	I.codEv,
+	I.numEd,
+	I.idPart FROM inscrito I, pessoa P
+	WHERE P.emailPe = 'song@umassp.edu' and I.idPart = P.idPe and P.tipoParticipante = '1';
+/
+--Escreve
+INSERT INTO escreve (idAutor, idArt)
+	SELECT P.idPe,
+	SEQ_IDART_ARTIGO.CURRVAL
+	FROM pessoa P
+	WHERE P.emailPe='song@umassp.edu';
+/
+INSERT INTO pessoa(IDPE, NOMEPE, EMAILPE, INSTITUICAOPE, TELEFONEPE, NACIONALIDADEPE, ENDERECOPE, TIPOORGANIZADOR, TIPOPARTICIPANTE, TIPOAUTOR)
+  values(
+	SEQ_IDPE_PESSOA.NEXTVAL,
+	'Tingjian Ge',
+	'ge@umassp.edu',
+	'University of Massachusetts',
+	'+413(545)0111-0000',
+	'American',
+	'Amherst, MA 01003, United States',
+	'0',
+	'1',
+	'1'
+	);
+/
+--Inscrito
+INSERT INTO inscrito(codEv, numEd, idPart, dataInsc, tipoApresentador)
+  values(
+	2,
+	21,
+	(SELECT P.idPe FROM pessoa P WHERE P.emailPe = 'ge@umassp.edu'),
+	TO_DATE('10/10/2013', 'DD/MM/YYYY'),
+	'0'
+	);
+/
+--Escreve
+INSERT INTO escreve (idAutor, idArt)
+	SELECT P.idPe,
+	SEQ_IDART_ARTIGO.CURRVAL
+	FROM pessoa P
+	WHERE P.emailPe='ge@umassp.edu';
+/
+--Artigo Query Execution Timing: Taming Real-time Anytime Queries on Multicore Processors
+--Artigo
 INSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'A ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'kevin\.buchin\@tu\.edu' and I\.idPart = P\.idPe;')NeINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'w ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'kevin\.buchin\@tu\.edu' and I\.idPart = P\.idPe;')MethoINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'd ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'kevin\.buchin\@tu\.edu' and I\.idPart = P\.idPe;')foINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'r ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'kevin\.buchin\@tu\.edu' and I\.idPart = P\.idPe;')SubdivisioINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'n ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'kevin\.buchin\@tu\.edu' and I\.idPart = P\.idPe;')SimplificatioINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'n ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'kevin\.buchin\@tu\.edu' and I\.idPart = P\.idPe;')witINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'h ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'kevin\.buchin\@tu\.edu' and I\.idPart = P\.idPe;')ApplicationINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	's ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'kevin\.buchin\@tu\.edu' and I\.idPart = P\.idPe;')tINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'o ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'kevin\.buchin\@tu\.edu' and I\.idPart = P\.idPe;')Urban-AreINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'a ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'kevin\.buchin\@tu\.edu' and I\.idPart = P\.idPe;')Generalization
-
-DelineatinINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'g ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'mark\.de\@tu\.edu' and I\.idPart = P\.idPe;')ImprecisINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'e ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'mark\.de\@tu\.edu' and I\.idPart = P\.idPe;')RegionINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	's ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'mark\.de\@tu\.edu' and I\.idPart = P\.idPe;')viINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'a ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'mark\.de\@tu\.edu' and I\.idPart = P\.idPe;')Shortest-PatINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'h ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'mark\.de\@tu\.edu' and I\.idPart = P\.idPe;')Graphs
-
-ExploratioINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'n ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'christian\.sengstock\@heidelberg\.edu' and I\.idPart = P\.idPe;')anINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'd ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'christian\.sengstock\@heidelberg\.edu' and I\.idPart = P\.idPe;')ComparisoINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'n ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'christian\.sengstock\@heidelberg\.edu' and I\.idPart = P\.idPe;')oINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'f ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'christian\.sengstock\@heidelberg\.edu' and I\.idPart = P\.idPe;')GeographiINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'c ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'christian\.sengstock\@heidelberg\.edu' and I\.idPart = P\.idPe;')InformatioINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'n ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'christian\.sengstock\@heidelberg\.edu' and I\.idPart = P\.idPe;')SourceINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	's ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'christian\.sengstock\@heidelberg\.edu' and I\.idPart = P\.idPe;')usinINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'g ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'christian\.sengstock\@heidelberg\.edu' and I\.idPart = P\.idPe;')DistancINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'e ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'christian\.sengstock\@heidelberg\.edu' and I\.idPart = P\.idPe;')Statistics
-
-ParkinINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'g ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'daniel\.ayala\@illinois\.edu' and I\.idPart = P\.idPe;')SloINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	't ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'daniel\.ayala\@illinois\.edu' and I\.idPart = P\.idPe;')AssignmenINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	't ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'daniel\.ayala\@illinois\.edu' and I\.idPart = P\.idPe;')Games
-
-3INSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'D ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'hai\.huang\@leibniz\.edu' and I\.idPart = P\.idPe;')BuildinINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'g ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'hai\.huang\@leibniz\.edu' and I\.idPart = P\.idPe;')RooINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'f ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'hai\.huang\@leibniz\.edu' and I\.idPart = P\.idPe;')ReconstructioINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'n ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'hai\.huang\@leibniz\.edu' and I\.idPart = P\.idPe;')froINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'm ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'hai\.huang\@leibniz\.edu' and I\.idPart = P\.idPe;')PoinINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	't ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'hai\.huang\@leibniz\.edu' and I\.idPart = P\.idPe;')CloudINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	's ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'hai\.huang\@leibniz\.edu' and I\.idPart = P\.idPe;')viINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'a ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'hai\.huang\@leibniz\.edu' and I\.idPart = P\.idPe;')GenerativINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'e ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'hai\.huang\@leibniz\.edu' and I\.idPart = P\.idPe;')Models
-
-INSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'A ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'james\.bothwell\@oklahoma\.edu' and I\.idPart = P\.idPe;')Kinematics-baseINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'd ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'james\.bothwell\@oklahoma\.edu' and I\.idPart = P\.idPe;')GIINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'S ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'james\.bothwell\@oklahoma\.edu' and I\.idPart = P\.idPe;')MethodologINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'y ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'james\.bothwell\@oklahoma\.edu' and I\.idPart = P\.idPe;')tINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'o ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'james\.bothwell\@oklahoma\.edu' and I\.idPart = P\.idPe;')RepresenINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	't ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'james\.bothwell\@oklahoma\.edu' and I\.idPart = P\.idPe;')anINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'd ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'james\.bothwell\@oklahoma\.edu' and I\.idPart = P\.idPe;')AnalyzINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'e ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'james\.bothwell\@oklahoma\.edu' and I\.idPart = P\.idPe;')SpatiotemporaINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'l ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'james\.bothwell\@oklahoma\.edu' and I\.idPart = P\.idPe;')PatternINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	's ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'james\.bothwell\@oklahoma\.edu' and I\.idPart = P\.idPe;')oINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'f ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'james\.bothwell\@oklahoma\.edu' and I\.idPart = P\.idPe;')PrecipitatioINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'n ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'james\.bothwell\@oklahoma\.edu' and I\.idPart = P\.idPe;')Change
-
-Prox-RBAC: INSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'A ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'michael\.kirkpatrick\@purdue\.edu' and I\.idPart = P\.idPe;')Proximity-baseINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'd ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'michael\.kirkpatrick\@purdue\.edu' and I\.idPart = P\.idPe;')SpatiallINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'y ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'michael\.kirkpatrick\@purdue\.edu' and I\.idPart = P\.idPe;')AwarINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'e ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'michael\.kirkpatrick\@purdue\.edu' and I\.idPart = P\.idPe;')RBAC
-
-GeometriINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'c ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'joshua\.schpok\@google\.edu' and I\.idPart = P\.idPe;')OverpasINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	's ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'joshua\.schpok\@google\.edu' and I\.idPart = P\.idPe;')ExtractioINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'n ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'joshua\.schpok\@google\.edu' and I\.idPart = P\.idPe;')froINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'm ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'joshua\.schpok\@google\.edu' and I\.idPart = P\.idPe;')VectoINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'r ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'joshua\.schpok\@google\.edu' and I\.idPart = P\.idPe;')RoaINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'd ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'joshua\.schpok\@google\.edu' and I\.idPart = P\.idPe;')DatINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'a ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'joshua\.schpok\@google\.edu' and I\.idPart = P\.idPe;')anINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'd ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'joshua\.schpok\@google\.edu' and I\.idPart = P\.idPe;')DSMINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	's ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'joshua\.schpok\@google\.edu' and I\.idPart = P\.idPe;')(Industry)
-
-ParkinINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	'g ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'daniel\.ayala\@illinois\.edu' and I\.idPart = P\.idPe;')SloINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	't ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'daniel\.ayala\@illinois\.edu' and I\.idPart = P\.idPe;')AssignmenINSERT INTO artigo (IDART, TITULOART, DATAAPRESART, HORAAPRESART, CODEV, NUMED,IDAPR)
-	SELECT SEQ_IDART_ARTIGO\.NEXTVAL,
-	't ',
-	TO_DATE('30/08/2011', 'DD/MM/YYYY'),
-	TO_TIMESTAMP('10:30:00','HH24:MI:SS'), 
-	I\.codEv, 
-	I\.numEd, 
-	I\.idPart FROM inscrito I, pessoa P WHERE P\.emailPe = 'daniel\.ayala\@illinois\.edu' and I\.idPart = P\.idPe;')Games
-
+	SELECT SEQ_IDART_ARTIGO.NEXTVAL,
+	'Query Execution Timing: Taming Real-time Anytime Queries on Multicore Processors',
+	TO_DATE('7/11/2013', 'DD/MM/YYYY'),
+	TO_TIMESTAMP('7/11/2013, 9:30:00','DD/MM/YYYY, HH24:MI:SS'),
+	I.codEv,
+	I.numEd,
+	I.idPart FROM inscrito I, pessoa P
+	WHERE P.emailPe = 'song@umassp.edu' and I.idPart = P.idPe and P.tipoParticipante = '1';
+/
+--Escreve
+INSERT INTO escreve (idAutor, idArt)
+	SELECT P.idPe,
+	SEQ_IDART_ARTIGO.CURRVAL
+	FROM pessoa P
+	WHERE P.emailPe='song@umassp.edu';
+/
+INSERT INTO pessoa(IDPE, NOMEPE, EMAILPE, INSTITUICAOPE, TELEFONEPE, NACIONALIDADEPE, ENDERECOPE, TIPOORGANIZADOR, TIPOPARTICIPANTE, TIPOAUTOR)
+  values(
+	SEQ_IDPE_PESSOA.NEXTVAL,
+	'Zheng Li',
+	'li@umassp.edu',
+	'University of Massachusetts',
+	'+413(545)0111-0000',
+	'American',
+	'Amherst, MA 01003, United States',
+	'0',
+	'1',
+	'1'
+	);
+/
+--Inscrito
+INSERT INTO inscrito(codEv, numEd, idPart, dataInsc, tipoApresentador)
+  values(
+	2,
+	21,
+	(SELECT P.idPe FROM pessoa P WHERE P.emailPe = 'li@umassp.edu'),
+	TO_DATE('10/10/2013', 'DD/MM/YYYY'),
+	'0'
+	);
+/
+--Escreve
+INSERT INTO escreve (idAutor, idArt)
+	SELECT P.idPe,
+	SEQ_IDART_ARTIGO.CURRVAL
+	FROM pessoa P
+	WHERE P.emailPe='li@umassp.edu';
+/
+--Escreve
+INSERT INTO escreve (idAutor, idArt)
+	SELECT P.idPe,
+	SEQ_IDART_ARTIGO.CURRVAL
+	FROM pessoa P
+	WHERE P.emailPe='ge@umassp.edu';
+/
+INSERT INTO pessoa(IDPE, NOMEPE, EMAILPE, INSTITUICAOPE, TELEFONEPE, NACIONALIDADEPE, ENDERECOPE, TIPOORGANIZADOR, TIPOPARTICIPANTE, TIPOAUTOR)
+  values(
+	SEQ_IDPE_PESSOA.NEXTVAL,
+	'Jie Wang',
+	'wang@umassp.edu',
+	'University of Massachusetts',
+	'+413(545)0111-0000',
+	'American',
+	'Amherst, MA 01003, United States',
+	'0',
+	'1',
+	'1'
+	);
+/
+--Inscrito
+INSERT INTO inscrito(codEv, numEd, idPart, dataInsc, tipoApresentador)
+  values(
+	2,
+	21,
+	(SELECT P.idPe FROM pessoa P WHERE P.emailPe = 'wang@umassp.edu'),
+	TO_DATE('10/10/2013', 'DD/MM/YYYY'),
+	'0'
+	);
+/
+--Escreve
+INSERT INTO escreve (idAutor, idArt)
+	SELECT P.idPe,
+	SEQ_IDART_ARTIGO.CURRVAL
+	FROM pessoa P
+	WHERE P.emailPe='wang@umassp.edu';
+/
+9

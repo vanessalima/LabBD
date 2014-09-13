@@ -1,15 +1,15 @@
 02
-21
-07
-25
+18
+20
+20
 09
 10
+02
 05
-08
 11
 11
-2013
-36
+2010
+30
 University of California
 @uc.edu
 +413(805)0893-8000
@@ -160,151 +160,162 @@ University of Maryland
 +1(301)405-1000
 American
 College Park, MD 20742, United States
-Engineer Research and Development Center
-@army.gov
-+1(601)636-3111
-American
-3909 Halls Ferry Road - Vicksburg, MS 39180-6199
-Zhejiang University
-@zhejiang.edu
-+86(571)8517-2244
-Chinese
-38 Zheda Rd, Xihu, Hangzhou, Zhejiang, China, 310027
-TU Eindhoven
-@eindhoven.edu
-+31(40)247-9111
-Dutch
-5612 AZ Eindhoven, Netherlands
-National Cheng Kung University
-@cku.edu
-+886(6)275-7575
-Taiwan
-701, Taiwan, Tainan City, East District
-Heidelberg University
-@hu.edu
-+49(6)221-540
-German
-Grabengasse 1, 69117 Heidelberg, Germany
-An Opportunistic Client User Interface to Support Centralized Ride Share Planning
-Michael Rigby
-The University of Melbourne
-Stephan Winter
-The University of Melbourne
->
-Evaluating Eco-Driving Advice Using GPS/CANBus Data
-Karsten Jakobsen
-Aalborg University
-Sabrine C. H. Mouritsen
-Aalborg University
-Kristian Torp
-Aalborg University
->
-Energy-Optimal Routes for Electric Vehicles
-Moritz Baum
+Energy-Efficient Processing of Spatio-Temporal Queries in Wireless Sensor Networks
+Markus Bestehorn
 Karlsruhe Institute of Technology, IPD
-Julian Dibbelt
+Klemens Böhm
 Karlsruhe Institute of Technology, IPD
-Thomas Pajor
+Erik Buchmann
 Karlsruhe Institute of Technology, IPD
-Dorothea Wagner
+Stephan Kessler
 Karlsruhe Institute of Technology, IPD
 >
-Efficient Batch Processing of Proximity Queries by Optimized Probing
-Seyed Jalal Kazemitabar
+On Map Matching of Wireless Positioning Data: A Selective Look-ahead Approach 
+Matthew Weber
+Georgia Institute of Technology
+Ling Liu
+Georgia Institute of Technology
+Michael Covington
+Georgia Institute of Technology
+Peter Pesti
+Georgia Institute of Technology
+>
+Privacy-Preserving Data-Oblivious Geometric Algorithms for Geographic Data 
+David Eppstein
+University of California
+Michael Goodrich
+University of California
+>
+Best Point Detour Query in Road Networks 
+Shuo Shang
+University of Queensland
+Ke Deng
+University of Queensland
+kexin Xie
+University of Queensland
+>
+Verifying Spatial Queries using Voronoi Neighbors 
+Ling Hu
+USC
+Cyrus Shahabi
+USC
+>
+Local Network Voronoi Diagram 
+Sarana Nutanong
+University of Melbourne
+Egemen Tanin
+University of Melbourne
+Mohammed Eunus Ali
+University of Melbourne
+Lars Kulik
+University of Melbourne
+>
+Scalable Shortest Paths Browsing on Land Surface 
+Songhua Xing
+USC
+Cyrus Shahabi
+USC
+>
+An Algorithmic Framework for Segmenting Trajectories based on Spatio-Temporal Criteria 
+Maike Buchin
+Utrecht University
+Anne Driemel
+Utrecht University
+Marc van Kreveld
+Utrecht University
+>
+Privacy-Preserving Matching of Spatial Datasets with Protection against Background Knowledge 
+Gabriel Ghinita
+Purdue University
+Carmen Ruiz Vicente
+Aalborg University
+Ning Shang
+Purdue University
+Elisa Bertino
+Purdue University
+>
+Optimal Network Location Queries 
+Parisa Ghaemi
+USC
+Kaveh Shahabi
+USC
+John Wilson
 USC
 Farnoush Banaei-Kashani
 USC
-Dennis McLeod
-USC
 >
-Spatiotemporal Braitenberg Vehicles
-Alan Both
+Easiest-to-Reach Neighbor Search 
+Jie Shao
 University of Melbourne
-Matt Duckham
+Lars Kulik
+University of Melbourne
+Egemen Tanin
 University of Melbourne
 >
-Algorithms for Hotspot Computation on Trajectory Data
-Marc Van Kreveld
-Utrecht University
-Frank Staals
-Utrecht University
+An Efficient Location Extraction Algorithm by Leveraging Web Contextual Information 
+Rong Xiao
+Microsoft Research
 >
-SAC: Semantic Adaptive Caching for Spatial Mobile Applications
-Chang Liu
-University of Maryland
-Brendan Fruin
+Annotating and Navigating Tourist Videos 
+Bo Zhang
+Microsoft Research
+Ying-Qing Xu
+Microsoft Research
+>
+Qualitative Matching of Spatial Information 
+Jan Oliver Wallgrün
+University of Bremen
+Diedrich Wolter
+University of Bremen
+Kai-Florian Richter
+University of Bremen
+>
+Tolerance Geometry - Euclids First Postulate for Points and Lines with Extension 
+Gwen Wilke
+Vienna University of Techology
+Andrew Frank
+Vienna University of Techology
+>
+Spatial Outlier Detection: Random Walk Based Approaches
+Xutong Liu
+Virginia Tech
+Chang-Tien Lu
+Virginia Tech
+Feng Chen
+Virginia Tech
+>
+A Lagrangian Approach for Storage of Spatio-Temporal Network Datasets: A Summary of Results 
+Michael Evans
+University of Minnesota
+KwangSoo Yang
+University of Minnesota
+James Kang
+University of Minnesota
+Shashi Shekhar
+University of Minnesota
+>
+Bridge detection in grid terrains and improved drainage enforcement 
+Ryan Carlson
+Swarthmore College
+Andrew Danner
+Swarthmore College
+>
+Supporting Location-Based Approximate-Keyword Queries 
+Sattam Alsubaiee
+University of California
+Alexander Behm
+University of California
+Chen Li
+University of California
+>
+Determining the Spatial Reader-scope of News Sources with Local Lexicons 
+Gianluca Quercini
 University of Maryland
 Hanan Samet
 University of Maryland
->
-GeoRank: An Efficient LocationAware News Feed Ranking System
-Jie Bao
-University of Minnesota
-Mohamed Mokbel
-University of Minnesota
->
-A GeoSpatial Scientometrics Framework for Measuring the Citation Impact of Publications and Scientists
-Song Gao
-University of California
-Yingjie Hu
-University of California
-Krzysztof Janowicz
-University of California
-Grant Mckenzie
-University of California
->
-CG_Hadoop: Computational Geometry in MapReduce
-Ahmed Eldawy
-University of Minnesota
-Yuan Li
-University of Minnesota
-Mohamed Mokbel
-University of Minnesota
-Ravi Janardan
-University of Minnesota
->
-Maximizing the Number of Workers Self-Selected Tasks in Spatial Crowdsourcing
-Dingxiong Deng
-USC
-Cyrus Shahabi
-USC
-Ugur Demiryurek
-USC
->
-Crowd Sensing of Traffic Anomalies based on Human Mobility and Social Media
-Bei Pan
-USC
-Yu Zheng
-Microsoft Research
-Cyrus Shahabi
-USC
->
-Output-Sensitive Well-Separated Pair Decompositions for Dynamic Point Sets
-Eunhui Park
+Jagan Sankaranarayanan
 University of Maryland
-David Mount
+Michael Lieberman
 University of Maryland
->
-A Probablistic Model for Spatio-Temporal Signal Extraction from Social Media
-Christian Sengstock
-Heidelberg University
-Michael Gertz
-Heidelberg University
-Florian Flatow
-Heidelberg University
-Hamed Abdelhaq
-Heidelberg University
->
-Spatio-Temporal Characteristics of Bursty Words in Twitter Streams
-Hamed Abdelhaq
-Heidelberg University
-Michael Gertz
-Heidelberg University
-Christian Sengstock
-Heidelberg University
->
-Parameterized Algorithms for Generalized Traveling Salesman Problems in Road Networks
-Michael Rice
-University of California
 >
 EOF
