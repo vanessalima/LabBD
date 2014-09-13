@@ -20,9 +20,9 @@
 - patrocínios: pelo menos 4 por edição - 5 por edição OK
 - despesas por edição: pelo menos 8 OK
 - auxílios por edição: pelo menos 10
-- organizadores por edição: pelo menos 4
+- organizadores por edição: pelo menos 4 OK
 - autores por artigo: variável (apenas 10% dos artigos podem possuir 1
-autor, ou seja, a maioria dos artigos devem possuir 2 ou mais autores)
+autor, ou seja, a maioria dos artigos devem possuir 2 ou mais autores) OK
 */
 /
 /
@@ -758,7 +758,8 @@ INSERT INTO patrocinio(cnpjPat, codEv, numEd, valorPat, saldoPat, dataPat)
 -- Inserção de despesas
 /
 /
--- Evento 01 edição 37 (não sobra nada)
+-- Evento 01 edição 37
+-- sobra 1000 - 06990590000204
 /
 /
 INSERT INTO despesa
@@ -802,7 +803,7 @@ INSERT INTO despesa
 		pat.codEv,
 		pat.numEd,
 		TO_DATE('01/07/2011', 'DD/MM/YYYY'),
-		4000.00, -- valor despesa
+		3000.00, -- valor despesa
 		'Material de divulgação e divulgação online'
 		FROM patrocinio pat
 		WHERE pat.cnpjPat = 06990590000204
@@ -10215,6 +10216,10 @@ INSERT INTO escreve (idAutor, idArt)
 	FROM pessoa P
 	WHERE P.emailPe='cheng@hku.edu';
 /
+/
+/
+/
+/
 --VLDB 2012
 --Artigo Aggregation in Probabilistic Databases via Knowledge Compilation
 INSERT INTO pessoa(IDPE, NOMEPE, EMAILPE, INSTITUICAOPE, TELEFONEPE, NACIONALIDADEPE, ENDERECOPE, TIPOORGANIZADOR, TIPOPARTICIPANTE, TIPOAUTOR)
@@ -15737,52 +15742,379 @@ INSERT INTO organiza (idOrg, codEv, numEd, cargoOrg)
 	'Workshops Chair'
 	);
 /
-
+/
+/
 /*
+-- Lista a quantidade de artigos apresentados por pessoa em cada evento
+-- Para auxiliar saber os inscritos que necessitam de auxílio
+SELECT a1.idApr, a1.codEv, a1.numEd, count(a1.idArt) AS total
+  FROM artigo a1, artigo a2
+  WHERE a1.codEv = a2.codEv
+    AND a1.numEd = a2.numEd
+    AND a1.idApr = a2.idApr
+  GROUP BY a1.idApr, a1.codEv, a1.numEd
+  ORDER BY total;
+
+  SELECT pessoa.idPe, pessoa.nomePe, pessoa.emailPe
+  FROM pessoa, inscrito
+  WHERE pessoa.tipoParticipante = '1'
+    AND pessoa.idPe = inscrito.idPart
+    AND inscrito.tipoApresentador = '1';
+*/
+/
+/
+/
+/
+-- Insere os auxilios para apresentadores e inscritos nos eventos
+/
+/
+/
+-- VLDB ev 01 ed 37
+INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, valorAux, dataAux, tipoAux)
+  values(
+  	6990590000204,
+  	2,
+  	18,
+  	2,
+  	18,
+  	(SELECT I.idPart FROM inscrito I, pessoa P 
+  		WHERE I.codEv = 2
+  		and I.numEd = 18
+  		and I.idPart = P.idPe 
+      and I.tipoApresentador = '1' --para garantir
+  		and P.emailPe = 'weber@rutgers.edu'),
+  	.00,
+  	TO_DATE('30/07/2011', 'DD/MM/YYYY'),
+  	'Food aid'
+);
+/* Tipos
+ - Hospedagem
+ - Passagem aérea
+ - Transporte
+ - Isenção de taxa
+ - Alimentação
+
+*/
+
+
+-- sigspatial ev 02 ed 18
+-- bestehorn@kit.edu
+-- EV 02 ED 18 (USA)
+weber@rutgers.edu
+Food aid
+eppstein@uc.edu
+Hosting aid
+shang@itee.uq.edu.au
+Flight ticket aid
+nutanong@unimelb.edu.au
+Flight ticket aid
+xing@usc.edu
+Food aid
+buchin@uu.nl
+Transportation aid
+ghinita@umb.edu
+Food aid
+wallgrün@bremen.org
+Flight ticket aid
+wilke@vienna.edu
+Flight ticket aid
+liu@tech.virginia.com
+Hosting aid
+evans@uminnesota.com
+Hosting aid
+carlson@swarthmore.com
+Hosting aid
+quercini@umaryland.edu
+Hosting aid
+
 
 INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, valorAux, dataAux, tipoAux)
   values(
   	6990590000204,
-  	1,
-  	37,
-  	1,
-  	37,
+  	2,
+  	19,
+  	2,
+  	19,
   	(SELECT I.idPart FROM inscrito I, pessoa P 
-  		WHERE I.codEv = 1 
-  		and I.numEd = 37 
+  		WHERE I.codEv = 2
+  		and I.numEd = 19
   		and I.idPart = P.idPe 
       and I.tipoApresentador = '1' --para garantir
-  		and P.emailPe = 'sagy@technion.ac.il'),
-  	700.00,
-  	TO_DATE('30/07/2011', 'DD/MM/YYYY'),
-  	'h'
+  		and P.emailPe = 'shang@itee.uq.edu.au'),
+  	.00,
+  	TO_DATE('25/07/2011', 'DD/MM/YYYY'),
+  	'Hosting aid'
 );
+/
+INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, valorAux, dataAux, tipoAux)
+  values(
+  	6990590000204,
+  	2,
+  	19,
+  	2,
+  	19,
+  	(SELECT I.idPart FROM inscrito I, pessoa P 
+  		WHERE I.codEv = 2
+  		and I.numEd = 19
+  		and I.idPart = P.idPe 
+      and I.tipoApresentador = '1' --para garantir
+  		and P.emailPe = 'zhou@uminnesota.com'),
+  	.00,
+  	TO_DATE('25/07/2011', 'DD/MM/YYYY'),
+  	'Hosting aid'
+);
+/
+INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, valorAux, dataAux, tipoAux)
+  values(
+  	6990590000204,
+  	2,
+  	19,
+  	2,
+  	19,
+  	(SELECT I.idPart FROM inscrito I, pessoa P 
+  		WHERE I.codEv = 2
+  		and I.numEd = 19
+  		and I.idPart = P.idPe 
+      and I.tipoApresentador = '1' --para garantir
+  		and P.emailPe = 'gao@zhejiang.edu'),
+  	.00,
+  	TO_DATE('25/07/2011', 'DD/MM/YYYY'),
+  	'Hosting aid'
+);
+/
+INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, valorAux, dataAux, tipoAux)
+  values(
+  	6990590000204,
+  	2,
+  	19,
+  	2,
+  	19,
+  	(SELECT I.idPart FROM inscrito I, pessoa P 
+  		WHERE I.codEv = 2
+  		and I.numEd = 19
+  		and I.idPart = P.idPe 
+      and I.tipoApresentador = '1' --para garantir
+  		and P.emailPe = 'buchin@eindhoven.edu'),
+  	.00,
+  	TO_DATE('25/07/2011', 'DD/MM/YYYY'),
+  	'Hosting aid'
+);
+/
+INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, valorAux, dataAux, tipoAux)
+  values(
+  	6990590000204,
+  	2,
+  	19,
+  	2,
+  	19,
+  	(SELECT I.idPart FROM inscrito I, pessoa P 
+  		WHERE I.codEv = 2
+  		and I.numEd = 19
+  		and I.idPart = P.idPe 
+      and I.tipoApresentador = '1' --para garantir
+  		and P.emailPe = 'dai@umb.edu'),
+  	.00,
+  	TO_DATE('25/07/2011', 'DD/MM/YYYY'),
+  	'Hosting aid'
+);
+/
+INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, valorAux, dataAux, tipoAux)
+  values(
+  	6990590000204,
+  	2,
+  	19,
+  	2,
+  	19,
+  	(SELECT I.idPart FROM inscrito I, pessoa P 
+  		WHERE I.codEv = 2
+  		and I.numEd = 19
+  		and I.idPart = P.idPe 
+      and I.tipoApresentador = '1' --para garantir
+  		and P.emailPe = 'chen@stanford.edu'),
+  	.00,
+  	TO_DATE('25/07/2011', 'DD/MM/YYYY'),
+  	'Hosting aid'
+);
+/
 
-*/
+-- EV 02 ED 19
+shang@itee.uq.edu.au
+Hosting aid
+zhou@uminnesota.com
+Hosting aid
+adelfio@umaryland.edu
+Food aid
+gao@zhejiang.edu
+Flight ticket aid
+gao@zhejiang.edu
+Hosting aid
+buchin@eindhoven.edu
+Flight ticket aid
+buchin@eindhoven.edu
+Hosting aid
+dai@umb.edu
+Hosting aid
+chen@stanford.edu
+Hosting aid
+adams@uc.edu
+Food aid
+fang@nus.edu.sg
+Food aid
+boedihardjo@army.gov ???
+ying@cku.edu
+Flight ticket aid
+
+-- EV 02 ED 20
+wang@unimelb.edu.au
+vieira@uc.edu
+buchin@eindhoven.edu
+shirani-mehr@usc.edu
+dai@umb.edu
+yuan@umb.edu
+macário@unicamp.com.br
+sankaranarayanan@umaryland.edu
+tiesyte@cs.aau.dk
+sidlauskas@cs.aau.dk
+zheng@microsoft.com
+
+-- EV 02 ED 21
+kong@umassp.edu
+jakobsen@cs.aau.dk
+baum@kit.edu
+kazemitabar@usc.edu
+both@unimelb.edu.au
+kreveld@uu.nl
+liu@umaryland.edu
+bao@uminnesota.com
+gao@uc.edu
+sengstock@hu.edu
+sagy@technion.ac.il
+kadambi@bloomberg.com
+papadimitriou@stanford.edu
+
+-- EV 01 ED 37
+sagy@technion.ac.il
+cao@umassp.edu
+kadambi@bloomberg.com
+papadimitriou@stanford.edu
+rice@uc.edu
+rocha-junior@ntnu.edu
+yan@hku.edu
+chen@hku.edu
+bernecker@lmu.edu
+khanna@upenn.edu
+wang@nus.edu.sg
+
+-- EV 01 ED 38
+fink@ox.ac.uk
+cheung@mit.edu
+bahmani@stanford.edu
+ranu@uc.edu
+satuluri@osu.edu
+jestes@utah.edu
+singh@mit.edu
+lu@nus.edu.sg
+sheng@hku.edu
+mihaylov@upenn.edu
+ports@mit.edu
+
+-- EV 01 ED 39
+he@nus.edu.sg
+heimel@uwaterloo.edu
+stoica@bloomberg.com
+yuan@osu.edu
+liu@nus.edu.sg
+pei@osu.edu
+mahmoud@uc.edu
+el-roby@uwaterloo.edu
+sathiamoorthy@uc.edu
+chi@nec-labs.com
+fu@hku.edu
+yuan@psu.edu
+
+-- EV 01 ED 40
+jin@hku.edu
+wu@cuhk.edu.hk
+tangwongsan@ibmresearch.com
+nirkhiwale@uc.edu
+li@gla.ac.uk
+roediger@mit.edu
+guowang@nus.edu.sg
+sarma@stanford.edu
+boehm@ibmresearch.com
+duggan@mit.edu
+yang@hku.edu
 
 
 /
 /
 -- Update do atributo derivado qtdArtigosApresentadosEd da tabela edicao
 /*
- * somando todos os artigos que possuem a mesma chave primária 
+ * Conta-se todos os artigos distintos (com diferentes chaves primárias)
+ * que pertencem ao mesmo evento e edição
  */
 UPDATE edicao
   SET qtdArtigosApresentadosEd = (
     SELECT count(Art.idArt) FROM artigo Art
       WHERE edicao.codEv = Art.codEv and edicao.numEd = Art.numEd);
 /
-SELECT edicao.codEv, edicao.numEd, count(inscrito.idPart) FROM inscrito, edicao
+/*SELECT edicao.codEv, edicao.numEd, count(inscrito.idPart) FROM inscrito, edicao
     WHERE edicao.codEv = inscrito.codEv and edicao.numEd = inscrito.numEd
     GROUP BY edicao.codEv, edicao.numEd;
+*/
 /
 /
 /
+-- Update dos atributo derivado totalArtigosApresentadosEv da tabela evento
+/*
+ *	Soma-se os campo qtdArtigosApresentadosEd de todas as edições que pertençam 
+ * aquele evento
+ */
 UPDATE evento
   SET totalArtigosApresentadosEv = (
     SELECT sum(Ed.qtdArtigosApresentadosEd) FROM edicao Ed
       WHERE Ed.codEv = evento.codEv);
 /
+/
+/
+/
+-- Update do atributo derivado saldoPat da tabela patrocinio
+/*
+ * Calcula-se o saldo final de cada patrocinio, contabilizando o que 
+ * foi recebido como patrocinio e o que foi gasto com despesas do 
+ * evento e com auxilio, representando o saldo gasto do determinado patrocinio.
+ * OBS: Considerando o evento e edicao que o patrocinio foi conseguido, não a 
+ * despesa ou auxilio.
+ */
+UPDATE patrocinio
+	SET saldoPat = (
+    SELECT (patrocinio.valorPat - sum(despesa.valorDesp) - sum(auxilio.valorAux) )
+      FROM despesa, auxilio
+      WHERE (patrocinio.codEv = despesa.codEvPat
+        AND patrocinio.numEd = despesa.numEdPat)
+        OR (patrocinio.codEv = auxilio.codEvPat
+          AND patrocinio.numEd = auxilio.numEdPat)
+      GROUP BY patrocinio.cnpjPat, despesa.cnpjPat, auxilio.cnpjPat
+);
+/*
+SELECT cnpjPat, sum(valorDesp)
+  FROM despesa
+  GROUP BY cnpjPat;
+*/
+/
+/
+/
+-- Update do atributo derivado saldoFinanceiroEd da tabela edicao
+/*
+ *	Calcula o saldo final da edicao contabilizando todos os patrocinios,
+ * despesas e auxílios, através da soma dos resultados atualizados do campo
+ * saldoPat da tabela patrocinio que se referem à mesma edicao; além
+ * de contabilizar o valor recebido pelas taxas de inscrição.
+ *
+UPDATE edicao 
+	SET saldoFinanceiroEd = (
+		);
+*/
 /
 /
 /
