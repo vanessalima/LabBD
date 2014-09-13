@@ -15936,33 +15936,115 @@ INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, val
   	'Hosting aid'
 );
 /
+INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, valorAux, dataAux, tipoAux)
+  values(
+  	6990590000204,
+  	2,
+  	19,
+  	2,
+  	19,
+  	(SELECT I.idPart FROM inscrito I, pessoa P 
+  		WHERE I.codEv = 2
+  		and I.numEd = 19
+  		and I.idPart = P.idPe 
+      and I.tipoApresentador = '1' --para garantir
+  		and P.emailPe = 'adelfio@umaryland.edu'),
+  	.00,
+  	TO_DATE('25/07/2011', 'DD/MM/YYYY'),
+  	'Food aid'
+);
+/
+INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, valorAux, dataAux, tipoAux)
+  values(
+  	6990590000204,
+  	2,
+  	19,
+  	2,
+  	19,
+  	(SELECT I.idPart FROM inscrito I, pessoa P 
+  		WHERE I.codEv = 2
+  		and I.numEd = 19
+  		and I.idPart = P.idPe 
+      and I.tipoApresentador = '1' --para garantir
+  		and P.emailPe = 'fang@nus.edu.sg'),
+  	.00,
+  	TO_DATE('25/07/2011', 'DD/MM/YYYY'),
+  	'Food aid'
+);
+/
+INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, valorAux, dataAux, tipoAux)
+  values(
+  	6990590000204,
+  	2,
+  	19,
+  	2,
+  	19,
+  	(SELECT I.idPart FROM inscrito I, pessoa P 
+  		WHERE I.codEv = 2
+  		and I.numEd = 19
+  		and I.idPart = P.idPe 
+      and I.tipoApresentador = '1' --para garantir
+  		and P.emailPe = 'adams@uc.edu'),
+  	.00,
+  	TO_DATE('25/07/2011', 'DD/MM/YYYY'),
+  	'Food aid'
+);
+/
+INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, valorAux, dataAux, tipoAux)
+  values(
+  	6990590000204,
+  	2,
+  	19,
+  	2,
+  	19,
+  	(SELECT I.idPart FROM inscrito I, pessoa P 
+  		WHERE I.codEv = 2
+  		and I.numEd = 19
+  		and I.idPart = P.idPe 
+      and I.tipoApresentador = '1' --para garantir
+  		and P.emailPe = 'gao@zhejiang.edu'),
+  	.00,
+  	TO_DATE('25/07/2011', 'DD/MM/YYYY'),
+  	'Flight ticket aid'
+);
+/
+INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, valorAux, dataAux, tipoAux)
+  values(
+  	6990590000204,
+  	2,
+  	19,
+  	2,
+  	19,
+  	(SELECT I.idPart FROM inscrito I, pessoa P 
+  		WHERE I.codEv = 2
+  		and I.numEd = 19
+  		and I.idPart = P.idPe 
+      and I.tipoApresentador = '1' --para garantir
+  		and P.emailPe = 'buchin@eindhoven.edu'),
+  	.00,
+  	TO_DATE('25/07/2011', 'DD/MM/YYYY'),
+  	'Flight ticket aid'
+);
+/
+INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, valorAux, dataAux, tipoAux)
+  values(
+  	6990590000204,
+  	2,
+  	19,
+  	2,
+  	19,
+  	(SELECT I.idPart FROM inscrito I, pessoa P 
+  		WHERE I.codEv = 2
+  		and I.numEd = 19
+  		and I.idPart = P.idPe 
+      and I.tipoApresentador = '1' --para garantir
+  		and P.emailPe = 'ying@cku.edu'),
+  	.00,
+  	TO_DATE('25/07/2011', 'DD/MM/YYYY'),
+  	'Flight ticket aid'
+);
+/
 
--- EV 02 ED 19
-shang@itee.uq.edu.au
-Hosting aid
-zhou@uminnesota.com
-Hosting aid
-adelfio@umaryland.edu
-Food aid
-gao@zhejiang.edu
-Flight ticket aid
-gao@zhejiang.edu
-Hosting aid
-buchin@eindhoven.edu
-Flight ticket aid
-buchin@eindhoven.edu
-Hosting aid
-dai@umb.edu
-Hosting aid
-chen@stanford.edu
-Hosting aid
-adams@uc.edu
-Food aid
-fang@nus.edu.sg
-Food aid
-boedihardjo@army.gov ???
-ying@cku.edu
-Flight ticket aid
 
 -- EV 02 ED 20
 wang@unimelb.edu.au
