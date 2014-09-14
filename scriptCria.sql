@@ -220,8 +220,14 @@ CREATE TABLE patrocinador (
 	CONSTRAINT PK_PATROCINADOR PRIMARY KEY (cnpjPat) -- PK_PATROCINADOR define a restrição de chave primária
 );
 /
--- Criação da tabela Patrocina
-/*
+-- Criação da tabela Patrocio
+/*Esta tabela contém informações acerca dos patrocinadore das edições dos eventos, tais como:
+ *cnpjPat  CNPJ do patrocinador associado a uma edicao de um evento
+ *codEv codigo do evento
+ *numEd numero da edicao
+ *valorPat valor do patrocinio
+ *saldoPat saldo do patrocinio, apos debito de gastos
+ *dataPat data na qual o patrocinio foi realizado
  *
  */
 CREATE TABLE patrocinio (
@@ -268,7 +274,17 @@ CREATE TABLE despesa (
 /
 -- Criação da tabela Auxilio
 /*
- *
+ * Esta tabela contem informacoes acerca dos auxílios financeiros que foram recebidos pelos apresentadores, participantes que se inscrevem 
+ * para apresentar trabalhos no evento, relativo às despesas decorrentes de sua participação.
+ * codEvApr codigo do evento no qual o participante apresentou o trabalho
+ * numEdApr codigo do edição no qual o participante apresentou o trabalho
+ * idApr codigo do participante que apresentou o trabalho
+ * tipoAux  pode ser relativo a hospedagem, deslocamento ou alimentação
+ * valorAux quantia dispendida no auxílio
+ * dataAux data na qual o auxílio foi realizado/liberado
+ * cnpjPat	cnpj do patrocinador cujo patrocínio foi utilizado para realizar o auxílio
+ * codEvPat codigo do evento patrocinado pelo patrocinador
+ * numEdPat codigo da edição patrocinada pelo patrocinador
  */
 CREATE TABLE auxilio (
 	codEvApr Number(5) NOT NULL, -- Chave primária e estrangeira de inscrito (identidade fraca)
