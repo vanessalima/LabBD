@@ -102,9 +102,9 @@ CREATE TABLE edicao (
  * tipoAutor representa se esta pessoa escreveu algum artigo para algum dos eventos em qualquer edição com 1, e 0 caso contrário
  */
  CREATE TABLE pessoa(
-        idPe Number(5) NOT NULL,
+        idPe Number(5) NOT NULL, -- Chave primária
         nomePe Varchar2(100) NOT NULL,
-        emailPe Varchar2(200) NOT NULL,
+        emailPe Varchar2(200) NOT NULL, -- Chave secundária
         instituicaoPe Varchar2(100) NOT NULL,
         telefonePe Varchar2(18), -- +XXX(XXX)XXXX-XXXX
         nacionalidadePe Varchar2(50),
@@ -121,50 +121,73 @@ CREATE TABLE edicao (
 /  
 -- Criação da tabela Inscrito
 /*
- *
+ *	Esta tabela contém os dados das pessoas inscritas e o respectiva evento e edição tais como:
+ * codEv que é o código do evento que a pessoa está inscrita, por isso é chave estrangeira e primária
+ * numEd é o código da edicao à qual a pessoa está participando, sendo chave estrangeira de evento e 
+ chave primária
+ * idPart é uma chave primária e estrangeira referente ao código da tabela pessoa para localizar quem 
+ é a pessoa inscrita
+ * dataInsc é a data na qual a pessoa se inscreveu no evento
+ * tipoApresentador se 1, o inscrito ira apresentar algum projeto e 0 caso contrário
  */      
 CREATE TABLE inscrito ( 
-        codEv Number(5) NOT NULL,	
-        numEd Number(5) NOT NULL,
+        codEv Number(5) NOT NULL, -- Chave estrangeira de edicao e chave primária
+        numEd Number(5) NOT NULL, -- Chave estrangeira de edicao e chave primária
         idPart Number(5) NOT NULL,
         dataInsc Date,
         tipoApresentador Char(1),
-        CONSTRAINT PK_INSCRITO PRIMARY KEY (codEv, numEd, idPart),
-        CONSTRAINT FK_INSCRITO_PESSOA FOREIGN KEY (idPart) REFERENCES pessoa(idPe),
-        CONSTRAINT PK_INSCRITO_EDICAO FOREIGN KEY (codEv, numEd) REFERENCES edicao(codEv, numEd) ON DELETE CASCADE,
-        CONSTRAINT CHECK_TIPO_APRESENTADOR CHECK (tipoApresentador IN ('0', '1') )
+        CONSTRAINT PK_INSCRITO PRIMARY KEY (codEv, numEd, idPart), -- Restrição de chave primária
+        CONSTRAINT FK_INSCRITO_PESSOA FOREIGN KEY (idPart) REFERENCES pessoa(idPe), -- Define uma restrição de integridade referencial
+        CONSTRAINT PK_INSCRITO_EDICAO FOREIGN KEY (codEv, numEd) REFERENCES edicao(codEv, numEd) ON DELETE CASCADE, -- Define uma restrição de integridade referencial
+        CONSTRAINT CHECK_TIPO_APRESENTADOR CHECK (tipoApresentador IN ('0', '1') ) -- Limita os tipos de respostas para o campo tipoApresentador
 );
 /
 -- Criação da tabela artigo
 /*
- *
+ *	Esta tabela contém dados sobre todos os artigos aceitos nos eventos e suas edições, tais como:
+ * idArt que é chave primária para o artigo, representando seu respectivo código para a comissão do evento
+ * tituloArt que é o nome do artigo entregue
+ * dataApresArt é a data na qual o artigo será apresentado durante o evento com formato DD/MM/YYYY
+ * horaApresArt é o horário no qual o artigo será apresentado neste dia no formato DD/MM/YYY HH:MM:SS
+ * codEv é o código do evento no qual o artigo será apresentado, o qual é chave estrangeira de inscrito
+ * numEd é o código da edição no qual o artigo será apresentado, o qual é chave estrangeira de inscrito
+ * idApr é o código da pessoa que irá apresentar o artigo, chave estrangeira de inscrito
  */
 CREATE TABLE artigo (
-        idArt Number(5) NOT NULL,
+        idArt Number(5) NOT NULL, -- Chave primária
         tituloArt Varchar2(200) NOT NULL,
         dataApresArt Date,
         horaApresArt Date,
-        codEv Number(5) NOT NULL,
-        numEd Number(5) NOT NULL,
-        idApr Number(5) NOT NULL,
-        CONSTRAINT PK_ARTIGO PRIMARY KEY (idArt),
-        CONSTRAINT PK_ARTIGO_INSCRITO FOREIGN KEY (codEv, numEd, idApr) REFERENCES inscrito(codEv, numEd, idPart) ON DELETE CASCADE       
+        codEv Number(5) NOT NULL, -- Chave estrangeira de inscrito
+        numEd Number(5) NOT NULL,-- Chave estrangeira de inscrito
+        idApr Number(5) NOT NULL,-- Chave estrangeira de inscrito
+        CONSTRAINT PK_ARTIGO PRIMARY KEY (idArt), -- Restrição de chave primária
+        CONSTRAINT PK_ARTIGO_INSCRITO FOREIGN KEY (codEv, numEd, idApr) REFERENCES inscrito(codEv, numEd, idPart) ON DELETE CASCADE -- Restrição de integridade referencial
 );
 /
 -- Criação da tabela escreve
 /*
- *
+ *	Esta tabela contém dados da relação de autor e artigo, tais como:
+ * idAutor é o código da pessoa que escreveu o artigo, sendo chave primária e estrangeira de pessoa
+ * idArt é o código do artigo o qual a pessoa escreveu, sendo chave primária e estrangeira de artigo
  */
 CREATE TABLE escreve(
-      idAutor Number(5) NOT NULL,
-      idArt Number(5) NOT NULL,
-      CONSTRAINT PK_ESCREVE PRIMARY KEY (idAutor, idArt),
-      CONSTRAINT PK_ESCREVE_ARTIGO FOREIGN KEY (idArt) REFERENCES artigo(idArt) ON DELETE CASCADE       
+      idAutor Number(5) NOT NULL, -- Chave primária e estrangeira
+      idArt Number(5) NOT NULL, -- Chave primária e estrangeira
+      CONSTRAINT PK_ESCREVE PRIMARY KEY (idAutor, idArt), -- restrição de chave primária
+      CONSTRAINT PK_ESCREVE_ARTIGO FOREIGN KEY (idArt) REFERENCES artigo(idArt) ON DELETE CASCADE -- Restrição de integridade referencial
+      CONSTRAINT PK_ESCREVE_ARTIGO FOREIGN KEY (idAutor) REFERENCES pessoa(idPe) ON DELETE CASCADE -- Restrição de integridade referencial
 );
 /
 -- Criação da tabela Organiza
 /*
- *
+ *	Esta tabela contém os dados relacionais entre as pessoas e a composição da comissão organizadores de cada edição dos eventos,
+ tais como:
+ * idOrg referencia o código da tabela pessoa que está na organização e é chave primária nesta tabela de relacionamento
+ * codEv referencia o código do evento respectivo a edição e é chave primária nesta tabela de relacionamento
+ * numEd referencia o código da edição do evento definido anteriormente e é chave primária nesta tabela de relacionamento
+ * cargoOrg define o cargo que esta pessoa ocupa na organização desta edição do evento, visto que seu cargo pode mudar
+ para diferentes edições
  */
 CREATE TABLE organiza (
 	idOrg Number(5), -- chave primária e estarngeira da tabela pessoa
@@ -174,7 +197,8 @@ CREATE TABLE organiza (
 	CONSTRAINT PK_ORGANIZA PRIMARY KEY (idOrg, codEv, numEd),
 	CONSTRAINT FK_ORGANIZA_PESSOA FOREIGN KEY (idOrg) REFERENCES pessoa(idPe) ON DELETE CASCADE,
 	CONSTRAINT FK_ORGANIZA_EDICAO FOREIGN KEY (codEv, numEd) REFERENCES edicao(codEv, numEd) ON DELETE CASCADE
-	-- CONSTRAINT PARA O CARGO ??? ***
+	-- Seria possível colocar um check para cargos, mas isso iria restringir a criação de novos cargos,
+		-- assim preferimos não inserir essa restrição
 );
 /
 -- Criação da tabela de Patrocinador
