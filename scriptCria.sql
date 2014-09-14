@@ -88,16 +88,18 @@ CREATE TABLE edicao (
 /*
  * Esta tabela contém dados relevantes de todas as pessoas relacionadas ao evento
  * tais como:
- * idPe
- * nomePe
- * emailPe
- * instituicaoPe
- * telefonePe
- * nacionalidadePe
- * enderecoPe
- * tipoOrganizador
- * tipoParticipante
- * tipoAutor
+ * idPe que é uma chave primária que contém um código identificador de cada pessoa na base de dados, acrescido de 1 em 1 por uma 
+ sequência na ordem em que as pessoas são registradas
+ * nomePe é o nome completo da pessoa
+ * emailPe é o email da pessoa, que considerando que os provedores de email não possibilitam logins iguais,
+ esta é uma chave única, assim a pessoa só pode se cadastrar com o mesmo email uma única vez
+ * instituicaoPe é a instituição a qual este indivíduo pertence, seja trabalhando ou estudando
+ * telefonePe representa o número de telefone da pessoa no formato +XXX(XXX)XXXX-XXXX
+ * nacionalidadePe é a nacionalidade do indivíduo
+ * enderecoPe é o endereço, podendo ser empresarial ou residencial
+ * tipoOrganizador representa se esta pessoa organizou algum dos eventos em qualquer edição com 1, e 0 caso contrário
+ * tipoParticipante representa se esta pessoa participou algum dos eventos em qualquer edição com 1, e 0 caso contrário
+ * tipoAutor representa se esta pessoa escreveu algum artigo para algum dos eventos em qualquer edição com 1, e 0 caso contrário
  */
  CREATE TABLE pessoa(
         idPe Number(5) NOT NULL,

@@ -16465,7 +16465,7 @@ INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, val
   		and I.numEd = 21
   		and I.idPart = P.idPe 
       and I.tipoApresentador = '1' --para garantir
-  		and P.emailPe = 'ying@cku.edu'),
+  		and P.emailPe = 'song@umassp.edu'),
   	450.00,
   	TO_DATE('30/07/2013', 'DD/MM/YYYY'),
   	'Flight ticket aid'
@@ -16663,7 +16663,7 @@ INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, val
   		and I.numEd = 21
   		and I.idPart = P.idPe 
       and I.tipoApresentador = '1' --para garantir
-  		and P.emailPe = 'sagy@technion.ac.il'),
+  		and P.emailPe = 'song@umassp.edu'),
   	100.00,
   	TO_DATE('19/10/2013', 'DD/MM/YYYY'),
   	'Food aid'
@@ -16699,7 +16699,7 @@ INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, val
   		and I.numEd = 21
   		and I.idPart = P.idPe 
       and I.tipoApresentador = '1' --para garantir
-  		and P.emailPe = 'papadimitriou@stanford.edu'),
+  		and P.emailPe = 'pan@usc.edu'),
   	100.00,
   	TO_DATE('15/10/2013', 'DD/MM/YYYY'),
   	'Transportation aid'
@@ -16866,7 +16866,7 @@ INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, val
   		and I.numEd = 37
   		and I.idPart = P.idPe 
       and I.tipoApresentador = '1' --para garantir
-  		and P.emailPe = 'chen@hku.edu'),
+  		and P.emailPe = 'bernecker@lmu.edu'),
   	100.00,
   	TO_DATE('07/05/2011', 'DD/MM/YYYY'),
   	'Hosting aid'
