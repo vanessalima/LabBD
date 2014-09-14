@@ -17606,22 +17606,35 @@ UPDATE patrocinio
     SELECT (patrocinio.valorPat - sum(despesa.valorDesp) - sum(auxilio.valorAux) )
       FROM despesa, auxilio
       WHERE (patrocinio.codEv = despesa.codEvPat
-        AND patrocinio.numEd = despesa.numEdPat)
-        OR (patrocinio.codEv = auxilio.codEvPat
-          AND patrocinio.numEd = auxilio.numEdPat)
-      GROUP BY patrocinio.cnpjPat, despesa.cnpjPat, auxilio.cnpjPat
+        AND patrocinio.numEd = despesa.numEdPat
+        AND patrocinio.cnpjPat = despesa.cnpjPat)
+        OR (despesa.codEvPat = auxilio.codEvPat
+          AND despesa.numEdPat = auxilio.numEdPat
+          AND despesa.cnpjPat = auxilio.cnpjPat)
+      GROUP BY despesa.codEvPat, despesa.numEdPat, despesa.cnpjPat
 );
-
+*/
+/
 UPDATE patrocinio
 	SET saldoPat = (
 		SELECT (patrocinio.valorPat - sum(despesa.valorDesp) )
 			FROM despesa
 			WHERE patrocinio.codEv = despesa.codEvPat
         		AND patrocinio.numEd = despesa.numEdPat
-        		AND patrocinio.cnjpPat = despesa.cnpjPat
+        		AND patrocinio.cnpjPat = despesa.cnpjPat
         	GROUP BY despesa.codEvPat, despesa.numEdPat, despesa.cnpjPat
 );
-*/
+/
+UPDATE patrocinio
+	SET saldoPat = (
+		SELECT (patrocinio.saldoPat - sum(auxilio.valorAux) )
+			FROM auxilio
+			WHERE patrocinio.codEv = auxilio.codEvPat
+        		AND patrocinio.numEd = auxilio.numEdPat
+        		AND patrocinio.cnpjPat = auxilio.cnpjPat
+        	GROUP BY auxilio.codEvPat, auxilio.numEdPat, auxilio.cnpjPat
+);
+/
 /*
 SELECT cnpjPat, sum(valorDesp)
   FROM despesa
@@ -17639,11 +17652,15 @@ SELECT cnpjPat, sum(valorDesp)
  *
 UPDATE edicao 
 	SET saldoFinanceiroEd = (
-		SELECT ( edicao.taxaEd * count(inscritos.idPart) )
-			FROM inscritos
-			WHERE 
-		);
-*/
+		SELECT ( edicao.taxaEd * count(inscrito.idPart))
+			FROM inscrito, patrocinio
+			WHERE edicao.codEv = inscrito.codEv
+				AND edicao.numEd = inscrito.numEd
+);
+ */
+/
+/
+/
 /
 /
 /
