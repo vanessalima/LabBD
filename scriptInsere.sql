@@ -16010,15 +16010,6 @@ INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, val
 /
 /
 /
-6990590000204
-60316817000103
-59456277000176
-33372251000156
-10322194000103
-57286247000133
-61797924000155
-19758880000198
-
 -- Sigspatial ev 02 ed 19
 INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, valorAux, dataAux, tipoAux)
   values(
@@ -16034,13 +16025,13 @@ INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, val
       and I.tipoApresentador = '1' --para garantir
   		and P.emailPe = 'shang@itee.uq.edu.au'),
   	150.00,
-  	TO_DATE('25/07/2011', 'DD/MM/YYYY'),
+  	TO_DATE('12/08/2011', 'DD/MM/YYYY'),
   	'Hosting aid'
 );
 /
 INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, valorAux, dataAux, tipoAux)
   values(
-  	6990590000204,
+  	61797924000155,
   	2,
   	19,
   	2,
@@ -16070,7 +16061,7 @@ INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, val
       and I.tipoApresentador = '1' --para garantir
   		and P.emailPe = 'gao@zhejiang.edu'),
   	150.00,
-  	TO_DATE('25/07/2011', 'DD/MM/YYYY'),
+  	TO_DATE('30/07/2011', 'DD/MM/YYYY'),
   	'Hosting aid'
 );
 /
@@ -16088,7 +16079,7 @@ INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, val
       and I.tipoApresentador = '1' --para garantir
   		and P.emailPe = 'buchin@eindhoven.edu'),
   	150.00,
-  	TO_DATE('25/07/2011', 'DD/MM/YYYY'),
+  	TO_DATE('27/08/2011', 'DD/MM/YYYY'),
   	'Hosting aid'
 );
 /
@@ -16106,7 +16097,7 @@ INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, val
       and I.tipoApresentador = '1' --para garantir
   		and P.emailPe = 'dai@umb.edu'),
   	150.00,
-  	TO_DATE('25/07/2011', 'DD/MM/YYYY'),
+  	TO_DATE('25/08/2011', 'DD/MM/YYYY'),
   	'Hosting aid'
 );
 /
@@ -16124,7 +16115,7 @@ INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, val
       and I.tipoApresentador = '1' --para garantir
   		and P.emailPe = 'chen@stanford.edu'),
   	150.00,
-  	TO_DATE('25/07/2011', 'DD/MM/YYYY'),
+  	TO_DATE('13/08/2011', 'DD/MM/YYYY'),
   	'Hosting aid'
 );
 /
@@ -16142,7 +16133,7 @@ INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, val
       and I.tipoApresentador = '1' --para garantir
   		and P.emailPe = 'adelfio@umaryland.edu'),
   	200.00,
-  	TO_DATE('25/07/2011', 'DD/MM/YYYY'),
+  	TO_DATE('12/10/2011', 'DD/MM/YYYY'),
   	'Food aid'
 );
 /
@@ -16160,13 +16151,13 @@ INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, val
       and I.tipoApresentador = '1' --para garantir
   		and P.emailPe = 'fang@nus.edu.sg'),
   	200.00,
-  	TO_DATE('25/07/2011', 'DD/MM/YYYY'),
+  	TO_DATE('25/10/2011', 'DD/MM/YYYY'),
   	'Food aid'
 );
 /
 INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, valorAux, dataAux, tipoAux)
   values(
-  	6990590000204,
+  	61797924000155,
   	2,
   	19,
   	2,
@@ -16178,7 +16169,7 @@ INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, val
       and I.tipoApresentador = '1' --para garantir
   		and P.emailPe = 'adams@uc.edu'),
   	200.00,
-  	TO_DATE('25/07/2011', 'DD/MM/YYYY'),
+  	TO_DATE('19/10/2011', 'DD/MM/YYYY'),
   	'Food aid'
 );
 /
@@ -16196,7 +16187,7 @@ INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, val
       and I.tipoApresentador = '1' --para garantir
   		and P.emailPe = 'gao@zhejiang.edu'),
   	650.00,
-  	TO_DATE('25/07/2011', 'DD/MM/YYYY'),
+  	TO_DATE('17/07/2011', 'DD/MM/YYYY'),
   	'Flight ticket aid'
 );
 /
@@ -16232,7 +16223,7 @@ INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, val
       and I.tipoApresentador = '1' --para garantir
   		and P.emailPe = 'ying@cku.edu'),
   	650.00,
-  	TO_DATE('25/07/2011', 'DD/MM/YYYY'),
+  	TO_DATE('23/07/2011', 'DD/MM/YYYY'),
   	'Flight ticket aid'
 );
 /
@@ -16243,7 +16234,7 @@ INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, val
 -- EV 02 ED 20
 INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, valorAux, dataAux, tipoAux)
   values(
-  	6990590000204,
+  	10322194000103,
   	2,
   	20,
   	2,
@@ -16254,14 +16245,14 @@ INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, val
   		and I.idPart = P.idPe 
       and I.tipoApresentador = '1' --para garantir
   		and P.emailPe = 'wang@unimelb.edu.au'),
-  	.00,
-  	TO_DATE('25/07/2011', 'DD/MM/YYYY'),
+  	100.00,
+  	TO_DATE('25/10/2012', 'DD/MM/YYYY'),
   	'Food aid'
 );
 /
 INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, valorAux, dataAux, tipoAux)
   values(
-  	6990590000204,
+  	10322194000103,
   	2,
   	20,
   	2,
@@ -16272,14 +16263,14 @@ INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, val
   		and I.idPart = P.idPe 
       and I.tipoApresentador = '1' --para garantir
   		and P.emailPe = 'sankaranarayanan@umaryland.edu'),
-  	.00,
-  	TO_DATE('25/07/2011', 'DD/MM/YYYY'),
+  	100.00,
+  	TO_DATE('15/10/2012', 'DD/MM/YYYY'),
   	'Food aid'
 );
 /
 INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, valorAux, dataAux, tipoAux)
   values(
-  	6990590000204,
+  	10322194000103,
   	2,
   	20,
   	2,
@@ -16290,14 +16281,14 @@ INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, val
   		and I.idPart = P.idPe 
       and I.tipoApresentador = '1' --para garantir
   		and P.emailPe = 'yuan@umb.edu'),
-  	.00,
-  	TO_DATE('25/07/2011', 'DD/MM/YYYY'),
+  	100.00,
+  	TO_DATE('30/09/2012', 'DD/MM/YYYY'),
   	'Food aid'
 );
 /
 INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, valorAux, dataAux, tipoAux)
   values(
-  	6990590000204,
+  	10322194000103,
   	2,
   	20,
   	2,
@@ -16308,14 +16299,14 @@ INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, val
   		and I.idPart = P.idPe 
       and I.tipoApresentador = '1' --para garantir
   		and P.emailPe = 'dai@umb.edu'),
-  	.00,
-  	TO_DATE('25/07/2011', 'DD/MM/YYYY'),
+  	100.00,
+  	TO_DATE('25/09/2012', 'DD/MM/YYYY'),
   	'Food aid'
 );
 /
 INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, valorAux, dataAux, tipoAux)
   values(
-  	6990590000204,
+  	10322194000103,
   	2,
   	20,
   	2,
@@ -16326,14 +16317,14 @@ INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, val
   		and I.idPart = P.idPe 
       and I.tipoApresentador = '1' --para garantir
   		and P.emailPe = 'vieira@uc.edu'),
-  	.00,
-  	TO_DATE('25/07/2011', 'DD/MM/YYYY'),
+  	200.00,
+  	TO_DATE('25/08/2012', 'DD/MM/YYYY'),
   	'Hosting aid'
 );
 /
 INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, valorAux, dataAux, tipoAux)
   values(
-  	6990590000204,
+  	10322194000103,
   	2,
   	20,
   	2,
@@ -16344,14 +16335,14 @@ INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, val
   		and I.idPart = P.idPe 
       and I.tipoApresentador = '1' --para garantir
   		and P.emailPe = 'sidlauskas@cs.aau.dk'),
-  	.00,
-  	TO_DATE('25/07/2011', 'DD/MM/YYYY'),
+  	200.00,
+  	TO_DATE('15/08/2012', 'DD/MM/YYYY'),
   	'Hosting aid'
 );
 /
 INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, valorAux, dataAux, tipoAux)
   values(
-  	6990590000204,
+  	10322194000103,
   	2,
   	20,
   	2,
@@ -16362,14 +16353,14 @@ INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, val
   		and I.idPart = P.idPe 
       and I.tipoApresentador = '1' --para garantir
   		and P.emailPe = 'macário@unicamp.com.br'),
-  	.00,
-  	TO_DATE('25/07/2011', 'DD/MM/YYYY'),
+  	200.00,
+  	TO_DATE('13/09/2012', 'DD/MM/YYYY'),
   	'Hosting aid'
 );
 /
 INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, valorAux, dataAux, tipoAux)
   values(
-  	6990590000204,
+  	60316817000103,
   	2,
   	20,
   	2,
@@ -16380,14 +16371,14 @@ INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, val
   		and I.idPart = P.idPe 
       and I.tipoApresentador = '1' --para garantir
   		and P.emailPe = 'shirani-mehr@usc.edu'),
-  	.00,
-  	TO_DATE('25/07/2011', 'DD/MM/YYYY'),
+  	200.00,
+  	TO_DATE('27/10/2012', 'DD/MM/YYYY'),
   	'Transportation aid'
 );
 /
 INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, valorAux, dataAux, tipoAux)
   values(
-  	6990590000204,
+  	60316817000103,
   	2,
   	20,
   	2,
@@ -16398,14 +16389,14 @@ INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, val
   		and I.idPart = P.idPe 
       and I.tipoApresentador = '1' --para garantir
   		and P.emailPe = 'tiesyte@cs.aau.dk'),
-  	.00,
-  	TO_DATE('25/07/2011', 'DD/MM/YYYY'),
+  	200.00,
+  	TO_DATE('16/10/2012', 'DD/MM/YYYY'),
   	'Transportation aid'
 );
 /
 INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, valorAux, dataAux, tipoAux)
   values(
-  	6990590000204,
+  	60316817000103,
   	2,
   	20,
   	2,
@@ -16416,14 +16407,14 @@ INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, val
   		and I.idPart = P.idPe 
       and I.tipoApresentador = '1' --para garantir
   		and P.emailPe = 'zheng@microsoft.com'),
-  	.00,
-  	TO_DATE('25/07/2011', 'DD/MM/YYYY'),
+  	200.00,
+  	TO_DATE('12/10/2012', 'DD/MM/YYYY'),
   	'Transportation aid'
 );
 /
 INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, valorAux, dataAux, tipoAux)
   values(
-  	6990590000204,
+  	33372251000156,
   	2,
   	20,
   	2,
@@ -16434,14 +16425,14 @@ INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, val
   		and I.idPart = P.idPe 
       and I.tipoApresentador = '1' --para garantir
   		and P.emailPe = 'macário@unicamp.com.br'),
-  	.00,
-  	TO_DATE('25/07/2011', 'DD/MM/YYYY'),
+  	600.00,
+  	TO_DATE('15/07/2012', 'DD/MM/YYYY'),
   	'Flight ticket aid'
 );
 /
 INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, valorAux, dataAux, tipoAux)
   values(
-  	6990590000204,
+  	33372251000156,
   	2,
   	20,
   	2,
@@ -16452,8 +16443,8 @@ INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, val
   		and I.idPart = P.idPe 
       and I.tipoApresentador = '1' --para garantir
   		and P.emailPe = 'buchin@eindhoven.edu'),
-  	.00,
-  	TO_DATE('25/07/2011', 'DD/MM/YYYY'),
+  	600.00,
+  	TO_DATE('25/07/2012', 'DD/MM/YYYY'),
   	'Flight ticket aid'
 );
 /
@@ -16461,10 +16452,18 @@ INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, val
 /
 /
 /
+6990590000204
+60316817000103
+59456277000176
+33372251000156
+10322194000103
+57286247000133
+61797924000155
+19758880000198
 -- EV 02 ED 21
 INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, valorAux, dataAux, tipoAux)
   values(
-  	6990590000204,
+  	33372251000156,
   	2,
   	21,
   	2,
@@ -16475,14 +16474,14 @@ INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, val
   		and I.idPart = P.idPe 
       and I.tipoApresentador = '1' --para garantir
   		and P.emailPe = 'ying@cku.edu'),
-  	.00,
-  	TO_DATE('25/07/2011', 'DD/MM/YYYY'),
+  	450.00,
+  	TO_DATE('30/07/2013', 'DD/MM/YYYY'),
   	'Flight ticket aid'
 );
 /
 INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, valorAux, dataAux, tipoAux)
   values(
-  	6990590000204,
+  	10322194000103,
   	2,
   	21,
   	2,
@@ -16493,14 +16492,14 @@ INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, val
   		and I.idPart = P.idPe 
       and I.tipoApresentador = '1' --para garantir
   		and P.emailPe = 'kong@umassp.edu'),
-  	.00,
-  	TO_DATE('25/07/2011', 'DD/MM/YYYY'),
+  	100.00,
+  	TO_DATE('13/09/2013', 'DD/MM/YYYY'),
   	'Food aid'
 );
 /
 INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, valorAux, dataAux, tipoAux)
   values(
-  	6990590000204,
+  	10322194000103,
   	2,
   	21,
   	2,
@@ -16511,14 +16510,14 @@ INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, val
   		and I.idPart = P.idPe 
       and I.tipoApresentador = '1' --para garantir
   		and P.emailPe = 'jakobsen@cs.aau.dk'),
-  	.00,
-  	TO_DATE('25/07/2011', 'DD/MM/YYYY'),
+  	100.00,
+  	TO_DATE('27/09/2013', 'DD/MM/YYYY'),
   	'Transportation aid'
 );
 /
 INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, valorAux, dataAux, tipoAux)
   values(
-  	6990590000204,
+  	10322194000103,
   	2,
   	21,
   	2,
@@ -16529,14 +16528,14 @@ INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, val
   		and I.idPart = P.idPe 
       and I.tipoApresentador = '1' --para garantir
   		and P.emailPe = 'baum@kit.edu'),
-  	.00,
-  	TO_DATE('25/07/2011', 'DD/MM/YYYY'),
+  	100.00,
+  	TO_DATE('25/07/2013', 'DD/MM/YYYY'),
   	'Transportation aid'
 );
 /
 INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, valorAux, dataAux, tipoAux)
   values(
-  	6990590000204,
+  	10322194000103,
   	2,
   	21,
   	2,
@@ -16547,14 +16546,14 @@ INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, val
   		and I.idPart = P.idPe 
       and I.tipoApresentador = '1' --para garantir
   		and P.emailPe = 'kazemitabar@usc.edu'),
-  	.00,
-  	TO_DATE('25/07/2011', 'DD/MM/YYYY'),
+  	100.00,
+  	TO_DATE('25/08/2013', 'DD/MM/YYYY'),
   	'Food aid'
 );
 /
 INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, valorAux, dataAux, tipoAux)
   values(
-  	6990590000204,
+  	33372251000156,
   	2,
   	21,
   	2,
@@ -16565,14 +16564,14 @@ INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, val
   		and I.idPart = P.idPe 
       and I.tipoApresentador = '1' --para garantir
   		and P.emailPe = 'both@unimelb.edu.au'),
-  	.00,
-  	TO_DATE('25/07/2011', 'DD/MM/YYYY'),
+  	450.00,
+  	TO_DATE('13/07/2013', 'DD/MM/YYYY'),
   	'Flight ticket aid'
 );
 /
 INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, valorAux, dataAux, tipoAux)
   values(
-  	6990590000204,
+  	33372251000156,
   	2,
   	21,
   	2,
@@ -16583,14 +16582,14 @@ INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, val
   		and I.idPart = P.idPe 
       and I.tipoApresentador = '1' --para garantir
   		and P.emailPe = 'kreveld@uu.nl'),
-  	.00,
-  	TO_DATE('25/07/2011', 'DD/MM/YYYY'),
+  	450.00,
+  	TO_DATE('14/07/2013', 'DD/MM/YYYY'),
   	'Flight ticket aid'
 );
 /
 INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, valorAux, dataAux, tipoAux)
   values(
-  	6990590000204,
+  	10322194000103,
   	2,
   	21,
   	2,
@@ -16601,14 +16600,14 @@ INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, val
   		and I.idPart = P.idPe 
       and I.tipoApresentador = '1' --para garantir
   		and P.emailPe = 'liu@umaryland.edu'),
-  	.00,
-  	TO_DATE('25/07/2011', 'DD/MM/YYYY'),
+  	100.00,
+  	TO_DATE('18/10/2013', 'DD/MM/YYYY'),
   	'Transportation aid'
 );
 /
 INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, valorAux, dataAux, tipoAux)
   values(
-  	6990590000204,
+  	10322194000103,
   	2,
   	21,
   	2,
@@ -16619,14 +16618,14 @@ INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, val
   		and I.idPart = P.idPe 
       and I.tipoApresentador = '1' --para garantir
   		and P.emailPe = 'bao@uminnesota.com'),
-  	.00,
-  	TO_DATE('25/07/2011', 'DD/MM/YYYY'),
+  	100.00,
+  	TO_DATE('29/09/2013', 'DD/MM/YYYY'),
   	'Transportation aid'
 );
 /
 INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, valorAux, dataAux, tipoAux)
   values(
-  	6990590000204,
+  	10322194000103,
   	2,
   	21,
   	2,
@@ -16637,14 +16636,14 @@ INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, val
   		and I.idPart = P.idPe 
       and I.tipoApresentador = '1' --para garantir
   		and P.emailPe = 'gao@uc.edu'),
-  	.00,
-  	TO_DATE('25/07/2011', 'DD/MM/YYYY'),
+  	150.00,
+  	TO_DATE('25/08/2013', 'DD/MM/YYYY'),
   	'Hosting aid'
 );
 /
 INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, valorAux, dataAux, tipoAux)
   values(
-  	6990590000204,
+  	33372251000156,
   	2,
   	21,
   	2,
@@ -16655,14 +16654,14 @@ INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, val
   		and I.idPart = P.idPe 
       and I.tipoApresentador = '1' --para garantir
   		and P.emailPe = 'sengstock@hu.edu'),
-  	.00,
-  	TO_DATE('25/07/2011', 'DD/MM/YYYY'),
+  	450.00,
+  	TO_DATE('27/07/2013', 'DD/MM/YYYY'),
   	'Flight ticket aid'
 );
 /
 INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, valorAux, dataAux, tipoAux)
   values(
-  	6990590000204,
+  	10322194000103,
   	2,
   	21,
   	2,
@@ -16673,14 +16672,14 @@ INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, val
   		and I.idPart = P.idPe 
       and I.tipoApresentador = '1' --para garantir
   		and P.emailPe = 'sagy@technion.ac.il'),
-  	.00,
-  	TO_DATE('25/07/2011', 'DD/MM/YYYY'),
+  	100.00,
+  	TO_DATE('19/10/2013', 'DD/MM/YYYY'),
   	'Food aid'
 );
 /
 INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, valorAux, dataAux, tipoAux)
   values(
-  	6990590000204,
+  	10322194000103,
   	2,
   	21,
   	2,
@@ -16691,14 +16690,14 @@ INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, val
   		and I.idPart = P.idPe 
       and I.tipoApresentador = '1' --para garantir
   		and P.emailPe = 'kadambi@bloomberg.com'),
-  	.00,
-  	TO_DATE('25/07/2011', 'DD/MM/YYYY'),
+  	100.00,
+  	TO_DATE('17/10/2013', 'DD/MM/YYYY'),
   	'Food aid'
 );
 /
 INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, valorAux, dataAux, tipoAux)
   values(
-  	6990590000204,
+  	10322194000103,
   	2,
   	21,
   	2,
@@ -16709,8 +16708,8 @@ INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, val
   		and I.idPart = P.idPe 
       and I.tipoApresentador = '1' --para garantir
   		and P.emailPe = 'papadimitriou@stanford.edu'),
-  	.00,
-  	TO_DATE('25/07/2011', 'DD/MM/YYYY'),
+  	100.00,
+  	TO_DATE('15/10/2013', 'DD/MM/YYYY'),
   	'Transportation aid'
 );
 /
@@ -16732,8 +16731,8 @@ INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, val
   		and I.idPart = P.idPe 
       and I.tipoApresentador = '1' --para garantir
   		and P.emailPe = 'cao@umassp.edu'),
-  	.00,
-  	TO_DATE('25/07/2011', 'DD/MM/YYYY'),
+  	75.00,
+  	TO_DATE('18/06/2011', 'DD/MM/YYYY'),
   	'Transportation aid'
 );
 /
@@ -16750,8 +16749,8 @@ INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, val
   		and I.idPart = P.idPe 
       and I.tipoApresentador = '1' --para garantir
   		and P.emailPe = 'rice@uc.edu'),
-  	.00,
-  	TO_DATE('25/07/2011', 'DD/MM/YYYY'),
+  	75.00,
+  	TO_DATE('23/06/2011', 'DD/MM/YYYY'),
   	'Transportation aid'
 );
 /
@@ -16768,8 +16767,8 @@ INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, val
   		and I.idPart = P.idPe 
       and I.tipoApresentador = '1' --para garantir
   		and P.emailPe = 'khanna@upenn.edu'),
-  	.00,
-  	TO_DATE('25/07/2011', 'DD/MM/YYYY'),
+  	75.00,
+  	TO_DATE('25/06/2011', 'DD/MM/YYYY'),
   	'Transportation aid'
 );
 /
@@ -16786,7 +16785,7 @@ INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, val
   		and I.idPart = P.idPe 
       and I.tipoApresentador = '1' --para garantir
   		and P.emailPe = 'sagy@technion.ac.il'),
-  	.00,
+  	50.00,
   	TO_DATE('25/07/2011', 'DD/MM/YYYY'),
   	'Food aid'
 );
@@ -16804,8 +16803,8 @@ INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, val
   		and I.idPart = P.idPe 
       and I.tipoApresentador = '1' --para garantir
   		and P.emailPe = 'kadambi@bloomberg.com'),
-  	.00,
-  	TO_DATE('25/07/2011', 'DD/MM/YYYY'),
+  	50.00,
+  	TO_DATE('17/07/2011', 'DD/MM/YYYY'),
   	'Food aid'
 );
 /
@@ -16822,8 +16821,8 @@ INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, val
   		and I.idPart = P.idPe 
       and I.tipoApresentador = '1' --para garantir
   		and P.emailPe = 'papadimitriou@stanford.edu'),
-  	.00,
-  	TO_DATE('25/07/2011', 'DD/MM/YYYY'),
+  	50.00,
+  	TO_DATE('02/07/2011', 'DD/MM/YYYY'),
   	'Food aid'
 );
 /
@@ -16840,8 +16839,8 @@ INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, val
   		and I.idPart = P.idPe 
       and I.tipoApresentador = '1' --para garantir
   		and P.emailPe = 'rocha-junior@ntnu.edu'),
-  	.00,
-  	TO_DATE('25/07/2011', 'DD/MM/YYYY'),
+  	100.00,
+  	TO_DATE('30/05/2011', 'DD/MM/YYYY'),
   	'Hosting aid'
 );
 /
@@ -16858,8 +16857,8 @@ INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, val
   		and I.idPart = P.idPe 
       and I.tipoApresentador = '1' --para garantir
   		and P.emailPe = 'yan@hku.edu'),
-  	.00,
-  	TO_DATE('25/07/2011', 'DD/MM/YYYY'),
+  	100.00,
+  	TO_DATE('25/05/2011', 'DD/MM/YYYY'),
   	'Hosting aid'
 );
 /
@@ -16876,8 +16875,8 @@ INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, val
   		and I.idPart = P.idPe 
       and I.tipoApresentador = '1' --para garantir
   		and P.emailPe = 'chen@hku.edu'),
-  	.00,
-  	TO_DATE('25/07/2011', 'DD/MM/YYYY'),
+  	100.00,
+  	TO_DATE('07/05/2011', 'DD/MM/YYYY'),
   	'Hosting aid'
 );
 /
@@ -16894,8 +16893,8 @@ INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, val
   		and I.idPart = P.idPe 
       and I.tipoApresentador = '1' --para garantir
   		and P.emailPe = 'bernecker@lmu.edu'),
-  	.00,
-  	TO_DATE('25/07/2011', 'DD/MM/YYYY'),
+  	400.00,
+  	TO_DATE('25/03/2011', 'DD/MM/YYYY'),
   	'Flight ticket aid'
 );
 /
@@ -16912,8 +16911,8 @@ INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, val
   		and I.idPart = P.idPe 
       and I.tipoApresentador = '1' --para garantir
   		and P.emailPe = 'wang@nus.edu.sg'),
-  	.00,
-  	TO_DATE('25/07/2011', 'DD/MM/YYYY'),
+  	400.00,
+  	TO_DATE('30/03/2011', 'DD/MM/YYYY'),
   	'Flight ticket aid'
 );
 /
@@ -16930,8 +16929,8 @@ INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, val
   		and I.idPart = P.idPe 
       and I.tipoApresentador = '1' --para garantir
   		and P.emailPe = 'yan@hku.edu'),
-  	.00,
-  	TO_DATE('25/07/2011', 'DD/MM/YYYY'),
+  	400.00,
+  	TO_DATE('01/04/2011', 'DD/MM/YYYY'),
   	'Flight ticket aid'
 );
 /
@@ -16948,8 +16947,8 @@ INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, val
   		and I.idPart = P.idPe 
       and I.tipoApresentador = '1' --para garantir
   		and P.emailPe = 'chen@hku.edu'),
-  	.00,
-  	TO_DATE('25/07/2011', 'DD/MM/YYYY'),
+  	400.00,
+  	TO_DATE('06/04/2011', 'DD/MM/YYYY'),
   	'Flight ticket aid'
 );
 /
