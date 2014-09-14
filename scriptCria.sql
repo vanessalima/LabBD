@@ -240,7 +240,7 @@ CREATE TABLE auxilio (
 	codEvApr Number(5) NOT NULL, -- Chave primária e estrangeira de inscrito (identidade fraca)
 	numEdApr Number(5) NOT NULL, -- Chave primária e estrangeira de inscrito (identidade fraca)
 	idApr Number(5) NOT NULL, -- Chave primária e estrangeira de inscrito (identidade fraca)
-	tipoAux Varchar2(50) NOT NULL, -- Chave primária para diferenciar do inscrito
+	tipoAux Varchar2(100) NOT NULL, -- Chave primária para diferenciar do inscrito
 	valorAux Number(5,2),
 	dataAux Date, -- Máscara da data DD/MM/YYYY
 	cnpjPat	Number(14), -- Chave Estrangeira de patrocinio
