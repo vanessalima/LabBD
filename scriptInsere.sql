@@ -17158,35 +17158,441 @@ INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, val
 /
 /
 /
+-- EV 01 ED 39 VLDB
+INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, valorAux, dataAux, tipoAux)
+  values(
+    19758880000198,
+    1,
+    39,
+    1,
+    39,
+    (SELECT I.idPart FROM inscrito I, pessoa P 
+      WHERE I.codEv =1 
+      and I.numEd = 39
+      and I.idPart = P.idPe 
+      and I.tipoApresentador = '1' --para garantir
+      and P.emailPe = 'he@nus.edu.sg'),
+    1000.00,
+    TO_DATE('24/08/2013', 'DD/MM/YYYY'),
+    'Hosting aid'
+);
 /
--- EV 01 ED 39
-he@nus.edu.sg
-heimel@uwaterloo.edu
-stoica@bloomberg.com
-yuan@osu.edu
-liu@nus.edu.sg
-pei@osu.edu
-mahmoud@uc.edu
-el-roby@uwaterloo.edu
-sathiamoorthy@uc.edu
-chi@nec-labs.com
-fu@hku.edu
-yuan@psu.edu
+INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, valorAux, dataAux, tipoAux)
+  values(
+    19758880000198,
+    1,
+    39,
+    1,
+    39,
+    (SELECT I.idPart FROM inscrito I, pessoa P 
+      WHERE I.codEv =1 
+      and I.numEd = 39
+      and I.idPart = P.idPe 
+      and I.tipoApresentador = '1' --para garantir
+      and P.emailPe = 'heimel@uwaterloo.edu'),
+    1000.00,
+    TO_DATE('24/08/2013', 'DD/MM/YYYY'),
+    'Hosting aid'
+);
 
--- EV 01 ED 40
-jin@hku.edu
-wu@cuhk.edu.hk
-tangwongsan@ibmresearch.com
-nirkhiwale@uc.edu
-li@gla.ac.uk
-roediger@mit.edu
-guowang@nus.edu.sg
-sarma@stanford.edu
-boehm@ibmresearch.com
-duggan@mit.edu
-yang@hku.edu
-
-
+/
+INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, valorAux, dataAux, tipoAux)
+  values(
+    19758880000198,
+    1,
+    39,
+    1,
+    39,
+    (SELECT I.idPart FROM inscrito I, pessoa P 
+      WHERE I.codEv =1 
+      and I.numEd = 39
+      and I.idPart = P.idPe 
+      and I.tipoApresentador = '1' --para garantir
+      and P.emailPe = 'stoica@bloomberg.com'),
+    1500.00,
+    TO_DATE('24/08/2013', 'DD/MM/YYYY'),
+    'Flight ticket aid'
+);
+/
+INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, valorAux, dataAux, tipoAux)
+  values(
+    33372251000156,
+    1,
+    39,
+    1,
+    39,
+    (SELECT I.idPart FROM inscrito I, pessoa P 
+      WHERE I.codEv =1 
+      and I.numEd = 39
+      and I.idPart = P.idPe 
+      and I.tipoApresentador = '1' --para garantir
+      and P.emailPe = 'yuan@osu.edu'),
+    1800.00,
+    TO_DATE('24/08/2013', 'DD/MM/YYYY'),
+    'Flight ticket aid'
+);
+/
+INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, valorAux, dataAux, tipoAux)
+  values(
+    33372251000156,
+    1,
+    39,
+    1,
+    39,
+    (SELECT I.idPart FROM inscrito I, pessoa P 
+      WHERE I.codEv =1 
+      and I.numEd = 39
+      and I.idPart = P.idPe 
+      and I.tipoApresentador = '1' --para garantir
+      and P.emailPe = 'yuan@osu.edu'),
+    1800.00,
+    TO_DATE('24/08/2013', 'DD/MM/YYYY'),
+    'Flight ticket aid'
+);
+/
+INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, valorAux, dataAux, tipoAux)
+  values(
+    06990590000204,
+    1,
+    39,
+    1,
+    39,
+    (SELECT I.idPart FROM inscrito I, pessoa P 
+      WHERE I.codEv =1 
+      and I.numEd = 39
+      and I.idPart = P.idPe 
+      and I.tipoApresentador = '1' --para garantir
+      and P.emailPe = 'liu@nus.edu.sg'),
+    200.00,
+    TO_DATE('24/08/2013', 'DD/MM/YYYY'),
+    'Food aid'
+);
+/
+INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, valorAux, dataAux, tipoAux)
+  values(
+    61797924000155,
+    1,
+    39,
+    1,
+    39,
+    (SELECT I.idPart FROM inscrito I, pessoa P 
+      WHERE I.codEv =1 
+      and I.numEd = 39
+      and I.idPart = P.idPe 
+      and I.tipoApresentador = '1' --para garantir
+      and P.emailPe = 'pei@osu.edu'),
+    1800.00,
+    TO_DATE('24/08/2013', 'DD/MM/YYYY'),
+    'Flight ticket aid'
+);
+/
+INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, valorAux, dataAux, tipoAux)
+  values(
+    06990590000204,
+    1,
+    39,
+    1,
+    39,
+    (SELECT I.idPart FROM inscrito I, pessoa P 
+      WHERE I.codEv =1 
+      and I.numEd = 39
+      and I.idPart = P.idPe 
+      and I.tipoApresentador = '1' --para garantir
+      and P.emailPe = 'mahmoud@uc.edu'),
+    200.00,
+    TO_DATE('24/08/2013', 'DD/MM/YYYY'),
+    'Food aid'
+);
+/
+INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, valorAux, dataAux, tipoAux)
+  values(
+    06990590000204,
+    1,
+    39,
+    1,
+    39,
+    (SELECT I.idPart FROM inscrito I, pessoa P 
+      WHERE I.codEv =1 
+      and I.numEd = 39
+      and I.idPart = P.idPe 
+      and I.tipoApresentador = '1' --para garantir
+      and P.emailPe = 'el-roby@uwaterloo.edu'),
+    200.00,
+    TO_DATE('24/08/2013', 'DD/MM/YYYY'),
+    'Food aid'
+);
+/
+INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, valorAux, dataAux, tipoAux)
+  values(
+    06990590000204,
+    1,
+    39,
+    1,
+    39,
+    (SELECT I.idPart FROM inscrito I, pessoa P 
+      WHERE I.codEv =1 
+      and I.numEd = 39
+      and I.idPart = P.idPe 
+      and I.tipoApresentador = '1' --para garantir
+      and P.emailPe = 'sathiamoorthy@uc.edu'),
+    200.00,
+    TO_DATE('24/08/2013', 'DD/MM/YYYY'),
+    'Food aid'
+);
+/
+INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, valorAux, dataAux, tipoAux)
+  values(
+    06990590000204,
+    1,
+    39,
+    1,
+    39,
+    (SELECT I.idPart FROM inscrito I, pessoa P 
+      WHERE I.codEv =1 
+      and I.numEd = 39
+      and I.idPart = P.idPe 
+      and I.tipoApresentador = '1' --para garantir
+      and P.emailPe = 'chi@nec-labs.com'),
+    200.00,
+    TO_DATE('24/08/2013', 'DD/MM/YYYY'),
+    'Food aid'
+);
+/
+INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, valorAux, dataAux, tipoAux)
+  values(
+    57286247000133,
+    1,
+    39,
+    1,
+    39,
+    (SELECT I.idPart FROM inscrito I, pessoa P 
+      WHERE I.codEv =1 
+      and I.numEd = 39
+      and I.idPart = P.idPe 
+      and I.tipoApresentador = '1' --para garantir
+      and P.emailPe = 'fu@hku.edu'),
+    1200.00,
+    TO_DATE('24/08/2013', 'DD/MM/YYYY'),
+    'Flight ticket aid'
+);
+/
+INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, valorAux, dataAux, tipoAux)
+  values(
+    57286247000133,
+    1,
+    39,
+    1,
+    39,
+    (SELECT I.idPart FROM inscrito I, pessoa P 
+      WHERE I.codEv =1 
+      and I.numEd = 39
+      and I.idPart = P.idPe 
+      and I.tipoApresentador = '1' --para garantir
+      and P.emailPe = 'yuan@psu.edu'),
+    800.00,
+    TO_DATE('24/08/2013', 'DD/MM/YYYY'),
+    'Hosting aid'
+);
+/
+-- EV 01 ED 40 VLDB
+INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, valorAux, dataAux, tipoAux)
+  values(
+    06990590000204,
+    1,
+    40,
+    1,
+    40,
+    (SELECT I.idPart FROM inscrito I, pessoa P 
+      WHERE I.codEv =1 
+      and I.numEd = 40
+      and I.idPart = P.idPe 
+      and I.tipoApresentador = '1' --para garantir
+      and P.emailPe = 'jin@hku.edu'),
+    100.00,
+    TO_DATE('28/08/2014', 'DD/MM/YYYY'),
+    'Food aid'
+);
+/
+INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, valorAux, dataAux, tipoAux)
+  values(
+    06990590000204,
+    1,
+    40,
+    1,
+    40,
+    (SELECT I.idPart FROM inscrito I, pessoa P 
+      WHERE I.codEv =1 
+      and I.numEd = 40
+      and I.idPart = P.idPe 
+      and I.tipoApresentador = '1' --para garantir
+      and P.emailPe = 'wu@cuhk.edu.hk'),
+    100.00,
+    TO_DATE('28/08/2014', 'DD/MM/YYYY'),
+    'Food aid'
+);
+/
+INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, valorAux, dataAux, tipoAux)
+  values(
+    19758880000198,
+    1,
+    40,
+    1,
+    40,
+    (SELECT I.idPart FROM inscrito I, pessoa P 
+      WHERE I.codEv =1 
+      and I.numEd = 40
+      and I.idPart = P.idPe 
+      and I.tipoApresentador = '1' --para garantir
+      and P.emailPe = 'tangwongsan@ibmresearch.com'),
+    2550.00,
+    TO_DATE('28/08/2014', 'DD/MM/YYYY'),
+    'Transportation aid'
+);
+/
+INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, valorAux, dataAux, tipoAux)
+  values(
+    57286247000133,
+    1,
+    40,
+    1,
+    40,
+    (SELECT I.idPart FROM inscrito I, pessoa P 
+      WHERE I.codEv =1 
+      and I.numEd = 40
+      and I.idPart = P.idPe 
+      and I.tipoApresentador = '1' --para garantir
+      and P.emailPe = 'nirkhiwale@uc.edu'),
+    1000.00,
+    TO_DATE('27/08/2014', 'DD/MM/YYYY'),
+    'Hosting aid'
+);
+/
+INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, valorAux, dataAux, tipoAux)
+  values(
+    33372251000156,
+    1,
+    40,
+    1,
+    40,
+    (SELECT I.idPart FROM inscrito I, pessoa P 
+      WHERE I.codEv =1 
+      and I.numEd = 40
+      and I.idPart = P.idPe 
+      and I.tipoApresentador = '1' --para garantir
+      and P.emailPe = 'li@gla.ac.uk'),
+    1200.00,
+    TO_DATE('27/08/2014', 'DD/MM/YYYY'),
+    'Hosting aid'
+);
+/
+INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, valorAux, dataAux, tipoAux)
+  values(
+    61797924000155,
+    1,
+    40,
+    1,
+    40,
+    (SELECT I.idPart FROM inscrito I, pessoa P 
+      WHERE I.codEv =1 
+      and I.numEd = 40
+      and I.idPart = P.idPe 
+      and I.tipoApresentador = '1' --para garantir
+      and P.emailPe = 'roediger@mit.edu'),
+    200.00,
+    TO_DATE('27/08/2014', 'DD/MM/YYYY'),
+    'Food aid'
+);
+/
+INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, valorAux, dataAux, tipoAux)
+  values(
+    06990590000204,
+    1,
+    40,
+    1,
+    40,
+    (SELECT I.idPart FROM inscrito I, pessoa P 
+      WHERE I.codEv =1 
+      and I.numEd = 40
+      and I.idPart = P.idPe 
+      and I.tipoApresentador = '1' --para garantir
+      and P.emailPe = 'guowang@nus.edu.sg'),
+    1000.00,
+    TO_DATE('28/08/2014', 'DD/MM/YYYY'),
+    'Hosting aid'
+);
+/
+INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, valorAux, dataAux, tipoAux)
+  values(
+    33372251000156,
+    1,
+    40,
+    1,
+    40,
+    (SELECT I.idPart FROM inscrito I, pessoa P 
+      WHERE I.codEv =1 
+      and I.numEd = 40
+      and I.idPart = P.idPe 
+      and I.tipoApresentador = '1' --para garantir
+      and P.emailPe = 'sarma@stanford.edu'),
+    100.00,
+    TO_DATE('28/08/2014', 'DD/MM/YYYY'),
+    'Food aid'
+);
+/
+INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, valorAux, dataAux, tipoAux)
+  values(
+    33372251000156,
+    1,
+    40,
+    1,
+    40,
+    (SELECT I.idPart FROM inscrito I, pessoa P 
+      WHERE I.codEv =1 
+      and I.numEd = 40
+      and I.idPart = P.idPe 
+      and I.tipoApresentador = '1' --para garantir
+      and P.emailPe = 'boehm@ibmresearch.com'),
+    1000.00,
+    TO_DATE('28/08/2014', 'DD/MM/YYYY'),
+    'Hosting aid'
+);
+/
+INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, valorAux, dataAux, tipoAux)
+  values(
+    06990590000204,
+    1,
+    40,
+    1,
+    40,
+    (SELECT I.idPart FROM inscrito I, pessoa P 
+      WHERE I.codEv =1 
+      and I.numEd = 40
+      and I.idPart = P.idPe 
+      and I.tipoApresentador = '1' --para garantir
+      and P.emailPe = 'duggan@mit.edu'),
+    100.00,
+    TO_DATE('28/08/2014', 'DD/MM/YYYY'),
+    'Food aid'
+);
+/
+INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, valorAux, dataAux, tipoAux)
+  values(
+    19758880000198,
+    1,
+    40,
+    1,
+    40,
+    (SELECT I.idPart FROM inscrito I, pessoa P 
+      WHERE I.codEv =1 
+      and I.numEd = 40
+      and I.idPart = P.idPe 
+      and I.tipoApresentador = '1' --para garantir
+      and P.emailPe = 'yang@hku.edu'),
+    2550.00,
+    TO_DATE('28/08/2014', 'DD/MM/YYYY'),
+    'Transportation aid'
+);
+/
 /
 /
 -- Update do atributo derivado qtdArtigosApresentadosEd da tabela edicao
