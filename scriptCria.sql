@@ -241,7 +241,15 @@ CREATE TABLE patrocinio (
 /
 -- Criação da tabela Despesa
 /*
- *
+ *	Esta tabela contém informações de todos os gastos que foram realizados em cada edição dos eventos, tais como:
+ * codEv é o código do evento no qual a despesa foi feita, o qual é chave estrangeira de edicao
+ * numEd é o código da edição no qual a despesa foi feita, o qual é chave estrangeira de edicao
+ * cnpjPat é o código do patrocinador do qual os gastos foram descontados
+ * codEvPat é o código do evento que este patrocinio que será gasto foi dado, chave estrangeira de patrocinio
+ * numEdPat é o código da edição em que o patrocinio que será gasto foi dado, chave estrangeira de patrocinio
+ * dataDesp é a data que a despesa foi feita no formato DD/MM/YYYY
+ * valorDesp é o valor da despesa em dolares na forma de ponto flutuante com duas casas decimais
+ * descricaoDesp é uma breve definição sobre a despesa, explicando por qual razão foi feita
  */
 CREATE TABLE despesa (
 	codEv Number(5) NOT NULL,	-- Chave primária e estrangeira (identifica identidade fraca)
@@ -253,9 +261,9 @@ CREATE TABLE despesa (
 	dataDesp Date,
 	valorDesp Number(10,2),
 	descricaoDesp Varchar2(500),
-	CONSTRAINT PK_DESPESA PRIMARY KEY (codEv, numEd, codDesp), -- PK_DESPESA 
-	CONSTRAINT FK_DESPESA_EDICAO FOREIGN KEY (codEv, numEd) REFERENCES edicao(codEv, numEd) ON DELETE CASCADE, 
-	CONSTRAINT FK_DESPESA_PATROCINIO FOREIGN KEY (cnpjPat, codEvPat, numEdPat) REFERENCES patrocinio(cnpjPat, codEv, numEd) ON DELETE SET NULL
+	CONSTRAINT PK_DESPESA PRIMARY KEY (codEv, numEd, codDesp), -- PK_DESPESA restrição de chave primária
+	CONSTRAINT FK_DESPESA_EDICAO FOREIGN KEY (codEv, numEd) REFERENCES edicao(codEv, numEd) ON DELETE CASCADE, -- restrição de integridade referencial
+	CONSTRAINT FK_DESPESA_PATROCINIO FOREIGN KEY (cnpjPat, codEvPat, numEdPat) REFERENCES patrocinio(cnpjPat, codEv, numEd) ON DELETE SET NULL -- restrição de integridade referencial
 );
 /
 -- Criação da tabela Auxilio
