@@ -17600,7 +17600,7 @@ UPDATE evento
  * evento e com auxilio, representando o saldo gasto do determinado patrocinio.
  * OBS: Considerando o evento e edicao que o patrocinio foi conseguido, não a 
  * despesa ou auxilio.
- */
+ *
 UPDATE patrocinio
 	SET saldoPat = (
     SELECT (patrocinio.valorPat - sum(despesa.valorDesp) - sum(auxilio.valorAux) )
@@ -17611,6 +17611,17 @@ UPDATE patrocinio
           AND patrocinio.numEd = auxilio.numEdPat)
       GROUP BY patrocinio.cnpjPat, despesa.cnpjPat, auxilio.cnpjPat
 );
+
+UPDATE patrocinio
+	SET saldoPat = (
+		SELECT (patrocinio.valorPat - sum(despesa.valorDesp) )
+			FROM despesa
+			WHERE patrocinio.codEv = despesa.codEvPat
+        		AND patrocinio.numEd = despesa.numEdPat
+        		AND patrocinio.cnjpPat = despesa.cnpjPat
+        	GROUP BY despesa.codEvPat, despesa.numEdPat, despesa.cnpjPat
+);
+*/
 /*
 SELECT cnpjPat, sum(valorDesp)
   FROM despesa
@@ -17628,6 +17639,9 @@ SELECT cnpjPat, sum(valorDesp)
  *
 UPDATE edicao 
 	SET saldoFinanceiroEd = (
+		SELECT ( edicao.taxaEd * count(inscritos.idPart) )
+			FROM inscritos
+			WHERE 
 		);
 */
 /
