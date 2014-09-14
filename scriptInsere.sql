@@ -16681,7 +16681,7 @@ INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, val
   		and I.numEd = 21
   		and I.idPart = P.idPe 
       and I.tipoApresentador = '1' --para garantir
-  		and P.emailPe = 'kadambi@bloomberg.com'),
+  		and P.emailPe = 'liu@umaryland.edu'),
   	100.00,
   	TO_DATE('17/10/2013', 'DD/MM/YYYY'),
   	'Food aid'
@@ -16938,7 +16938,7 @@ INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, val
   		and I.numEd = 37
   		and I.idPart = P.idPe 
       and I.tipoApresentador = '1' --para garantir
-  		and P.emailPe = 'chen@hku.edu'),
+  		and P.emailPe = 'rocha-junior@ntnu.edu'),
   	400.00,
   	TO_DATE('06/04/2011', 'DD/MM/YYYY'),
   	'Flight ticket aid'
@@ -17196,24 +17196,6 @@ INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, val
       and I.idPart = P.idPe 
       and I.tipoApresentador = '1' --para garantir
       and P.emailPe = 'stoica@bloomberg.com'),
-    500.00,
-    TO_DATE('24/08/2013', 'DD/MM/YYYY'),
-    'Flight ticket aid'
-);
-/
-INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, valorAux, dataAux, tipoAux)
-  values(
-    33372251000156,
-    1,
-    39,
-    1,
-    39,
-    (SELECT I.idPart FROM inscrito I, pessoa P 
-      WHERE I.codEv =1 
-      and I.numEd = 39
-      and I.idPart = P.idPe 
-      and I.tipoApresentador = '1' --para garantir
-      and P.emailPe = 'yuan@osu.edu'),
     500.00,
     TO_DATE('24/08/2013', 'DD/MM/YYYY'),
     'Flight ticket aid'
