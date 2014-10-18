@@ -4,7 +4,7 @@
  *
  * SCC0241 - Laboratório de Base de Dados
  * Turma 03
- * Trabalho Prático 01
+ * Trabalho Prático 02
  *
  * Script de Criação < scriptCria.sql >
  * 
@@ -77,7 +77,7 @@ CREATE TABLE edicao (
 	dataFimEd Date, -- Máscara da data DD/MM/YYYY
 	localEd Varchar2(150), -- Cidade, País
 	taxaEd Number(10,2), -- Valor inteiro da taxa de inscrição
-	descricaoEd Varchar2(500),
+	descricaoEd Varchar2(150), -- descreve brevemente a edição
 	saldoFinanceiroEd Number(30), -- atributo derivado que mostra o saldo da edição
 	qtdArtigosApresentadosEd Number(10), -- atributo derivado que soma a quantidade de artigos apresentados na edição
 	CONSTRAINT PK_EDICAO PRIMARY KEY (codEv, numEd), -- PK_EDICAO define a restrição de chave primária
@@ -176,8 +176,8 @@ CREATE TABLE escreve(
       idAut Number(5) NOT NULL, -- Chave primária e estrangeira
       idArt Number(5) NOT NULL, -- Chave primária e estrangeira
       CONSTRAINT PK_ESCREVE PRIMARY KEY (idAut, idArt), -- restrição de chave primária
-      CONSTRAINT PK_ESCREVE_ARTIGO FOREIGN KEY (idArt) REFERENCES artigo(idArt) ON DELETE CASCADE -- Restrição de integridade referencial
-      CONSTRAINT PK_ESCREVE_ARTIGO FOREIGN KEY (idAut) REFERENCES pessoa(idPe) ON DELETE CASCADE -- Restrição de integridade referencial
+      CONSTRAINT PK_ESCREVE_ARTIGO FOREIGN KEY (idArt) REFERENCES artigo(idArt) ON DELETE CASCADE, -- Restrição de integridade referencial
+      CONSTRAINT PK_ESCREVE_PESSOA FOREIGN KEY (idAut) REFERENCES pessoa(idPe) ON DELETE CASCADE -- Restrição de integridade referencial
 );
 /
 -- Criação da tabela Organiza

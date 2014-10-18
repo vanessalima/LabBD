@@ -4,7 +4,7 @@
  *
  * SCC0241 - Laboratório de Base de Dados
  * Turma 03
- * Trabalho Prático 01
+ * Trabalho Prático 02
  *
  * Script de Inserção < scriptInsere.sql >
  * 
@@ -120,20 +120,6 @@ INSERT INTO evento(codEv, nomeEv, descricaoEv, websiteEv)
 	 	'http://sigspatial2014.sigspatial.org'-- website do evento
 );
 /
--- Inserção do terceiro Evento
-INSERT INTO evento(codEv, nomeEv, descricaoEv, websiteEv)
-	VALUES(
-	 	SEQ_CODEV_EVENTO.NEXTVAL, -- codigo do evento
-	 	'ACM International Conference on Information and Knowlege Managment', -- nome do evento
-	 	'CIKM is a top-tier conference sponsored by ACM in the areas of Information 
-	 	Retrieval, Knowledge Management and Databases, bringing together leading 
-	 	researchers and practitioners from the three communities to identify 
-	 	challenging problems facing the development of future knowledge and information 
-	 	systems, and to shape future research directions through the publication of high 
-	 	quality, applied and theoretical research findings.', -- descrição do evento
-	 	'http://cikm2014.fudan.edu.cn'-- website do evento
-);
-/
 /
 /
 /
@@ -230,53 +216,6 @@ INSERT INTO edicao(codEv, numEd, dataInicioEd, dataFimEd, localEd, taxaEd)
 /
 /
 /
--- Inserção da edição de 2013 do terceiro evento
-INSERT INTO edicao(codEv, numEd, dataInicioEd, dataFimEd, localEd, taxaEd)
-	VALUES(
-		3, -- código do evento
-		22,--SEQ_NUMED_EDICAO.NEXTVAL,
-		TO_DATE('27/10/2013', 'DD/MM/YYYY'), -- data de início
-		TO_DATE('01/11/2013', 'DD/MM/YYYY'), -- data de fim
-		'San Francisco, United States',-- local onde a edição ocorreu na forma de Cidade, País
-		1365.00 -- valor da inscrição (Considerando a mais cara)
-);
-/
--- Inserção da edição de 2012 do terceiro evento
-INSERT INTO edicao(codEv, numEd, dataInicioEd, dataFimEd, localEd, taxaEd)
-	VALUES(
-		3, -- código do evento
-		21,--SEQ_NUMED_EDICAO.NEXTVAL,
-		TO_DATE('29/10/2012', 'DD/MM/YYYY'), -- data de início
-		TO_DATE('02/11/2012', 'DD/MM/YYYY'), -- data de fim
-		'Sheraton, Maui Hawaii',-- local onde a edição ocorreu na forma de Cidade, País
-		1355.00-- valor da inscrição
-);
-/
--- Inserção da edição de 2011 do terceiro evento
-INSERT INTO edicao(codEv, numEd, dataInicioEd, dataFimEd, localEd, taxaEd)
-	VALUES(
-		3, -- código do evento
-		20,--SEQ_NUMED_EDICAO.NEXTVAL,
-		TO_DATE('23/10/2011', 'DD/MM/YYYY'), -- data de início
-		TO_DATE('28/10/2011', 'DD/MM/YYYY'), -- data de fim
-		'Glasgow, United Kingdom',-- local onde a edição ocorreu na forma de Cidade, País
-		1040.00-- valor da inscrição
-);
-/
--- Inserção da edição de 2010 do terceiro evento
-INSERT INTO edicao(codEv, numEd, dataInicioEd, dataFimEd, localEd, taxaEd)
-	VALUES(
-		3, -- código do evento
-		19,--SEQ_NUMED_EDICAO.NEXTVAL,
-		TO_DATE('26/10/2010', 'DD/MM/YYYY'), -- data de início
-		TO_DATE('30/10/2010', 'DD/MM/YYYY'), -- data de fim
-		'Toronto, Canada',-- local onde a edição ocorreu na forma de Cidade, País
-		1580.00-- valor da inscrição
-);
-/
-/
-/
-/
 -- Insersão dos Patrocinadores
 INSERT INTO patrocinador VALUES(
 	06990590000204,--CNPJ
@@ -345,7 +284,7 @@ INSERT INTO patrocinio(cnpjPat, codEv, numEd, valorPat, saldoPat, dataPat)
 		06990590000204,
 		1, 
 		37,
-		10000.00,
+		12000.00,
 		NULL,
 		TO_DATE('29/06/2011', 'DD/MM/YYYY')
 );
@@ -417,7 +356,7 @@ INSERT INTO patrocinio(cnpjPat, codEv, numEd, valorPat, saldoPat, dataPat)
 		59456277000176,
 		1, 
 		38,
-		2000.00,
+		2500.00,
 		NULL,
 		TO_DATE('21/05/2012', 'DD/MM/YYYY')
 );
@@ -427,7 +366,7 @@ INSERT INTO patrocinio(cnpjPat, codEv, numEd, valorPat, saldoPat, dataPat)
 		57286247000133,
 		1, 
 		38,
-		3000.00,
+		3800.00,
 		NULL,
 		TO_DATE('19/06/2012', 'DD/MM/YYYY')
 );
@@ -437,7 +376,7 @@ INSERT INTO patrocinio(cnpjPat, codEv, numEd, valorPat, saldoPat, dataPat)
 		19758880000198,
 		1, 
 		38,
-		9000.00,
+		12000.00,
 		NULL,
 		TO_DATE('19/06/2012', 'DD/MM/YYYY')
 );
@@ -449,7 +388,7 @@ INSERT INTO patrocinio(cnpjPat, codEv, numEd, valorPat, saldoPat, dataPat)
 		06990590000204,
 		1, 
 		39,
-		5500.00,
+		5900.00,
 		NULL,
 		TO_DATE('29/04/2013', 'DD/MM/YYYY')
 );
@@ -479,7 +418,7 @@ INSERT INTO patrocinio(cnpjPat, codEv, numEd, valorPat, saldoPat, dataPat)
 		57286247000133,
 		1, 
 		39,
-		3500.00,
+		4500.00,
 		NULL,
 		TO_DATE('19/06/2013', 'DD/MM/YYYY')
 );
@@ -501,7 +440,7 @@ INSERT INTO patrocinio(cnpjPat, codEv, numEd, valorPat, saldoPat, dataPat)
 		06990590000204,
 		1, 
 		40,
-		5000.00,
+		8000.00,
 		NULL,
 		TO_DATE('29/04/2014', 'DD/MM/YYYY')
 );
@@ -521,7 +460,7 @@ INSERT INTO patrocinio(cnpjPat, codEv, numEd, valorPat, saldoPat, dataPat)
 		61797924000155,
 		1, 
 		40,
-		2000.00,
+		2500.00,
 		NULL,
 		TO_DATE('21/05/2014', 'DD/MM/YYYY')
 );
@@ -531,7 +470,7 @@ INSERT INTO patrocinio(cnpjPat, codEv, numEd, valorPat, saldoPat, dataPat)
 		57286247000133,
 		1, 
 		40,
-		3000.00,
+		4000.00,
 		NULL,
 		TO_DATE('01/06/2014', 'DD/MM/YYYY')
 );
@@ -540,7 +479,7 @@ INSERT INTO patrocinio(cnpjPat, codEv, numEd, valorPat, saldoPat, dataPat)
 		19758880000198,
 		1, 
 		40,
-		9000.00,
+		9500.00,
 		NULL,
 		TO_DATE('19/06/2014', 'DD/MM/YYYY')
 );
@@ -562,7 +501,7 @@ INSERT INTO patrocinio(cnpjPat, codEv, numEd, valorPat, saldoPat, dataPat)
 		60316817000103,
 		2, 
 		18,
-		20000.00,
+		21000.00,
 		NULL,
 		TO_DATE('27/06/2010', 'DD/MM/YYYY')
 );
@@ -572,7 +511,7 @@ INSERT INTO patrocinio(cnpjPat, codEv, numEd, valorPat, saldoPat, dataPat)
 		59456277000176,
 		2, 
 		18,
-		9000.00,
+		9200.00,
 		NULL,
 		TO_DATE('21/06/2010', 'DD/MM/YYYY')
 );
@@ -603,7 +542,7 @@ INSERT INTO patrocinio(cnpjPat, codEv, numEd, valorPat, saldoPat, dataPat)
 		06990590000204,
 		2, 
 		19,
-		13000.00,
+		13500.00,
 		NULL,
 		TO_DATE('29/06/2011', 'DD/MM/YYYY')
 );
@@ -642,7 +581,7 @@ INSERT INTO patrocinio(cnpjPat, codEv, numEd, valorPat, saldoPat, dataPat)
 		61797924000155,
 		2, 
 		19,
-		2300.00,
+		2400.00,
 		NULL,
 		TO_DATE('19/06/2011', 'DD/MM/YYYY')
 );
@@ -655,7 +594,7 @@ INSERT INTO patrocinio(cnpjPat, codEv, numEd, valorPat, saldoPat, dataPat)
 		60316817000103,
 		2, 
 		20,
-		13000.00,
+		15000.00,
 		NULL,
 		TO_DATE('29/06/2012', 'DD/MM/YYYY')
 );
@@ -675,7 +614,7 @@ INSERT INTO patrocinio(cnpjPat, codEv, numEd, valorPat, saldoPat, dataPat)
 		33372251000156,
 		2, 
 		20,
-		9300.00,
+		9500.00,
 		NULL,
 		TO_DATE('21/06/2012', 'DD/MM/YYYY')
 );
@@ -685,7 +624,7 @@ INSERT INTO patrocinio(cnpjPat, codEv, numEd, valorPat, saldoPat, dataPat)
 		10322194000103,
 		2, 
 		20,
-		5300.00,
+		5500.00,
 		NULL,
 		TO_DATE('20/06/2012', 'DD/MM/YYYY')
 );
@@ -726,7 +665,7 @@ INSERT INTO patrocinio(cnpjPat, codEv, numEd, valorPat, saldoPat, dataPat)
 		33372251000156,
 		2, 
 		21,
-		9000.00,
+		10000.00,
 		NULL,
 		TO_DATE('21/06/2013', 'DD/MM/YYYY')
 );
@@ -736,7 +675,7 @@ INSERT INTO patrocinio(cnpjPat, codEv, numEd, valorPat, saldoPat, dataPat)
 		10322194000103,
 		2, 
 		21,
-		5000.00,
+		5550.00,
 		NULL,
 		TO_DATE('20/06/2013', 'DD/MM/YYYY')
 );
@@ -2713,8 +2652,8 @@ INSERT INTO pessoa(IDPE, NOMEPE, EMAILPE, INSTITUICAOPE, TELEFONEPE, NACIONALIDA
 	'Maike Buchin',
 	'buchin@uu.nl',
 	'Utrecht University',
-	'Dutch',
 	'+31(30)253-3550',
+	'Dutch',
 	'3508 TC Utrecht, The Netherlands',
 	'0',
 	'1',
@@ -2755,8 +2694,8 @@ INSERT INTO pessoa(IDPE, NOMEPE, EMAILPE, INSTITUICAOPE, TELEFONEPE, NACIONALIDA
 	'Anne Driemel',
 	'driemel@uu.nl',
 	'Utrecht University',
-	'Dutch',
 	'+31(30)253-3550',
+	'Dutch',
 	'3508 TC Utrecht, The Netherlands',
 	'0',
 	'1',
@@ -2786,8 +2725,8 @@ INSERT INTO pessoa(IDPE, NOMEPE, EMAILPE, INSTITUICAOPE, TELEFONEPE, NACIONALIDA
 	'Marc van Kreveld',
 	'kreveld@uu.nl',
 	'Utrecht University',
-	'Dutch',
 	'+31(30)253-3550',
+	'Dutch',
 	'3508 TC Utrecht, The Netherlands',
 	'0',
 	'1',
@@ -10264,6 +10203,13 @@ INSERT INTO escreve (idAut, idArt)
 	FROM pessoa P
 	WHERE P.emailPe='fink@ox.ac.uk';
 /
+--NEW
+INSERT INTO escreve (idAut, idArt)
+	SELECT P.idPe,
+	SEQ_IDART_ARTIGO.CURRVAL
+	FROM pessoa P
+	WHERE P.emailPe='sagy@technion.ac.il';
+/
 INSERT INTO pessoa(IDPE, NOMEPE, EMAILPE, INSTITUICAOPE, TELEFONEPE, NACIONALIDADEPE, ENDERECOPE, TIPOORGANIZADOR, TIPOPARTICIPANTE, TIPOAUTOR)
   values(
 	SEQ_IDPE_PESSOA.NEXTVAL,
@@ -11989,6 +11935,13 @@ INSERT INTO escreve (idAut, idArt)
 	FROM pessoa P
 	WHERE P.emailPe='he@nus.edu.sg';
 /
+-- NEW
+INSERT INTO escreve (idAut, idArt)
+	SELECT P.idPe,
+	SEQ_IDART_ARTIGO.CURRVAL
+	FROM pessoa P
+	WHERE P.emailPe='sagy@technion.ac.il';
+/
 INSERT INTO pessoa(IDPE, NOMEPE, EMAILPE, INSTITUICAOPE, TELEFONEPE, NACIONALIDADEPE, ENDERECOPE, TIPOORGANIZADOR, TIPOPARTICIPANTE, TIPOAUTOR)
   values(
 	SEQ_IDPE_PESSOA.NEXTVAL,
@@ -13590,6 +13543,13 @@ INSERT INTO escreve (idAut, idArt)
 	SEQ_IDART_ARTIGO.CURRVAL
 	FROM pessoa P
 	WHERE P.emailPe='jin@hku.edu';
+/
+-- NEW
+INSERT INTO escreve (idAut, idArt)
+	SELECT P.idPe,
+	SEQ_IDART_ARTIGO.CURRVAL
+	FROM pessoa P
+	WHERE P.emailPe='sagy@technion.ac.il';
 /
 INSERT INTO pessoa(IDPE, NOMEPE, EMAILPE, INSTITUICAOPE, TELEFONEPE, NACIONALIDADEPE, ENDERECOPE, TIPOORGANIZADOR, TIPOPARTICIPANTE, TIPOAUTOR)
   values(
@@ -17564,10 +17524,6 @@ INSERT INTO auxilio (cnpjPat, codEvPat, numEdPat, codEvApr, numEdApr, idApr, val
 /
 /
 /
-/
-/
-/
--- CORRIGIR OS UPDATES ***
 -- Update do atributo derivado qtdArtigosApresentadosEd da tabela edicao
 /*
  * Conta-se todos os artigos distintos (com diferentes chaves primárias)
@@ -17605,46 +17561,27 @@ UPDATE evento
  * evento e com auxilio, representando o saldo gasto do determinado patrocinio.
  * OBS: Considerando o evento e edicao que o patrocinio foi conseguido, não a 
  * despesa ou auxilio.
- *
+ */
 UPDATE patrocinio
 	SET saldoPat = (
-    SELECT (patrocinio.valorPat - sum(despesa.valorDesp) - sum(auxilio.valorAux) )
-      FROM despesa, auxilio
-      WHERE (patrocinio.codEv = despesa.codEvPat
-        AND patrocinio.numEd = despesa.numEdPat
-        AND patrocinio.cnpjPat = despesa.cnpjPat)
-        OR (despesa.codEvPat = auxilio.codEvPat
-          AND despesa.numEdPat = auxilio.numEdPat
-          AND despesa.cnpjPat = auxilio.cnpjPat)
-      GROUP BY despesa.codEvPat, despesa.numEdPat, despesa.cnpjPat
-);
-*/
-/
-UPDATE patrocinio
-	SET saldoPat = (
-		SELECT (patrocinio.valorPat - sum(despesa.valorDesp) )
-			FROM despesa
-			WHERE patrocinio.codEv = despesa.codEvPat
-        		AND patrocinio.numEd = despesa.numEdPat
-        		AND patrocinio.cnpjPat = despesa.cnpjPat
-        	GROUP BY despesa.codEvPat, despesa.numEdPat, despesa.cnpjPat
-);
-/
-UPDATE patrocinio
-	SET saldoPat = (
-		SELECT (patrocinio.saldoPat - sum(auxilio.valorAux) )
+		(patrocinio.valorPat
+    - NVL( (SELECT sum(NVL(auxilio.valorAux, 0) )
 			FROM auxilio
 			WHERE patrocinio.codEv = auxilio.codEvPat
         		AND patrocinio.numEd = auxilio.numEdPat
-        		AND patrocinio.cnpjPat = auxilio.cnpjPat
-        	GROUP BY auxilio.codEvPat, auxilio.numEdPat, auxilio.cnpjPat
+        		AND patrocinio.cnpjPat = auxilio.cnpjPat ), 0 )
+        	--GROUP BY auxilio.codEvPat, auxilio.numEdPat, auxilio.cnpjPat) 
+      - NVL( ( SELECT sum(despesa.valorDesp)
+        FROM despesa
+        WHERE patrocinio.codEv = despesa.codEvPat
+        		AND patrocinio.numEd = despesa.numEdPat
+        		AND patrocinio.cnpjPat = despesa.cnpjPat )
+        	--GROUP BY despesa.codEvPat, despesa.numEdPat, despesa.cnpjPat)
+    , 0 )
+  ) 
 );
 /
-/*
-SELECT cnpjPat, sum(valorDesp)
-  FROM despesa
-  GROUP BY cnpjPat;
-*/
+/
 /
 /
 /
@@ -17654,18 +17591,19 @@ SELECT cnpjPat, sum(valorDesp)
  * despesas e auxílios, através da soma dos resultados atualizados do campo
  * saldoPat da tabela patrocinio que se referem à mesma edicao; além
  * de contabilizar o valor recebido pelas taxas de inscrição.
- *
-UPDATE edicao 
-	SET saldoFinanceiroEd = (
-		SELECT ( edicao.taxaEd * count(inscrito.idPart))
-			FROM inscrito, patrocinio
-			WHERE edicao.codEv = inscrito.codEv
-				AND edicao.numEd = inscrito.numEd
-);
  */
-/
-/
-/
+UPDATE edicao 
+	SET saldoFinanceiroEd = ( edicao.taxaEd *
+		(SELECT count(inscrito.idPart)
+			FROM inscrito
+			WHERE edicao.codEv = inscrito.codEv
+				AND edicao.numEd = inscrito.numEd )
+		+ NVL( (SELECT sum(patrocinio.saldoPat) 
+			FROM patrocinio
+      		WHERE edicao.codEv = patrocinio.codEv
+        			AND edicao.numEd = patrocinio.numEd
+        	GROUP BY patrocinio.numEd, patrocinio.codEv ), 0)
+);
 /
 /
 /
