@@ -1,14 +1,17 @@
 /*
  * Carlos Humberto dos Santos Baqueta 7987456
- * Vanessa Apolinário de Lima     7239256
+ * Marina Coimbra                     7126841
+ * Vanessa Apolinário de Lima         7239256
  *
  * SCC0241 - Laboratório de Base de Dados
  * Turma 03
- * Trabalho Prático 03
+ * Trabalho Prático 04
  *
  * Script de PLSQL < scriptPLSQL.sql >
  * 
- *
+ */
+
+/*
  * ITENS A SEREM COBERTOS/RESPONDIDOS:
  * • pelo menos um problema que envolva a criação e o povoamento de uma (ou mais) 
  *   nova(s) tabela(s);

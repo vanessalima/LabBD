@@ -1,10 +1,11 @@
 /*
  * Carlos Humberto dos Santos Baqueta	7987456
+ * Marina Coimbra						7126841
  * Vanessa Apolinário de Lima			7239256
  *
  * SCC0241 - Laboratório de Base de Dados
  * Turma 03
- * Trabalho Prático 02
+ * Trabalho Prático 04
  *
  * Script de Consulta < scriptConsulta.sql >
  * 
