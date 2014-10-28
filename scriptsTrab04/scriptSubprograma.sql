@@ -29,13 +29,13 @@ RETURN Number IS
   -- Cursor que recebe todas as despesas daquele patrocinador
   CURSOR cursor_despesas_pat (ev edicao.codEv%Type, ed edicao.numEd%Type, pat patrocinador.CNPJPat%Type) IS
     SELECT despesa.descricaoDesp, despesa.dataDesp, despesa.valorDesp
-            FROM despesa JOIN patrocinio ON (despesa.cnpjPat = patrocinio.cnpjPat 
-                                             AND despesa.CODEV = patrocinio.CODEV
-                                             AND despesa.numEd = patrocinio.NUMED)
-            WHERE despesa.codEv = ev
+      FROM despesa JOIN patrocinio ON 
+                 (despesa.cnpjPat = patrocinio.cnpjPat 
+                  AND despesa.CODEV = patrocinio.CODEV
+                  AND despesa.numEd = patrocinio.NUMED)
+      WHERE despesa.codEv = ev
                   AND despesa.numEd = ed
-                  AND despesa.cnpjPat = pat
-            GROUP BY despesa.descricaoDesp, despesa.dataDesp, despesa.valorDesp;
+                  AND despesa.cnpjPat = pat;
   -- Variável de acesso ao cursor
   despesa_pat_item cursor_despesas_pat%RowType;
   -- Variável que soma o total de gastos com essas despesas
@@ -71,6 +71,8 @@ RETURN Number IS
     -- exceptions!!!! ***
     
 END relatorio_despesas;
+/
+/
 /
 CREATE OR REPLACE FUNCTION relatorio_auxilios(ev IN edicao.codEv%Type,ed IN edicao.numEd%Type, 
                                               pat IN patrocinador.CNPJPat%Type) 
