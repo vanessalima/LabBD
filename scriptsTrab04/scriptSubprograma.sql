@@ -102,17 +102,15 @@ BEGIN
         totalPat := totalPat + relatorio_despesas(ev, ed, var_cursor.cnpjpat);
         totalPat := totalPat + relatorio_auxilios(ev, ed, var_cursor.cnpjpat);
         dbms_output.put_line(' ----------------------------------------------------------- ');
-        dbms_output.put_line(' TOTAL GASTOS                                     R$' || totalPat);
+        dbms_output.put_line(' TOTAL GASTOS                                     ' || TO_CHAR(totalPat, 'FM$999,999,999,990.00'));
         dbms_output.put_line(' ----------------------------------------------------------- ');
         totalGeral := totalGeral + totalPat;
       END LOOP;
       CLOSE c_pat;
       dbms_output.put_line(' ----------------------------------------------------------- ');
-      dbms_output.put_line(' TOTAL EDICAO                                     R$' || totalGeral);
+      dbms_output.put_line(' TOTAL EDICAO                                     ' || TO_CHAR(totalGeral, 'FM$999,999,999,990.00'));
       dbms_output.put_line(' ----------------------------------------------------------- ');
 END relatorio_patrocinio;
-/
-EXECUTE relatorio_patrocinio(1,37);
 /
 CREATE OR REPLACE PROCEDURE relatorio_evento(ev IN NUMBER, ed IN NUMBER) IS
  CURSOR c_edicao IS SELECT DISTINCT NUMED FROM edicao WHERE CODEV = ev ORDER BY NUMED;
@@ -122,7 +120,7 @@ BEGIN
   SELECT nomeEv into nomeEvento from evento where codEv = ev;
   dbms_output.put_line(' ----------------------------------------------------------- ');
   dbms_output.put_line('                     RELATORIO PATROCINIO                    ');
-  dbms_output.put_line('  EVENTO: ' || nomeEvento);
+  dbms_output.put_line('  EVENTO: ' ||  RPAD(nomeEvento, 50, ' '));
   IF ed IS NOT NULL THEN
        dbms_output.put_line('  EDICAO: ' || ed);
        relatorio_Patrocinio(ev, ed);
@@ -142,5 +140,3 @@ BEGIN
   END IF;
 END relatorio_evento;
 /
-EXECUTE relatorio_evento(1, 37);
-EXECUTE relatorio_evento(1, NULL);
