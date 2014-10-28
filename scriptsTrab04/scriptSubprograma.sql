@@ -26,10 +26,51 @@ set serveroutput on;
 CREATE OR REPLACE FUNCTION relatorio_despesas(ev IN edicao.codEv%Type,ed IN edicao.numEd%Type, 
                                               pat IN patrocinador.CNPJPat%Type) 
 RETURN Number IS
-BEGIN
-   dbms_output.put_line('despesas');
-   RETURN 2;
-END;
+  -- Cursor que recebe todas as despesas daquele patrocinador
+  CURSOR cursor_despesas_pat (ev edicao.codEv%Type, ed edicao.numEd%Type, pat patrocinador.CNPJPat%Type) IS
+    SELECT despesa.descricaoDesp, despesa.dataDesp, despesa.valorDesp
+            FROM despesa JOIN patrocinio ON (despesa.cnpjPat = patrocinio.cnpjPat 
+                                             AND despesa.CODEV = patrocinio.CODEV
+                                             AND despesa.numEd = patrocinio.NUMED)
+            WHERE despesa.codEv = ev
+                  AND despesa.numEd = ed
+                  AND despesa.cnpjPat = pat
+            GROUP BY despesa.descricaoDesp, despesa.dataDesp, despesa.valorDesp;
+  -- Variável de acesso ao cursor
+  despesa_pat_item cursor_despesas_pat%RowType;
+  -- Variável que soma o total de gastos com essas despesas
+  total_despesas Number(10,2) := 0;
+  BEGIN
+    SELECT sum(despesa.valorDesp)
+      INTO total_despesas
+      FROM despesa JOIN patrocinio ON 
+            (despesa.cnpjPat = patrocinio.cnpjPat 
+             AND despesa.CODEV = patrocinio.CODEV
+             AND despesa.numEd = patrocinio.NUMED)
+      WHERE despesa.codEv = ev
+            AND despesa.numEd = ed
+            AND despesa.cnpjPat = pat;
+    -- Imprime o cabeçalho
+    dbms_output.put_line('Descrição                  Data da Despesa            Valor da Despesa  ');
+    dbms_output.put_line('-------------------------  -------------------------  --------------------');
+    -- Abre o cursor
+    OPEN cursor_despesas_pat(ev, ed, pat);
+      -- Imprimi todas as despesas ordenadas por data e depois por valor
+      LOOP
+        FETCH cursor_despesas_pat INTO despesa_pat_item;
+        EXIT WHEN cursor_despesas_pat%NotFound;
+        dbms_output.put_line( RPAD(despesa_pat_item.descricaoDesp, 25, ' ') || '   ' || 
+                              RPAD(despesa_pat_item.dataDesp, 25, ' ') || '  ' || 
+                              RPAD( TO_CHAR(despesa_pat_item.valorDesp, 'FM$999,999,999,990.00'), 20, ' ') );
+      END LOOP;
+    -- Fecha o cursor
+    CLOSE cursor_despesas_pat;
+    
+    RETURN total_despesas;
+    
+    -- exceptions!!!! ***
+    
+END relatorio_despesas;
 /
 CREATE OR REPLACE FUNCTION relatorio_auxilios(ev IN edicao.codEv%Type,ed IN edicao.numEd%Type, 
                                               pat IN patrocinador.CNPJPat%Type) 
