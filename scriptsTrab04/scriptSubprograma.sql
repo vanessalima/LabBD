@@ -22,6 +22,9 @@ e do artigo em si
   * 
   */
 set serveroutput on;
+set verify off;
+/
+/
 /
 CREATE OR REPLACE FUNCTION relatorio_despesas(ev IN edicao.codEv%Type,ed IN edicao.numEd%Type, 
                                               pat IN patrocinador.CNPJPat%Type) 
@@ -69,7 +72,11 @@ RETURN Number IS
     RETURN total_despesas;
     
     -- exceptions!!!! ***
-    
+    EXCEPTION
+    	WHEN NO_DATA_FOUND THEN
+    		dbms_output.put_line('Erro');
+    	WHEN NO_DATA_FOUND THEN
+    		dbms_output.put_line('Erro');
 END relatorio_despesas;
 /
 /
@@ -81,6 +88,8 @@ BEGIN
    dbms_output.put_line('auxilios');
    RETURN 2;
 END;
+/
+/
 /
 CREATE OR REPLACE PROCEDURE relatorio_patrocinio(ev IN edicao.codEv%Type,ed IN edicao.numEd%Type) IS
  nomePat Patrocinador.razaosocialpat%TYPE;
