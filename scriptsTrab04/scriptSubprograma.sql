@@ -113,13 +113,75 @@ END relatorio_despesas;
 /
 /
 /
-CREATE OR REPLACE FUNCTION relatorio_auxilios(ev IN edicao.codEv%Type,ed IN edicao.numEd%Type, 
-                                              pat IN patrocinador.CNPJPat%Type) 
-RETURN Number IS
+CREATE OR REPLACE FUNCTION relatorio_auxilios (CODEV_ IN INSCRITO.CODEV%TYPE, NUMED_ IN INSCRITO.NUMED%TYPE, CNPJPAT_ IN AUXILIO.CNPJPAT%TYPE) return NUMBER
+AS
+  RET NUMBER;
+  IDAUX ARTIGO.IDAPR%TYPE;
+  
+  CURSOR AUX_LIST IS 
+    SELECT P.NOMEPE, ART.TITULOART, AUX.TIPOAUX, AUX.VALORAUX FROM AUXILIO AUX
+      INNER JOIN INSCRITO I
+        ON AUX.CODEVAPR = I.CODEV 
+        AND AUX.NUMEDAPR = I.NUMED
+        AND AUX.IDAPR = I.IDPART
+      INNER JOIN ARTIGO ART
+        ON ART.CODEV = I.CODEV
+        AND ART.NUMED = I.NUMED
+        AND ART.IDAPR= I.IDPART
+      INNER JOIN PESSOA P
+        ON I.IDPART = P.IDPE
+      WHERE I.CODEV = CODEV_ AND I.NUMED = NUMED_ AND AUX.CNPJPAT = CNPJPAT_
+      ORDER BY AUX.TIPOAUX, P.NOMEPE;
+  AUX_INFO AUX_LIST%RowType;
+  
+  flag Varchar2(15); -- Usada para auxiliar na identificação das exceções de mesmo tipo
+  temp NUMBER; -- Variável temporária para auxiliar no tratamento de exceções
 BEGIN
-   dbms_output.put_line('auxilios');
-   RETURN 2;
-END;
+  
+  -- Checa se existe um evento com CODEV informado:
+  flag := 'evento';
+  SELECT Ev.CODEV INTO temp FROM evento Ev WHERE Ev.CODEV = CODEV_;
+  
+  -- Checa se existe uma edição com NUMED informado, associada ao evento com CODEV informado:
+  flag := 'edicao';
+  SELECT Ed.NUMED INTO temp FROM edicao Ed WHERE Ed.CODEV = CODEV_ AND Ed.NUMED = NUMED_;
+  
+  -- Checa se existe um patrocinador com o CNPJ informado que patrocinou o evento com código CODEV_
+  flag := 'patEv';
+  SELECT distinct Pa.CNPJPAT INTO temp FROM patrocinio Pa WHERE Pa.CNPJPAT = CNPJPAT_ AND Pa.CODEV = CODEV_;
+  
+    dbms_output.put_line('Apresentador                Título do artigo apresentado                                                                Tipo do auxílio            Valor');
+    dbms_output.put_line('-------------------------   -----------------------------------------------------------------------------------------   -----------------------    ----------------');
+    
+  OPEN AUX_LIST;
+  LOOP
+    FETCH AUX_LIST INTO AUX_INFO; 
+    EXIT WHEN AUX_LIST%NOTFOUND;    -- Condição de parada
+  
+    dbms_output.put_line( RPAD(AUX_INFO.NOMEPE, 25, ' ') || '   ' || 
+                          RPAD(AUX_INFO.TITULOART, 90, ' ') || '  ' || 
+                          RPAD(AUX_INFO.TIPOAUX, 25, ' ') || '  ' || 
+                          RPAD( TO_CHAR(AUX_INFO.VALORAUX, 'FM$999,999,999,990.00'), 20, ' ') );
+  
+  END LOOP;
+  CLOSE AUX_LIST;
+  
+  -- CALCULA O VALOR TOTAL GASTO EM AUXÍLIO, REFERENTE A UM PATROCÍNIO DE UM PATROCINADOR, DADO UM EVENTO E UMA EDICAO (FUNÇÃO DE AGRUPAMENTO SUM())
+  SELECT SUM(AUX.VALORAUX) INTO RET FROM AUXILIO AUX WHERE AUX.CODEVAPR = CODEV_  AND AUX.NUMEDAPR = NUMED_ AND AUX.CNPJPAT = CNPJPAT_; 
+  
+  RETURN RET;
+  EXCEPTION
+  WHEN no_data_found THEN 
+     IF flag = 'evento' THEN 
+        dbms_output.put_line (' Não há nenhum evento válido com o código ' || CODEV_ ||'.'); 
+      END IF;
+      IF flag = 'edicao' THEN
+        dbms_output.put_line (' Não há nenhuma edição válida com número '|| NUMED_ || ' associada ao evento de código ' || CODEV_ ||'.');
+      END IF;
+      IF flag = 'patEv' THEN
+        dbms_output.put_line (' O CNPJ informado não corresponde a um patrocinador válido que tenha patrocinado o evento de código ' || CODEV_ ||'.');
+      END IF;
+END relatorio_auxilios;
 /
 /
 /
