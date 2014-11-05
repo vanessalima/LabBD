@@ -136,6 +136,8 @@ AS
   
   flag Varchar2(15); -- Usada para auxiliar na identificação das exceções de mesmo tipo
   temp NUMBER; -- Variável temporária para auxiliar no tratamento de exceções
+  -- Exceptions
+  sem_auxilios EXCEPTION;
 BEGIN
   
   -- Checa se existe um evento com CODEV informado:
@@ -154,15 +156,19 @@ BEGIN
     dbms_output.put_line('-------------------------   -----------------------------------------------------------------------------------------   -----------------------    ----------------');
     
   OPEN AUX_LIST;
+  FETCH AUX_LIST INTO AUX_INFO; 
+  IF AUX_LIST%NOTFOUND THEN
+      RAISE sem_auxilios;
+  END IF;
   LOOP
-    FETCH AUX_LIST INTO AUX_INFO; 
-    EXIT WHEN AUX_LIST%NOTFOUND;    -- Condição de parada
-  
     dbms_output.put_line( RPAD(AUX_INFO.NOMEPE, 25, ' ') || '   ' || 
                           RPAD(AUX_INFO.TITULOART, 90, ' ') || '  ' || 
                           RPAD(AUX_INFO.TIPOAUX, 25, ' ') || '  ' || 
                           RPAD( TO_CHAR(AUX_INFO.VALORAUX, 'FM$999,999,999,990.00'), 20, ' ') );
   
+    FETCH AUX_LIST INTO AUX_INFO; 
+    EXIT WHEN AUX_LIST%NOTFOUND;    -- Condição de parada
+
   END LOOP;
   CLOSE AUX_LIST;
   
@@ -181,6 +187,8 @@ BEGIN
       IF flag = 'patEv' THEN
         dbms_output.put_line (' O CNPJ informado não corresponde a um patrocinador válido que tenha patrocinado o evento de código ' || CODEV_ ||'.');
       END IF;
+  WHEN sem_auxilios THEN
+      dbms_output.put_line('Não há auxílios cadastrados na edição' || NUMED_ || '.');
 END relatorio_auxilios;
 /
 /

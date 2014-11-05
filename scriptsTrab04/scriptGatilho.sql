@@ -26,3 +26,73 @@
   *
   * é inteessante criar os gatilhos para atualizar todos os atributos derivados
   */
+set serveroutput on;
+set verify off;
+/
+CREATE OR REPLACE TRIGGER alterar_valorPat FOR UPDATE OF valorPat ON patrocinio
+COMPOUND TRIGGER
+  old_valorPat patrocinio.valorPat%Type;
+  old_saldoPat patrocinio.saldoPat%Type;
+AFTER EACH ROW IS
+BEGIN
+    UPDATE patrocinio
+      SET saldoPat = (
+        (patrocinio.valorPat
+        - NVL( (SELECT sum(NVL(auxilio.valorAux, 0) )
+          FROM auxilio
+          WHERE patrocinio.codEv = auxilio.codEvPat
+                AND patrocinio.numEd = auxilio.numEdPat
+                AND patrocinio.cnpjPat = auxilio.cnpjPat ), 0 )
+          - NVL( ( SELECT sum(despesa.valorDesp)
+            FROM despesa
+            WHERE patrocinio.codEv = despesa.codEvPat
+                AND patrocinio.numEd = despesa.numEdPat
+                AND patrocinio.cnpjPat = despesa.cnpjPat ), 0 )
+      ) 
+    );
+END AFTER EACH ROW;
+END;
+/
+/
+create or replace trigger teste_trigger
+FOR UPDATE ON patrocinio  
+COMPOUND TRIGGER   
+  threshhold CONSTANT SIMPLE_INTEGER := 10;
+
+  TYPE saldoPat_t IS TABLE OF patrocinio%ROWTYPE INDEX BY SIMPLE_INTEGER;
+  saldo  saldoPat_t;
+  idx       SIMPLE_INTEGER := 0;
+
+  PROCEDURE flush_array IS
+    n CONSTANT SIMPLE_INTEGER := saldo.count();
+  BEGIN
+    FORALL j IN 1..n
+      INSERT INTO patrocinio VALUES saldo(j);
+    saldo.delete();
+    idx := 0;
+    DBMS_OUTPUT.PUT_LINE('Flushed ' || n || ' rows');
+  END flush_array;
+
+---- AFTER EACH  
+  AFTER EACH ROW IS
+  BEGIN
+    /*idx := idx + 1;
+    salaries(idx).employee_id := :NEW.employee_id;
+    salaries(idx).change_date := SYSDATE();
+    salaries(idx).salary := :NEW.salary;
+    IF idx >= threshhold THEN
+      flush_array();
+    END IF;*/
+    NULL;
+  END AFTER EACH ROW;
+
+
+---- AFTER
+  AFTER STATEMENT IS
+  BEGIN
+    dbms_output.put_line('TEST_COMP_TRIGGER:  AFTER STATEMENT');
+    flush_array();
+  END AFTER STATEMENT;
+  
+END teste_trigger;
+/
