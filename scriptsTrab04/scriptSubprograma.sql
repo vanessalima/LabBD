@@ -12,13 +12,17 @@
  */
 
  /*
-  * Criar programa para verificar os gastos
-  listar por patrocinio, por despesa, por tipo de auxílio
-  por quem recebeu o auxílio
-
-  * Listar a ordem de colocados de acordo com as notas do apresentador
-e do artigo em si
-
+  * Com o objetivo de criar um procedimento para geração de relatórios com base em
+  certos parâmetros, sendo que este deve conter duas funções, consideramos o problema
+  da recuperação dos dados financeiros de um certo evento.
+  *
+  * O relatório mostra as informações dos gastos com despesas e auxílios por patrocinador 
+  para cada edição do evento, caso o número da edição seja Nulo, permitindo justificar 
+  com o que os valores de cada patrocínio foram gastos. Caso o número da edição seja um
+  valor válido para o dado evento, são mostradas as informações dos gastos com despesas
+  e auxílios por patrocinador apenas para aquela edição em específico.
+  *
+  * Para mostrar o funcionamento da função são realizados abaixo alguns exemplos.
   * 
   */
 set serveroutput on;
@@ -287,3 +291,7 @@ BEGIN
     	END IF;
 END relatorio_evento;
 /
+/*
+ *
+ */
+
