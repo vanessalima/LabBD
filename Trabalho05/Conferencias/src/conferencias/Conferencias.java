@@ -19,11 +19,8 @@ public class Conferencias {
     public static void main(String[] args) throws Exception {
         // TODO code application logic here
         
-        DBconnection db = new DBconnection();
-        Connection con = db.getConexao();
-        
-        
-        db.disconect(con);
+        DBconnection db = new DBconnection();      
+        db.disconect();
     }
     
 }
