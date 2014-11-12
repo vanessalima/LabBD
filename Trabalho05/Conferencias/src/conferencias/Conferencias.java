@@ -23,11 +23,8 @@ public class Conferencias {
         NewJFrame frame = new NewJFrame();
         frame.setVisible(true);
         
-        DBconnection db = new DBconnection();
-        Connection con = db.getConexao();
-        
-        
-        db.disconect(con);
+        DBconnection db = new DBconnection();      
+        db.disconect();
     }
     
 }

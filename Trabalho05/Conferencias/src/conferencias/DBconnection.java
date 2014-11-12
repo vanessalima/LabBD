@@ -7,6 +7,7 @@ package conferencias;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -15,9 +16,26 @@ import java.sql.Statement;
  * @author vanessalima
  */
 public class DBconnection {
-    private static Connection con = null;
+    private Connection con = null;
     
+    /**
+     * Efetua a conexão com o banco de dados
+     *
+     */
     public DBconnection() throws Exception{
+        try{
+            Class.forName("oracle.jdbc.driver.OracleDriver");
+            System.out.println("nao deu erro... ");
+        }catch(Exception e){
+            System.out.println("Classe "+e);
+        }
+        try {
+            this.con = DriverManager.getConnection("jdbc:oracle:thin:@grad.icmc.usp.br:15215:orcl","a7239256","a7239256");
+            //Connection con = DriverManager.getConnection("jdbc:oracle:thin:@192.168.183.15:1521:orcl","a7239256","a7239256");
+            System.out.println("Conectou!!! =D");       
+        }catch(Exception e){
+            System.out.println("conectar"+e);
+        }
     }
     
     /**
@@ -26,8 +44,8 @@ public class DBconnection {
      * @param con
      * @throws SQLException
      */
-    public void disconect(Connection con) throws SQLException{
-        con.close();
+    public void disconect() throws SQLException{
+        this.con.close();
     }
     
     /**
@@ -50,30 +68,7 @@ public class DBconnection {
     public void rollback(Connection con) throws SQLException {
         con.rollback();
     }
-    
-    /**
-     * Efetua a conexão com o banco de dados
-     *
-     * @return
-     */
-    public static Connection getConexao(){
-        try{
-            Class.forName("oracle.jdbc.driver.OracleDriver");
-            System.out.println("nao deu erro... ");
-        }catch(Exception e){
-                    System.out.println("Classe "+e);
-        }
-        try {
-            Connection con = DriverManager.getConnection("jdbc:oracle:thin:@grad.icmc.usp.br:15215:orcl","a7239256","a7239256");
-            //Connection con = DriverManager.getConnection("jdbc:oracle:thin:@192.168.183.15:1521:orcl","a7239256","a7239256");
-            System.out.println("Conectou!!! =D");
-            return con;
-        }catch(Exception e){
-            System.out.println("conectar"+e);
-            return null;
-        }
-    }
-    
+ 
     /**
      * Executa o comando sql
      * 
@@ -82,10 +77,22 @@ public class DBconnection {
      * @throws SQLException 
      */
     public int executeCommand(String command) throws SQLException {
-        Statement st = con.createStatement();
+        Statement st = this.con.createStatement();
         return st.executeUpdate(command);
         
         //ResultSet res =  st.executeQuery(command); // retorna os resultados de um select por exemplo
     }
+    
+    public boolean execute(String sql) throws Exception {
+        Statement stmt = this.con.createStatement();
+        boolean ret = stmt.execute(sql); // insert, create
+        return ret;
+    }
 
+    public ResultSet query(String sql) throws Exception {
+        Statement stmt = this.con.createStatement();
+        ResultSet result = stmt.executeQuery(sql); // select
+        // stmt.close();//QQ coisa tira isso daqui.
+        return result;
+    }
 }
