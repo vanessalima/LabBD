@@ -84,6 +84,8 @@ public class DBconnection {
     public int executeCommand(String command) throws SQLException {
         Statement st = con.createStatement();
         return st.executeUpdate(command);
+        
+        //ResultSet res =  st.executeQuery(command); // retorna os resultados de um select por exemplo
     }
 
 }

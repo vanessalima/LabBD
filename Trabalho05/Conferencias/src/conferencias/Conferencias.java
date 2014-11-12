@@ -6,6 +6,7 @@
 package conferencias;
 
 import java.sql.Connection;
+import interfaces.NewJFrame;
 
 /**
  *
@@ -18,6 +19,9 @@ public class Conferencias {
      */
     public static void main(String[] args) throws Exception {
         // TODO code application logic here
+        
+        NewJFrame frame = new NewJFrame();
+        frame.setVisible(true);
         
         DBconnection db = new DBconnection();
         Connection con = db.getConexao();
