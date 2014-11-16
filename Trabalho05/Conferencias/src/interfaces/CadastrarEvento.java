@@ -158,7 +158,7 @@ public class CadastrarEvento extends AbstractJFrame {
                         case -1 : // Chave duplicada
                         {                              
                             (new Mensagem(this, "Evento já cadastrado no sistema.", FAIL, CADASTRO)).setEnabled(true);
-                            break;
+                            break; 
                         }
                         case 1 : // Violacao de constraint UNIQUE
                         {                              
