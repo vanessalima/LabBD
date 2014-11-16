@@ -17,4 +17,5 @@ public interface Config {
     int SUCCESS = 1; //status da operacao
     int FAIL = 0;    //status da operacao
     
+       
 }

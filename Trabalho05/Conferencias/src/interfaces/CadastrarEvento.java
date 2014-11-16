@@ -13,7 +13,7 @@ import javax.swing.JFrame;
 
 /**
  *
- * @author Rina
+ * @author ch
  */
 public class CadastrarEvento extends AbstractJFrame {
 
@@ -45,6 +45,8 @@ public class CadastrarEvento extends AbstractJFrame {
         infoLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Cadastro de evento");
+        setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 formWindowClosing(evt);
@@ -148,13 +150,9 @@ public class CadastrarEvento extends AbstractJFrame {
                     //TODO: testar:
                     sql = "INSERT INTO evento(codEv, nomeEv, descricaoEv, websiteEv) VALUES(SEQ_CODEV_EVENTO.NEXTVAL, '"+
                             tfNomeEvento.getText()+"', '"+taDescricao.getText()+"', '"+tfwebsite.getText()+"')";
-                    if(conn.execute(sql)){
-                        // Passando null em msg pois nao é preciso adicionar msg. 
-                        System.out.println("FOI!!!");
-                        (new Mensagem(this, null, SUCCESS, CADASTRO)).setEnabled(true); 
-                    } else {
-                        (new Mensagem(this, null, FAIL, CADASTRO)).setEnabled(true); 
-                    }
+                    conn.execute(sql);
+                    conn.disconect();
+                    (new Mensagem(this, null, SUCCESS, CADASTRO)).setEnabled(true);
                 }catch(SQLException e){
                     switch(e.getErrorCode()){
                         case -1 : // Chave duplicada
@@ -170,6 +168,7 @@ public class CadastrarEvento extends AbstractJFrame {
                         case 911: // Erro de sintaxe! q feio ...
                         {
                             System.out.println("Erro de sintaxe do comando sql. Obs.: Talvez você tenha se esquecido de tirar o ; do final. :P ");
+                            break;
                         }
                         default:
                         {
