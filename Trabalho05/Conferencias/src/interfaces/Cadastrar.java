@@ -54,7 +54,12 @@ public class Cadastrar extends AbstractJFrame {
         jMenu2 = new javax.swing.JMenu();
         jMenuItem7 = new javax.swing.JMenuItem();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         jButton1.setText("Eventos");
 
@@ -93,7 +98,6 @@ public class Cadastrar extends AbstractJFrame {
         jButton7.setMaximumSize(new java.awt.Dimension(190, 30));
         jButton7.setMinimumSize(new java.awt.Dimension(190, 30));
         jButton7.setPreferredSize(new java.awt.Dimension(190, 30));
-        jButton7.setSize(new java.awt.Dimension(190, 30));
         jButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton7ActionPerformed(evt);
@@ -297,6 +301,11 @@ public class Cadastrar extends AbstractJFrame {
         // TODO add your handling code here:
         (new CadastrarEdicao(this)).setEnabled(true);
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        // TODO add your handling code here:
+        super.onClose(evt);
+    }//GEN-LAST:event_formWindowClosing
 
     /**
      * @param args the command line arguments
