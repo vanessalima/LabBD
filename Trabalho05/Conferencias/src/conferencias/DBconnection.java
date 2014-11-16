@@ -23,7 +23,7 @@ public class DBconnection {
      *
      * @throws java.lang.Exception
      */
-    public DBconnection() throws Exception{
+    public DBconnection(){
         try{
             Class.forName("oracle.jdbc.driver.OracleDriver");
             System.out.println("nao deu erro... ");
@@ -88,11 +88,13 @@ public class DBconnection {
      * Para execucao de insert, create
      * @param sql
      * @return true para sucesso, false, c.c.
-     * @throws Exception 
+     * @throws java.sql.SQLException
      */
-    public boolean execute(String sql) throws SQLException {
+    public boolean execute(String sql) throws SQLException{
         Statement stmt = this.con.createStatement();
+        System.out.println(" .. . STMT: "+stmt.toString()+"\n | SQL: "+sql);
         boolean ret = stmt.execute(sql); // insert, create
+        System.out.println("mandou pro servidor.");
         return ret;
     }
     
@@ -100,9 +102,9 @@ public class DBconnection {
      * Para execucao do comando select
      * @param sql
      * @return
-     * @throws Exception 
+     * @throws java.sql.SQLException
      */
-    public ResultSet query(String sql) throws Exception {
+    public ResultSet query(String sql) throws SQLException {
         Statement stmt = this.con.createStatement();
         ResultSet result = stmt.executeQuery(sql); // select
         return result;

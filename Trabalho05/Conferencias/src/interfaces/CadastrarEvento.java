@@ -6,6 +6,7 @@ package interfaces;
 
 import conferencias.*;
 import java.awt.Color;
+import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
@@ -138,27 +139,47 @@ public class CadastrarEvento extends AbstractJFrame {
     private void cadastrarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarButtonActionPerformed
         DBconnection conn;
         String sql;
-        try {
             if(tfNomeEvento.getText().matches("")){
                 infoLabel.setForeground(Color.red);
                 lNome.setForeground(Color.red);
             } else {
-                conn = new DBconnection();
-                //TODO: testar:
-                sql = "INSERT INTO evento(codEv, nomeEv, descricaoEv, websiteEv) VALUES(SEQ_CODEV_EVENTO.NEXTVAL, '"+
-                        tfNomeEvento.getText()+"', '"+taDescricao.getText()+"', '"+tfwebsite.getText()+"');";
-                if(conn.execute(sql)){
-                    // Passando null em msg pois nao é preciso adicionar msg. 
-                    new Mensagem(this, null, SUCCESS, CADASTRO); 
-                } else {
-                    // TODO: FAzer tratamento decente daas exceptions SQL
-//                    new Mensagem(this, , FAIL, CADASTRO);
+                try{
+                    conn = new DBconnection();
+                    //TODO: testar:
+                    sql = "INSERT INTO evento(codEv, nomeEv, descricaoEv, websiteEv) VALUES(SEQ_CODEV_EVENTO.NEXTVAL, '"+
+                            tfNomeEvento.getText()+"', '"+taDescricao.getText()+"', '"+tfwebsite.getText()+"')";
+                    if(conn.execute(sql)){
+                        // Passando null em msg pois nao é preciso adicionar msg. 
+                        System.out.println("FOI!!!");
+                        (new Mensagem(this, null, SUCCESS, CADASTRO)).setEnabled(true); 
+                    } else {
+                        (new Mensagem(this, null, FAIL, CADASTRO)).setEnabled(true); 
+                    }
+                }catch(SQLException e){
+                    switch(e.getErrorCode()){
+                        case -1 : // Chave duplicada
+                        {                              
+                            (new Mensagem(this, "Evento já cadastrado no sistema.", FAIL, CADASTRO)).setEnabled(true);
+                            break;
+                        }
+                        case 1 : // Violacao de constraint UNIQUE
+                        {                              
+                            (new Mensagem(this, "Evento já cadastrado no sistema.", FAIL, CADASTRO)).setEnabled(true);
+                            break;
+                        }
+                        case 911: // Erro de sintaxe! q feio ...
+                        {
+                            System.out.println("Erro de sintaxe do comando sql. Obs.: Talvez você tenha se esquecido de tirar o ; do final. :P ");
+                        }
+                        default:
+                        {
+                            System.out.println("ERROR CODE: "+e.getErrorCode());
+                            e.printStackTrace();
+                            break;
+                        }
+                    }
                 }
-            }
-        } catch (Exception ex) {
-            Logger.getLogger(CadastrarEvento.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
+            }    
     }//GEN-LAST:event_cadastrarButtonActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
