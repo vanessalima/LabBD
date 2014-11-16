@@ -90,7 +90,7 @@ public class DBconnection {
      * @return true para sucesso, false, c.c.
      * @throws Exception 
      */
-    public boolean execute(String sql) throws Exception {
+    public boolean execute(String sql) throws SQLException {
         Statement stmt = this.con.createStatement();
         boolean ret = stmt.execute(sql); // insert, create
         return ret;

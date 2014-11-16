@@ -35,5 +35,11 @@ public abstract class AbstractJFrame extends javax.swing.JFrame implements Confi
         this.anterior.setVisible(true);
     }                  
     
+    protected void onClose(){
+        this.dispose();
+        // reabre a janela anterior
+        this.anterior.setEnabled(true);
+        this.anterior.setVisible(true);
+    }
     
 }
