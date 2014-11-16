@@ -21,6 +21,7 @@ public class DBconnection {
     /**
      * Efetua a conexão com o banco de dados
      *
+     * @throws java.lang.Exception
      */
     public DBconnection() throws Exception{
         try{
@@ -83,16 +84,27 @@ public class DBconnection {
         //ResultSet res =  st.executeQuery(command); // retorna os resultados de um select por exemplo
     }
     
+    /**
+     * Para execucao de insert, create
+     * @param sql
+     * @return true para sucesso, false, c.c.
+     * @throws Exception 
+     */
     public boolean execute(String sql) throws Exception {
         Statement stmt = this.con.createStatement();
         boolean ret = stmt.execute(sql); // insert, create
         return ret;
     }
-
+    
+    /**
+     * Para execucao do comando select
+     * @param sql
+     * @return
+     * @throws Exception 
+     */
     public ResultSet query(String sql) throws Exception {
         Statement stmt = this.con.createStatement();
         ResultSet result = stmt.executeQuery(sql); // select
-        // stmt.close();//QQ coisa tira isso daqui.
         return result;
     }
 }

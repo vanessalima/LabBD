@@ -12,7 +12,7 @@ import javax.swing.JFrame;
  *
  * @author vanessalima
  */
-public abstract class AbstractJFrame extends javax.swing.JFrame {
+public abstract class AbstractJFrame extends javax.swing.JFrame implements Config{
     protected JFrame anterior;
     
     public AbstractJFrame(JFrame ant) {
