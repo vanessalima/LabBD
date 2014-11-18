@@ -92,9 +92,9 @@ public class DBconnection {
      */
     public boolean execute(String sql) throws SQLException{
         Statement stmt = this.con.createStatement();
-        System.out.println(" .. . STMT: "+stmt.toString()+"\n | SQL: "+sql);
+//        System.out.println(" .. . STMT: "+stmt.toString()+"\n | SQL: "+sql);
         boolean ret = stmt.execute(sql); // insert, create
-        System.out.println("mandou pro servidor.");
+        System.out.println(".. pelo menos mandou pro servidor.");
         return ret;
     }
     

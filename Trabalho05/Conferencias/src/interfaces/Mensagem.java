@@ -121,7 +121,7 @@ public class Mensagem extends AbstractJFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-        super.onClose(evt);
+        super.onClose();
     }//GEN-LAST:event_formWindowClosing
 
     /**

@@ -5,9 +5,14 @@
 package interfaces;
 
 import conferencias.DBconnection;
+import static interfaces.Config.CADASTRO;
+import static interfaces.Config.FAIL;
+import static interfaces.Config.SUCCESS;
+import java.awt.Color;
 import java.awt.event.WindowEvent;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Hashtable;
 import javax.swing.JFrame;
 
 /**
@@ -15,7 +20,9 @@ import javax.swing.JFrame;
  * @author ch
  */
 public class CadastrarEdicao extends AbstractJFrame {
-
+    
+    Hashtable<String, Integer> listaEventos;
+    
     /**
      * Creates new form CadastrarEdicao
      */
@@ -23,7 +30,10 @@ public class CadastrarEdicao extends AbstractJFrame {
         super(frame);
         initComponents();
         
-        //Requisita os Eventos cadastrados no bco e os insere no combobox
+        this.listaEventos = new Hashtable<>();
+        this.cbEventos.addItem("-");
+        //Requisita os Eventos cadastrados no bco e os insere no combobox e
+        //popula listaventos
         this.getEventos();
     }
 
@@ -36,26 +46,26 @@ public class CadastrarEdicao extends AbstractJFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        lSelEv = new javax.swing.JLabel();
         cbEventos = new javax.swing.JComboBox();
-        jFormattedTextField1 = new javax.swing.JFormattedTextField();
+        tfDataInicio = new javax.swing.JFormattedTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         tfDataFim = new javax.swing.JFormattedTextField();
         jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        lNumEd = new javax.swing.JLabel();
         infoLabel = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        tfLocal = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         tfTaxa = new javax.swing.JFormattedTextField();
-        tfTaxa1 = new javax.swing.JFormattedTextField();
+        tfNumEd = new javax.swing.JFormattedTextField();
         jLabel9 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        taDescricao = new javax.swing.JTextArea();
         cancelarButton = new javax.swing.JButton();
-        cancelarButton1 = new javax.swing.JButton();
+        bCadastrar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Cadastro de edição");
@@ -66,10 +76,10 @@ public class CadastrarEdicao extends AbstractJFrame {
             }
         });
 
-        jLabel1.setText("Selecione um evento*");
+        lSelEv.setText("Selecione um evento*");
 
         try {
-            jFormattedTextField1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+            tfDataInicio.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
@@ -90,7 +100,7 @@ public class CadastrarEdicao extends AbstractJFrame {
         jLabel5.setFont(new java.awt.Font("Ubuntu", 2, 14)); // NOI18N
         jLabel5.setText("formato: MM/DD/YYYY");
 
-        jLabel6.setText("Número da edição*");
+        lNumEd.setText("Número da edição*");
 
         infoLabel.setFont(new java.awt.Font("Ubuntu", 2, 15)); // NOI18N
         infoLabel.setText("* Campos obrigatórios");
@@ -99,23 +109,15 @@ public class CadastrarEdicao extends AbstractJFrame {
 
         jLabel8.setText("Taxa da edição");
 
-        try {
-            tfTaxa.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#####")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
+        tfTaxa.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter()));
 
-        try {
-            tfTaxa1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#####")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
+        tfNumEd.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("######"))));
 
         jLabel9.setText("Descrição");
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        taDescricao.setColumns(20);
+        taDescricao.setRows(5);
+        jScrollPane1.setViewportView(taDescricao);
 
         cancelarButton.setText("Cancelar");
         cancelarButton.addActionListener(new java.awt.event.ActionListener() {
@@ -124,10 +126,10 @@ public class CadastrarEdicao extends AbstractJFrame {
             }
         });
 
-        cancelarButton1.setText("Cadastrar");
-        cancelarButton1.addActionListener(new java.awt.event.ActionListener() {
+        bCadastrar.setText("Cadastrar");
+        bCadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cancelarButton1ActionPerformed(evt);
+                bCadastrarActionPerformed(evt);
             }
         });
 
@@ -145,8 +147,8 @@ public class CadastrarEdicao extends AbstractJFrame {
                         .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                             .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
                                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                                    .add(jLabel1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 164, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                    .add(jLabel6)
+                                    .add(lSelEv, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 164, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                    .add(lNumEd)
                                     .add(jLabel8)
                                     .add(jLabel7))
                                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED))
@@ -169,17 +171,17 @@ public class CadastrarEdicao extends AbstractJFrame {
                                     .add(layout.createSequentialGroup()
                                         .add(jLabel3, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 75, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                                        .add(jFormattedTextField1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 108, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                        .add(tfDataInicio, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 108, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                                         .add(29, 29, 29)
                                         .add(jLabel2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 155, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))))
                             .add(cbEventos, 0, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .add(jTextField1)
+                            .add(tfLocal)
                             .add(tfTaxa, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 106, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                            .add(tfTaxa1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 106, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                            .add(tfNumEd, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 106, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                             .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
                                 .add(cancelarButton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 130, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                                 .add(18, 18, 18)
-                                .add(cancelarButton1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 130, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
+                                .add(bCadastrar, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 130, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
                         .add(20, 20, 20))))
         );
         layout.setVerticalGroup(
@@ -187,16 +189,16 @@ public class CadastrarEdicao extends AbstractJFrame {
             .add(layout.createSequentialGroup()
                 .add(27, 27, 27)
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(jLabel1)
+                    .add(lSelEv)
                     .add(cbEventos, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                 .add(20, 20, 20)
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(jLabel6)
-                    .add(tfTaxa1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                    .add(lNumEd)
+                    .add(tfNumEd, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                 .add(20, 20, 20)
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(jLabel7)
-                    .add(jTextField1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                    .add(tfLocal, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                     .add(layout.createSequentialGroup()
                         .add(15, 15, 15)
@@ -208,7 +210,7 @@ public class CadastrarEdicao extends AbstractJFrame {
                             .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
                                 .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
                                     .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                                        .add(jFormattedTextField1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                        .add(tfDataInicio, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                                         .add(jLabel2)
                                         .add(jLabel3))
                                     .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -224,7 +226,7 @@ public class CadastrarEdicao extends AbstractJFrame {
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                             .add(cancelarButton)
-                            .add(cancelarButton1))))
+                            .add(bCadastrar))))
                 .add(26, 26, 26))
         );
 
@@ -239,9 +241,78 @@ public class CadastrarEdicao extends AbstractJFrame {
         super.onClose();
     }//GEN-LAST:event_cancelarButtonActionPerformed
 
-    private void cancelarButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarButton1ActionPerformed
-        this.onClose();
-    }//GEN-LAST:event_cancelarButton1ActionPerformed
+    private void bCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCadastrarActionPerformed
+        DBconnection conn;
+        String sql;
+        System.out.println(" NUMED: "+tfNumEd.getText());
+        if(cbEventos.getSelectedItem().toString().matches("-") || tfNumEd.getText().replace(" ", "").isEmpty()){
+            infoLabel.setForeground(Color.red);
+            lSelEv.setForeground(Color.red);
+            lNumEd.setForeground(Color.red);
+        } else {
+            // Tratamento de datas:
+            String sqlDataInicio;
+            String sqlDataFim;
+            if (tfDataInicio.getText().matches("  /  /    ")){
+                sqlDataInicio = null;
+            } else {
+                sqlDataInicio = "to_date('"+tfDataInicio.getText()+"', 'DD/MM/YYYY')";
+            }
+            
+            if (tfDataFim.getText().matches("  /  /    ")){
+                sqlDataFim = null;
+            } else {
+                sqlDataFim = "to_date('"+tfDataFim.getText()+"', 'DD/MM/YYYY')";
+            }
+            // Tratamento qdo nao há taxa informada
+            String taxaEv; 
+            if(tfTaxa.getText().isEmpty()){
+                taxaEv = null;
+            } else {
+                taxaEv = tfTaxa.getText();
+            }
+            try{
+                conn = new DBconnection();
+                //TODO: testar:
+                sql = "INSERT INTO edicao(codEv, numEd, dataInicioEd, dataFimEd, localEd, taxaEd, descricaoEd) VALUES ("+
+                        this.listaEventos.get(cbEventos.getSelectedItem().toString())+", "+
+                        tfNumEd.getText()+","+sqlDataInicio+", "+sqlDataFim+", '"+tfLocal.getText()+"', "+
+                        taxaEv+", '"+taDescricao.getText()+"')";
+                conn.execute(sql);
+                conn.disconect();
+                (new Mensagem(this, null, SUCCESS, CADASTRO)).setEnabled(true);
+            }catch(SQLException e){
+                switch(e.getErrorCode()){
+                    case -1 : // Chave duplicada
+                    {                              
+                        (new Mensagem(this, "Evento já cadastrado no sistema.", FAIL, CADASTRO)).setEnabled(true);
+                        break; 
+                    }
+                    case 1 : // Violacao de constraint UNIQUE
+                    {                              
+                        (new Mensagem(this, "Evento já cadastrado no sistema.", FAIL, CADASTRO)).setEnabled(true);
+                        break;
+                    }
+                    case 911: // Erro de sintaxe! q feio ...
+                    {
+                        System.out.println("Erro de sintaxe do comando sql. Obs.: Talvez você tenha se esquecido de tirar o ; do final. :P ");
+                        break;
+                    }
+                    case 936: // Falta parâmetro obrigatório no sql enviado ao servidor
+                    {
+                        System.out.println("Falta parâmetro obrigatório no sql enviado ao servidor!");
+                        break;
+                    }
+                    default:
+                    {
+                        System.out.println("ERROR CODE: "+e.getErrorCode());
+                        e.printStackTrace();
+                        break;
+                    }
+                }
+            }
+        }    
+    }//GEN-LAST:event_bCadastrarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -280,37 +351,39 @@ public class CadastrarEdicao extends AbstractJFrame {
 //    }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton bCadastrar;
     private javax.swing.JButton cancelarButton;
-    private javax.swing.JButton cancelarButton1;
     private javax.swing.JComboBox cbEventos;
     private javax.swing.JLabel infoLabel;
-    private javax.swing.JFormattedTextField jFormattedTextField1;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JLabel lNumEd;
+    private javax.swing.JLabel lSelEv;
+    private javax.swing.JTextArea taDescricao;
     private javax.swing.JFormattedTextField tfDataFim;
+    private javax.swing.JFormattedTextField tfDataInicio;
+    private javax.swing.JTextField tfLocal;
+    private javax.swing.JFormattedTextField tfNumEd;
     private javax.swing.JFormattedTextField tfTaxa;
-    private javax.swing.JFormattedTextField tfTaxa1;
     // End of variables declaration//GEN-END:variables
 
     
     private void getEventos() {
         try{
             DBconnection conn = new DBconnection();
-            String sql = "SELECT nomeEv from evento";
+            String sql = "SELECT codEv, nomeEv from evento";
             ResultSet rs = conn.query(sql);
-            
+            String nome = "";
             while(rs != null && rs.next()){
-                cbEventos.addItem(rs.getString("nomeEv"));
+                nome = rs.getString("nomeEv");
+                cbEventos.addItem(nome);
+                this.listaEventos.put(nome, rs.getInt("codEv"));
             }
             conn.disconect();
         }catch(SQLException e){

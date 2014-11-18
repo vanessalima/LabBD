@@ -23,10 +23,6 @@ public abstract class AbstractJFrame extends javax.swing.JFrame implements Confi
         this.setVisible(true);
     }
     
-    public AbstractJFrame() {
-        //initComponents();
-    }
-    
     protected void onClose(java.awt.event.WindowEvent evt) {                                   
         // fecha a janela
         this.dispose();
@@ -41,5 +37,8 @@ public abstract class AbstractJFrame extends javax.swing.JFrame implements Confi
         this.anterior.setEnabled(true);
         this.anterior.setVisible(true);
     }
-    
+    protected void onDispose(){
+        this.anterior.dispose(); // fecha a janela anterior
+        this.dispose();          // fecha a janela atual
+    }
 }
