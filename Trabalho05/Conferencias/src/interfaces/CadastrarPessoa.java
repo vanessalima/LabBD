@@ -4,19 +4,24 @@
  */
 package interfaces;
 
+import conferencias.DBconnection;
+import java.awt.Color;
+import java.sql.SQLException;
+import javax.swing.JFrame;
+
 /**
  *
  * @author Rina
  */
-public class CadastrarPessoa extends javax.swing.JFrame {
+public class CadastrarPessoa extends AbstractJFrame {
 
     /**
      * Creates new form CadastrarPessoa
      */
-    public CadastrarPessoa() {
+    public CadastrarPessoa(JFrame ant) {
+        super(ant);
         initComponents();
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -26,56 +31,208 @@ public class CadastrarPessoa extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel4 = new javax.swing.JLabel();
+        lNome = new javax.swing.JLabel();
+        lEmail = new javax.swing.JLabel();
+        tfNome = new javax.swing.JTextField();
+        tfEmail = new javax.swing.JTextField();
+        lInstituicao = new javax.swing.JLabel();
+        tfInstituicao = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        tfTelefone = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox();
+        jLabel3 = new javax.swing.JLabel();
+        tfEndereco = new javax.swing.JTextField();
+        cancelarButton = new javax.swing.JButton();
+        bCadastrar = new javax.swing.JButton();
+        infoLabel = new javax.swing.JLabel();
+
+        jLabel4.setText("jLabel4");
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Cadastro de edição");
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
+
+        lNome.setText("Nome*");
+
+        lEmail.setText("Email*");
+
+        lInstituicao.setText("Instituição*");
+
+        jLabel1.setText("Telefone");
+
+        jLabel2.setText("Nacionalidade");
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jLabel3.setText("Endereço");
+
+        cancelarButton.setText("Cancelar");
+        cancelarButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelarButtonActionPerformed(evt);
+            }
+        });
+
+        bCadastrar.setText("Cadastrar");
+        bCadastrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bCadastrarActionPerformed(evt);
+            }
+        });
+
+        infoLabel.setFont(new java.awt.Font("Ubuntu", 2, 15)); // NOI18N
+        infoLabel.setText("* Campos obrigatórios");
 
         org.jdesktop.layout.GroupLayout layout = new org.jdesktop.layout.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(0, 400, Short.MAX_VALUE)
+            .add(layout.createSequentialGroup()
+                .add(20, 20, 20)
+                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING, false)
+                    .add(layout.createSequentialGroup()
+                        .add(infoLabel)
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .add(cancelarButton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 130, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                        .add(18, 18, 18)
+                        .add(bCadastrar, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 130, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                    .add(layout.createSequentialGroup()
+                        .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                            .add(lNome)
+                            .add(lEmail)
+                            .add(lInstituicao)
+                            .add(jLabel1)
+                            .add(jLabel3))
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                        .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
+                            .add(tfEmail)
+                            .add(tfNome)
+                            .add(tfInstituicao)
+                            .add(layout.createSequentialGroup()
+                                .add(tfTelefone, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 169, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                .add(18, 18, 18)
+                                .add(jLabel2)
+                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                                .add(jComboBox1, 0, 171, Short.MAX_VALUE))
+                            .add(tfEndereco))))
+                .add(20, 20, 20))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(0, 300, Short.MAX_VALUE)
+            .add(layout.createSequentialGroup()
+                .add(20, 20, 20)
+                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                    .add(lNome)
+                    .add(tfNome, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                .add(18, 18, 18)
+                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                    .add(lEmail)
+                    .add(tfEmail, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                .add(18, 18, 18)
+                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                    .add(lInstituicao)
+                    .add(tfInstituicao, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                .add(18, 18, 18)
+                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                    .add(jLabel1)
+                    .add(tfTelefone, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .add(jLabel2)
+                    .add(jComboBox1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                .add(18, 18, 18)
+                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                    .add(jLabel3)
+                    .add(tfEndereco, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                .add(20, 20, 20)
+                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                    .add(cancelarButton)
+                    .add(bCadastrar)
+                    .add(infoLabel))
+                .add(20, 20, 20))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_formWindowClosing
+
+    private void cancelarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarButtonActionPerformed
+        super.onClose();
+    }//GEN-LAST:event_cancelarButtonActionPerformed
+
+    private void bCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCadastrarActionPerformed
+        DBconnection conn;
+        String sql;
+        if(lNome.getText().isEmpty() || lEmail.getText().isEmpty() || lInstituicao.getText().isEmpty()){
+            infoLabel.setForeground(Color.red);
+            lNome.setForeground(Color.red);
+            lEmail.setForeground(Color.red);
+            lInstituicao.setForeground(Color.red);
+        } else {
+            try{
+                conn = new DBconnection();
+                //TODO: testar:
+                sql = "INSERT INTO pessoa(IDPE, NOMEPE, EMAILPE, INSTITUICAOPE, TELEFONEPE, NACIONALIDADEPE, ENDERECOPE, TIPOORGANIZADOR, TIPOPARTICIPANTE, TIPOAUTOR) values (SEQ_IDPE_PESSOA.NEXTVAL," ;
+                conn.execute(sql);
+                conn.disconect();
+                (new Mensagem(this, null, SUCCESS, CADASTRO)).setEnabled(true);
+            }catch(SQLException e){
+                switch(e.getErrorCode()){
+                    case -1 : // Chave duplicada
+                    {
+                        (new Mensagem(this, "Evento já cadastrado no sistema.", FAIL, CADASTRO)).setEnabled(true);
+                        break;
+                    }
+                    case 1 : // Violacao de constraint UNIQUE
+                    {
+                        (new Mensagem(this, "Evento já cadastrado no sistema.", FAIL, CADASTRO)).setEnabled(true);
+                        break;
+                    }
+                    case 911: // Erro de sintaxe! q feio ...
+                    {
+                        System.out.println("Erro de sintaxe do comando sql. Obs.: Talvez você tenha se esquecido de tirar o ; do final. :P ");
+                        break;
+                    }
+                    case 936: // Falta parâmetro obrigatório no sql enviado ao servidor
+                    {
+                        System.out.println("Falta parâmetro obrigatório no sql enviado ao servidor!");
+                        break;
+                    }
+                    default:
+                    {
+                        System.out.println("ERROR CODE: "+e.getErrorCode());
+                        e.printStackTrace();
+                        break;
+                    }
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CadastrarPessoa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CadastrarPessoa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CadastrarPessoa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CadastrarPessoa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
+    }//GEN-LAST:event_bCadastrarActionPerformed
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new CadastrarPessoa().setVisible(true);
-            }
-        });
-    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton bCadastrar;
+    private javax.swing.JButton cancelarButton;
+    private javax.swing.JLabel infoLabel;
+    private javax.swing.JComboBox jComboBox1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel lEmail;
+    private javax.swing.JLabel lInstituicao;
+    private javax.swing.JLabel lNome;
+    private javax.swing.JTextField tfEmail;
+    private javax.swing.JTextField tfEndereco;
+    private javax.swing.JTextField tfInstituicao;
+    private javax.swing.JTextField tfNome;
+    private javax.swing.JTextField tfTelefone;
     // End of variables declaration//GEN-END:variables
 }

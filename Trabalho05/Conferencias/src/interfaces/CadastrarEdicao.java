@@ -46,6 +46,7 @@ public class CadastrarEdicao extends AbstractJFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jButton1 = new javax.swing.JButton();
         lSelEv = new javax.swing.JLabel();
         cbEventos = new javax.swing.JComboBox();
         tfDataInicio = new javax.swing.JFormattedTextField();
@@ -66,6 +67,8 @@ public class CadastrarEdicao extends AbstractJFrame {
         taDescricao = new javax.swing.JTextArea();
         cancelarButton = new javax.swing.JButton();
         bCadastrar = new javax.swing.JButton();
+
+        jButton1.setText("jButton1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Cadastro de edição");
@@ -355,6 +358,7 @@ public class CadastrarEdicao extends AbstractJFrame {
     private javax.swing.JButton cancelarButton;
     private javax.swing.JComboBox cbEventos;
     private javax.swing.JLabel infoLabel;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
