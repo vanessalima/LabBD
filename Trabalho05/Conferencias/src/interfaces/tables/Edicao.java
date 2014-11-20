@@ -2,9 +2,11 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package interfaces;
+package interfaces.tables;
 
 import conferencias.DBconnection;
+import interfaces.AbstractJFrame;
+import interfaces.Mensagem;
 import static interfaces.Config.CADASTRO;
 import static interfaces.Config.FAIL;
 import static interfaces.Config.SUCCESS;
@@ -19,15 +21,14 @@ import javax.swing.JFrame;
  *
  * @author ch
  */
-public class CadastrarEdicao extends AbstractJFrame {
-        NewJFrame mainFrame;
+public class Edicao extends AbstractJFrame {
 
     Hashtable<String, Integer> listaEventos;
     
     /**
      * Creates new form CadastrarEdicao
      */
-    public CadastrarEdicao(JFrame frame) {
+    public Edicao(JFrame frame) {
         super(frame);
         initComponents();
         

@@ -2,9 +2,11 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package interfaces;
+package interfaces.tables;
 
 import conferencias.DBconnection;
+import interfaces.AbstractJFrame;
+import interfaces.Mensagem;
 import java.awt.Color;
 import java.sql.SQLException;
 import javax.swing.JFrame;
@@ -14,11 +16,9 @@ import javax.swing.JFrame;
  * @author Rina
  */
 
-public class CadastrarPessoa extends AbstractJFrame {
-
-    NewJFrame mainFrame;
+public class Pessoa extends AbstractJFrame {
     
-    public CadastrarPessoa(JFrame ant) {
+    public Pessoa(JFrame ant) {
         super(ant);
         initComponents();
     }

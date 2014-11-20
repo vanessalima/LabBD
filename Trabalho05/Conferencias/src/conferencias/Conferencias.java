@@ -5,8 +5,7 @@
  */
 package conferencias;
 
-import java.sql.Connection;
-import interfaces.NewJFrame;
+import interfaces.StartFrame;
 
 /**
  *
@@ -17,14 +16,9 @@ public class Conferencias {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) throws Exception {
-        // TODO code application logic here
-        
-        NewJFrame frame = new NewJFrame();
+    public static void main(String[] args) {
+        StartFrame frame = new StartFrame();
         frame.setVisible(true);
-        
-        DBconnection db = new DBconnection();      
-        db.disconect();
     }
     
 }

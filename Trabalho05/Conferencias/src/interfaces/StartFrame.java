@@ -5,6 +5,9 @@
  */
 package interfaces;
 
+import interfaces.tables.Evento;
+import interfaces.tables.Edicao;
+import interfaces.tables.Pessoa;
 import javax.swing.JFrame;
 
 /**
@@ -12,15 +15,12 @@ import javax.swing.JFrame;
  * @author vanessalima
  */
 
-public class Cadastrar extends AbstractJFrame {
-    NewJFrame mainFrame;
-
+public class StartFrame extends javax.swing.JFrame {
 
     /**
-     * Creates new form Cadastrar
+     * Creates new form StartFrame
      */
-    public Cadastrar(JFrame frame) {
-        super(frame);
+    public StartFrame() {
         initComponents();
     }
 
@@ -135,7 +135,6 @@ public class Cadastrar extends AbstractJFrame {
         });
 
         jButton10.setText("Despesas");
-        jButton10.setPreferredSize(new java.awt.Dimension(104, 29));
         jButton10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton10ActionPerformed(evt);
@@ -143,7 +142,6 @@ public class Cadastrar extends AbstractJFrame {
         });
 
         jButton11.setText("Apresentação");
-        jButton11.setPreferredSize(new java.awt.Dimension(129, 29));
         jButton11.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton11ActionPerformed(evt);
@@ -159,7 +157,6 @@ public class Cadastrar extends AbstractJFrame {
         });
 
         jButton13.setText("Avaliação Apresentador");
-        jButton13.setMaximumSize(new java.awt.Dimension(192, 29));
         jButton13.setPreferredSize(new java.awt.Dimension(190, 30));
         jButton13.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -257,7 +254,7 @@ public class Cadastrar extends AbstractJFrame {
                     .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
 
         pack();
@@ -269,12 +266,12 @@ public class Cadastrar extends AbstractJFrame {
 
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
         // TODO add your handling code here:
-        super.onDispose();
+        this.dispose();
     }//GEN-LAST:event_jMenuItem6ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-        (new CadastrarPessoa(this)).setEnabled(true);
+        (new Pessoa(this)).setEnabled(true);
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
@@ -314,28 +311,28 @@ public class Cadastrar extends AbstractJFrame {
     }//GEN-LAST:event_jButton13ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        (new CadastrarEdicao(this)).setEnabled(true);
+        (new Edicao(this)).setEnabled(true);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         // TODO add your handling code here:
-        super.onClose(evt);
+        this.dispose();
     }//GEN-LAST:event_formWindowClosing
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        (new CadastrarEvento(this)).setEnabled(true);
+        (new Evento(this)).setEnabled(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
-     *
+     */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel *
+        /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         *
+         */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -344,24 +341,23 @@ public class Cadastrar extends AbstractJFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Cadastrar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(StartFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Cadastrar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(StartFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Cadastrar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(StartFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Cadastrar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(StartFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
-        /* Create and display the form *
+        /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Cadastrar().setVisible(true);
+                new StartFrame().setVisible(true);
             }
         });
     }
-                */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
