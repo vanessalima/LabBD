@@ -13,11 +13,14 @@ import javax.swing.JFrame;
  */
 public class LoadFrame extends AbstractJFrame {
 
+    private int table;
+    
     /**
      * Creates new form LoadFrame
      */
-    public LoadFrame(JFrame ant) {
+    public LoadFrame(JFrame ant, int table) {
         super(ant);
+        this.table = table;
         initComponents();
     }
 
@@ -106,6 +109,11 @@ public class LoadFrame extends AbstractJFrame {
         jMenuBar1.add(jMenu2);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -287,7 +295,7 @@ public class LoadFrame extends AbstractJFrame {
 
     private void jMenuItem13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem13ActionPerformed
         // TODO add your handling code here:
-        this.dispose();
+        //super.onDispose();
     }//GEN-LAST:event_jMenuItem13ActionPerformed
 
     private void removerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removerButtonActionPerformed
@@ -309,6 +317,10 @@ public class LoadFrame extends AbstractJFrame {
     private void addButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButton2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_addButton2ActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        super.onClose(evt);
+    }//GEN-LAST:event_formWindowClosing
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addButton;

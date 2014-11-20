@@ -17,5 +17,19 @@ public interface Config {
     int SUCCESS = 1; //status da operacao
     int FAIL = 0;    //status da operacao
     
-       
+    
+    int APRESENTACAO = 0;
+    int ARTIGO = 1;
+    int AUXILIO = 2;
+    int AVALIA_APRESENTADOR = 3;
+    int AVALIA_ARTIGO = 4;
+    int DESPESA = 5;
+    int EDICAO = 6;
+    int EVENTO = 7;
+    int INSCRITO = 8;
+    int ORGANIZADOR = 9;
+    int PATROCINADOR = 10;
+    int PATROCINIO = 11;
+    int PESSOA = 12;
+    
 }

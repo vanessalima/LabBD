@@ -7,6 +7,8 @@ package interfaces;
 
 import interfaces.tables.Evento;
 import interfaces.tables.Edicao;
+import interfaces.tables.Inscrito;
+import interfaces.tables.Patrocinador;
 import interfaces.tables.Pessoa;
 import javax.swing.JFrame;
 
@@ -35,18 +37,20 @@ public class StartFrame extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
-        jButton1 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
-        jButton10 = new javax.swing.JButton();
-        jButton11 = new javax.swing.JButton();
-        jButton12 = new javax.swing.JButton();
-        jButton13 = new javax.swing.JButton();
+        openEvento = new javax.swing.JButton();
+        openEdicao = new javax.swing.JButton();
+        openInscrito = new javax.swing.JButton();
+        openPatrocinador = new javax.swing.JButton();
+        openArtigo = new javax.swing.JButton();
+        openPatrocinio = new javax.swing.JButton();
+        openOrganizador = new javax.swing.JButton();
+        openAuxilio = new javax.swing.JButton();
+        openDespesa = new javax.swing.JButton();
+        openApresentacao = new javax.swing.JButton();
+        openAvaliaArtigo = new javax.swing.JButton();
+        openAvaliaApresentador = new javax.swing.JButton();
+        openPessoa = new javax.swing.JButton();
+        openRelatorios = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
@@ -70,97 +74,113 @@ public class StartFrame extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Eventos");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        openEvento.setText("Eventos");
+        openEvento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                openEventoActionPerformed(evt);
             }
         });
 
-        jButton3.setText("Edições");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        openEdicao.setText("Edições");
+        openEdicao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                openEdicaoActionPerformed(evt);
             }
         });
 
-        jButton4.setText("Participante");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        openInscrito.setText("Inscritos");
+        openInscrito.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                openInscritoActionPerformed(evt);
             }
         });
 
-        jButton5.setText("Patrocinador");
-        jButton5.setPreferredSize(new java.awt.Dimension(190, 30));
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        openPatrocinador.setText("Patrocinador");
+        openPatrocinador.setPreferredSize(new java.awt.Dimension(190, 30));
+        openPatrocinador.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                openPatrocinadorActionPerformed(evt);
             }
         });
 
-        jButton6.setText("Artigos");
-        jButton6.setPreferredSize(new java.awt.Dimension(190, 30));
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        openArtigo.setText("Artigos");
+        openArtigo.setPreferredSize(new java.awt.Dimension(190, 30));
+        openArtigo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                openArtigoActionPerformed(evt);
             }
         });
 
-        jButton7.setText("Patrocínios");
-        jButton7.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton7.setMaximumSize(new java.awt.Dimension(190, 30));
-        jButton7.setMinimumSize(new java.awt.Dimension(190, 30));
-        jButton7.setPreferredSize(new java.awt.Dimension(190, 30));
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
+        openPatrocinio.setText("Patrocínios");
+        openPatrocinio.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        openPatrocinio.setMaximumSize(new java.awt.Dimension(190, 30));
+        openPatrocinio.setMinimumSize(new java.awt.Dimension(190, 30));
+        openPatrocinio.setPreferredSize(new java.awt.Dimension(190, 30));
+        openPatrocinio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
+                openPatrocinioActionPerformed(evt);
             }
         });
 
-        jButton8.setText("Organizador");
-        jButton8.setPreferredSize(new java.awt.Dimension(190, 30));
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
+        openOrganizador.setText("Organizador");
+        openOrganizador.setPreferredSize(new java.awt.Dimension(190, 30));
+        openOrganizador.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
+                openOrganizadorActionPerformed(evt);
             }
         });
 
-        jButton9.setText("Auxílios");
-        jButton9.setPreferredSize(new java.awt.Dimension(190, 30));
-        jButton9.addActionListener(new java.awt.event.ActionListener() {
+        openAuxilio.setText("Auxílios");
+        openAuxilio.setPreferredSize(new java.awt.Dimension(190, 30));
+        openAuxilio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton9ActionPerformed(evt);
+                openAuxilioActionPerformed(evt);
             }
         });
 
-        jButton10.setText("Despesas");
-        jButton10.addActionListener(new java.awt.event.ActionListener() {
+        openDespesa.setText("Despesas");
+        openDespesa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton10ActionPerformed(evt);
+                openDespesaActionPerformed(evt);
             }
         });
 
-        jButton11.setText("Apresentação");
-        jButton11.addActionListener(new java.awt.event.ActionListener() {
+        openApresentacao.setText("Apresentação");
+        openApresentacao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton11ActionPerformed(evt);
+                openApresentacaoActionPerformed(evt);
             }
         });
 
-        jButton12.setText("Avaliação Artigo");
-        jButton12.setPreferredSize(new java.awt.Dimension(190, 30));
-        jButton12.addActionListener(new java.awt.event.ActionListener() {
+        openAvaliaArtigo.setText("Avaliação Artigo");
+        openAvaliaArtigo.setPreferredSize(new java.awt.Dimension(190, 30));
+        openAvaliaArtigo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton12ActionPerformed(evt);
+                openAvaliaArtigoActionPerformed(evt);
             }
         });
 
-        jButton13.setText("Avaliação Apresentador");
-        jButton13.setPreferredSize(new java.awt.Dimension(190, 30));
-        jButton13.addActionListener(new java.awt.event.ActionListener() {
+        openAvaliaApresentador.setText("Avaliação Apresentador");
+        openAvaliaApresentador.setPreferredSize(new java.awt.Dimension(190, 30));
+        openAvaliaApresentador.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton13ActionPerformed(evt);
+                openAvaliaApresentadorActionPerformed(evt);
+            }
+        });
+
+        openPessoa.setText("Pessoas");
+        openPessoa.setPreferredSize(new java.awt.Dimension(190, 30));
+        openPessoa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                openPessoaActionPerformed(evt);
+            }
+        });
+
+        openRelatorios.setText("Gerar Relatórios");
+        openRelatorios.setPreferredSize(new java.awt.Dimension(190, 30));
+        openRelatorios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                openRelatoriosActionPerformed(evt);
             }
         });
 
@@ -213,22 +233,26 @@ public class StartFrame extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(25, 25, 25)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(openInscrito, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(openEdicao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(openEvento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(openPatrocinador, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(openPessoa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(25, 25, 25)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton9, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE))
-                .addGap(25, 25, 25)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton12, javax.swing.GroupLayout.DEFAULT_SIZE, 192, Short.MAX_VALUE)
-                    .addComponent(jButton13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(openArtigo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(openPatrocinio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(openOrganizador, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(openAuxilio, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(25, 25, 25)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(openDespesa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(openApresentacao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(openAvaliaArtigo, javax.swing.GroupLayout.DEFAULT_SIZE, 192, Short.MAX_VALUE)
+                            .addComponent(openAvaliaApresentador, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(openRelatorios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(25, 25, 25))
         );
         layout.setVerticalGroup(
@@ -236,25 +260,29 @@ public class StartFrame extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(openEvento, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(openPatrocinio, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(openDespesa, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(openEdicao, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(openArtigo, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(openApresentacao, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(openInscrito, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(openOrganizador, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(openAvaliaArtigo, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(32, Short.MAX_VALUE))
+                    .addComponent(openPatrocinador, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(openAuxilio, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(openAvaliaApresentador, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(openPessoa, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(openRelatorios, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(34, Short.MAX_VALUE))
         );
 
         pack();
@@ -269,60 +297,66 @@ public class StartFrame extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jMenuItem6ActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
-        (new Pessoa(this)).setEnabled(true);
-    }//GEN-LAST:event_jButton4ActionPerformed
+    private void openInscritoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openInscritoActionPerformed
+        (new LoadFrame(this, Config.INSCRITO)).setEnabled(true);
+    }//GEN-LAST:event_openInscritoActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
+    private void openPatrocinadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openPatrocinadorActionPerformed
+        (new LoadFrame(this, Config.PATROCINADOR)).setEnabled(true);
+    }//GEN-LAST:event_openPatrocinadorActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6ActionPerformed
+    private void openArtigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openArtigoActionPerformed
+        (new LoadFrame(this, Config.ARTIGO)).setEnabled(true);
+    }//GEN-LAST:event_openArtigoActionPerformed
 
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton7ActionPerformed
+    private void openPatrocinioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openPatrocinioActionPerformed
+        (new LoadFrame(this, Config.PATROCINIO)).setEnabled(true);
+    }//GEN-LAST:event_openPatrocinioActionPerformed
 
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton8ActionPerformed
+    private void openOrganizadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openOrganizadorActionPerformed
+        (new LoadFrame(this, Config.ORGANIZADOR)).setEnabled(true);
+    }//GEN-LAST:event_openOrganizadorActionPerformed
 
-    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton9ActionPerformed
+    private void openAuxilioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openAuxilioActionPerformed
+        (new LoadFrame(this, Config.AUXILIO)).setEnabled(true);
+    }//GEN-LAST:event_openAuxilioActionPerformed
 
-    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton10ActionPerformed
+    private void openDespesaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openDespesaActionPerformed
+        (new LoadFrame(this, Config.DESPESA)).setEnabled(true);
+    }//GEN-LAST:event_openDespesaActionPerformed
 
-    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton11ActionPerformed
+    private void openApresentacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openApresentacaoActionPerformed
+        (new LoadFrame(this, Config.APRESENTACAO)).setEnabled(true);
+    }//GEN-LAST:event_openApresentacaoActionPerformed
 
-    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton12ActionPerformed
+    private void openAvaliaArtigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openAvaliaArtigoActionPerformed
+        (new LoadFrame(this, Config.AVALIA_ARTIGO)).setEnabled(true);
+    }//GEN-LAST:event_openAvaliaArtigoActionPerformed
 
-    private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton13ActionPerformed
+    private void openAvaliaApresentadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openAvaliaApresentadorActionPerformed
+        (new LoadFrame(this, Config.AVALIA_APRESENTADOR)).setEnabled(true);
+    }//GEN-LAST:event_openAvaliaApresentadorActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        (new Edicao(this)).setEnabled(true);
-    }//GEN-LAST:event_jButton3ActionPerformed
+    private void openEdicaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openEdicaoActionPerformed
+        (new LoadFrame(this, Config.EDICAO)).setEnabled(true);
+    }//GEN-LAST:event_openEdicaoActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         // TODO add your handling code here:
         this.dispose();
     }//GEN-LAST:event_formWindowClosing
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void openEventoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openEventoActionPerformed
+        (new LoadFrame(this, Config.EVENTO)).setEnabled(true);
+    }//GEN-LAST:event_openEventoActionPerformed
+
+    private void openPessoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openPessoaActionPerformed
+        (new LoadFrame(this, Config.PESSOA)).setEnabled(true);
+    }//GEN-LAST:event_openPessoaActionPerformed
+
+    private void openRelatoriosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openRelatoriosActionPerformed
         // TODO add your handling code here:
-        (new Evento(this)).setEnabled(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_openRelatoriosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -360,18 +394,6 @@ public class StartFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton11;
-    private javax.swing.JButton jButton12;
-    private javax.swing.JButton jButton13;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
@@ -385,5 +407,19 @@ public class StartFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JButton openApresentacao;
+    private javax.swing.JButton openArtigo;
+    private javax.swing.JButton openAuxilio;
+    private javax.swing.JButton openAvaliaApresentador;
+    private javax.swing.JButton openAvaliaArtigo;
+    private javax.swing.JButton openDespesa;
+    private javax.swing.JButton openEdicao;
+    private javax.swing.JButton openEvento;
+    private javax.swing.JButton openInscrito;
+    private javax.swing.JButton openOrganizador;
+    private javax.swing.JButton openPatrocinador;
+    private javax.swing.JButton openPatrocinio;
+    private javax.swing.JButton openPessoa;
+    private javax.swing.JButton openRelatorios;
     // End of variables declaration//GEN-END:variables
 }
