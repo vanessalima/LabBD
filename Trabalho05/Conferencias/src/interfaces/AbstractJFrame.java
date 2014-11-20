@@ -20,7 +20,7 @@ public abstract class AbstractJFrame extends javax.swing.JFrame implements Confi
         this.anterior = ant;
         this.anterior.setVisible(false);
         // Abre a janela da classe
-        this.setVisible(true);
+        //this.setVisible(true);
     }
     
     protected void onClose(java.awt.event.WindowEvent evt) {                                   
@@ -37,8 +37,19 @@ public abstract class AbstractJFrame extends javax.swing.JFrame implements Confi
         this.anterior.setEnabled(true);
         this.anterior.setVisible(true);
     }
+    
     protected void onDispose(){
         this.anterior.dispose(); // fecha a janela anterior
         this.dispose();          // fecha a janela atual
     }
+    
+    public void teste() {
+        System.out.println("Funciona para override.");
+    }
+    
+    public void loadInitialTable() {
+        // TODO: create method on lower classes
+    }
+    
+    
 }

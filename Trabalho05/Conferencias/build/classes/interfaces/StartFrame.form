@@ -69,10 +69,13 @@
             <Property name="text" type="java.lang.String" value="Sobre"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem7">
+            <MenuItem class="javax.swing.JMenuItem" name="openEquipe">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Equipe"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="openEquipeActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>

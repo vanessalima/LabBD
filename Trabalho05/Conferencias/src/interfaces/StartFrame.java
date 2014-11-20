@@ -5,13 +5,6 @@
  */
 package interfaces;
 
-import interfaces.tables.Evento;
-import interfaces.tables.Edicao;
-import interfaces.tables.Inscrito;
-import interfaces.tables.Patrocinador;
-import interfaces.tables.Pessoa;
-import javax.swing.JFrame;
-
 /**
  *
  * @author vanessalima
@@ -61,7 +54,7 @@ public class StartFrame extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
         jMenuItem6 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
-        jMenuItem7 = new javax.swing.JMenuItem();
+        openEquipe = new javax.swing.JMenuItem();
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -219,8 +212,13 @@ public class StartFrame extends javax.swing.JFrame {
 
         jMenu2.setText("Sobre");
 
-        jMenuItem7.setText("Equipe");
-        jMenu2.add(jMenuItem7);
+        openEquipe.setText("Equipe");
+        openEquipe.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                openEquipeActionPerformed(evt);
+            }
+        });
+        jMenu2.add(openEquipe);
 
         jMenuBar1.add(jMenu2);
 
@@ -294,7 +292,7 @@ public class StartFrame extends javax.swing.JFrame {
 
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
         // TODO add your handling code here:
-        this.dispose();
+        //this.dispose();
     }//GEN-LAST:event_jMenuItem6ActionPerformed
 
     private void openInscritoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openInscritoActionPerformed
@@ -343,7 +341,7 @@ public class StartFrame extends javax.swing.JFrame {
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         // TODO add your handling code here:
-        this.dispose();
+        //this.dispose();
     }//GEN-LAST:event_formWindowClosing
 
     private void openEventoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openEventoActionPerformed
@@ -357,6 +355,10 @@ public class StartFrame extends javax.swing.JFrame {
     private void openRelatoriosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openRelatoriosActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_openRelatoriosActionPerformed
+
+    private void openEquipeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openEquipeActionPerformed
+        (new Equipe(this)).setEnabled(true);
+    }//GEN-LAST:event_openEquipeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -403,7 +405,6 @@ public class StartFrame extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
-    private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JTextArea jTextArea1;
@@ -414,6 +415,7 @@ public class StartFrame extends javax.swing.JFrame {
     private javax.swing.JButton openAvaliaArtigo;
     private javax.swing.JButton openDespesa;
     private javax.swing.JButton openEdicao;
+    private javax.swing.JMenuItem openEquipe;
     private javax.swing.JButton openEvento;
     private javax.swing.JButton openInscrito;
     private javax.swing.JButton openOrganizador;
