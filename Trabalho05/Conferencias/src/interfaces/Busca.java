@@ -10,7 +10,7 @@ package interfaces;
  * @author vanessalima
  */
 public class Busca extends javax.swing.JFrame {
-
+    NewJFrame mainFrame;
     /**
      * Creates new form Busca
      */
@@ -18,6 +18,11 @@ public class Busca extends javax.swing.JFrame {
         initComponents();
     }
 
+    public Busca(NewJFrame mainFrame) {
+        initComponents();
+        this.mainFrame = mainFrame;
+        this.mainFrame.setVisible(false);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

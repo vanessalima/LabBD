@@ -10,14 +10,19 @@ package interfaces;
  * @author vanessalima
  */
 public class Cadastrar extends javax.swing.JFrame {
-
+    NewJFrame mainFrame;
     /**
      * Creates new form Cadastrar
      */
     public Cadastrar() {
         initComponents();
     }
-
+    
+    public Cadastrar(NewJFrame mainFrame) {
+        initComponents();
+        this.mainFrame = mainFrame;
+        this.mainFrame.setVisible(false);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

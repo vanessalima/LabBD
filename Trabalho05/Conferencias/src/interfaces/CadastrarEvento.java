@@ -9,12 +9,18 @@ package interfaces;
  * @author Rina
  */
 public class CadastrarEvento extends javax.swing.JFrame {
+    NewJFrame mainFrame;
 
     /**
      * Creates new form CadastrarEvento
      */
     public CadastrarEvento() {
         initComponents();
+    }
+    public CadastrarEvento(NewJFrame mainFrame){
+        initComponents();
+        this.mainFrame = mainFrame;
+        this.mainFrame.setVisible(false);
     }
 
     /**

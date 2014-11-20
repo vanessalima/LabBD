@@ -9,12 +9,20 @@ package interfaces;
  * @author Rina
  */
 public class CadastrarEdicao extends javax.swing.JFrame {
-
+    
+    NewJFrame mainFrame;
+    
     /**
      * Creates new form CadastrarEdicao
      */
     public CadastrarEdicao() {
         initComponents();
+    }
+    public CadastrarEdicao(NewJFrame mainFrame){
+        initComponents();
+        this.mainFrame = mainFrame;
+        this.mainFrame.setVisible(false);
+        this.setVisible(true);
     }
 
     /**

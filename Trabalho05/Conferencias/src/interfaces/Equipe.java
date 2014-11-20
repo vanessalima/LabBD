@@ -10,15 +10,21 @@ package interfaces;
  * @author vanessalima
  */
 public class Equipe extends javax.swing.JFrame {
+    NewJFrame mainFrame;
 
     /**
      * Creates new form Equipe
      */
     public Equipe() {
         initComponents();
-        
     }
 
+    public Equipe(NewJFrame mainFrame) {
+        initComponents();
+        this.mainFrame = mainFrame;
+        this.mainFrame.setVisible(false);
+        
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

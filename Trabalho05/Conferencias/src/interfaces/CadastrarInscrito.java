@@ -9,7 +9,7 @@ package interfaces;
  * @author Rina
  */
 public class CadastrarInscrito extends javax.swing.JFrame {
-
+    NewJFrame mainFrame;
     /**
      * Creates new form CadastrarInscrito
      */
@@ -17,6 +17,11 @@ public class CadastrarInscrito extends javax.swing.JFrame {
         initComponents();
     }
 
+    public CadastrarInscrito(NewJFrame mainFrame) {
+        initComponents();
+        this.mainFrame = mainFrame;
+        this.mainFrame.setVisible(false);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
