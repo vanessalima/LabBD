@@ -21,8 +21,9 @@ public class DBconnection {
     /**
      * Efetua a conexão com o banco de dados
      *
+     * @throws java.lang.Exception
      */
-    public DBconnection() throws Exception{
+    public DBconnection(){
         try{
             Class.forName("oracle.jdbc.driver.OracleDriver");
             System.out.println("nao deu erro... ");
@@ -30,7 +31,7 @@ public class DBconnection {
             System.out.println("Classe "+e);
         }
         try {
-            this.con = DriverManager.getConnection("jdbc:oracle:thin:@grad.icmc.usp.br:15215:orcl","a7239256","a7239256");
+            this.con = DriverManager.getConnection("jdbc:oracle:thin:@grad.icmc.usp.br:15215:orcl","a7987456","a7987456");
             //Connection con = DriverManager.getConnection("jdbc:oracle:thin:@192.168.183.15:1521:orcl","a7239256","a7239256");
             System.out.println("Conectou!!! =D");       
         }catch(Exception e){
@@ -83,16 +84,29 @@ public class DBconnection {
         //ResultSet res =  st.executeQuery(command); // retorna os resultados de um select por exemplo
     }
     
-    public boolean execute(String sql) throws Exception {
+    /**
+     * Para execucao de insert, create
+     * @param sql
+     * @return true para sucesso, false, c.c.
+     * @throws java.sql.SQLException
+     */
+    public boolean execute(String sql) throws SQLException{
         Statement stmt = this.con.createStatement();
+//        System.out.println(" .. . STMT: "+stmt.toString()+"\n | SQL: "+sql);
         boolean ret = stmt.execute(sql); // insert, create
+        System.out.println(".. pelo menos mandou pro servidor.");
         return ret;
     }
-
-    public ResultSet query(String sql) throws Exception {
+    
+    /**
+     * Para execucao do comando select
+     * @param sql
+     * @return
+     * @throws java.sql.SQLException
+     */
+    public ResultSet query(String sql) throws SQLException {
         Statement stmt = this.con.createStatement();
         ResultSet result = stmt.executeQuery(sql); // select
-        // stmt.close();//QQ coisa tira isso daqui.
         return result;
     }
 }

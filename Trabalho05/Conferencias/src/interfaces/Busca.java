@@ -5,6 +5,8 @@
  */
 package interfaces;
 
+import javax.swing.table.TableColumn;
+
 /**
  *
  * @author vanessalima
@@ -16,6 +18,10 @@ public class Busca extends javax.swing.JFrame {
      */
     public Busca() {
         initComponents();
+        
+        // Inicializa as colunas da tabela
+        TableColumn t = new TableColumn();
+        jTable1.addColumn(t);
     }
 
     public Busca(NewJFrame mainFrame) {
@@ -51,13 +57,13 @@ public class Busca extends javax.swing.JFrame {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {},
+                {},
+                {},
+                {}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+
             }
         ));
         jScrollPane1.setViewportView(jTable1);

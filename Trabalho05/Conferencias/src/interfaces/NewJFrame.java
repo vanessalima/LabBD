@@ -148,11 +148,15 @@ public class NewJFrame extends javax.swing.JFrame {
 
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
         // TODO add your handling code here:
+        this.dispose();
     }//GEN-LAST:event_jMenuItem6ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // Cadastrar:
         (new CadastrarEdicao(this)).setEnabled(true);
+
+        // TODO add your handling code here:
+//        (new Cadastrar(this)).setEnabled(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
