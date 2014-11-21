@@ -10,7 +10,7 @@
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
-    <Property name="title" type="java.lang.String" value="Cadastro de edi&#xe7;&#xe3;o"/>
+    <Property name="title" type="java.lang.String" value="Cadastro de pessoa"/>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -150,14 +150,127 @@
     <Component class="javax.swing.JComboBox" name="jComboBox1">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="4">
-            <StringItem index="0" value="Item 1"/>
-            <StringItem index="1" value="Item 2"/>
-            <StringItem index="2" value="Item 3"/>
-            <StringItem index="3" value="Item 4"/>
+          <StringArray count="114">
+            <StringItem index="0" value="Antiguano"/>
+            <StringItem index="1" value="Afeg&#xe3;o"/>
+            <StringItem index="2" value="Alem&#xe3;o"/>
+            <StringItem index="3" value="Americano"/>
+            <StringItem index="4" value="Angolano"/>
+            <StringItem index="5" value="&#xc1;rabe "/>
+            <StringItem index="6" value="Arg&#xe9;lia"/>
+            <StringItem index="7" value="Argentino"/>
+            <StringItem index="8" value="Armeno"/>
+            <StringItem index="9" value="Australiano"/>
+            <StringItem index="10" value="Austr&#xed;aco"/>
+            <StringItem index="11" value="Bahamense"/>
+            <StringItem index="12" value="Bangladesh"/>
+            <StringItem index="13" value="Barbadiano"/>
+            <StringItem index="14" value="Bechuano"/>
+            <StringItem index="15" value="Belga"/>
+            <StringItem index="16" value="Belizenho"/>
+            <StringItem index="17" value="Boliviano"/>
+            <StringItem index="18" value="Brasileiro"/>
+            <StringItem index="19" value="Brit&#xe2;nico"/>
+            <StringItem index="20" value="Camaronense"/>
+            <StringItem index="21" value="Canadense"/>
+            <StringItem index="22" value="Chileno"/>
+            <StringItem index="23" value="Chin&#xea;s"/>
+            <StringItem index="24" value="Cingal&#xea;s"/>
+            <StringItem index="25" value="Colombiano"/>
+            <StringItem index="26" value="Comorense"/>
+            <StringItem index="27" value="Coreano"/>
+            <StringItem index="28" value="coreano"/>
+            <StringItem index="29" value="coreano"/>
+            <StringItem index="30" value="Costarriquenho"/>
+            <StringItem index="31" value="Croata"/>
+            <StringItem index="32" value="Cubano"/>
+            <StringItem index="33" value="Dinamarqu&#xea;s"/>
+            <StringItem index="34" value="Dominicana"/>
+            <StringItem index="35" value="Dominicano"/>
+            <StringItem index="36" value="Eg&#xed;pcio"/>
+            <StringItem index="37" value="Emiratense"/>
+            <StringItem index="38" value="Equatoriano"/>
+            <StringItem index="39" value="Escoc&#xea;s"/>
+            <StringItem index="40" value="Eslovaco"/>
+            <StringItem index="41" value="Esloveno"/>
+            <StringItem index="42" value="Espanhol"/>
+            <StringItem index="43" value="Franc&#xea;s"/>
+            <StringItem index="44" value="Gal&#xea;s"/>
+            <StringItem index="45" value="Gan&#xe9;s"/>
+            <StringItem index="46" value="Granadino"/>
+            <StringItem index="47" value="Grego"/>
+            <StringItem index="48" value="Guatemalteco"/>
+            <StringItem index="49" value="Guianense"/>
+            <StringItem index="50" value="Guian&#xea;s"/>
+            <StringItem index="51" value="Haitiano"/>
+            <StringItem index="52" value="Holand&#xea;s"/>
+            <StringItem index="53" value="Hondurenho"/>
+            <StringItem index="54" value="H&#xfa;ngaro"/>
+            <StringItem index="55" value="Iemenita"/>
+            <StringItem index="56" value="Indiano"/>
+            <StringItem index="57" value="Indon&#xe9;sio"/>
+            <StringItem index="58" value="Ingl&#xea;s"/>
+            <StringItem index="59" value="Iraniano"/>
+            <StringItem index="60" value="Iraquiano"/>
+            <StringItem index="61" value="Irland&#xea;s"/>
+            <StringItem index="62" value="Israelita"/>
+            <StringItem index="63" value="Italiano"/>
+            <StringItem index="64" value="Jamaicano"/>
+            <StringItem index="65" value="Japon&#xea;s"/>
+            <StringItem index="66" value="L&#xed;bio"/>
+            <StringItem index="67" value="Malaio"/>
+            <StringItem index="68" value="Marfinense"/>
+            <StringItem index="69" value="Marroquino"/>
+            <StringItem index="70" value="Mexicano"/>
+            <StringItem index="71" value="Mo&#xe7;ambicano"/>
+            <StringItem index="72" value="Neozeland&#xea;s"/>
+            <StringItem index="73" value="Nepal&#xea;s"/>
+            <StringItem index="74" value="Nicaraguense"/>
+            <StringItem index="75" value="Nigeriano"/>
+            <StringItem index="76" value="Noruego"/>
+            <StringItem index="77" value="Omanense"/>
+            <StringItem index="78" value="Palestino"/>
+            <StringItem index="79" value="Panamenho"/>
+            <StringItem index="80" value="Paquistan&#xea;s"/>
+            <StringItem index="81" value="Paraguaio"/>
+            <StringItem index="82" value="Peruano"/>
+            <StringItem index="83" value="Polon&#xea;s"/>
+            <StringItem index="84" value="Portorriquenho"/>
+            <StringItem index="85" value="Portugu&#xea;s"/>
+            <StringItem index="86" value="Qatarense"/>
+            <StringItem index="87" value="Queniano"/>
+            <StringItem index="88" value="Romeno"/>
+            <StringItem index="89" value="Ruand&#xea;s"/>
+            <StringItem index="90" value="Russo"/>
+            <StringItem index="91" value="Salvadorenho"/>
+            <StringItem index="92" value="Santa-lucense"/>
+            <StringItem index="93" value="S&#xe3;o-cristovense"/>
+            <StringItem index="94" value="S&#xe3;o-vicentino"/>
+            <StringItem index="95" value="Saudita"/>
+            <StringItem index="96" value="S&#xe9;rvio"/>
+            <StringItem index="97" value="S&#xed;rio"/>
+            <StringItem index="98" value="Somali"/>
+            <StringItem index="99" value="Sueco"/>
+            <StringItem index="100" value="Su&#xed;&#xe7;o"/>
+            <StringItem index="101" value="Sul-africano"/>
+            <StringItem index="102" value="Surinam&#xea;s"/>
+            <StringItem index="103" value="Tailand&#xea;s"/>
+            <StringItem index="104" value="Timorense"/>
+            <StringItem index="105" value="Trindadense"/>
+            <StringItem index="106" value="Turco"/>
+            <StringItem index="107" value="Ucraniano"/>
+            <StringItem index="108" value="Ugandense"/>
+            <StringItem index="109" value="Uruguaio"/>
+            <StringItem index="110" value="Venezuelano"/>
+            <StringItem index="111" value="Vietnamita"/>
+            <StringItem index="112" value="Zimbabuense"/>
+            <StringItem index="113" value=" "/>
           </StringArray>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboBox1ActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>

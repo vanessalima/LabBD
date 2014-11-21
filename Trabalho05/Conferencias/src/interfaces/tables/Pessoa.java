@@ -52,7 +52,7 @@ public class Pessoa extends AbstractJFrame {
         jLabel4.setText("jLabel4");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Cadastro de edição");
+        setTitle("Cadastro de pessoa");
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 formWindowClosing(evt);
@@ -69,7 +69,12 @@ public class Pessoa extends AbstractJFrame {
 
         jLabel2.setText("Nacionalidade");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Antiguano", "Afegão", "Alemão", "Americano", "Angolano", "Árabe ", "Argélia", "Argentino", "Armeno", "Australiano", "Austríaco", "Bahamense", "Bangladesh", "Barbadiano", "Bechuano", "Belga", "Belizenho", "Boliviano", "Brasileiro", "Britânico", "Camaronense", "Canadense", "Chileno", "Chinês", "Cingalês", "Colombiano", "Comorense", "Coreano", "coreano", "coreano", "Costarriquenho", "Croata", "Cubano", "Dinamarquês", "Dominicana", "Dominicano", "Egípcio", "Emiratense", "Equatoriano", "Escocês", "Eslovaco", "Esloveno", "Espanhol", "Francês", "Galês", "Ganés", "Granadino", "Grego", "Guatemalteco", "Guianense", "Guianês", "Haitiano", "Holandês", "Hondurenho", "Húngaro", "Iemenita", "Indiano", "Indonésio", "Inglês", "Iraniano", "Iraquiano", "Irlandês", "Israelita", "Italiano", "Jamaicano", "Japonês", "Líbio", "Malaio", "Marfinense", "Marroquino", "Mexicano", "Moçambicano", "Neozelandês", "Nepalês", "Nicaraguense", "Nigeriano", "Noruego", "Omanense", "Palestino", "Panamenho", "Paquistanês", "Paraguaio", "Peruano", "Polonês", "Portorriquenho", "Português", "Qatarense", "Queniano", "Romeno", "Ruandês", "Russo", "Salvadorenho", "Santa-lucense", "São-cristovense", "São-vicentino", "Saudita", "Sérvio", "Sírio", "Somali", "Sueco", "Suíço", "Sul-africano", "Surinamês", "Tailandês", "Timorense", "Trindadense", "Turco", "Ucraniano", "Ugandense", "Uruguaio", "Venezuelano", "Vietnamita", "Zimbabuense", " " }));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
 
         jLabel3.setText("Endereço");
 
@@ -217,6 +222,10 @@ public class Pessoa extends AbstractJFrame {
             }
         }
     }//GEN-LAST:event_bCadastrarActionPerformed
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bCadastrar;
