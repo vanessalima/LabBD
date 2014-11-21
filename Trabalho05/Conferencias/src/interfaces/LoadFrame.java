@@ -5,6 +5,7 @@
  */
 package interfaces;
 
+import interfaces.tables.*;
 import javax.swing.JFrame;
 
 /**
@@ -14,6 +15,7 @@ import javax.swing.JFrame;
 public class LoadFrame extends AbstractJFrame {
 
     private int table;
+    private AbstractJFrame form;
     
     /**
      * Creates new form LoadFrame
@@ -21,9 +23,60 @@ public class LoadFrame extends AbstractJFrame {
     public LoadFrame(JFrame ant, int table) {
         super(ant);
         this.table = table;
+        
+        // select form class
+        this.selectJFrame();
+        
         initComponents();
+        this.setVisible(true);
     }
 
+    private void selectJFrame() {
+        switch(this.table) {
+            case Config.APRESENTACAO:
+                this.form = new Apresentacao(this);
+                break;
+            case Config.ARTIGO:
+                this.form = new Artigo(this);
+                break;
+            case Config.AUXILIO:
+                this.form = new Auxilio(this);
+                break;
+            case Config.AVALIA_APRESENTADOR:
+                this.form = new AvaliaApresentador(this);
+                break;
+            case Config.AVALIA_ARTIGO:
+                this.form = new AvaliaArtigo(this);
+                break;
+            case Config.DESPESA:
+                this.form = new Despesa(this);
+                break;
+            case Config.EDICAO:
+                this.form = new Edicao(this);
+                break;
+            case Config.EVENTO:
+                this.form = new Evento(this);
+                break;
+            case Config.INSCRITO:
+                this.form = new Inscrito(this);
+                break;
+            case Config.ORGANIZADOR:
+                this.form = new Organizador(this);
+                break;
+            case Config.PATROCINADOR:
+                this.form = new Patrocinador(this);
+                break;
+            case Config.PATROCINIO:
+                this.form = new Patrocinio(this);
+                break;
+            case Config.PESSOA:
+                this.form = new Pessoa(this);
+                break;
+            default:
+                System.out.println("ERROR!!!");
+        }
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -45,17 +98,18 @@ public class LoadFrame extends AbstractJFrame {
         jMenu2 = new javax.swing.JMenu();
         jMenuItem7 = new javax.swing.JMenuItem();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tableAll = new javax.swing.JTable();
         removerButton = new javax.swing.JButton();
         addButton = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox();
-        jComboBox2 = new javax.swing.JComboBox();
-        jTextField1 = new javax.swing.JTextField();
-        addButton1 = new javax.swing.JButton();
+        tableFields = new javax.swing.JComboBox();
+        numberFiltro = new javax.swing.JComboBox();
+        textfiltro = new javax.swing.JTextField();
+        addFiltro = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
-        removerButton1 = new javax.swing.JButton();
-        addButton2 = new javax.swing.JButton();
+        tableFiltros = new javax.swing.JTable();
+        removerTodos = new javax.swing.JButton();
+        removerFiltro = new javax.swing.JButton();
+        selectFiltros = new javax.swing.JButton();
         jMenuBar2 = new javax.swing.JMenuBar();
         jMenu3 = new javax.swing.JMenu();
         jMenuItem8 = new javax.swing.JMenuItem();
@@ -64,9 +118,9 @@ public class LoadFrame extends AbstractJFrame {
         jMenuItem11 = new javax.swing.JMenuItem();
         jMenuItem12 = new javax.swing.JMenuItem();
         jSeparator2 = new javax.swing.JPopupMenu.Separator();
-        jMenuItem13 = new javax.swing.JMenuItem();
+        sairApp = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
-        jMenuItem14 = new javax.swing.JMenuItem();
+        openEquipe = new javax.swing.JMenuItem();
 
         jMenu1.setText("Opções");
 
@@ -115,7 +169,7 @@ public class LoadFrame extends AbstractJFrame {
             }
         });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tableAll.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -126,7 +180,7 @@ public class LoadFrame extends AbstractJFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tableAll);
 
         removerButton.setText("Remover");
         removerButton.addActionListener(new java.awt.event.ActionListener() {
@@ -142,18 +196,18 @@ public class LoadFrame extends AbstractJFrame {
             }
         });
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        tableFields.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        numberFiltro.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        addButton1.setText("Novo Filtro");
-        addButton1.addActionListener(new java.awt.event.ActionListener() {
+        addFiltro.setText("Novo Filtro");
+        addFiltro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addButton1ActionPerformed(evt);
+                addFiltroActionPerformed(evt);
             }
         });
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        tableFiltros.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -164,19 +218,26 @@ public class LoadFrame extends AbstractJFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane2.setViewportView(jTable2);
+        jScrollPane2.setViewportView(tableFiltros);
 
-        removerButton1.setText("Remover Todos");
-        removerButton1.addActionListener(new java.awt.event.ActionListener() {
+        removerTodos.setText("Remover Todos");
+        removerTodos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                removerButton1ActionPerformed(evt);
+                removerTodosActionPerformed(evt);
             }
         });
 
-        addButton2.setText("Remover Seleção");
-        addButton2.addActionListener(new java.awt.event.ActionListener() {
+        removerFiltro.setText("Remover Seleção");
+        removerFiltro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addButton2ActionPerformed(evt);
+                removerFiltroActionPerformed(evt);
+            }
+        });
+
+        selectFiltros.setText("Consultar");
+        selectFiltros.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                selectFiltrosActionPerformed(evt);
             }
         });
 
@@ -203,20 +264,20 @@ public class LoadFrame extends AbstractJFrame {
         jMenu3.add(jMenuItem12);
         jMenu3.add(jSeparator2);
 
-        jMenuItem13.setText("Sair");
-        jMenuItem13.addActionListener(new java.awt.event.ActionListener() {
+        sairApp.setText("Sair");
+        sairApp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem13ActionPerformed(evt);
+                sairAppActionPerformed(evt);
             }
         });
-        jMenu3.add(jMenuItem13);
+        jMenu3.add(sairApp);
 
         jMenuBar2.add(jMenu3);
 
         jMenu4.setText("Sobre");
 
-        jMenuItem14.setText("Equipe");
-        jMenu4.add(jMenuItem14);
+        openEquipe.setText("Equipe");
+        jMenu4.add(openEquipe);
 
         jMenuBar2.add(jMenu4);
 
@@ -232,13 +293,13 @@ public class LoadFrame extends AbstractJFrame {
                     .addComponent(jScrollPane2)
                     .addComponent(jScrollPane1)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(tableFields, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(numberFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(textfiltro, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(addButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(addFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
@@ -248,9 +309,11 @@ public class LoadFrame extends AbstractJFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(addButton, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(removerButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(selectFiltros, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(addButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(removerTodos, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(removerFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -264,17 +327,19 @@ public class LoadFrame extends AbstractJFrame {
                     .addComponent(addButton))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(addButton1))
+                    .addComponent(tableFields, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(numberFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textfiltro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(addFiltro))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(removerButton1)
-                    .addComponent(addButton2))
-                .addContainerGap(16, Short.MAX_VALUE))
+
+                    .addComponent(removerTodos)
+                    .addComponent(removerFiltro)
+                    .addComponent(selectFiltros))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -286,48 +351,53 @@ public class LoadFrame extends AbstractJFrame {
 
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
         // TODO add your handling code here:
-        this.dispose();
+        //this.dispose();
     }//GEN-LAST:event_jMenuItem6ActionPerformed
 
     private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem8ActionPerformed
 
-    private void jMenuItem13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem13ActionPerformed
-        // TODO add your handling code here:
-        //super.onDispose();
-    }//GEN-LAST:event_jMenuItem13ActionPerformed
+    private void sairAppActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sairAppActionPerformed
+        this.onDispose();
+    }//GEN-LAST:event_sairAppActionPerformed
 
     private void removerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removerButtonActionPerformed
         
     }//GEN-LAST:event_removerButtonActionPerformed
 
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
-
+        this.form.teste();
+        this.form.setVisible(true);
+        
+        // Close the screen before
+        //this.setEnabled(false);
+        //this.setVisible(false);
     }//GEN-LAST:event_addButtonActionPerformed
 
-    private void addButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButton1ActionPerformed
+    private void addFiltroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addFiltroActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_addButton1ActionPerformed
+    }//GEN-LAST:event_addFiltroActionPerformed
 
-    private void removerButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removerButton1ActionPerformed
+    private void removerTodosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removerTodosActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_removerButton1ActionPerformed
+    }//GEN-LAST:event_removerTodosActionPerformed
 
-    private void addButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButton2ActionPerformed
+    private void removerFiltroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removerFiltroActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_addButton2ActionPerformed
+    }//GEN-LAST:event_removerFiltroActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-        super.onClose(evt);
+        this.onClose(evt);
     }//GEN-LAST:event_formWindowClosing
+
+    private void selectFiltrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectFiltrosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_selectFiltrosActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addButton;
-    private javax.swing.JButton addButton1;
-    private javax.swing.JButton addButton2;
-    private javax.swing.JComboBox jComboBox1;
-    private javax.swing.JComboBox jComboBox2;
+    private javax.swing.JButton addFiltro;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
@@ -338,8 +408,6 @@ public class LoadFrame extends AbstractJFrame {
     private javax.swing.JMenuItem jMenuItem10;
     private javax.swing.JMenuItem jMenuItem11;
     private javax.swing.JMenuItem jMenuItem12;
-    private javax.swing.JMenuItem jMenuItem13;
-    private javax.swing.JMenuItem jMenuItem14;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
@@ -352,10 +420,16 @@ public class LoadFrame extends AbstractJFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JPopupMenu.Separator jSeparator2;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JComboBox numberFiltro;
+    private javax.swing.JMenuItem openEquipe;
     private javax.swing.JButton removerButton;
-    private javax.swing.JButton removerButton1;
+    private javax.swing.JButton removerFiltro;
+    private javax.swing.JButton removerTodos;
+    private javax.swing.JMenuItem sairApp;
+    private javax.swing.JButton selectFiltros;
+    private javax.swing.JTable tableAll;
+    private javax.swing.JComboBox tableFields;
+    private javax.swing.JTable tableFiltros;
+    private javax.swing.JTextField textfiltro;
     // End of variables declaration//GEN-END:variables
 }

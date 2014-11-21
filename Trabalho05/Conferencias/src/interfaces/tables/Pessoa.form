@@ -42,15 +42,15 @@
                       <EmptySpace max="32767" attributes="0"/>
                       <Component id="cancelarButton" min="-2" pref="130" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="bCadastrar" min="-2" pref="130" max="-2" attributes="0"/>
+                      <Component id="cadastrarButton" min="-2" pref="130" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="lNome" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="lEmail" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="lInstituicao" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lTelefone" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lEndereco" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -60,9 +60,9 @@
                           <Group type="102" attributes="0">
                               <Component id="tfTelefone" min="-2" pref="169" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                              <Component id="lNacionalidade" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jComboBox1" pref="171" max="32767" attributes="0"/>
+                              <Component id="cbNacionalidade" pref="171" max="32767" attributes="0"/>
                           </Group>
                           <Component id="tfEndereco" max="32767" attributes="0"/>
                       </Group>
@@ -92,20 +92,20 @@
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lTelefone" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="tfTelefone" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jComboBox1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lNacionalidade" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="cbNacionalidade" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lEndereco" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="tfEndereco" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="cancelarButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="bCadastrar" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="cadastrarButton" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="infoLabel" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
@@ -135,19 +135,19 @@
     </Component>
     <Component class="javax.swing.JTextField" name="tfInstituicao">
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel1">
+    <Component class="javax.swing.JLabel" name="lTelefone">
       <Properties>
         <Property name="text" type="java.lang.String" value="Telefone"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="tfTelefone">
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel2">
+    <Component class="javax.swing.JLabel" name="lNacionalidade">
       <Properties>
         <Property name="text" type="java.lang.String" value="Nacionalidade"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JComboBox" name="jComboBox1">
+    <Component class="javax.swing.JComboBox" name="cbNacionalidade">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="114">
@@ -269,10 +269,10 @@
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboBox1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbNacionalidadeActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel3">
+    <Component class="javax.swing.JLabel" name="lEndereco">
       <Properties>
         <Property name="text" type="java.lang.String" value="Endere&#xe7;o"/>
       </Properties>
@@ -287,12 +287,12 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cancelarButtonActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="bCadastrar">
+    <Component class="javax.swing.JButton" name="cadastrarButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="Cadastrar"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bCadastrarActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cadastrarButtonActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="infoLabel">

@@ -39,14 +39,14 @@ public class Pessoa extends AbstractJFrame {
         tfEmail = new javax.swing.JTextField();
         lInstituicao = new javax.swing.JLabel();
         tfInstituicao = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
+        lTelefone = new javax.swing.JLabel();
         tfTelefone = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox();
-        jLabel3 = new javax.swing.JLabel();
+        lNacionalidade = new javax.swing.JLabel();
+        cbNacionalidade = new javax.swing.JComboBox();
+        lEndereco = new javax.swing.JLabel();
         tfEndereco = new javax.swing.JTextField();
         cancelarButton = new javax.swing.JButton();
-        bCadastrar = new javax.swing.JButton();
+        cadastrarButton = new javax.swing.JButton();
         infoLabel = new javax.swing.JLabel();
 
         jLabel4.setText("jLabel4");
@@ -65,18 +65,18 @@ public class Pessoa extends AbstractJFrame {
 
         lInstituicao.setText("Instituição*");
 
-        jLabel1.setText("Telefone");
+        lTelefone.setText("Telefone");
 
-        jLabel2.setText("Nacionalidade");
+        lNacionalidade.setText("Nacionalidade");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Antiguano", "Afegão", "Alemão", "Americano", "Angolano", "Árabe ", "Argélia", "Argentino", "Armeno", "Australiano", "Austríaco", "Bahamense", "Bangladesh", "Barbadiano", "Bechuano", "Belga", "Belizenho", "Boliviano", "Brasileiro", "Britânico", "Camaronense", "Canadense", "Chileno", "Chinês", "Cingalês", "Colombiano", "Comorense", "Coreano", "coreano", "coreano", "Costarriquenho", "Croata", "Cubano", "Dinamarquês", "Dominicana", "Dominicano", "Egípcio", "Emiratense", "Equatoriano", "Escocês", "Eslovaco", "Esloveno", "Espanhol", "Francês", "Galês", "Ganés", "Granadino", "Grego", "Guatemalteco", "Guianense", "Guianês", "Haitiano", "Holandês", "Hondurenho", "Húngaro", "Iemenita", "Indiano", "Indonésio", "Inglês", "Iraniano", "Iraquiano", "Irlandês", "Israelita", "Italiano", "Jamaicano", "Japonês", "Líbio", "Malaio", "Marfinense", "Marroquino", "Mexicano", "Moçambicano", "Neozelandês", "Nepalês", "Nicaraguense", "Nigeriano", "Noruego", "Omanense", "Palestino", "Panamenho", "Paquistanês", "Paraguaio", "Peruano", "Polonês", "Portorriquenho", "Português", "Qatarense", "Queniano", "Romeno", "Ruandês", "Russo", "Salvadorenho", "Santa-lucense", "São-cristovense", "São-vicentino", "Saudita", "Sérvio", "Sírio", "Somali", "Sueco", "Suíço", "Sul-africano", "Surinamês", "Tailandês", "Timorense", "Trindadense", "Turco", "Ucraniano", "Ugandense", "Uruguaio", "Venezuelano", "Vietnamita", "Zimbabuense", " " }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        cbNacionalidade.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Antiguano", "Afegão", "Alemão", "Americano", "Angolano", "Árabe ", "Argélia", "Argentino", "Armeno", "Australiano", "Austríaco", "Bahamense", "Bangladesh", "Barbadiano", "Bechuano", "Belga", "Belizenho", "Boliviano", "Brasileiro", "Britânico", "Camaronense", "Canadense", "Chileno", "Chinês", "Cingalês", "Colombiano", "Comorense", "Coreano", "coreano", "coreano", "Costarriquenho", "Croata", "Cubano", "Dinamarquês", "Dominicana", "Dominicano", "Egípcio", "Emiratense", "Equatoriano", "Escocês", "Eslovaco", "Esloveno", "Espanhol", "Francês", "Galês", "Ganés", "Granadino", "Grego", "Guatemalteco", "Guianense", "Guianês", "Haitiano", "Holandês", "Hondurenho", "Húngaro", "Iemenita", "Indiano", "Indonésio", "Inglês", "Iraniano", "Iraquiano", "Irlandês", "Israelita", "Italiano", "Jamaicano", "Japonês", "Líbio", "Malaio", "Marfinense", "Marroquino", "Mexicano", "Moçambicano", "Neozelandês", "Nepalês", "Nicaraguense", "Nigeriano", "Noruego", "Omanense", "Palestino", "Panamenho", "Paquistanês", "Paraguaio", "Peruano", "Polonês", "Portorriquenho", "Português", "Qatarense", "Queniano", "Romeno", "Ruandês", "Russo", "Salvadorenho", "Santa-lucense", "São-cristovense", "São-vicentino", "Saudita", "Sérvio", "Sírio", "Somali", "Sueco", "Suíço", "Sul-africano", "Surinamês", "Tailandês", "Timorense", "Trindadense", "Turco", "Ucraniano", "Ugandense", "Uruguaio", "Venezuelano", "Vietnamita", "Zimbabuense", " " }));
+        cbNacionalidade.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                cbNacionalidadeActionPerformed(evt);
             }
         });
 
-        jLabel3.setText("Endereço");
+        lEndereco.setText("Endereço");
 
         cancelarButton.setText("Cancelar");
         cancelarButton.addActionListener(new java.awt.event.ActionListener() {
@@ -85,10 +85,10 @@ public class Pessoa extends AbstractJFrame {
             }
         });
 
-        bCadastrar.setText("Cadastrar");
-        bCadastrar.addActionListener(new java.awt.event.ActionListener() {
+        cadastrarButton.setText("Cadastrar");
+        cadastrarButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bCadastrarActionPerformed(evt);
+                cadastrarButtonActionPerformed(evt);
             }
         });
 
@@ -107,14 +107,14 @@ public class Pessoa extends AbstractJFrame {
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .add(cancelarButton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 130, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                         .add(18, 18, 18)
-                        .add(bCadastrar, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 130, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                        .add(cadastrarButton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 130, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                     .add(layout.createSequentialGroup()
                         .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                             .add(lNome)
                             .add(lEmail)
                             .add(lInstituicao)
-                            .add(jLabel1)
-                            .add(jLabel3))
+                            .add(lTelefone)
+                            .add(lEndereco))
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                         .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
                             .add(tfEmail)
@@ -123,9 +123,9 @@ public class Pessoa extends AbstractJFrame {
                             .add(layout.createSequentialGroup()
                                 .add(tfTelefone, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 169, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                                 .add(18, 18, 18)
-                                .add(jLabel2)
+                                .add(lNacionalidade)
                                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                                .add(jComboBox1, 0, 171, Short.MAX_VALUE))
+                                .add(cbNacionalidade, 0, 171, Short.MAX_VALUE))
                             .add(tfEndereco))))
                 .add(20, 20, 20))
         );
@@ -146,18 +146,18 @@ public class Pessoa extends AbstractJFrame {
                     .add(tfInstituicao, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                 .add(18, 18, 18)
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(jLabel1)
+                    .add(lTelefone)
                     .add(tfTelefone, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                    .add(jLabel2)
-                    .add(jComboBox1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                    .add(lNacionalidade)
+                    .add(cbNacionalidade, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                 .add(18, 18, 18)
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(jLabel3)
+                    .add(lEndereco)
                     .add(tfEndereco, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                 .add(20, 20, 20)
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(cancelarButton)
-                    .add(bCadastrar)
+                    .add(cadastrarButton)
                     .add(infoLabel))
                 .add(20, 20, 20))
         );
@@ -174,7 +174,7 @@ public class Pessoa extends AbstractJFrame {
         super.onClose();
     }//GEN-LAST:event_cancelarButtonActionPerformed
 
-    private void bCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCadastrarActionPerformed
+    private void cadastrarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarButtonActionPerformed
         DBconnection conn;
         String sql;
         if(lNome.getText().isEmpty() || lEmail.getText().isEmpty() || lInstituicao.getText().isEmpty()){
@@ -221,24 +221,24 @@ public class Pessoa extends AbstractJFrame {
                 }
             }
         }
-    }//GEN-LAST:event_bCadastrarActionPerformed
+    }//GEN-LAST:event_cadastrarButtonActionPerformed
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+    private void cbNacionalidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbNacionalidadeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    }//GEN-LAST:event_cbNacionalidadeActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton bCadastrar;
+    private javax.swing.JButton cadastrarButton;
     private javax.swing.JButton cancelarButton;
+    private javax.swing.JComboBox cbNacionalidade;
     private javax.swing.JLabel infoLabel;
-    private javax.swing.JComboBox jComboBox1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel lEmail;
+    private javax.swing.JLabel lEndereco;
     private javax.swing.JLabel lInstituicao;
+    private javax.swing.JLabel lNacionalidade;
     private javax.swing.JLabel lNome;
+    private javax.swing.JLabel lTelefone;
     private javax.swing.JTextField tfEmail;
     private javax.swing.JTextField tfEndereco;
     private javax.swing.JTextField tfInstituicao;

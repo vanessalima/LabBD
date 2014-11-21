@@ -19,6 +19,7 @@ public class Equipe extends AbstractJFrame {
     public Equipe(JFrame ant) {
         super(ant);
         initComponents();
+        this.setVisible(true);
     }
 
     /**
@@ -32,7 +33,12 @@ public class Equipe extends AbstractJFrame {
 
         jLabel1 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         jLabel1.setText("jLabel1");
 
@@ -55,6 +61,10 @@ public class Equipe extends AbstractJFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        this.onClose(evt);
+    }//GEN-LAST:event_formWindowClosing
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
