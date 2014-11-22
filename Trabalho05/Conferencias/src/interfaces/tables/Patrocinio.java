@@ -247,10 +247,10 @@ public class Patrocinio extends AbstractJFrame {
     }//GEN-LAST:event_cbEventoMouseClicked
 
     private void cbEventoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cbEventoFocusLost
+        // Limpa o combobox
+        cbEdicao.removeAllItems();
+        cbEdicao.addItem("-");
         if(!cbEvento.getSelectedItem().toString().matches("-")){
-            // Limpa o combobox
-            cbEdicao.removeAllItems();
-            cbEdicao.addItem("-");
             // Busca as edicoes associadas ao evento selecionado
             DBconnection conn = new DBconnection();
             ResultSet rs;
