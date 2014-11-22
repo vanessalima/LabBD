@@ -136,6 +136,7 @@ public class Evento extends AbstractJFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    @Override
     public void configuraViews(){
         if(super.isCadastro()){ // testa se é atualizacao e troca o nome do frame e do botao
             this.setTitle("Cadastro de Evento");

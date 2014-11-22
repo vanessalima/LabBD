@@ -35,6 +35,7 @@ public class Edicao extends AbstractJFrame {
         initComponents();        
     }
     
+    @Override
     public void configuraViews(){
         if(super.isCadastro()){ // testa se é cadastro
             this.setTitle("Cadastro de Edição");
@@ -203,7 +204,7 @@ public class Edicao extends AbstractJFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(layout.createSequentialGroup()
-                .add(27, 27, 27)
+                .addContainerGap()
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(lSelEv)
                     .add(cbEventos, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
@@ -236,14 +237,14 @@ public class Edicao extends AbstractJFrame {
                                         .add(jLabel5)))
                                 .add(org.jdesktop.layout.GroupLayout.TRAILING, jScrollPane1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 72, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                             .add(jLabel9))
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 44, Short.MAX_VALUE)
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 73, Short.MAX_VALUE)
                         .add(infoLabel))
                     .add(layout.createSequentialGroup()
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                             .add(cancelarButton)
                             .add(cadastrarButton))))
-                .add(26, 26, 26))
+                .addContainerGap())
         );
 
         pack();

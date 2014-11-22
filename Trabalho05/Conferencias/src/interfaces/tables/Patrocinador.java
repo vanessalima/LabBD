@@ -26,6 +26,7 @@ public class Patrocinador extends AbstractJFrame {
         initComponents();
     }
     
+    @Override
     public void configuraViews(){
         if(super.isCadastro()){ // testa se é atualizacao e troca o nome do frame e do botao
             this.setTitle("Cadastro de Patrocinador");
@@ -147,7 +148,7 @@ public class Patrocinador extends AbstractJFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(28, 28, 28)
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lCNPJ)
                     .addComponent(tfCNPJ, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -168,7 +169,7 @@ public class Patrocinador extends AbstractJFrame {
                     .addComponent(infoLabel)
                     .addComponent(cadastrarButton)
                     .addComponent(cancelarButton))
-                .addGap(16, 16, 16))
+                .addContainerGap())
         );
 
         pack();

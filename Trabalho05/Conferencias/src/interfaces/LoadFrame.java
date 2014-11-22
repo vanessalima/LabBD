@@ -403,6 +403,7 @@ public class LoadFrame extends AbstractJFrame {
     }//GEN-LAST:event_removerButtonActionPerformed
 
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
+        
         this.form.setCadastro();
         this.form.configuraViews(); // Escrever os títulos, labels adequadamente
         
