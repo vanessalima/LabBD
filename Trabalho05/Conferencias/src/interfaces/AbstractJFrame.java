@@ -67,6 +67,10 @@ public abstract class AbstractJFrame extends javax.swing.JFrame implements Confi
         flagCadastro = false;
     }
     
+    public ArrayList<String> getAttr(){
+        return tableAttr;
+    }
+    
     public void loadInitialTable(String tablename) throws SQLException {
         DBconnection dbcon;
         dbcon = new DBconnection();
