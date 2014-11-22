@@ -179,7 +179,20 @@ public class LoadFrame extends AbstractJFrame {
             new String [] {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tableAll.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tableAllMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tableAll);
 
         removerButton.setText("Remover");
@@ -217,7 +230,15 @@ public class LoadFrame extends AbstractJFrame {
             new String [] {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane2.setViewportView(tableFiltros);
 
         removerTodos.setText("Remover Todos");
@@ -335,11 +356,10 @@ public class LoadFrame extends AbstractJFrame {
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-
                     .addComponent(removerTodos)
                     .addComponent(removerFiltro)
                     .addComponent(selectFiltros))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
 
         pack();
@@ -396,6 +416,14 @@ public class LoadFrame extends AbstractJFrame {
     private void selectFiltrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectFiltrosActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_selectFiltrosActionPerformed
+
+    private void tableAllMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableAllMouseClicked
+        // TODO add your handling code here:
+        if (evt.getClickCount() == 2){ // Checa se é duplo click
+            // Chamar código de edicao da tupla:
+            System.out.println(" --- > DoubleClick !");
+        }
+    }//GEN-LAST:event_tableAllMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addButton;
