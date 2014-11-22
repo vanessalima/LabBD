@@ -6,9 +6,10 @@
 package interfaces;
 
 import conferencias.DBconnection;
+import java.util.ArrayList;
+import java.awt.event.WindowEvent;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import javax.swing.JFrame;
 
 /** 
@@ -17,8 +18,10 @@ import javax.swing.JFrame;
  */
 public abstract class AbstractJFrame extends javax.swing.JFrame implements Config{
     protected JFrame anterior;
+
     private DBconnection dbcon = new DBconnection();
     private ArrayList<String> tableAttr = new ArrayList<>();
+
     
     public AbstractJFrame(JFrame ant) {
         // Faz a janela de fundo ficar invisível
@@ -56,16 +59,36 @@ public abstract class AbstractJFrame extends javax.swing.JFrame implements Confi
     public void loadInitialTable(String tablename) throws SQLException {
         ResultSet res;
         if(!tablename.isEmpty()){
-            res = dbcon.query("SELECT COLUMN_NAME FROM ALL_TAB_COLUMNS WHERE lower(TABLE_NAME) = '" + tablename.toLowerCase() +"'");
-            this.tableAttr.clear();
-            while(res.next()) {
-                 this.tableAttr.add(res.getString(1));
+            try{
+               res = dbcon.query("SELECT COLUMN_NAME FROM ALL_TAB_COLUMNS WHERE lower(TABLE_NAME) = '" + tablename.toLowerCase() +"'");
+            
+                this.tableAttr.clear();
+                while(res.next()) {
+                     this.tableAttr.add(res.getString(1));
+                }
+                for(int i = 0; i < this.tableAttr.size(); i++){
+                    System.out.println(this.tableAttr.get(i));
+                }
+                
+            
+            } catch(SQLException e) {
+            switch(e.getErrorCode()){
+                    case 911: // Erro de sintaxe! q feio ...
+                    {
+                        System.out.println("Erro de sintaxe do comando sql. Obs.: Talvez você tenha se esquecido de tirar o ; do final. :P ");
+                        break;
+                    }
+                    default:
+                    {
+                        System.out.println("ERROR CODE: "+e.getErrorCode());
+                        break;
+                    }
             }
-            for(int i = 0; i < this.tableAttr.size(); i++){
-                System.out.println(this.tableAttr.get(i));
-            }
+            
+            dbcon.disconect();
         }
-        
+      }
     }
     
 }
+  
