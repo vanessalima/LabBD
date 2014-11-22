@@ -369,6 +369,8 @@ public class LoadFrame extends AbstractJFrame {
         this.form.teste();
         this.form.setVisible(true);
         
+        this.loadInitialTable();
+        
         // Close the screen before
         //this.setEnabled(false);
         //this.setVisible(false);
