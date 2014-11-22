@@ -15,6 +15,8 @@ import java.awt.event.WindowEvent;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Hashtable;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
 
 /**
@@ -30,13 +32,22 @@ public class Edicao extends AbstractJFrame {
      */
     public Edicao(JFrame frame) {
         super(frame);
-        initComponents();
-        
-        this.listaEventos = new Hashtable<>();
-        this.cbEventos.addItem("-");
-        //Requisita os Eventos cadastrados no bco e os insere no combobox e
-        //popula listaventos
-        this.getEventos();
+        initComponents();        
+    }
+    
+    public void configuraViews(){
+        if(super.isCadastro()){ // testa se é cadastro
+            this.setTitle("Cadastro de Edição");
+            this.cadastrarButton.setText("Cadastrar");
+            this.listaEventos = new Hashtable<>();
+            this.cbEventos.addItem("-");
+            //Requisita os Eventos cadastrados no bco e os insere no combobox e popula listaventos
+            this.getEventos();
+        } else { // É atualizacao:
+            this.setTitle("Atualização de Edição");
+            this.cadastrarButton.setText("Atualizar");
+            this.infoLabel.setText("*Campos que não podem ser alterados");
+        }
     }
 
     /**
@@ -68,7 +79,7 @@ public class Edicao extends AbstractJFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         taDescricao = new javax.swing.JTextArea();
         cancelarButton = new javax.swing.JButton();
-        bCadastrar = new javax.swing.JButton();
+        cadastrarButton = new javax.swing.JButton();
 
         jButton1.setText("jButton1");
 
@@ -131,10 +142,10 @@ public class Edicao extends AbstractJFrame {
             }
         });
 
-        bCadastrar.setText("Cadastrar");
-        bCadastrar.addActionListener(new java.awt.event.ActionListener() {
+        cadastrarButton.setText("Cadastrar");
+        cadastrarButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bCadastrarActionPerformed(evt);
+                cadastrarButtonActionPerformed(evt);
             }
         });
 
@@ -186,7 +197,7 @@ public class Edicao extends AbstractJFrame {
                             .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
                                 .add(cancelarButton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 130, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                                 .add(18, 18, 18)
-                                .add(bCadastrar, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 130, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
+                                .add(cadastrarButton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 130, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
                         .add(20, 20, 20))))
         );
         layout.setVerticalGroup(
@@ -231,7 +242,7 @@ public class Edicao extends AbstractJFrame {
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                             .add(cancelarButton)
-                            .add(bCadastrar))))
+                            .add(cadastrarButton))))
                 .add(26, 26, 26))
         );
 
@@ -246,78 +257,82 @@ public class Edicao extends AbstractJFrame {
         super.onClose();
     }//GEN-LAST:event_cancelarButtonActionPerformed
 
-    private void bCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCadastrarActionPerformed
+    private void cadastrarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarButtonActionPerformed
         DBconnection conn;
         String sql;
-        System.out.println(" NUMED: "+tfNumEd.getText());
-        if(cbEventos.getSelectedItem().toString().matches("-") || tfNumEd.getText().replace(" ", "").isEmpty()){
-            infoLabel.setForeground(Color.red);
-            lSelEv.setForeground(Color.red);
-            lNumEd.setForeground(Color.red);
-        } else {
-            // Tratamento de datas:
-            String sqlDataInicio;
-            String sqlDataFim;
-            if (tfDataInicio.getText().matches("  /  /    ")){
-                sqlDataInicio = null;
+        if(isCadastro()){
+            System.out.println(" NUMED: "+tfNumEd.getText());
+            if(cbEventos.getSelectedItem().toString().matches("-") || tfNumEd.getText().replace(" ", "").isEmpty()){
+                infoLabel.setForeground(Color.red);
+                lSelEv.setForeground(Color.red);
+                lNumEd.setForeground(Color.red);
             } else {
-                sqlDataInicio = "to_date('"+tfDataInicio.getText()+"', 'DD/MM/YYYY')";
-            }
-            
-            if (tfDataFim.getText().matches("  /  /    ")){
-                sqlDataFim = null;
-            } else {
-                sqlDataFim = "to_date('"+tfDataFim.getText()+"', 'DD/MM/YYYY')";
-            }
-            // Tratamento qdo nao há taxa informada
-            String taxaEv; 
-            if(tfTaxa.getText().isEmpty()){
-                taxaEv = null;
-            } else {
-                taxaEv = tfTaxa.getText();
-            }
-            try{
-                conn = new DBconnection();
-                //TODO: testar:
-                sql = "INSERT INTO edicao(codEv, numEd, dataInicioEd, dataFimEd, localEd, taxaEd, descricaoEd) VALUES ("+
-                        this.listaEventos.get(cbEventos.getSelectedItem().toString())+", "+
-                        tfNumEd.getText()+","+sqlDataInicio+", "+sqlDataFim+", '"+tfLocal.getText()+"', "+
-                        taxaEv+", '"+taDescricao.getText()+"')";
-                conn.execute(sql);
-                conn.disconect();
-                (new Mensagem(this, null, SUCCESS, CADASTRO)).setEnabled(true);
-            }catch(SQLException e){
-                switch(e.getErrorCode()){
-                    case -1 : // Chave duplicada
-                    {                              
-                        (new Mensagem(this, "Evento já cadastrado no sistema.", FAIL, CADASTRO)).setEnabled(true);
-                        break; 
-                    }
-                    case 1 : // Violacao de constraint UNIQUE
-                    {                              
-                        (new Mensagem(this, "Evento já cadastrado no sistema.", FAIL, CADASTRO)).setEnabled(true);
-                        break;
-                    }
-                    case 911: // Erro de sintaxe! q feio ...
-                    {
-                        System.out.println("Erro de sintaxe do comando sql. Obs.: Talvez você tenha se esquecido de tirar o ; do final. :P ");
-                        break;
-                    }
-                    case 936: // Falta parâmetro obrigatório no sql enviado ao servidor
-                    {
-                        System.out.println("Falta parâmetro obrigatório no sql enviado ao servidor!");
-                        break;
-                    }
-                    default:
-                    {
-                        System.out.println("ERROR CODE: "+e.getErrorCode());
-                        e.printStackTrace();
-                        break;
+                // Tratamento de datas:
+                String sqlDataInicio;
+                String sqlDataFim;
+                if (tfDataInicio.getText().matches("  /  /    ")){
+                    sqlDataInicio = null;
+                } else {
+                    sqlDataInicio = "to_date('"+tfDataInicio.getText()+"', 'DD/MM/YYYY')";
+                }
+
+                if (tfDataFim.getText().matches("  /  /    ")){
+                    sqlDataFim = null;
+                } else {
+                    sqlDataFim = "to_date('"+tfDataFim.getText()+"', 'DD/MM/YYYY')";
+                }
+                // Tratamento qdo nao há taxa informada
+                String taxaEv; 
+                if(tfTaxa.getText().isEmpty()){
+                    taxaEv = null;
+                } else {
+                    taxaEv = tfTaxa.getText();
+                }
+                try{
+                    conn = new DBconnection();
+                    //TODO: testar:
+                    sql = "INSERT INTO edicao(codEv, numEd, dataInicioEd, dataFimEd, localEd, taxaEd, descricaoEd) VALUES ("+
+                            this.listaEventos.get(cbEventos.getSelectedItem().toString())+", "+
+                            tfNumEd.getText()+","+sqlDataInicio+", "+sqlDataFim+", '"+tfLocal.getText()+"', "+
+                            taxaEv+", '"+taDescricao.getText()+"')";
+                    conn.execute(sql);
+                    conn.disconect();
+                    (new Mensagem(this, null, SUCCESS, CADASTRO)).setEnabled(true);
+                }catch(SQLException e){
+                    switch(e.getErrorCode()){
+                        case -1 : // Chave duplicada
+                        {                              
+                            (new Mensagem(this, "Evento já cadastrado no sistema.", FAIL, CADASTRO)).setEnabled(true);
+                            break; 
+                        }
+                        case 1 : // Violacao de constraint UNIQUE
+                        {                              
+                            (new Mensagem(this, "Evento já cadastrado no sistema.", FAIL, CADASTRO)).setEnabled(true);
+                            break;
+                        }
+                        case 911: // Erro de sintaxe! q feio ...
+                        {
+                            System.out.println("Erro de sintaxe do comando sql. Obs.: Talvez você tenha se esquecido de tirar o ; do final. :P ");
+                            break;
+                        }
+                        case 936: // Falta parâmetro obrigatório no sql enviado ao servidor
+                        {
+                            System.out.println("Falta parâmetro obrigatório no sql enviado ao servidor!");
+                            break;
+                        }
+                        default:
+                        {
+                            System.out.println("ERROR CODE: "+e.getErrorCode());
+                            e.printStackTrace();
+                            break;
+                        }
                     }
                 }
             }
-        }    
-    }//GEN-LAST:event_bCadastrarActionPerformed
+        } else { // Atualizacao
+            
+        }
+    }//GEN-LAST:event_cadastrarButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -356,7 +371,7 @@ public class Edicao extends AbstractJFrame {
 //    }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton bCadastrar;
+    private javax.swing.JButton cadastrarButton;
     private javax.swing.JButton cancelarButton;
     private javax.swing.JComboBox cbEventos;
     private javax.swing.JLabel infoLabel;
