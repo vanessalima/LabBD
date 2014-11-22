@@ -414,6 +414,7 @@ public class LoadFrame extends AbstractJFrame {
 
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
         this.form.teste();
+        this.form.setCadastro();
         this.form.setVisible(true);
         
         // Close the screen before
@@ -444,7 +445,10 @@ public class LoadFrame extends AbstractJFrame {
     private void tableAllMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableAllMouseClicked
         // TODO add your handling code here:
         if (evt.getClickCount() == 2){ // Checa se é duplo click
+            this.form.setAtualizacao();
+            
             // Chamar código de edicao da tupla:
+            
             System.out.println(" --- > DoubleClick !");
         }
     }//GEN-LAST:event_tableAllMouseClicked

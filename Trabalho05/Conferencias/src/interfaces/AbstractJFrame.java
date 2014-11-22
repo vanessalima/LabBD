@@ -23,6 +23,9 @@ public abstract class AbstractJFrame extends javax.swing.JFrame implements Confi
     private ArrayList<String> tableAttr = new ArrayList<>();
 
     
+     // 1 : Cadastro, 0 : Atualizacao
+    protected boolean flagCadastro; // ta ruim, mas foi o que consegui pensar, sugestoes?
+    
     public AbstractJFrame(JFrame ant) {
         // Faz a janela de fundo ficar invisível
         if (ant == null) System.out.println("VC tá passando o ponteiro null para tela anterior!!!");
@@ -54,6 +57,15 @@ public abstract class AbstractJFrame extends javax.swing.JFrame implements Confi
     
     public void teste() {
         System.out.println("Funciona para override.");
+    }
+    
+    // Nos metodos abaixo seto a flag para cadastro ou atualizacao
+    // Isso deve ser feito em LoadFrame, antes de dar setEnable() na classe
+    public void setCadastro(){
+        flagCadastro = true;
+    }
+    public void setAtualizacao(){
+        flagCadastro = false;
     }
     
     public void loadInitialTable(String tablename) throws SQLException {
