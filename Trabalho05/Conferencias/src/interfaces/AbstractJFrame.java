@@ -5,15 +5,20 @@
  */
 package interfaces;
 
-import java.awt.event.WindowEvent;
+import conferencias.DBconnection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import javax.swing.JFrame;
 
-/**
+/** 
  *
  * @author vanessalima
  */
 public abstract class AbstractJFrame extends javax.swing.JFrame implements Config{
     protected JFrame anterior;
+    private DBconnection dbcon = new DBconnection();
+    private ArrayList<String> tableAttr = new ArrayList<>();
     
     public AbstractJFrame(JFrame ant) {
         // Faz a janela de fundo ficar invisível
@@ -48,9 +53,19 @@ public abstract class AbstractJFrame extends javax.swing.JFrame implements Confi
         System.out.println("Funciona para override.");
     }
     
-    public void loadInitialTable() {
-        // TODO: create method on lower classes
+    public void loadInitialTable(String tablename) throws SQLException {
+        ResultSet res;
+        if(!tablename.isEmpty()){
+            res = dbcon.query("SELECT COLUMN_NAME FROM ALL_TAB_COLUMNS WHERE lower(TABLE_NAME) = '" + tablename.toLowerCase() +"'");
+            this.tableAttr.clear();
+            while(res.next()) {
+                 this.tableAttr.add(res.getString(1));
+            }
+            for(int i = 0; i < this.tableAttr.size(); i++){
+                System.out.println(this.tableAttr.get(i));
+            }
+        }
+        
     }
-    
     
 }

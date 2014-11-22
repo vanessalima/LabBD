@@ -6,6 +6,7 @@
 package interfaces;
 
 import interfaces.tables.*;
+import java.sql.SQLException;
 import javax.swing.JFrame;
 
 /**
@@ -20,13 +21,12 @@ public class LoadFrame extends AbstractJFrame {
     /**
      * Creates new form LoadFrame
      */
-    public LoadFrame(JFrame ant, int table) {
+    public LoadFrame(JFrame ant, int table) throws SQLException {
         super(ant);
         this.table = table;
-        
         // select form class
         this.selectJFrame();
-        
+        this.loadInitialTable(this.getTableName(this.table));
         initComponents();
         this.setVisible(true);
     }
@@ -75,6 +75,32 @@ public class LoadFrame extends AbstractJFrame {
             default:
                 System.out.println("ERROR!!!");
         }
+    }
+    
+    private String getTableName(int num){      
+        switch(num){
+            case 1:
+                return "artigo";
+            case 2:
+                return "auxilio";
+            case 5:
+                return "despesa";
+            case 6:
+                return "edicao";
+            case 7:
+                return "evento";
+            case 8:
+                return "inscrito";
+            case 9:
+                return "organizador";
+            case 10:
+                return "patrocinador";
+            case 11:
+                return "patrocinio";
+            case 12:
+                return "pessoa";      
+        }
+        return null;   
     }
     
     /**

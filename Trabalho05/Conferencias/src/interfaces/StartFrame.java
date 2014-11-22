@@ -5,6 +5,10 @@
  */
 package interfaces;
 
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author vanessalima
@@ -296,47 +300,91 @@ public class StartFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem6ActionPerformed
 
     private void openInscritoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openInscritoActionPerformed
-        (new LoadFrame(this, Config.INSCRITO)).setEnabled(true);
+        try {
+            (new LoadFrame(this, Config.INSCRITO)).setEnabled(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(StartFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_openInscritoActionPerformed
 
     private void openPatrocinadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openPatrocinadorActionPerformed
-        (new LoadFrame(this, Config.PATROCINADOR)).setEnabled(true);
+        try {
+            (new LoadFrame(this, Config.PATROCINADOR)).setEnabled(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(StartFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_openPatrocinadorActionPerformed
 
     private void openArtigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openArtigoActionPerformed
-        (new LoadFrame(this, Config.ARTIGO)).setEnabled(true);
+        try {
+            (new LoadFrame(this, Config.ARTIGO)).setEnabled(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(StartFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_openArtigoActionPerformed
 
     private void openPatrocinioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openPatrocinioActionPerformed
-        (new LoadFrame(this, Config.PATROCINIO)).setEnabled(true);
+        try {
+            (new LoadFrame(this, Config.PATROCINIO)).setEnabled(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(StartFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_openPatrocinioActionPerformed
 
     private void openOrganizadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openOrganizadorActionPerformed
-        (new LoadFrame(this, Config.ORGANIZADOR)).setEnabled(true);
+        try {
+            (new LoadFrame(this, Config.ORGANIZADOR)).setEnabled(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(StartFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_openOrganizadorActionPerformed
 
     private void openAuxilioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openAuxilioActionPerformed
-        (new LoadFrame(this, Config.AUXILIO)).setEnabled(true);
+        try {
+            (new LoadFrame(this, Config.AUXILIO)).setEnabled(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(StartFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_openAuxilioActionPerformed
 
     private void openDespesaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openDespesaActionPerformed
-        (new LoadFrame(this, Config.DESPESA)).setEnabled(true);
+        try {
+            (new LoadFrame(this, Config.DESPESA)).setEnabled(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(StartFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_openDespesaActionPerformed
 
     private void openApresentacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openApresentacaoActionPerformed
-        (new LoadFrame(this, Config.APRESENTACAO)).setEnabled(true);
+        try {
+            (new LoadFrame(this, Config.APRESENTACAO)).setEnabled(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(StartFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_openApresentacaoActionPerformed
 
     private void openAvaliaArtigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openAvaliaArtigoActionPerformed
-        (new LoadFrame(this, Config.AVALIA_ARTIGO)).setEnabled(true);
+        try {
+            (new LoadFrame(this, Config.AVALIA_ARTIGO)).setEnabled(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(StartFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_openAvaliaArtigoActionPerformed
 
     private void openAvaliaApresentadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openAvaliaApresentadorActionPerformed
-        (new LoadFrame(this, Config.AVALIA_APRESENTADOR)).setEnabled(true);
+        try {
+            (new LoadFrame(this, Config.AVALIA_APRESENTADOR)).setEnabled(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(StartFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_openAvaliaApresentadorActionPerformed
 
     private void openEdicaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openEdicaoActionPerformed
-        (new LoadFrame(this, Config.EDICAO)).setEnabled(true);
+        try {
+            (new LoadFrame(this, Config.EDICAO)).setEnabled(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(StartFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_openEdicaoActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
@@ -345,11 +393,19 @@ public class StartFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowClosing
 
     private void openEventoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openEventoActionPerformed
-        (new LoadFrame(this, Config.EVENTO)).setEnabled(true);
+        try {
+            (new LoadFrame(this, Config.EVENTO)).setEnabled(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(StartFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_openEventoActionPerformed
 
     private void openPessoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openPessoaActionPerformed
-        (new LoadFrame(this, Config.PESSOA)).setEnabled(true);
+        try {
+            (new LoadFrame(this, Config.PESSOA)).setEnabled(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(StartFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_openPessoaActionPerformed
 
     private void openRelatoriosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openRelatoriosActionPerformed
