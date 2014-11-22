@@ -199,16 +199,16 @@ public class Pessoa extends AbstractJFrame {
                 conn.disconect();
                 (new Mensagem(this, null, SUCCESS, CADASTRO)).setEnabled(true);
             }catch(SQLException e){
-                String sujeito = "Pessoa"; // TODO Trocar pelo nome da tabela
+                String sujeito = "Email"; // TODO Trocar pelo nome da tabela ou o q for mais adequado
                 switch(e.getErrorCode()){
                     case -1 : // Chave duplicada
                     {
-                        (new Mensagem(this, sujeito+" já cadastrada no sistema.", FAIL, CADASTRO)).setEnabled(true);
+                        (new Mensagem(this, sujeito+" já cadastrado no sistema.", FAIL, CADASTRO)).setEnabled(true);
                         break;
                     }
                     case 1 : // Violacao de constraint UNIQUE
                     {
-                        (new Mensagem(this, sujeito+" já cadastrada no sistema.", FAIL, CADASTRO)).setEnabled(true);
+                        (new Mensagem(this, sujeito+" já cadastrado no sistema.", FAIL, CADASTRO)).setEnabled(true);
                         break;
                     }
                     case 911: // Erro de sintaxe! q feio ...
