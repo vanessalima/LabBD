@@ -31,7 +31,7 @@ public class DBconnection {
             System.out.println("Classe "+e);
         }
         try {
-            this.con = DriverManager.getConnection("jdbc:oracle:thin:@grad.icmc.usp.br:15215:orcl","a7987456","a7987456");
+            this.con = DriverManager.getConnection("jdbc:oracle:thin:@grad.icmc.usp.br:15214:orcl14","a7987456","a7987456");
             //Connection con = DriverManager.getConnection("jdbc:oracle:thin:@192.168.183.15:1521:orcl","a7239256","a7239256");
             System.out.println("Conectou!!! =D");       
         }catch(Exception e){
@@ -95,6 +95,7 @@ public class DBconnection {
 //        System.out.println(" .. . STMT: "+stmt.toString()+"\n | SQL: "+sql);
         boolean ret = stmt.execute(sql); // insert, create
         System.out.println(".. pelo menos mandou pro servidor.");
+        this.commit(con);
         return ret;
     }
     
