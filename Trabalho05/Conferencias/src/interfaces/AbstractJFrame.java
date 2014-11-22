@@ -19,7 +19,6 @@ import javax.swing.JFrame;
 public abstract class AbstractJFrame extends javax.swing.JFrame implements Config{
     protected JFrame anterior;
 
-    private DBconnection dbcon = new DBconnection();
     private ArrayList<String> tableAttr = new ArrayList<>();
 
     
@@ -69,6 +68,8 @@ public abstract class AbstractJFrame extends javax.swing.JFrame implements Confi
     }
     
     public void loadInitialTable(String tablename) throws SQLException {
+        DBconnection dbcon;
+        dbcon = new DBconnection();
         ResultSet res;
         if(!tablename.isEmpty()){
             try{
