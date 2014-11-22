@@ -61,7 +61,7 @@ public class Mensagem extends AbstractJFrame {
         if(msg != null)
             msgLabel.setText(msg);
         if(msgInfo != null)
-            msgLabel1.setText("Descrição: "+msgInfo);
+            msgLabel1.setText("Descrição do erro: "+msgInfo);
         
         this.setVisible(true);
     }

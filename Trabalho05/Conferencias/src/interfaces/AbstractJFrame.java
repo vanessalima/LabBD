@@ -22,6 +22,7 @@ public abstract class AbstractJFrame extends javax.swing.JFrame implements Confi
     
     public AbstractJFrame(JFrame ant) {
         // Faz a janela de fundo ficar invisível
+        if (ant == null) System.out.println("VC tá passando o ponteiro null para tela anterior!!!");
         this.anterior = ant;
         this.anterior.setVisible(false);
         // Abre a janela da classe
