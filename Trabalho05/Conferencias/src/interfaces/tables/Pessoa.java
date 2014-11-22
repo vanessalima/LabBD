@@ -69,7 +69,7 @@ public class Pessoa extends AbstractJFrame {
 
         lNacionalidade.setText("Nacionalidade");
 
-        cbNacionalidade.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Antiguano", "Afegão", "Alemão", "Americano", "Angolano", "Árabe ", "Argélia", "Argentino", "Armeno", "Australiano", "Austríaco", "Bahamense", "Bangladesh", "Barbadiano", "Bechuano", "Belga", "Belizenho", "Boliviano", "Brasileiro", "Britânico", "Camaronense", "Canadense", "Chileno", "Chinês", "Cingalês", "Colombiano", "Comorense", "Coreano", "coreano", "coreano", "Costarriquenho", "Croata", "Cubano", "Dinamarquês", "Dominicana", "Dominicano", "Egípcio", "Emiratense", "Equatoriano", "Escocês", "Eslovaco", "Esloveno", "Espanhol", "Francês", "Galês", "Ganés", "Granadino", "Grego", "Guatemalteco", "Guianense", "Guianês", "Haitiano", "Holandês", "Hondurenho", "Húngaro", "Iemenita", "Indiano", "Indonésio", "Inglês", "Iraniano", "Iraquiano", "Irlandês", "Israelita", "Italiano", "Jamaicano", "Japonês", "Líbio", "Malaio", "Marfinense", "Marroquino", "Mexicano", "Moçambicano", "Neozelandês", "Nepalês", "Nicaraguense", "Nigeriano", "Noruego", "Omanense", "Palestino", "Panamenho", "Paquistanês", "Paraguaio", "Peruano", "Polonês", "Portorriquenho", "Português", "Qatarense", "Queniano", "Romeno", "Ruandês", "Russo", "Salvadorenho", "Santa-lucense", "São-cristovense", "São-vicentino", "Saudita", "Sérvio", "Sírio", "Somali", "Sueco", "Suíço", "Sul-africano", "Surinamês", "Tailandês", "Timorense", "Trindadense", "Turco", "Ucraniano", "Ugandense", "Uruguaio", "Venezuelano", "Vietnamita", "Zimbabuense", " " }));
+        cbNacionalidade.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "  ", "Antiguano", "Afegão", "Alemão", "Americano", "Angolano", "Árabe ", "Argélia", "Argentino", "Armeno", "Australiano", "Austríaco", "Bahamense", "Bangladesh", "Barbadiano", "Bechuano", "Belga", "Belizenho", "Boliviano", "Brasileiro", "Britânico", "Camaronense", "Canadense", "Chileno", "Chinês", "Cingalês", "Colombiano", "Comorense", "Coreano", "coreano", "coreano", "Costarriquenho", "Croata", "Cubano", "Dinamarquês", "Dominicana", "Dominicano", "Egípcio", "Emiratense", "Equatoriano", "Escocês", "Eslovaco", "Esloveno", "Espanhol", "Francês", "Galês", "Ganés", "Granadino", "Grego", "Guatemalteco", "Guianense", "Guianês", "Haitiano", "Holandês", "Hondurenho", "Húngaro", "Iemenita", "Indiano", "Indonésio", "Inglês", "Iraniano", "Iraquiano", "Irlandês", "Israelita", "Italiano", "Jamaicano", "Japonês", "Líbio", "Malaio", "Marfinense", "Marroquino", "Mexicano", "Moçambicano", "Neozelandês", "Nepalês", "Nicaraguense", "Nigeriano", "Noruego", "Omanense", "Palestino", "Panamenho", "Paquistanês", "Paraguaio", "Peruano", "Polonês", "Portorriquenho", "Português", "Qatarense", "Queniano", "Romeno", "Ruandês", "Russo", "Salvadorenho", "Santa-lucense", "São-cristovense", "São-vicentino", "Saudita", "Sérvio", "Sírio", "Somali", "Sueco", "Suíço", "Sul-africano", "Surinamês", "Tailandês", "Timorense", "Trindadense", "Turco", "Ucraniano", "Ugandense", "Uruguaio", "Venezuelano", "Vietnamita", "Zimbabuense" }));
         cbNacionalidade.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbNacionalidadeActionPerformed(evt);
@@ -176,30 +176,39 @@ public class Pessoa extends AbstractJFrame {
 
     private void cadastrarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarButtonActionPerformed
         DBconnection conn;
+        
+        String nacionalidade=null;
         String sql;
-        if(lNome.getText().isEmpty() || lEmail.getText().isEmpty() || lInstituicao.getText().isEmpty()){
+        if(tfNome.getText().matches("") || tfEmail.getText().matches("") || tfInstituicao.getText().matches("")){
             infoLabel.setForeground(Color.red);
             lNome.setForeground(Color.red);
             lEmail.setForeground(Color.red);
             lInstituicao.setForeground(Color.red);
         } else {
+            if(!cbNacionalidade.getSelectedItem().toString().matches("\\s+")){
+                nacionalidade = "'"+cbNacionalidade.getSelectedItem().toString()+"'";
+                System.out.println(" >> Nacionalidade = "+nacionalidade);
+            }
             try{
                 conn = new DBconnection();
                 //TODO: testar:
-                sql = "INSERT INTO pessoa(IDPE, NOMEPE, EMAILPE, INSTITUICAOPE, TELEFONEPE, NACIONALIDADEPE, ENDERECOPE, TIPOORGANIZADOR, TIPOPARTICIPANTE, TIPOAUTOR) values (SEQ_IDPE_PESSOA.NEXTVAL," ;
+                sql = "INSERT INTO pessoa(IDPE, NOMEPE, EMAILPE, INSTITUICAOPE, TELEFONEPE, NACIONALIDADEPE, ENDERECOPE) values (SEQ_IDPE_PESSOA.NEXTVAL,'"+
+                        tfNome.getText()+"', '"+tfEmail.getText()+"', '"+tfInstituicao.getText()+"', '"+tfTelefone.getText()+"', "+nacionalidade+", '"+tfEndereco.getText()+"')";
+                System.out.println("sql: "+sql);
                 conn.execute(sql);
                 conn.disconect();
                 (new Mensagem(this, null, SUCCESS, CADASTRO)).setEnabled(true);
             }catch(SQLException e){
+                String sujeito = "Pessoa"; // TODO Trocar pelo nome da tabela
                 switch(e.getErrorCode()){
                     case -1 : // Chave duplicada
                     {
-                        (new Mensagem(this, "Evento já cadastrado no sistema.", FAIL, CADASTRO)).setEnabled(true);
+                        (new Mensagem(this, sujeito+" já cadastrada no sistema.", FAIL, CADASTRO)).setEnabled(true);
                         break;
                     }
                     case 1 : // Violacao de constraint UNIQUE
                     {
-                        (new Mensagem(this, "Evento já cadastrado no sistema.", FAIL, CADASTRO)).setEnabled(true);
+                        (new Mensagem(this, sujeito+" já cadastrada no sistema.", FAIL, CADASTRO)).setEnabled(true);
                         break;
                     }
                     case 911: // Erro de sintaxe! q feio ...
@@ -209,7 +218,12 @@ public class Pessoa extends AbstractJFrame {
                     }
                     case 936: // Falta parâmetro obrigatório no sql enviado ao servidor
                     {
-                        System.out.println("Falta parâmetro obrigatório no sql enviado ao servidor!");
+                        System.out.println("Falta parâmetro/atributo obrigatório no sql enviado ao servidor!");
+                        break;
+                    }
+                    case 1756: // Falta parâmetro obrigatório no sql enviado ao servidor
+                    {
+                        System.out.println("Falta aspas em alguma parte do sql.");
                         break;
                     }
                     default:
