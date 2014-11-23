@@ -28,7 +28,7 @@ public class LoadFrame extends AbstractJFrame {
         super(ant);
         this.table = table;
         // select form class
-        this.selectJFrame();
+//        this.selectJFrame();
         this.loadInitialTable(this.getTableName(this.table));
         this.tablePopulation = this.populateTable(this.getTableName(this.table));
         initComponents();
@@ -203,7 +203,6 @@ public class LoadFrame extends AbstractJFrame {
             this.tablePopulation,
             this.getAttr().toArray()
         ));
-        tableAll.setColumnSelectionAllowed(true);
         tableAll.getTableHeader().setReorderingAllowed(false);
         tableAll.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -405,7 +404,7 @@ public class LoadFrame extends AbstractJFrame {
     }//GEN-LAST:event_removerButtonActionPerformed
 
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
-        
+        this.selectJFrame();
         this.form.setCadastro();
         this.form.configuraViews(); // Escrever os títulos, labels adequadamente
         
@@ -440,6 +439,7 @@ public class LoadFrame extends AbstractJFrame {
     private void tableAllMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableAllMouseClicked
         // TODO add your handling code here:
         if (evt.getClickCount() == 2){ // Checa se é duplo click
+            this.selectJFrame();
             this.form.setAtualizacao();
             
             // Chamar código de edicao da tupla:
