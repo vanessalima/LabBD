@@ -23,7 +23,7 @@ public abstract class AbstractJFrame extends javax.swing.JFrame implements Confi
     private ArrayList<String> tableAttr = new ArrayList<>();
 
     
-     // 1 : Cadastro, 0 : Atualizacao
+     // true : Cadastro, false : Atualizacao
     protected boolean flagCadastro; // ta ruim, mas foi o que consegui pensar, sugestoes?
     
     public AbstractJFrame(JFrame ant) {
@@ -33,6 +33,7 @@ public abstract class AbstractJFrame extends javax.swing.JFrame implements Confi
         this.anterior.setVisible(false);
         // Abre a janela da classe
         //this.setVisible(true);
+        this.setResizable(false);
     }
     
     protected void onClose(java.awt.event.WindowEvent evt) {                                   
@@ -62,10 +63,16 @@ public abstract class AbstractJFrame extends javax.swing.JFrame implements Confi
     // Nos metodos abaixo seto a flag para cadastro ou atualizacao
     // Isso deve ser feito em LoadFrame, antes de dar setEnable() na classe
     public void setCadastro(){
-        flagCadastro = true;
+        this.flagCadastro = true;
+        System.out.println("Setou flagCadastro = "+flagCadastro);
     }
     public void setAtualizacao(){
-        flagCadastro = false;
+        this.flagCadastro = false;
+        System.out.println("Setou flagCadastro = "+flagCadastro);
+    }
+    public boolean isCadastro(){
+        System.out.println(" ---- flagCadastro: "+flagCadastro);
+        return this.flagCadastro;
     }
     
     public ArrayList<String> getAttr(){
@@ -176,6 +183,6 @@ public abstract class AbstractJFrame extends javax.swing.JFrame implements Confi
         }
       }
     }
-    
+    public void configuraViews(){}; // Implementado nas janelas filhas para atualizar o nome dos labels e botoes
 }
   

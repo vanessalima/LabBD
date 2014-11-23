@@ -26,6 +26,17 @@ public class Patrocinador extends AbstractJFrame {
         initComponents();
     }
     
+    @Override
+    public void configuraViews(){
+        if(super.isCadastro()){ // testa se é atualizacao e troca o nome do frame e do botao
+            this.setTitle("Cadastro de Patrocinador");
+            this.cadastrarButton.setText("Cadastrar");
+        } else {
+            this.setTitle("Atualização de Patrocinador");
+            this.cadastrarButton.setText("Atualizar");
+            this.infoLabel.setText("*Campos que não podem ser alterados");
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -137,7 +148,7 @@ public class Patrocinador extends AbstractJFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(28, 28, 28)
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lCNPJ)
                     .addComponent(tfCNPJ, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -158,7 +169,7 @@ public class Patrocinador extends AbstractJFrame {
                     .addComponent(infoLabel)
                     .addComponent(cadastrarButton)
                     .addComponent(cancelarButton))
-                .addGap(16, 16, 16))
+                .addContainerGap())
         );
 
         pack();
@@ -173,7 +184,7 @@ public class Patrocinador extends AbstractJFrame {
     private void cadastrarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarButtonActionPerformed
         DBconnection conn;
         String sql;
-        if(this.flagCadastro){ // testa se é cadastro
+        if(isCadastro()){ // testa se é cadastro
             if(tfCNPJ.getText().matches("")){
             infoLabel.setForeground(Color.red);
             lCNPJ.setForeground(Color.red);
