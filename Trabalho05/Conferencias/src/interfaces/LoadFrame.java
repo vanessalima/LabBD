@@ -7,6 +7,8 @@ package interfaces;
 
 import interfaces.tables.*;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
 
 /**
@@ -17,6 +19,7 @@ public class LoadFrame extends AbstractJFrame {
 
     private int table;
     private AbstractJFrame form;
+    private Object[][] tablePopulation;
     
     /**
      * Creates new form LoadFrame
@@ -27,6 +30,7 @@ public class LoadFrame extends AbstractJFrame {
         // select form class
         this.selectJFrame();
         this.loadInitialTable(this.getTableName(this.table));
+        this.tablePopulation = this.populateTable(this.getTableName(this.table));
         initComponents();
         this.setVisible(true);
     }
@@ -196,9 +200,7 @@ public class LoadFrame extends AbstractJFrame {
         });
 
         tableAll.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
+            this.tablePopulation,
             this.getAttr().toArray()
         ));
         tableAll.setColumnSelectionAllowed(true);
