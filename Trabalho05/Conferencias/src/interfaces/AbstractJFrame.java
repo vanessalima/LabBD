@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.awt.event.WindowEvent;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 import javax.swing.JFrame;
 
 /** 
@@ -22,7 +23,7 @@ public abstract class AbstractJFrame extends javax.swing.JFrame implements Confi
     private ArrayList<String> tableAttr = new ArrayList<>();
 
     
-     // 1 : Cadastro, 0 : Atualizacao
+     // true : Cadastro, false : Atualizacao
     protected boolean flagCadastro; // ta ruim, mas foi o que consegui pensar, sugestoes?
     
     public AbstractJFrame(JFrame ant) {
@@ -32,6 +33,7 @@ public abstract class AbstractJFrame extends javax.swing.JFrame implements Confi
         this.anterior.setVisible(false);
         // Abre a janela da classe
         //this.setVisible(true);
+        this.setResizable(false);
     }
     
     protected void onClose(java.awt.event.WindowEvent evt) {                                   
@@ -61,15 +63,90 @@ public abstract class AbstractJFrame extends javax.swing.JFrame implements Confi
     // Nos metodos abaixo seto a flag para cadastro ou atualizacao
     // Isso deve ser feito em LoadFrame, antes de dar setEnable() na classe
     public void setCadastro(){
-        flagCadastro = true;
+        this.flagCadastro = true;
+        System.out.println("Setou flagCadastro = "+flagCadastro);
     }
     public void setAtualizacao(){
-        flagCadastro = false;
+        this.flagCadastro = false;
+        System.out.println("Setou flagCadastro = "+flagCadastro);
+    }
+    public boolean isCadastro(){
+        System.out.println(" ---- flagCadastro: "+flagCadastro);
+        return this.flagCadastro;
     }
     
     public ArrayList<String> getAttr(){
         return tableAttr;
     }
+    
+    public String getStringList(){
+        String conv = new String();
+        for(int i = 0; i < tableAttr.size()-1; i++ ){
+            conv = conv.concat(tableAttr.get(i));
+            conv = conv.concat(",");
+        }
+        conv = conv.concat(tableAttr.get(tableAttr.size()-1));
+        return conv;
+    }
+    
+    public Object[][] populateTable(String tablename) throws SQLException{
+        ArrayList<ArrayList<String>> list2 = new ArrayList<ArrayList<String>>();
+        DBconnection dbcon;
+        dbcon = new DBconnection();
+        ResultSet res;
+        int k;
+
+        if(!tablename.isEmpty()){
+            try{
+               res = dbcon.query("SELECT "+ getStringList() +" FROM "+ tablename.toLowerCase());
+               k = 0;
+
+                while(res.next()) {
+                    list2.add(new ArrayList<String>() {});
+                    for (int j = 0; j < tableAttr.size(); j++){
+                        System.out.println(tableAttr.get(j));
+                        System.out.println(res.getString(tableAttr.get(j)));
+                        list2.get(k).add(res.getString(tableAttr.get(j)));
+                    }
+                    k++;
+                }
+                //System.out.println("sjdbkajsbdksd");
+//                for(int i = 0; i < list2.size(); i++){
+//                    System.out.println("i:" + i );
+//                    System.out.println("list size:" + list2.get(i).size() );
+//                    for(int j = 0; j < list2.get(i).size(); j++ ){
+//                        System.out.println("j:" + j);
+//                        System.out.println(list2.get(i).get(j));
+//                    }
+//                }
+                Object[][] b = new Object[list2.size()][tableAttr.size()];
+                for(int i = 0; i < list2.size(); i++){
+                        b[i] = list2.get(i).toArray();
+                }
+                
+                 dbcon.disconect();
+                 
+                 return b;
+
+            } catch(SQLException e) {
+            switch(e.getErrorCode()){
+                    case 911: // Erro de sintaxe! q feio ...
+                    {
+                        System.out.println("Erro de sintaxe do comando sql. Obs.: Talvez você tenha se esquecido de tirar o ; do final. :P ");
+                        break;
+                    }
+                    default:
+                    {
+                        System.out.println("ERROR CODE: "+e.getErrorCode());
+                        break;
+                    }
+            }
+            
+        }
+      }
+        return (Object[][]) new Object();
+
+    } 
     
     public void loadInitialTable(String tablename) throws SQLException {
         DBconnection dbcon;
@@ -106,6 +183,6 @@ public abstract class AbstractJFrame extends javax.swing.JFrame implements Confi
         }
       }
     }
-    
+    public void configuraViews(){}; // Implementado nas janelas filhas para atualizar o nome dos labels e botoes
 }
   

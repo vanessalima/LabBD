@@ -22,6 +22,7 @@ public class Evento extends AbstractJFrame {
     public Evento(JFrame ant) {
         super(ant);
         initComponents();
+        
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -135,47 +136,64 @@ public class Evento extends AbstractJFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    @Override
+    public void configuraViews(){
+        if(super.isCadastro()){ // testa se é atualizacao e troca o nome do frame e do botao
+            this.setTitle("Cadastro de Evento");
+            this.cadastrarButton.setText("Cadastrar");
+        } else {
+            this.setTitle("Atualização de Evento");
+            this.cadastrarButton.setText("Atualizar");
+            this.infoLabel.setText("*Campos que não podem ser alterados");
+        }
+    }
+    
     private void cadastrarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarButtonActionPerformed
         DBconnection conn;
         String sql;
-        if(tfNomeEvento.getText().matches("")){
-            infoLabel.setForeground(Color.red);
-            lNome.setForeground(Color.red);
-        } else {
-            try{
-                conn = new DBconnection();
-                //TODO: testar:
-                sql = "INSERT INTO evento(codEv, nomeEv, descricaoEv, websiteEv) VALUES(SEQ_CODEV_EVENTO.NEXTVAL, '"+
-                        tfNomeEvento.getText()+"', '"+taDescricao.getText()+"', '"+tfwebsite.getText()+"')";
-                conn.execute(sql);
-                conn.disconect();
-                (new Mensagem(this, null, SUCCESS, CADASTRO)).setEnabled(true);
-            }catch(SQLException e){
-                switch(e.getErrorCode()){
-                    case -1 : // Chave duplicada
-                    {                              
-                        (new Mensagem(this, "Evento já cadastrado no sistema.", FAIL, CADASTRO)).setEnabled(true);
-                        break; 
-                    }
-                    case 1 : // Violacao de constraint UNIQUE
-                    {                              
-                        (new Mensagem(this, "Evento já cadastrado no sistema.", FAIL, CADASTRO)).setEnabled(true);
-                        break;
-                    }
-                    case 911: // Erro de sintaxe! q feio ...
-                    {
-                        System.out.println("Erro de sintaxe do comando sql. Obs.: Talvez você tenha se esquecido de tirar o ; do final. :P ");
-                        break;
-                    }
-                    default:
-                    {
-                        System.out.println("ERROR CODE: "+e.getErrorCode());
-                        e.printStackTrace();
-                        break;
+        if(isCadastro()){
+            if(tfNomeEvento.getText().matches("")){
+                infoLabel.setForeground(Color.red);
+                lNome.setForeground(Color.red);
+            } else {
+                try{
+                    conn = new DBconnection();
+                    //TODO: testar:
+                    sql = "INSERT INTO evento(codEv, nomeEv, descricaoEv, websiteEv) VALUES(SEQ_CODEV_EVENTO.NEXTVAL, '"+
+                            tfNomeEvento.getText()+"', '"+taDescricao.getText()+"', '"+tfwebsite.getText()+"')";
+                    conn.execute(sql);
+                    conn.disconect();
+                    (new Mensagem(this, null, SUCCESS, CADASTRO)).setEnabled(true);
+                }catch(SQLException e){
+                    switch(e.getErrorCode()){
+                        case -1 : // Chave duplicada
+                        {                              
+                            (new Mensagem(this, "Evento já cadastrado no sistema.", FAIL, CADASTRO)).setEnabled(true);
+                            break; 
+                        }
+                        case 1 : // Violacao de constraint UNIQUE
+                        {                              
+                            (new Mensagem(this, "Evento já cadastrado no sistema.", FAIL, CADASTRO)).setEnabled(true);
+                            break;
+                        }
+                        case 911: // Erro de sintaxe! q feio ...
+                        {
+                            System.out.println("Erro de sintaxe do comando sql. Obs.: Talvez você tenha se esquecido de tirar o ; do final. :P ");
+                            break;
+                        }
+                        default:
+                        {
+                            System.out.println("ERROR CODE: "+e.getErrorCode());
+                            e.printStackTrace();
+                            break;
+                        }
                     }
                 }
             }
-        }    
+        } else { // É atualizacao
+            // TODO: inserir codigo de atualizacao
+            
+        }
     }//GEN-LAST:event_cadastrarButtonActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
