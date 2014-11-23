@@ -167,7 +167,7 @@ public class Pessoa extends AbstractJFrame {
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         // TODO add your handling code here:
-        
+        super.onClose();
     }//GEN-LAST:event_formWindowClosing
 
     private void cancelarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarButtonActionPerformed

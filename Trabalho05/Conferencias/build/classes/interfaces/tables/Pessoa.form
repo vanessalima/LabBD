@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.3" maxVersion="1.8" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <NonVisualComponents>
+    <Component class="javax.swing.JLabel" name="jLabel4">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jLabel4"/>
+      </Properties>
+    </Component>
+  </NonVisualComponents>
+  <Properties>
+    <Property name="defaultCloseOperation" type="int" value="3"/>
+    <Property name="title" type="java.lang.String" value="Cadastro de pessoa"/>
+  </Properties>
+  <SyntheticProperties>
+    <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
+  </SyntheticProperties>
+  <Events>
+    <EventHandler event="windowClosing" listener="java.awt.event.WindowListener" parameters="java.awt.event.WindowEvent" handler="formWindowClosing"/>
+  </Events>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="2"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Component id="infoLabel" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="cancelarButton" min="-2" pref="130" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="cadastrarButton" min="-2" pref="130" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="lNome" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lEmail" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lInstituicao" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lTelefone" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lEndereco" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="tfEmail" max="32767" attributes="0"/>
+                          <Component id="tfNome" max="32767" attributes="0"/>
+                          <Component id="tfInstituicao" max="32767" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Component id="tfTelefone" min="-2" pref="169" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="lNacionalidade" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="cbNacionalidade" pref="171" max="32767" attributes="0"/>
+                          </Group>
+                          <Component id="tfEndereco" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+              </Group>
+              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lNome" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="tfNome" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lEmail" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="tfEmail" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lInstituicao" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="tfInstituicao" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lTelefone" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="tfTelefone" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lNacionalidade" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="cbNacionalidade" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lEndereco" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="tfEndereco" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="cancelarButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="cadastrarButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="infoLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Component class="javax.swing.JLabel" name="lNome">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Nome*"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lEmail">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Email*"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="tfNome">
+    </Component>
+    <Component class="javax.swing.JTextField" name="tfEmail">
+    </Component>
+    <Component class="javax.swing.JLabel" name="lInstituicao">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Institui&#xe7;&#xe3;o*"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="tfInstituicao">
+    </Component>
+    <Component class="javax.swing.JLabel" name="lTelefone">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Telefone"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="tfTelefone">
+    </Component>
+    <Component class="javax.swing.JLabel" name="lNacionalidade">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Nacionalidade"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="cbNacionalidade">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="114">
+            <StringItem index="0" value="  "/>
+            <StringItem index="1" value="Antiguano"/>
+            <StringItem index="2" value="Afeg&#xe3;o"/>
+            <StringItem index="3" value="Alem&#xe3;o"/>
+            <StringItem index="4" value="Americano"/>
+            <StringItem index="5" value="Angolano"/>
+            <StringItem index="6" value="&#xc1;rabe "/>
+            <StringItem index="7" value="Arg&#xe9;lia"/>
+            <StringItem index="8" value="Argentino"/>
+            <StringItem index="9" value="Armeno"/>
+            <StringItem index="10" value="Australiano"/>
+            <StringItem index="11" value="Austr&#xed;aco"/>
+            <StringItem index="12" value="Bahamense"/>
+            <StringItem index="13" value="Bangladesh"/>
+            <StringItem index="14" value="Barbadiano"/>
+            <StringItem index="15" value="Bechuano"/>
+            <StringItem index="16" value="Belga"/>
+            <StringItem index="17" value="Belizenho"/>
+            <StringItem index="18" value="Boliviano"/>
+            <StringItem index="19" value="Brasileiro"/>
+            <StringItem index="20" value="Brit&#xe2;nico"/>
+            <StringItem index="21" value="Camaronense"/>
+            <StringItem index="22" value="Canadense"/>
+            <StringItem index="23" value="Chileno"/>
+            <StringItem index="24" value="Chin&#xea;s"/>
+            <StringItem index="25" value="Cingal&#xea;s"/>
+            <StringItem index="26" value="Colombiano"/>
+            <StringItem index="27" value="Comorense"/>
+            <StringItem index="28" value="Coreano"/>
+            <StringItem index="29" value="coreano"/>
+            <StringItem index="30" value="coreano"/>
+            <StringItem index="31" value="Costarriquenho"/>
+            <StringItem index="32" value="Croata"/>
+            <StringItem index="33" value="Cubano"/>
+            <StringItem index="34" value="Dinamarqu&#xea;s"/>
+            <StringItem index="35" value="Dominicana"/>
+            <StringItem index="36" value="Dominicano"/>
+            <StringItem index="37" value="Eg&#xed;pcio"/>
+            <StringItem index="38" value="Emiratense"/>
+            <StringItem index="39" value="Equatoriano"/>
+            <StringItem index="40" value="Escoc&#xea;s"/>
+            <StringItem index="41" value="Eslovaco"/>
+            <StringItem index="42" value="Esloveno"/>
+            <StringItem index="43" value="Espanhol"/>
+            <StringItem index="44" value="Franc&#xea;s"/>
+            <StringItem index="45" value="Gal&#xea;s"/>
+            <StringItem index="46" value="Gan&#xe9;s"/>
+            <StringItem index="47" value="Granadino"/>
+            <StringItem index="48" value="Grego"/>
+            <StringItem index="49" value="Guatemalteco"/>
+            <StringItem index="50" value="Guianense"/>
+            <StringItem index="51" value="Guian&#xea;s"/>
+            <StringItem index="52" value="Haitiano"/>
+            <StringItem index="53" value="Holand&#xea;s"/>
+            <StringItem index="54" value="Hondurenho"/>
+            <StringItem index="55" value="H&#xfa;ngaro"/>
+            <StringItem index="56" value="Iemenita"/>
+            <StringItem index="57" value="Indiano"/>
+            <StringItem index="58" value="Indon&#xe9;sio"/>
+            <StringItem index="59" value="Ingl&#xea;s"/>
+            <StringItem index="60" value="Iraniano"/>
+            <StringItem index="61" value="Iraquiano"/>
+            <StringItem index="62" value="Irland&#xea;s"/>
+            <StringItem index="63" value="Israelita"/>
+            <StringItem index="64" value="Italiano"/>
+            <StringItem index="65" value="Jamaicano"/>
+            <StringItem index="66" value="Japon&#xea;s"/>
+            <StringItem index="67" value="L&#xed;bio"/>
+            <StringItem index="68" value="Malaio"/>
+            <StringItem index="69" value="Marfinense"/>
+            <StringItem index="70" value="Marroquino"/>
+            <StringItem index="71" value="Mexicano"/>
+            <StringItem index="72" value="Mo&#xe7;ambicano"/>
+            <StringItem index="73" value="Neozeland&#xea;s"/>
+            <StringItem index="74" value="Nepal&#xea;s"/>
+            <StringItem index="75" value="Nicaraguense"/>
+            <StringItem index="76" value="Nigeriano"/>
+            <StringItem index="77" value="Noruego"/>
+            <StringItem index="78" value="Omanense"/>
+            <StringItem index="79" value="Palestino"/>
+            <StringItem index="80" value="Panamenho"/>
+            <StringItem index="81" value="Paquistan&#xea;s"/>
+            <StringItem index="82" value="Paraguaio"/>
+            <StringItem index="83" value="Peruano"/>
+            <StringItem index="84" value="Polon&#xea;s"/>
+            <StringItem index="85" value="Portorriquenho"/>
+            <StringItem index="86" value="Portugu&#xea;s"/>
+            <StringItem index="87" value="Qatarense"/>
+            <StringItem index="88" value="Queniano"/>
+            <StringItem index="89" value="Romeno"/>
+            <StringItem index="90" value="Ruand&#xea;s"/>
+            <StringItem index="91" value="Russo"/>
+            <StringItem index="92" value="Salvadorenho"/>
+            <StringItem index="93" value="Santa-lucense"/>
+            <StringItem index="94" value="S&#xe3;o-cristovense"/>
+            <StringItem index="95" value="S&#xe3;o-vicentino"/>
+            <StringItem index="96" value="Saudita"/>
+            <StringItem index="97" value="S&#xe9;rvio"/>
+            <StringItem index="98" value="S&#xed;rio"/>
+            <StringItem index="99" value="Somali"/>
+            <StringItem index="100" value="Sueco"/>
+            <StringItem index="101" value="Su&#xed;&#xe7;o"/>
+            <StringItem index="102" value="Sul-africano"/>
+            <StringItem index="103" value="Surinam&#xea;s"/>
+            <StringItem index="104" value="Tailand&#xea;s"/>
+            <StringItem index="105" value="Timorense"/>
+            <StringItem index="106" value="Trindadense"/>
+            <StringItem index="107" value="Turco"/>
+            <StringItem index="108" value="Ucraniano"/>
+            <StringItem index="109" value="Ugandense"/>
+            <StringItem index="110" value="Uruguaio"/>
+            <StringItem index="111" value="Venezuelano"/>
+            <StringItem index="112" value="Vietnamita"/>
+            <StringItem index="113" value="Zimbabuense"/>
+          </StringArray>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbNacionalidadeActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lEndereco">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Endere&#xe7;o"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="tfEndereco">
+    </Component>
+    <Component class="javax.swing.JButton" name="cancelarButton">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Cancelar"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cancelarButtonActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="cadastrarButton">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Cadastrar"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cadastrarButtonActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="infoLabel">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Ubuntu" size="15" style="2"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="* Campos obrigat&#xf3;rios"/>
+      </Properties>
+    </Component>
+  </SubComponents>
+</Form>
