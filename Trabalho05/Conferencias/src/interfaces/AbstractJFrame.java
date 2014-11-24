@@ -145,7 +145,6 @@ public abstract class AbstractJFrame extends javax.swing.JFrame implements Confi
         }
       }
         return (Object[][]) new Object();
-
     } 
     
     public void loadInitialTable(String tablename) throws SQLException {
