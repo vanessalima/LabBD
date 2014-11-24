@@ -278,12 +278,14 @@ public abstract class AbstractJFrame extends javax.swing.JFrame implements Confi
         if(tablename.isEmpty() || field.isEmpty() || code.isEmpty())
             System.out.println("ERRO: String vazia!");
         
+        System.out.println("DELETE FROM "+tablename+" WHERE "+field.toLowerCase()+" = "+code.toLowerCase());
+        
         DBconnection dbcon;
         dbcon = new DBconnection();
-        int res;
+        boolean res;
         try{
-               res = dbcon.executeCommand("DELETE FROM "+tablename+"WHERE lower("+field.toLowerCase()+") = '"+code.toLowerCase()+"'");
-               
+               res = dbcon.execute("DELETE FROM "+tablename+" WHERE "+field.toLowerCase()+" = "+code.toLowerCase());
+               System.out.println(res);
             } catch(SQLException e) {
                 switch(e.getErrorCode()){
                     case 911: // Erro de sintaxe! q feio ...

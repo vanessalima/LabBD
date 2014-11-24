@@ -424,8 +424,20 @@ public class LoadFrame extends AbstractJFrame {
     }//GEN-LAST:event_sairAppActionPerformed
 
     private void removerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removerButtonActionPerformed
-        //System.out.println(this.tablePopulation[this.tableAll.getSelectedRow()][1]);
+        String tablename = this.getTableName(this.table);
+        this.removeRow(tablename, 
+                       this.getAttr().get(0), 
+                       String.valueOf(this.tablePopulation[this.tableAll.getSelectedRow()][0]) );
         
+        try {
+            this.tablePopulation = this.populateTable(tablename);
+        } catch (SQLException ex) {
+            System.out.println("Error on remove: " + ex.getErrorCode());
+        }
+        tableAll.setModel(new myTableModel(
+            this.tablePopulation,
+            this.getAttr().toArray()
+        ));
         
     }//GEN-LAST:event_removerButtonActionPerformed
 

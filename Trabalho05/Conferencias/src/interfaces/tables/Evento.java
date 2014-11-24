@@ -172,17 +172,17 @@ public class Evento extends AbstractJFrame {
                             tfNomeEvento.getText()+"', '"+taDescricao.getText()+"', '"+tfwebsite.getText()+"')";
                     conn.execute(sql);
                     conn.disconect();
-                    (new Mensagem(this, null, SUCCESS, CADASTRO)).setEnabled(true);
+                    (new Mensagem(this.anterior, null, SUCCESS, CADASTRO)).setEnabled(true);
                 }catch(SQLException e){
                     switch(e.getErrorCode()){
                         case -1 : // Chave duplicada
                         {                              
-                            (new Mensagem(this, "Evento já cadastrado no sistema.", FAIL, CADASTRO)).setEnabled(true);
+                            (new Mensagem(this.anterior, "Evento já cadastrado no sistema.", FAIL, CADASTRO)).setEnabled(true);
                             break; 
                         }
                         case 1 : // Violacao de constraint UNIQUE
                         {                              
-                            (new Mensagem(this, "Evento já cadastrado no sistema.", FAIL, CADASTRO)).setEnabled(true);
+                            (new Mensagem(this.anterior, "Evento já cadastrado no sistema.", FAIL, CADASTRO)).setEnabled(true);
                             break;
                         }
                         case 911: // Erro de sintaxe! q feio ...
@@ -198,6 +198,8 @@ public class Evento extends AbstractJFrame {
                         }
                     }
                 }
+                this.setVisible(false);
+                this.setEnabled(false);
             }
         } else { // É atualizacao
             // TODO: inserir codigo de atualizacao

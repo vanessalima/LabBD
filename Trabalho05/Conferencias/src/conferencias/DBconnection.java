@@ -32,6 +32,9 @@ public class DBconnection {
         }
         try {
             this.con = DriverManager.getConnection("jdbc:oracle:thin:@grad.icmc.usp.br:15214:orcl14","a7987456","a7987456");
+            if(this.con == null) {
+                System.out.println("Sem conexão");
+            }
             //Connection con = DriverManager.getConnection("jdbc:oracle:thin:@192.168.183.15:1521:orcl","a7239256","a7239256");
             System.out.println("Conectou!!! =D");       
         }catch(Exception e){
