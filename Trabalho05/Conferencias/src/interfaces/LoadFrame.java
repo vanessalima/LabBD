@@ -231,9 +231,9 @@ public class LoadFrame extends AbstractJFrame {
             }
         });
 
-        tableFields.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        tableFields.setModel(new javax.swing.DefaultComboBoxModel(this.getAttr().toArray()));
 
-        numberFiltro.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        numberFiltro.setModel(new javax.swing.DefaultComboBoxModel(this.getFiltersListByType().toArray()));
 
         addFiltro.setText("Novo Filtro");
         addFiltro.addActionListener(new java.awt.event.ActionListener() {

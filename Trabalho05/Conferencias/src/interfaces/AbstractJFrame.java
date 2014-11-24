@@ -32,7 +32,7 @@ public abstract class AbstractJFrame extends javax.swing.JFrame implements Confi
         this.anterior = ant;
         this.anterior.setVisible(false);
         // Abre a janela da classe
-        //this.setVisible(true);
+        this.setVisible(true);
         this.setResizable(false);
     }
     
@@ -182,6 +182,14 @@ public abstract class AbstractJFrame extends javax.swing.JFrame implements Confi
         }
       }
     }
+    
+    
+    public ArrayList<String> getFiltersListByType(){
+        // how to get the item selected on 
+        
+        return null;
+    }
+    
     public void configuraViews(){}; // Implementado nas janelas filhas para atualizar o nome dos labels e botoes
 }
   
