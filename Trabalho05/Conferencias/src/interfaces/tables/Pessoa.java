@@ -179,61 +179,66 @@ public class Pessoa extends AbstractJFrame {
         
         String nacionalidade=null;
         String sql;
-        if(tfNome.getText().matches("") || tfEmail.getText().matches("") || tfInstituicao.getText().matches("")){
-            infoLabel.setForeground(Color.red);
-            lNome.setForeground(Color.red);
-            lEmail.setForeground(Color.red);
-            lInstituicao.setForeground(Color.red);
-        } else {
-            if(!cbNacionalidade.getSelectedItem().toString().matches("\\s+")){
-                nacionalidade = "'"+cbNacionalidade.getSelectedItem().toString()+"'";
-                System.out.println(" >> Nacionalidade = "+nacionalidade);
-            }
-            try{
-                conn = new DBconnection();
-                //TODO: testar:
-                sql = "INSERT INTO pessoa(IDPE, NOMEPE, EMAILPE, INSTITUICAOPE, TELEFONEPE, NACIONALIDADEPE, ENDERECOPE) values (SEQ_IDPE_PESSOA.NEXTVAL,'"+
-                        tfNome.getText()+"', '"+tfEmail.getText()+"', '"+tfInstituicao.getText()+"', '"+tfTelefone.getText()+"', "+nacionalidade+", '"+tfEndereco.getText()+"')";
-                System.out.println("sql: "+sql);
-                conn.execute(sql);
-                conn.disconect();
-                (new Mensagem(this, null, SUCCESS, CADASTRO)).setEnabled(true);
-            }catch(SQLException e){
-                String sujeito = "Email"; // TODO Trocar pelo nome da tabela ou o q for mais adequado
-                switch(e.getErrorCode()){
-                    case -1 : // Chave duplicada
-                    {
-                        (new Mensagem(this, sujeito+" já cadastrado no sistema.", FAIL, CADASTRO)).setEnabled(true);
-                        break;
-                    }
-                    case 1 : // Violacao de constraint UNIQUE
-                    {
-                        (new Mensagem(this, sujeito+" já cadastrado no sistema.", FAIL, CADASTRO)).setEnabled(true);
-                        break;
-                    }
-                    case 911: // Erro de sintaxe! q feio ...
-                    {
-                        System.out.println("Erro de sintaxe do comando sql. Obs.: Talvez você tenha se esquecido de tirar o ; do final. :P ");
-                        break;
-                    }
-                    case 936: // Falta parâmetro obrigatório no sql enviado ao servidor
-                    {
-                        System.out.println("Falta parâmetro/atributo obrigatório no sql enviado ao servidor!");
-                        break;
-                    }
-                    case 1756: // Falta parâmetro obrigatório no sql enviado ao servidor
-                    {
-                        System.out.println("Falta aspas em alguma parte do sql.");
-                        break;
-                    }
-                    default:
-                    {
-                        System.out.println("ERROR CODE: "+e.getErrorCode());
-                        e.printStackTrace();
-                        break;
+        
+        if(this.cadastrarButton.getText().matches("Cadastrar")){ // testa se é cadastro
+            if(tfNome.getText().matches("") || tfEmail.getText().matches("") || tfInstituicao.getText().matches("")){
+                infoLabel.setForeground(Color.red);
+                lNome.setForeground(Color.red);
+                lEmail.setForeground(Color.red);
+                lInstituicao.setForeground(Color.red);
+            } else {
+                if(!cbNacionalidade.getSelectedItem().toString().matches("\\s+")){
+                    nacionalidade = "'"+cbNacionalidade.getSelectedItem().toString()+"'";
+                    System.out.println(" >> Nacionalidade = "+nacionalidade);
+                }
+                try{
+                    conn = new DBconnection();
+                    //TODO: testar:
+                    sql = "INSERT INTO pessoa(IDPE, NOMEPE, EMAILPE, INSTITUICAOPE, TELEFONEPE, NACIONALIDADEPE, ENDERECOPE) values (SEQ_IDPE_PESSOA.NEXTVAL,'"+
+                            tfNome.getText()+"', '"+tfEmail.getText()+"', '"+tfInstituicao.getText()+"', '"+tfTelefone.getText()+"', "+nacionalidade+", '"+tfEndereco.getText()+"')";
+                    System.out.println("sql: "+sql);
+                    conn.execute(sql);
+                    conn.disconect();
+                    (new Mensagem(this, null, SUCCESS, CADASTRO)).setEnabled(true);
+                }catch(SQLException e){
+                    String sujeito = "Email"; // TODO Trocar pelo nome da tabela ou o q for mais adequado
+                    switch(e.getErrorCode()){
+                        case -1 : // Chave duplicada
+                        {
+                            (new Mensagem(this, sujeito+" já cadastrado no sistema.", FAIL, CADASTRO)).setEnabled(true);
+                            break;
+                        }
+                        case 1 : // Violacao de constraint UNIQUE
+                        {
+                            (new Mensagem(this, sujeito+" já cadastrado no sistema.", FAIL, CADASTRO)).setEnabled(true);
+                            break;
+                        }
+                        case 911: // Erro de sintaxe! q feio ...
+                        {
+                            System.out.println("Erro de sintaxe do comando sql. Obs.: Talvez você tenha se esquecido de tirar o ; do final. :P ");
+                            break;
+                        }
+                        case 936: // Falta parâmetro obrigatório no sql enviado ao servidor
+                        {
+                            System.out.println("Falta parâmetro/atributo obrigatório no sql enviado ao servidor!");
+                            break;
+                        }
+                        case 1756: // Falta parâmetro obrigatório no sql enviado ao servidor
+                        {
+                            System.out.println("Falta aspas em alguma parte do sql.");
+                            break;
+                        }
+                        default:
+                        {
+                            System.out.println("ERROR CODE: "+e.getErrorCode());
+                            e.printStackTrace();
+                            break;
+                        }
                     }
                 }
             }
+        } else { // É Atualizacao!
+
         }
     }//GEN-LAST:event_cadastrarButtonActionPerformed
 

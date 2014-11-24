@@ -159,7 +159,7 @@ public class Evento extends AbstractJFrame {
     private void cadastrarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarButtonActionPerformed
         DBconnection conn;
         String sql;
-        if(isCadastro()){
+        if(this.cadastrarButton.getText().matches("Cadastrar")){
             if(tfNomeEvento.getText().matches("")){
                 infoLabel.setForeground(Color.red);
                 lNome.setForeground(Color.red);
