@@ -424,6 +424,8 @@ public class LoadFrame extends AbstractJFrame {
     }//GEN-LAST:event_sairAppActionPerformed
 
     private void removerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removerButtonActionPerformed
+        //System.out.println(this.tablePopulation[this.tableAll.getSelectedRow()][1]);
+        
         
     }//GEN-LAST:event_removerButtonActionPerformed
 

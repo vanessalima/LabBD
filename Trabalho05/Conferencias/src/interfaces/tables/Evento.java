@@ -26,6 +26,7 @@ public class Evento extends AbstractJFrame {
         initComponents();
         this.setTitle("Cadastro de Evento");
         this.cadastrarButton.setText("Cadastrar");
+        this.flagCadastro = true;
     }
 
     public Evento(JFrame ant, Object obj) {

@@ -23,7 +23,6 @@ public abstract class AbstractJFrame extends javax.swing.JFrame implements Confi
     protected JFrame anterior;
 
     private ArrayList<String> tableAttr = new ArrayList<>();
-
     
      // true : Cadastro, false : Atualizacao
     protected boolean flagCadastro; // ta ruim, mas foi o que consegui pensar, sugestoes?
@@ -64,23 +63,47 @@ public abstract class AbstractJFrame extends javax.swing.JFrame implements Confi
     
     // Nos metodos abaixo seto a flag para cadastro ou atualizacao
     // Isso deve ser feito em LoadFrame, antes de dar setEnable() na classe
+    
+    /**
+     * 
+     */
     public void setCadastro(){
         this.flagCadastro = true;
         System.out.println("Setou flagCadastro = "+flagCadastro);
     }
+    
+    /**
+     * 
+     */
     public void setAtualizacao(){
         this.flagCadastro = false;
         System.out.println("Setou flagCadastro = "+flagCadastro);
     }
+    
+    /**
+     * 
+     * @return 
+     */
     public boolean isCadastro(){
         System.out.println(" ---- flagCadastro: "+flagCadastro);
         return this.flagCadastro;
     }
     
+    
+    // fim seta flag para Cadastro
+    
+    /**
+     * 
+     * @return 
+     */
     public ArrayList<String> getAttr(){
         return tableAttr;
     }
     
+    /**
+     * 
+     * @return 
+     */
     public String getStringList(){
         String conv = new String();
         for(int i = 0; i < tableAttr.size()-1; i++ ){
@@ -91,6 +114,12 @@ public abstract class AbstractJFrame extends javax.swing.JFrame implements Confi
         return conv;
     }
     
+    /**
+     * 
+     * @param tablename
+     * @return
+     * @throws SQLException 
+     */
     public Object[][] populateTable(String tablename) throws SQLException{
         ArrayList<ArrayList<String>> list2 = new ArrayList<ArrayList<String>>();
         DBconnection dbcon;
@@ -149,6 +178,11 @@ public abstract class AbstractJFrame extends javax.swing.JFrame implements Confi
         return (Object[][]) new Object();
     } 
     
+    /**
+     * 
+     * @param tablename
+     * @throws SQLException 
+     */
     public void loadInitialTable(String tablename) throws SQLException {
         DBconnection dbcon;
         dbcon = new DBconnection();
@@ -185,6 +219,12 @@ public abstract class AbstractJFrame extends javax.swing.JFrame implements Confi
       }
     }
     
+    /**
+     * 
+     * @param table
+     * @param field
+     * @return 
+     */
     public String[] getFieldType(String table, String field) {
         
         if(table.isEmpty() || field.isEmpty()) {
@@ -234,7 +274,38 @@ public abstract class AbstractJFrame extends javax.swing.JFrame implements Confi
         return new String[]{};
     }
     
-
+    public void removeRow(String tablename, String field, String code) {
+        if(tablename.isEmpty() || field.isEmpty() || code.isEmpty())
+            System.out.println("ERRO: String vazia!");
+        
+        DBconnection dbcon;
+        dbcon = new DBconnection();
+        int res;
+        try{
+               res = dbcon.executeCommand("DELETE FROM "+tablename+"WHERE lower("+field.toLowerCase()+") = '"+code.toLowerCase()+"'");
+               
+            } catch(SQLException e) {
+                switch(e.getErrorCode()){
+                    case 911: // Erro de sintaxe! q feio ...
+                    {
+                        System.out.println("Erro de sintaxe do comando sql. Obs.: Talvez você tenha se esquecido de tirar o ; do final. :P ");
+                        break;
+                    }
+                    default:
+                    {
+                        System.out.println("ERROR CODE: "+e.getErrorCode());
+                        break;
+                    }
+                }
+            }
+            
+        try {
+            dbcon.disconect();
+        } catch (SQLException e) {
+            System.out.println("ERROR CODE: "+e.getErrorCode());
+            System.out.println("Problema para desconectar");
+        }
+    }
 
 }
   
