@@ -194,7 +194,7 @@ public class Patrocinio extends AbstractJFrame {
         DBconnection conn;
         String sql;
         String sqlDataPatrocinio;
-        if(isCadastro()){ // testa se é cadastro
+        if(this.cadastrarButton.getText().matches("Cadastrar")){ // testa se é cadastro
             if(cbEvento.getSelectedItem().toString().matches("-") || cbEdicao.getSelectedItem().toString().matches("-") || cbPatrocinador.getSelectedItem().toString().matches("-")){
                 infoLabel.setForeground(Color.red);
                 lEvento.setForeground(Color.red);

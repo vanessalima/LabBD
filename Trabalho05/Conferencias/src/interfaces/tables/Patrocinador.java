@@ -189,7 +189,7 @@ public class Patrocinador extends AbstractJFrame {
     private void cadastrarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarButtonActionPerformed
         DBconnection conn;
         String sql;
-        if(isCadastro()){ // testa se é cadastro
+        if(this.cadastrarButton.getText().matches("Cadastrar")){ // testa se é cadastro
             if(tfCNPJ.getText().matches("")){
             infoLabel.setForeground(Color.red);
             lCNPJ.setForeground(Color.red);

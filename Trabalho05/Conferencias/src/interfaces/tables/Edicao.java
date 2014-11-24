@@ -276,7 +276,7 @@ public class Edicao extends AbstractJFrame {
     private void cadastrarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarButtonActionPerformed
         DBconnection conn;
         String sql;
-        if(isCadastro()){
+        if(this.cadastrarButton.getText().matches("Cadastrar")){
             System.out.println(" NUMED: "+tfNumEd.getText());
             if(cbEventos.getSelectedItem().toString().matches("-") || tfNumEd.getText().replace(" ", "").isEmpty()){
                 infoLabel.setForeground(Color.red);
