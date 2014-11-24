@@ -203,6 +203,7 @@ public class LoadFrame extends AbstractJFrame {
             this.tablePopulation,
             this.getAttr().toArray()
         ));
+        tableAll.setToolTipText("");
         tableAll.getTableHeader().setReorderingAllowed(false);
         tableAll.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
