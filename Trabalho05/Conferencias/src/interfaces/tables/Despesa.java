@@ -6,6 +6,7 @@
 package interfaces.tables;
 
 import interfaces.AbstractJFrame;
+import interfaces.LoadFrame;
 import javax.swing.JFrame;
 
 /**
@@ -20,6 +21,13 @@ public class Despesa extends AbstractJFrame {
     public Despesa(JFrame ant) {
         super(ant);
         initComponents();
+        // TODO : SEtar as views para cadastro
+    }
+
+    public Despesa(JFrame ant, Object obj) {
+        super(ant);
+        initComponents();
+        // TODO : SEtar as views para atualizacao
     }
 
     /**

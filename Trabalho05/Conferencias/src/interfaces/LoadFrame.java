@@ -5,6 +5,8 @@
  */
 package interfaces;
 
+import entidades.EEdicao;
+import entidades.EEvento;
 import interfaces.tables.*;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -38,8 +40,11 @@ public class LoadFrame extends AbstractJFrame {
         this.setVisible(true);
 //        tableAll.setModel(new myTableModel(this.tablePopulation, (String[]) this.getAttr().toArray()));
     }
-
-    private void selectJFrame() {
+    
+    
+    // TODO : MUDAR TODOS OS CONSTRUTORES DOS FRAMES ABAIXO QUE TIVEREM CADASTRO E ATUALIZACAO PARA RECEBEREM UM BOOLEANO, ALEM DO THIS,
+    // QUE INDICARA SE É CADASTRO OU ATUALIZACAO
+    private void selectJFrame(boolean flagCadastro, Object obj) {
         switch(this.table) {
             case Config.APRESENTACAO:
                 this.form = new Apresentacao(this);
@@ -57,13 +62,23 @@ public class LoadFrame extends AbstractJFrame {
                 this.form = new AvaliaArtigo(this);
                 break;
             case Config.DESPESA:
-                this.form = new Despesa(this);
+                // TODO : FAZER
+                if(flagCadastro){ this.form = new Despesa(this); }
+                else{
+                    this.form = new Despesa(this, obj);
+                }
                 break;
             case Config.EDICAO:
-                this.form = new Edicao(this);
+                if(flagCadastro){ this.form = new Edicao(this); }
+                else{
+                    this.form = new Edicao(this, obj);
+                }
                 break;
             case Config.EVENTO:
-                this.form = new Evento(this);
+                if(flagCadastro){ this.form = new Evento(this); }
+                else {
+                    this.form = new Evento(this, obj);
+                }
                 break;
             case Config.INSCRITO:
                 this.form = new Inscrito(this);
@@ -408,13 +423,11 @@ public class LoadFrame extends AbstractJFrame {
     }//GEN-LAST:event_removerButtonActionPerformed
 
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
-        this.selectJFrame();
-        this.form.setCadastro();
-        this.form.configuraViews(); // Escrever os títulos, labels adequadamente
-        
+//        this.form.setCadastro();
+//        this.form.configuraViews(); // Escrever os títulos, labels adequadamente
+        this.selectJFrame(true, null);
         this.form.teste();
         this.form.setVisible(true);
-        
         // Close the screen before
         //this.setEnabled(false);
         //this.setVisible(false);
@@ -443,8 +456,45 @@ public class LoadFrame extends AbstractJFrame {
     private void tableAllMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableAllMouseClicked
         // TODO add your handling code here:
         if (evt.getClickCount() == 2){ // Checa se é duplo click
-            this.selectJFrame();
-            this.form.setAtualizacao();
+            Object o = null;
+            int linha = this.tableAll.getSelectedRow();
+            
+            
+            
+//            System.out.println(" VALORES: "+this.tableAll.getValueAt(linha, 1).toString()+", "+
+//                                String.valueOf(this.tableAll.getValueAt(linha, 3))+", "+
+//                                String.valueOf(this.tableAll.getValueAt(linha, 2).toString()));
+            
+            if(this.table == Config.EVENTO){ // Cria entidade Evento
+                String website = null;
+                String descricao = null;
+                if(this.tableAll.getValueAt(linha, 3) != null){
+                    website = this.tableAll.getValueAt(linha, 3).toString();
+                }
+                if(this.tableAll.getValueAt(linha, 2) != null){
+                    descricao = this.tableAll.getValueAt(linha, 2).toString();
+                }
+                o = new EEvento(this.tableAll.getValueAt(linha, 1).toString(),
+                                website,
+                                descricao);
+            } else if(this.table == Config.EDICAO){
+                String local;
+                String taxa;
+                String descricao;
+                
+                //TODO: fazer os ifs para verificar se nao ta null a celula de tableAll
+                
+                // TODO: Ver o lance das datas qundo nao tem nada!!
+                
+                        
+//                o = new EEdicao(this.tableAll.getValueAt(linha, ));
+                
+            }
+
+
+
+            this.selectJFrame(false, o);
+            this.form.setVisible(true);
             
             // Chamar código de edicao da tupla:
             

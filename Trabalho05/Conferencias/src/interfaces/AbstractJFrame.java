@@ -182,6 +182,6 @@ public abstract class AbstractJFrame extends javax.swing.JFrame implements Confi
         }
       }
     }
-    public void configuraViews(){}; // Implementado nas janelas filhas para atualizar o nome dos labels e botoes
+    
 }
   

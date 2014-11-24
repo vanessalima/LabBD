@@ -5,7 +5,9 @@
 package interfaces.tables;
 
 import conferencias.*;
+import entidades.EEvento;
 import interfaces.AbstractJFrame;
+import interfaces.LoadFrame;
 import interfaces.Mensagem;
 import java.awt.Color;
 import java.sql.SQLException;
@@ -22,7 +24,25 @@ public class Evento extends AbstractJFrame {
     public Evento(JFrame ant) {
         super(ant);
         initComponents();
-        
+        this.setTitle("Cadastro de Evento");
+        this.cadastrarButton.setText("Cadastrar");
+    }
+
+    public Evento(JFrame ant, Object obj) {
+        super(ant);
+        initComponents();
+        if(obj instanceof EEvento){
+            EEvento e = (EEvento)obj;
+            this.setTitle("Atualização de Evento");
+            this.cadastrarButton.setText("Atualizar");
+            this.infoLabel.setText("*Campos que não podem ser alterados");
+            this.tfNomeEvento.setEditable(false);
+            
+            // Popula views:
+            this.tfNomeEvento.setText(e.getNomeEv());
+            this.tfwebsite.setText(e.getWebSite());
+            this.taDescricao.setText(e.getDescricao());
+        }
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -95,19 +115,18 @@ public class Evento extends AbstractJFrame {
                         .add(cancelarButton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 130, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                         .add(18, 18, 18)
                         .add(cadastrarButton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 130, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                    .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
-                        .add(layout.createSequentialGroup()
-                            .add(lNome)
-                            .add(32, 32, 32)
-                            .add(tfNomeEvento))
-                        .add(layout.createSequentialGroup()
-                            .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                                .add(jLabel3)
-                                .add(jLabel2))
-                            .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                            .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
-                                .add(tfwebsite)
-                                .add(jScrollPane1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 590, Short.MAX_VALUE)))))
+                    .add(layout.createSequentialGroup()
+                        .add(lNome)
+                        .add(32, 32, 32)
+                        .add(tfNomeEvento))
+                    .add(layout.createSequentialGroup()
+                        .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                            .add(jLabel3)
+                            .add(jLabel2))
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                        .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
+                            .add(jScrollPane1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 590, Short.MAX_VALUE)
+                            .add(tfwebsite))))
                 .add(20, 20, 20))
         );
         layout.setVerticalGroup(
@@ -124,8 +143,8 @@ public class Evento extends AbstractJFrame {
                 .add(33, 33, 33)
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                     .add(jLabel2)
-                    .add(jScrollPane1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .add(33, 33, 33)
+                    .add(jScrollPane1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 102, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                .add(18, 18, 18)
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(cadastrarButton)
                     .add(cancelarButton)
@@ -136,17 +155,6 @@ public class Evento extends AbstractJFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    @Override
-    public void configuraViews(){
-        if(super.isCadastro()){ // testa se é atualizacao e troca o nome do frame e do botao
-            this.setTitle("Cadastro de Evento");
-            this.cadastrarButton.setText("Cadastrar");
-        } else {
-            this.setTitle("Atualização de Evento");
-            this.cadastrarButton.setText("Atualizar");
-            this.infoLabel.setText("*Campos que não podem ser alterados");
-        }
-    }
     
     private void cadastrarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarButtonActionPerformed
         DBconnection conn;
