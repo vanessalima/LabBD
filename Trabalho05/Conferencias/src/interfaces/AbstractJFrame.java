@@ -11,6 +11,8 @@ import java.awt.event.WindowEvent;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
 
 /** 
@@ -154,7 +156,7 @@ public abstract class AbstractJFrame extends javax.swing.JFrame implements Confi
         if(!tablename.isEmpty()){
             try{
                res = dbcon.query("SELECT COLUMN_NAME FROM ALL_TAB_COLUMNS WHERE lower(TABLE_NAME) = '" + tablename.toLowerCase() +"'");
-            
+               
                 this.tableAttr.clear();
                 while(res.next()) {
                      this.tableAttr.add(res.getString(1));
@@ -183,11 +185,53 @@ public abstract class AbstractJFrame extends javax.swing.JFrame implements Confi
       }
     }
     
-
-    public ArrayList<String> getFiltersListByType(){
-        // how to get the item selected on 
+    public String[] getFieldType(String table, String field) {
         
-        return new ArrayList<>();
+        if(table.isEmpty() || field.isEmpty()) {
+            System.out.println("ERRO: String vazia!");
+            return new String[]{};
+        }
+        
+        DBconnection dbcon;
+        dbcon = new DBconnection();
+        ResultSet res;
+        try{
+               res = dbcon.query("SELECT DATA_TYPE FROM ALL_TAB_COLUMNS WHERE lower(TABLE_NAME) = '" +
+                       table.toLowerCase() +"' AND lower(COLUMN_NAME) = '"+field.toLowerCase()+"'");
+               
+                if(res.next()) {
+                   switch(res.getString(1).toLowerCase()) {
+                       case "number":
+                           return new String[]{"<", ">", "<=", ">=", "==", "!="};
+                       case "varchar2":
+                           return new String[]{"igual à", "contém"};
+                       case "date":
+                           return new String[]{"DD/MM/AAAA", "dia", "mes", "ano"};
+                   }
+                }
+            } catch(SQLException e) {
+                switch(e.getErrorCode()){
+                    case 911: // Erro de sintaxe! q feio ...
+                    {
+                        System.out.println("Erro de sintaxe do comando sql. Obs.: Talvez você tenha se esquecido de tirar o ; do final. :P ");
+                        break;
+                    }
+                    default:
+                    {
+                        System.out.println("ERROR CODE: "+e.getErrorCode());
+                        break;
+                    }
+                }
+            }
+            
+        try {
+            dbcon.disconect();
+        } catch (SQLException e) {
+            System.out.println("ERROR CODE: "+e.getErrorCode());
+            System.out.println("Problema para desconectar");
+        }
+        
+        return new String[]{};
     }
     
 

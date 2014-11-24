@@ -24,6 +24,7 @@ public class LoadFrame extends AbstractJFrame {
     private int table;
     private AbstractJFrame form;
     private Object[][] tablePopulation;
+    private ArrayList<ArrayList<Object>> filters;
     
     /**
      * Creates new form LoadFrame
@@ -36,6 +37,7 @@ public class LoadFrame extends AbstractJFrame {
 //        this.selectJFrame();
         this.loadInitialTable(this.getTableName(this.table));
         this.tablePopulation = this.populateTable(this.getTableName(this.table));
+        this.filters = new ArrayList<ArrayList<Object>>();
         initComponents();
         this.setVisible(true);
 //        tableAll.setModel(new myTableModel(this.tablePopulation, (String[]) this.getAttr().toArray()));
@@ -124,6 +126,14 @@ public class LoadFrame extends AbstractJFrame {
                 return "pessoa";      
         }
         return null;   
+    }
+    
+    /**
+     * Inserts the right value to the filter
+     * @return 
+     */
+    public String[] getFiltersListByType() {
+        return this.getFieldType(this.getTableName(this.table), String.valueOf(this.tableFields.getSelectedItem()));
     }
     
     /**
@@ -247,8 +257,13 @@ public class LoadFrame extends AbstractJFrame {
         });
 
         tableFields.setModel(new javax.swing.DefaultComboBoxModel(this.getAttr().toArray()));
+        tableFields.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tableFieldsActionPerformed(evt);
+            }
+        });
 
-        numberFiltro.setModel(new javax.swing.DefaultComboBoxModel(this.getFiltersListByType().toArray()));
+        numberFiltro.setModel(new javax.swing.DefaultComboBoxModel(this.getFiltersListByType()));
 
         addFiltro.setText("Novo Filtro");
         addFiltro.addActionListener(new java.awt.event.ActionListener() {
@@ -259,23 +274,12 @@ public class LoadFrame extends AbstractJFrame {
 
         tableFiltros.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Campo de Busca", "Operador", "Valor da Busca"
             }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
+        ));
         jScrollPane2.setViewportView(tableFiltros);
 
         removerTodos.setText("Remover Todos");
@@ -434,16 +438,41 @@ public class LoadFrame extends AbstractJFrame {
         //this.setVisible(false);
     }//GEN-LAST:event_addButtonActionPerformed
 
+    protected void reloadFiltersTable() {
+        Object[][] f = new Object[this.filters.size()][3];
+        for(int i = 0; i < this.filters.size(); i++){
+            f[i] = this.filters.get(i).toArray();
+        }
+        
+        // reload table content
+        this.tableFiltros.setModel(new myTableModel(
+            f,
+            new String [] {
+                "Campo de Busca", "Operador", "Valor da Busca"
+            }
+        ));
+    }
+    
     private void addFiltroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addFiltroActionPerformed
-        // TODO add your handling code here:
+        ArrayList<Object> line = new ArrayList<Object>();
+        line.add(String.valueOf(this.tableFields.getSelectedItem()));
+        line.add(String.valueOf(this.numberFiltro.getSelectedItem()));
+        line.add(this.textfiltro.getText());
+        
+        this.filters.add(line);
+        this.reloadFiltersTable();
     }//GEN-LAST:event_addFiltroActionPerformed
 
     private void removerTodosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removerTodosActionPerformed
-        // TODO add your handling code here:
+        this.filters.clear();
+        this.reloadFiltersTable();
     }//GEN-LAST:event_removerTodosActionPerformed
 
     private void removerFiltroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removerFiltroActionPerformed
-        // TODO add your handling code here:
+        if(this.tableFiltros.getSelectedRow() != -1) {
+            this.filters.remove(this.tableFiltros.getSelectedRow());
+            this.reloadFiltersTable();
+        }
     }//GEN-LAST:event_removerFiltroActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
@@ -452,6 +481,8 @@ public class LoadFrame extends AbstractJFrame {
 
     private void selectFiltrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectFiltrosActionPerformed
         // TODO add your handling code here:
+        
+        //FAZER BUSCA
     }//GEN-LAST:event_selectFiltrosActionPerformed
 
     private void tableAllMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableAllMouseClicked
@@ -502,6 +533,12 @@ public class LoadFrame extends AbstractJFrame {
             System.out.println(" --- > DoubleClick !");
         }
     }//GEN-LAST:event_tableAllMouseClicked
+
+    private void tableFieldsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tableFieldsActionPerformed
+        // TODO add your handling code here:
+        System.out.println(String.valueOf(this.tableFields.getSelectedItem()));
+        numberFiltro.setModel(new javax.swing.DefaultComboBoxModel(this.getFiltersListByType()));
+    }//GEN-LAST:event_tableFieldsActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addButton;
