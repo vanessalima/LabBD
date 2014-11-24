@@ -187,7 +187,7 @@ public abstract class AbstractJFrame extends javax.swing.JFrame implements Confi
     public ArrayList<String> getFiltersListByType(){
         // how to get the item selected on 
         
-        return null;
+        return new ArrayList<>();
     }
     
     public void configuraViews(){}; // Implementado nas janelas filhas para atualizar o nome dos labels e botoes
