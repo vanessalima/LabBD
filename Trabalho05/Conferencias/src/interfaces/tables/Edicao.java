@@ -5,11 +5,13 @@
 package interfaces.tables;
 
 import conferencias.DBconnection;
+import entidades.EEdicao;
 import interfaces.AbstractJFrame;
 import interfaces.Mensagem;
 import static interfaces.Config.CADASTRO;
 import static interfaces.Config.FAIL;
 import static interfaces.Config.SUCCESS;
+import interfaces.LoadFrame;
 import java.awt.Color;
 import java.awt.event.WindowEvent;
 import java.sql.ResultSet;
@@ -32,22 +34,35 @@ public class Edicao extends AbstractJFrame {
      */
     public Edicao(JFrame frame) {
         super(frame);
-        initComponents();        
+        initComponents();  
+        this.setTitle("Cadastro de Edição");
+        this.cadastrarButton.setText("Cadastrar");
+        this.listaEventos = new Hashtable<>();
+        this.cbEventos.addItem("-");
+        //Requisita os Eventos cadastrados no bco e os insere no combobox e popula listaventos
+        this.getEventos();
     }
-    
-    @Override
-    public void configuraViews(){
-        if(super.isCadastro()){ // testa se é cadastro
-            this.setTitle("Cadastro de Edição");
-            this.cadastrarButton.setText("Cadastrar");
-            this.listaEventos = new Hashtable<>();
-            this.cbEventos.addItem("-");
-            //Requisita os Eventos cadastrados no bco e os insere no combobox e popula listaventos
-            this.getEventos();
-        } else { // É atualizacao:
-            this.setTitle("Atualização de Edição");
-            this.cadastrarButton.setText("Atualizar");
-            this.infoLabel.setText("*Campos que não podem ser alterados");
+
+    public Edicao(JFrame frame, Object obj) {
+        super(frame);
+        initComponents();
+        this.setTitle("Atualização de Edição");
+        this.cadastrarButton.setText("Atualizar");
+        this.infoLabel.setText("*Campos que não podem ser alterados");
+        if(obj instanceof EEdicao){
+            EEdicao e = (EEdicao) obj;
+            this.cbEventos.setEditable(false);
+            this.tfNumEd.setEditable(false);
+            // TODO: 
+            // Popula views:
+            this.cbEventos.removeAllItems();
+            this.cbEventos.addItem(e.getEvento());
+            this.tfNumEd.setText(e.getNumEd());
+            this.tfLocal.setText(e.getLocal());
+            this.tfTaxa.setText(e.getTaxa());
+            this.tfDataInicio.setText(e.getDataInicio());
+            this.tfDataFim.setText(e.getDataFim());
+            this.taDescricao.setText(e.getDescricao());
         }
     }
 

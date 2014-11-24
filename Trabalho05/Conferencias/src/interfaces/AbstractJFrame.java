@@ -185,10 +185,6 @@ public abstract class AbstractJFrame extends javax.swing.JFrame implements Confi
       }
     }
     
-    /**
-     * If number returns true, else return false
-     * @return 
-     */
     public String[] getFieldType(String table, String field) {
         
         if(table.isEmpty() || field.isEmpty()) {
@@ -238,6 +234,7 @@ public abstract class AbstractJFrame extends javax.swing.JFrame implements Confi
         return new String[]{};
     }
     
-    public void configuraViews(){}; // Implementado nas janelas filhas para atualizar o nome dos labels e botoes
+
+
 }
   
