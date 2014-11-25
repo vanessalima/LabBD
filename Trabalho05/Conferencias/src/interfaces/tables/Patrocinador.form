@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+<Form version="1.3" maxVersion="1.8" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <NonVisualComponents>
     <Component class="javax.swing.JFormattedTextField" name="jFormattedTextField1">
       <Properties>
@@ -63,7 +63,7 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="tfEndereco" max="32767" attributes="0"/>
                           <Group type="102" attributes="0">
-                              <Component id="tfTelefone" pref="150" max="32767" attributes="0"/>
+                              <Component id="tfTelefone" pref="253" max="32767" attributes="0"/>
                               <EmptySpace min="389" pref="389" max="-2" attributes="0"/>
                           </Group>
                       </Group>

@@ -6,7 +6,10 @@
 package interfaces.tables;
 
 import conferencias.DBconnection;
+import entidades.EPatrocinador;
 import interfaces.AbstractJFrame;
+import static interfaces.Config.ATUALIZACAO;
+import static interfaces.Config.SUCCESS;
 import interfaces.Mensagem;
 import java.awt.Color;
 import java.sql.SQLException;
@@ -17,26 +20,34 @@ import javax.swing.JFrame;
  * @author vanessalima
  */
 public class Patrocinador extends AbstractJFrame {
-    
+    EPatrocinador p;
     /**
      * Creates new form Patrocinador
      */
     public Patrocinador(JFrame ant) {
         super(ant);
         initComponents();
+        this.setTitle("Cadastro de Patrocinador");
+        this.cadastrarButton.setText("Cadastrar");
+
     }
-    
-   
-    public void configuraViews(){
-        if(super.isCadastro()){ // testa se é atualizacao e troca o nome do frame e do botao
-            this.setTitle("Cadastro de Patrocinador");
-            this.cadastrarButton.setText("Cadastrar");
-        } else {
-            this.setTitle("Atualização de Patrocinador");
-            this.cadastrarButton.setText("Atualizar");
-            this.infoLabel.setText("*Campos que não podem ser alterados");
+
+    public Patrocinador(JFrame ant, Object obj){
+        super(ant);
+        initComponents();
+        this.setTitle("Atualização de Patrocinador");
+        this.cadastrarButton.setText("Atualizar");
+        this.infoLabel.setText("*Campos que não podem ser alterados");
+        tfCNPJ.setEditable(false);
+        if (obj instanceof EPatrocinador){
+            this.p = (EPatrocinador)obj;
+            tfCNPJ.setText(p.getCnpj());
+            tfEndereco.setText(p.getEndereco());
+            tfRazaoSocial.setText(p.getRazaoSocial());
+            tfTelefone.setText(p.getTelefone());
         }
     }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -146,7 +157,7 @@ public class Patrocinador extends AbstractJFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(tfEndereco)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(tfTelefone, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                                .addComponent(tfTelefone, javax.swing.GroupLayout.DEFAULT_SIZE, 253, Short.MAX_VALUE)
                                 .addGap(389, 389, 389)))))
                 .addContainerGap())
         );
@@ -235,7 +246,29 @@ public class Patrocinador extends AbstractJFrame {
                 }
             }
         } else { // É Atualizacao!
-            
+            try{
+                conn = new DBconnection();
+                //TODO: testar:
+                sql = "UPDATE PATROCINADOR SET razaoSocialPat = '"+tfRazaoSocial.getText()+"', telefonePat = '"+
+                        tfTelefone.getText()+"', enderecoPat = '"+tfEndereco.getText()+"' WHERE cnpjPat = "+p.getCnpj();
+                conn.executeCommand(sql);
+                conn.disconect();
+                (new Mensagem(this.anterior, null, SUCCESS, ATUALIZACAO)).setEnabled(true);
+            }catch(SQLException e){
+                switch(e.getErrorCode()){
+                    case 911: // Erro de sintaxe! q feio ...
+                    {
+                        System.out.println("Erro de sintaxe do comando sql. Obs.: Talvez você tenha se esquecido de tirar o ; do final. :P ");
+                        break;
+                    }
+                    default:
+                    {
+                        System.out.println("ERROR CODE: "+e.getErrorCode());
+                        e.printStackTrace();
+                        break;
+                    }
+                }
+            }
         }
         
     }//GEN-LAST:event_cadastrarButtonActionPerformed

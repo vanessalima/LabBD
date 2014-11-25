@@ -7,6 +7,7 @@ package interfaces;
 
 import entidades.EEdicao;
 import entidades.EEvento;
+import entidades.EPatrocinador;
 import interfaces.tables.*;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -89,7 +90,10 @@ public class LoadFrame extends AbstractJFrame {
                 this.form = new Organizador(this);
                 break;
             case Config.PATROCINADOR:
-                this.form = new Patrocinador(this);
+                if(flagCadastro) { this.form = new Patrocinador(this); }
+                else {
+                    this.form = new Patrocinador(this, obj);
+                }
                 break;
             case Config.PATROCINIO:
                 this.form = new Patrocinio(this);
@@ -554,6 +558,22 @@ public class LoadFrame extends AbstractJFrame {
                 o = new EEdicao(this.tableAll.getValueAt(linha, 0).toString(),
                         this.tableAll.getValueAt(linha, 1).toString(),
                         local, taxa, descricao, dataInicio, dataFim);
+            }if (this.table == Config.PATROCINADOR){
+                String razaoSocial=null;
+                String telefone=null;
+                String endereco=null;
+                if(this.tableAll.getValueAt(linha, 1) != null){
+                    razaoSocial = this.tableAll.getValueAt(linha, 1).toString();
+                }
+                if(this.tableAll.getValueAt(linha, 2) != null){
+                    telefone = this.tableAll.getValueAt(linha, 2).toString();
+                }
+                if(this.tableAll.getValueAt(linha, 3) != null){
+                    endereco = this.tableAll.getValueAt(linha, 3).toString();
+                }
+                o = new EPatrocinador(this.tableAll.getValueAt(linha, 0).toString(), 
+                        razaoSocial, endereco, telefone);
+                
             }
 
 
