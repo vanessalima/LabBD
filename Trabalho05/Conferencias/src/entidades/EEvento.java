@@ -13,12 +13,23 @@ public class EEvento {
     private String nomeEv;
     private String webSite;
     private String descricao;
+    private String codev;
 
-    public EEvento(String nomeEv, String webSite, String descricao) {
+    public EEvento(String nomeEv, String webSite, String descricao, String codev) {
         this.nomeEv = nomeEv;
         this.webSite = webSite;
         this.descricao = descricao;
+        this.codev = codev;
     }
+
+    public String getCodev() {
+        return codev;
+    }
+
+    public void setCodev(String codev) {
+        this.codev = codev;
+    }
+    
     
     public EEvento(String nomeEv) {
         this.nomeEv = nomeEv;

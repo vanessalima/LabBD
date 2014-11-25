@@ -521,20 +521,39 @@ public class LoadFrame extends AbstractJFrame {
                     descricao = this.tableAll.getValueAt(linha, 2).toString();
                 }
                 o = new EEvento(this.tableAll.getValueAt(linha, 1).toString(),
-                                website,
-                                descricao);
+                                website, descricao,
+                                this.tableAll.getValueAt(linha, 0).toString());
             } else if(this.table == Config.EDICAO){
-                String local;
-                String taxa;
-                String descricao;
-                
-                //TODO: fazer os ifs para verificar se nao ta null a celula de tableAll
-                
-                // TODO: Ver o lance das datas qundo nao tem nada!!
-                
-                        
-//                o = new EEdicao(this.tableAll.getValueAt(linha, ));
-                
+                String local = null;
+                String taxa = null;
+                String descricao = null;
+                String dataInicio = null;
+                String dataFim = null;
+                String auxDataHora[] = null;
+                String auxData[] = null;
+                if(this.tableAll.getValueAt(linha, 4) != null){
+                    local = this.tableAll.getValueAt(linha, 4).toString();
+                }
+                if(this.tableAll.getValueAt(linha, 5) != null){
+                    taxa = this.tableAll.getValueAt(linha, 5).toString();
+                }
+                if(this.tableAll.getValueAt(linha, 8) != null){
+                    descricao = this.tableAll.getValueAt(linha, 8).toString();
+                }
+                if(this.tableAll.getValueAt(linha, 2) != null){
+                    auxDataHora = this.tableAll.getValueAt(linha, 2).toString().split(" ");
+                    auxData = auxDataHora[0].split("-");
+                    dataInicio = auxData[2]+"/"+auxData[1]+"/"+auxData[0];
+                }
+                if(this.tableAll.getValueAt(linha, 3) != null){
+                    auxDataHora = this.tableAll.getValueAt(linha, 3).toString().split(" ");
+                    auxData = auxDataHora[0].split("-");
+                    dataFim = auxData[2]+"/"+auxData[1]+"/"+auxData[0];
+                }
+                System.out.println("dataInicio: "+dataInicio+", dataFim: "+dataFim);
+                o = new EEdicao(this.tableAll.getValueAt(linha, 0).toString(),
+                        this.tableAll.getValueAt(linha, 1).toString(),
+                        local, taxa, descricao, dataInicio, dataFim);
             }
 
 

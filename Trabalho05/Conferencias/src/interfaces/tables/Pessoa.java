@@ -5,6 +5,7 @@
 package interfaces.tables;
 
 import conferencias.DBconnection;
+import entidades.EPessoa;
 import interfaces.AbstractJFrame;
 import interfaces.Mensagem;
 import java.awt.Color;
@@ -18,9 +19,23 @@ import javax.swing.JFrame;
 
 public class Pessoa extends AbstractJFrame {
     
-    public Pessoa(JFrame ant) {
+    // Construtor para Cadastro
+    public Pessoa(JFrame ant) { 
         super(ant);
         initComponents();
+        this.setTitle("Cadastro de Evento");
+        this.cadastrarButton.setText("Cadastrar");
+    }
+    
+    // Construtor para atualizacao
+    public Pessoa(JFrame ant, Object obj){
+        super(ant);
+        initComponents();
+        if(obj instanceof EPessoa){
+            EPessoa p = (EPessoa)obj;
+            this.setTitle("Atualização de Evento");
+            this.cadastrarButton.setText("Atualizar");
+        }
     }
     
     /**

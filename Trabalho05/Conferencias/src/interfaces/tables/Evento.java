@@ -21,19 +21,19 @@ import javax.swing.JFrame;
  */
 public class Evento extends AbstractJFrame {
 
+    private EEvento e;
     public Evento(JFrame ant) {
         super(ant);
         initComponents();
         this.setTitle("Cadastro de Evento");
         this.cadastrarButton.setText("Cadastrar");
-        this.flagCadastro = true;
     }
 
     public Evento(JFrame ant, Object obj) {
         super(ant);
         initComponents();
         if(obj instanceof EEvento){
-            EEvento e = (EEvento)obj;
+            this.e = (EEvento)obj;
             this.setTitle("Atualização de Evento");
             this.cadastrarButton.setText("Atualizar");
             this.infoLabel.setText("*Campos que não podem ser alterados");
@@ -198,12 +198,33 @@ public class Evento extends AbstractJFrame {
                         }
                     }
                 }
-                this.setVisible(false);
-                this.setEnabled(false);
+//                this.setVisible(false);
+//                this.setEnabled(false);
             }
         } else { // É atualizacao
             // TODO: inserir codigo de atualizacao
-            
+            try{
+                conn = new DBconnection();
+                //TODO: testar:
+                sql = "UPDATE EVENTO SET descricaoEv = '"+taDescricao.getText().trim()+"', websiteEv = '"+tfwebsite.getText()+"' WHERE CODEV = "+e.getCodev();
+                conn.executeCommand(sql);
+                conn.disconect();
+                (new Mensagem(this.anterior, null, SUCCESS, ATUALIZACAO)).setEnabled(true);
+            }catch(SQLException e){
+                switch(e.getErrorCode()){
+                    case 911: // Erro de sintaxe! q feio ...
+                    {
+                        System.out.println("Erro de sintaxe do comando sql. Obs.: Talvez você tenha se esquecido de tirar o ; do final. :P ");
+                        break;
+                    }
+                    default:
+                    {
+                        System.out.println("ERROR CODE: "+e.getErrorCode());
+                        e.printStackTrace();
+                        break;
+                    }
+                }
+            }
         }
     }//GEN-LAST:event_cadastrarButtonActionPerformed
 

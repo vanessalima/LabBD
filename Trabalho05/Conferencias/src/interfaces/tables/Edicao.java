@@ -28,7 +28,7 @@ import javax.swing.JFrame;
 public class Edicao extends AbstractJFrame {
 
     Hashtable<String, Integer> listaEventos;
-    
+    EEdicao e;
     /**
      * Creates new form CadastrarEdicao
      */
@@ -49,10 +49,11 @@ public class Edicao extends AbstractJFrame {
         this.setTitle("Atualização de Edição");
         this.cadastrarButton.setText("Atualizar");
         this.infoLabel.setText("*Campos que não podem ser alterados");
+        this.cbEventos.setEditable(false);
+        this.tfNumEd.setEditable(false);
         if(obj instanceof EEdicao){
-            EEdicao e = (EEdicao) obj;
-            this.cbEventos.setEditable(false);
-            this.tfNumEd.setEditable(false);
+            this.e = (EEdicao) obj;
+            
             // TODO: 
             // Popula views:
             this.cbEventos.removeAllItems();
@@ -89,13 +90,13 @@ public class Edicao extends AbstractJFrame {
         jLabel7 = new javax.swing.JLabel();
         tfLocal = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        tfTaxa = new javax.swing.JFormattedTextField();
         tfNumEd = new javax.swing.JFormattedTextField();
         jLabel9 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         taDescricao = new javax.swing.JTextArea();
         cancelarButton = new javax.swing.JButton();
         cadastrarButton = new javax.swing.JButton();
+        tfTaxa = new javax.swing.JTextField();
 
         jButton1.setText("jButton1");
 
@@ -141,8 +142,6 @@ public class Edicao extends AbstractJFrame {
 
         jLabel8.setText("Taxa da edição");
 
-        tfTaxa.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter()));
-
         tfNumEd.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("######"))));
 
         jLabel9.setText("Descrição");
@@ -187,33 +186,34 @@ public class Edicao extends AbstractJFrame {
                             .add(layout.createSequentialGroup()
                                 .add(jLabel9)
                                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
-                            .add(layout.createSequentialGroup()
-                                .add(jScrollPane1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 440, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                .add(18, 18, 18)
-                                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                                    .add(layout.createSequentialGroup()
-                                        .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                                            .add(layout.createSequentialGroup()
-                                                .add(87, 87, 87)
-                                                .add(tfDataFim, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 108, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                                            .add(jLabel4))
-                                        .add(29, 29, 29)
-                                        .add(jLabel5, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 155, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                                    .add(layout.createSequentialGroup()
-                                        .add(jLabel3, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 75, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                                        .add(tfDataInicio, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 108, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                        .add(29, 29, 29)
-                                        .add(jLabel2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 155, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))))
-                            .add(cbEventos, 0, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .add(tfLocal)
-                            .add(tfTaxa, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 106, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                            .add(tfNumEd, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 106, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                            .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
-                                .add(cancelarButton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 130, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                .add(18, 18, 18)
-                                .add(cadastrarButton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 130, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
+                        .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                            .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
+                                .add(layout.createSequentialGroup()
+                                    .add(jScrollPane1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 440, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                    .add(18, 18, 18)
+                                    .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                                        .add(layout.createSequentialGroup()
+                                            .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                                                .add(layout.createSequentialGroup()
+                                                    .add(87, 87, 87)
+                                                    .add(tfDataFim, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 108, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                                                .add(jLabel4))
+                                            .add(29, 29, 29)
+                                            .add(jLabel5, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 155, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                                        .add(layout.createSequentialGroup()
+                                            .add(jLabel3, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 75, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                                            .add(tfDataInicio, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 108, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                            .add(29, 29, 29)
+                                            .add(jLabel2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 155, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))))
+                                .add(cbEventos, 0, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .add(tfLocal)
+                                .add(tfNumEd, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 106, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
+                                    .add(cancelarButton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 130, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                    .add(18, 18, 18)
+                                    .add(cadastrarButton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 130, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
+                            .add(tfTaxa, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 106, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                         .add(20, 20, 20))))
         );
         layout.setVerticalGroup(
@@ -223,21 +223,21 @@ public class Edicao extends AbstractJFrame {
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(lSelEv)
                     .add(cbEventos, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .add(20, 20, 20)
+                .add(18, 18, 18)
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(lNumEd)
                     .add(tfNumEd, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .add(20, 20, 20)
+                .add(18, 18, 18)
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(jLabel7)
                     .add(tfLocal, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                     .add(layout.createSequentialGroup()
-                        .add(15, 15, 15)
-                        .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
+                        .add(18, 18, 18)
+                        .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                             .add(jLabel8)
                             .add(tfTaxa, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                        .add(20, 20, 20)
+                        .add(18, 18, 18)
                         .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                             .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
                                 .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
@@ -252,7 +252,7 @@ public class Edicao extends AbstractJFrame {
                                         .add(jLabel5)))
                                 .add(org.jdesktop.layout.GroupLayout.TRAILING, jScrollPane1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 72, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                             .add(jLabel9))
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 73, Short.MAX_VALUE)
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 49, Short.MAX_VALUE)
                         .add(infoLabel))
                     .add(layout.createSequentialGroup()
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -346,7 +346,53 @@ public class Edicao extends AbstractJFrame {
                 }
             }
         } else { // Atualizacao
-            
+            try{
+                conn = new DBconnection();
+                //TODO: testar:
+                String sqlDataInicio;
+                String sqlDataFim;
+                String sqlTaxa;
+                if (tfDataInicio.getText().matches("  /  /    ")){
+                    sqlDataInicio = null;
+                } else {
+                    sqlDataInicio = "to_date('"+tfDataInicio.getText()+"', 'DD/MM/YYYY')";
+                }
+
+                if (tfDataFim.getText().matches("  /  /    ")){
+                    sqlDataFim = null;
+                } else {
+                    sqlDataFim = "to_date('"+tfDataFim.getText()+"', 'DD/MM/YYYY')";
+                }
+                String taxaEv; 
+                if(tfTaxa.getText().isEmpty()){
+                    taxaEv = null;
+                } else {
+                    taxaEv = tfTaxa.getText();
+                }
+                sql = "UPDATE EDICAO SET descricaoEd = '"+taDescricao.getText().trim()+"', taxaEd = "+
+                        taxaEv+", localEd = '"+tfLocal.getText()+"', dataFimEd = "+
+                        sqlDataFim+", dataInicioEd = "+sqlDataInicio+
+                        " WHERE codEv = "+this.e.getCodEv()+" AND numEd = "+this.e.getNumEd();
+//                sql = "UPDATE EDICAO SET LOCALED = '', TAXAED = 122, DATAINICIOED = null, DESCRICAOED = '', DATAFIMED = null WHERE CODEV = 23 AND NUMED = 1";
+                System.out.println("SQL: "+sql);
+                conn.executeCommand(sql);
+                conn.disconect();
+                (new Mensagem(this.anterior, null, SUCCESS, ATUALIZACAO)).setEnabled(true);
+            }catch(SQLException e){
+                switch(e.getErrorCode()){
+                    case 911: // Erro de sintaxe! q feio ...
+                    {
+                        System.out.println("Erro de sintaxe do comando sql. Obs.: Talvez você tenha se esquecido de tirar o ; do final. :P ");
+                        break;
+                    }
+                    default:
+                    {
+                        System.out.println("ERROR CODE: "+e.getErrorCode());
+                        e.printStackTrace();
+                        break;
+                    }
+                }
+            }
         }
     }//GEN-LAST:event_cadastrarButtonActionPerformed
 
@@ -407,7 +453,7 @@ public class Edicao extends AbstractJFrame {
     private javax.swing.JFormattedTextField tfDataInicio;
     private javax.swing.JTextField tfLocal;
     private javax.swing.JFormattedTextField tfNumEd;
-    private javax.swing.JFormattedTextField tfTaxa;
+    private javax.swing.JTextField tfTaxa;
     // End of variables declaration//GEN-END:variables
 
     
