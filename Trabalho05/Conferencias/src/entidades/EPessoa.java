@@ -10,6 +10,7 @@ package entidades;
  * @author ch
  */
 public class EPessoa {
+    private String idPe;
     private String nome;
     private String email;
     private String instituicao;
@@ -17,13 +18,22 @@ public class EPessoa {
     private String nacionalidade;
     private String endereco;
 
-    public EPessoa(String nome, String email, String instituicao, String telefone, String nacionalidade, String endereco) {
+    public EPessoa(String idPe, String nome, String email, String instituicao, String telefone, String nacionalidade, String endereco) {
+        this.idPe = idPe;
         this.nome = nome;
         this.email = email;
         this.instituicao = instituicao;
         this.telefone = telefone;
         this.nacionalidade = nacionalidade;
         this.endereco = endereco;
+    }
+
+    public String getIdPe() {
+        return idPe;
+    }
+
+    public void setIdPe(String idPe) {
+        this.idPe = idPe;
     }
 
     public String getNome() {
