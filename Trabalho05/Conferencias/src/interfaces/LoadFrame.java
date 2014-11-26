@@ -95,7 +95,10 @@ public class LoadFrame extends AbstractJFrame {
                 }
                 break;
             case Config.PATROCINIO:
-                this.form = new Patrocinio(this);
+                if (flagCadastro) { this.form = new Patrocinio(this); }
+                else{
+                    this.form = new Patrocinio(this, obj);
+                }
                 break;
             case Config.PESSOA:
                 if (flagCadastro) { this.form = new Pessoa(this); }
@@ -431,9 +434,8 @@ public class LoadFrame extends AbstractJFrame {
 
     private void removerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removerButtonActionPerformed
         String tablename = this.getTableName(this.table);
-        this.removeRow(tablename, 
-                       this.getAttr().get(0), 
-                       String.valueOf(this.tablePopulation[this.tableAll.getSelectedRow()][0]) );
+        this.removeRow(tablename,
+                       this.tablePopulation[this.tableAll.getSelectedRow()] );
         
         try {
             this.tablePopulation = this.populateTable(tablename);
@@ -479,6 +481,8 @@ public class LoadFrame extends AbstractJFrame {
         line.add(String.valueOf(this.numberFiltro.getSelectedItem()));
         line.add(this.textfiltro.getText());
         
+        this.textfiltro.setText("");
+        
         this.filters.add(line);
         this.reloadFiltersTable();
     }//GEN-LAST:event_addFiltroActionPerformed
@@ -503,6 +507,7 @@ public class LoadFrame extends AbstractJFrame {
         // TODO add your handling code here:
         
         //FAZER BUSCA
+        this.getSearch(this.getTableName(this.table), this.filters);
     }//GEN-LAST:event_selectFiltrosActionPerformed
 
     private void tableAllMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableAllMouseClicked
@@ -592,6 +597,23 @@ public class LoadFrame extends AbstractJFrame {
                         this.tableAll.getValueAt(linha,1).toString(), 
                         this.tableAll.getValueAt(linha, 2).toString(), 
                         this.tableAll.getValueAt(linha, 3).toString(), telefone, nacionalidade, endereco);
+            }if (this.table == Config.PATROCINIO){
+                String dataPat = null;
+                String valorPat = null;
+                String auxDataHora[] = null;
+                String auxData[] = null;
+                if(this.tableAll.getValueAt(linha, 3) != null){
+                    auxDataHora = this.tableAll.getValueAt(linha, 3).toString().split(" ");
+                    auxData = auxDataHora[0].split("-");
+                    dataPat = auxData[2]+"/"+auxData[1]+"/"+auxData[0];
+                }
+                if(this.tableAll.getValueAt(linha, 4) != null){
+                    valorPat = this.tableAll.getValueAt(linha, 4).toString();
+                }
+                o = new EPatrocinio(this.tableAll.getValueAt(linha, 0).toString(),
+                        this.tableAll.getValueAt(linha, 1).toString(), 
+                        this.tableAll.getValueAt(linha, 2).toString(), 
+                        dataPat, valorPat);
             }
 
 

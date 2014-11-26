@@ -45,19 +45,23 @@ public abstract class AbstractJFrame extends javax.swing.JFrame implements Confi
         // fecha a janela
         this.dispose();
         // reabre a janela anterior
-        this.anterior.setEnabled(true);
+//        this.anterior.setEnabled(true);
         this.anterior.setVisible(true);
     }                  
     
     protected void onClose(){
         this.dispose();
         // reabre a janela anterior
-        this.anterior.setEnabled(true);
+//        this.anterior.setEnabled(true);
         this.anterior.setVisible(true);
     }
     
-    protected void onDispose(){
-        this.anterior.dispose(); // fecha a janela anterior
+    protected void onDispose(){ // Fecha todas as janelas anteriores 
+        if(this.anterior instanceof AbstractJFrame){// fecha a janela anterior
+            ((AbstractJFrame)this.anterior).onDispose();
+        }else{
+            this.anterior.dispose(); // fecha a janela progenitora
+        }
         this.dispose();          // fecha a janela atual
     }
     
@@ -67,27 +71,15 @@ public abstract class AbstractJFrame extends javax.swing.JFrame implements Confi
     
     // Nos metodos abaixo seto a flag para cadastro ou atualizacao
     // Isso deve ser feito em LoadFrame, antes de dar setEnable() na classe
-    
-    /**
-     * 
-     */
+    // (Possivelmente vai sair esses metodos)
     public void setCadastro(){
         this.flagCadastro = true;
         System.out.println("Setou flagCadastro = "+flagCadastro);
     }
-    
-    /**
-     * 
-     */
     public void setAtualizacao(){
         this.flagCadastro = false;
         System.out.println("Setou flagCadastro = "+flagCadastro);
     }
-    
-    /**
-     * 
-     * @return 
-     */
     public boolean isCadastro(){
         System.out.println(" ---- flagCadastro: "+flagCadastro);
         return this.flagCadastro;
@@ -183,8 +175,8 @@ public abstract class AbstractJFrame extends javax.swing.JFrame implements Confi
                 while(res.next()) {
                     list2.add(new ArrayList<String>() {});
                     for (int j = 0; j < tableAttr.size(); j++){
-                        System.out.println(tableAttr.get(j));
-                        System.out.println(res.getString(tableAttr.get(j)));
+                        //System.out.println(tableAttr.get(j));
+                        //System.out.println(res.getString(tableAttr.get(j)));
                         list2.get(k).add(res.getString(tableAttr.get(j)));
                     }
                     k++;
@@ -301,9 +293,9 @@ public abstract class AbstractJFrame extends javax.swing.JFrame implements Confi
                 
                 findAllAttr();
 
-                for(int i = 0; i < this.tableAttr.size(); i++){
+                /*for(int i = 0; i < this.tableAttr.size(); i++){
                     System.out.println(this.tableAttr.get(i));
-                }
+                }*/
                 
             
             } catch(SQLException e) {
@@ -340,18 +332,22 @@ public abstract class AbstractJFrame extends javax.swing.JFrame implements Confi
         DBconnection dbcon;
         dbcon = new DBconnection();
         ResultSet res;
+        String sql;
         try{
-               res = dbcon.query("SELECT DATA_TYPE FROM ALL_TAB_COLUMNS WHERE lower(TABLE_NAME) = '" +
-                       table.toLowerCase() +"' AND lower(COLUMN_NAME) = '"+field.toLowerCase()+"'");
+               sql = "SELECT DATA_TYPE FROM ALL_TAB_COLUMNS WHERE lower(TABLE_NAME) = '" +
+                       table.toLowerCase() +"' AND lower(COLUMN_NAME) = '"+field.toLowerCase()+"'";
+               System.out.println(sql);
+               res = dbcon.query(sql);
                
                 if(res.next()) {
                    switch(res.getString(1).toLowerCase()) {
                        case "number":
-                           return new String[]{"<", ">", "<=", ">=", "==", "!="};
+                           return new String[]{"<", ">", "<=", ">=", "=", "!="};
                        case "varchar2":
                            return new String[]{"igual à", "contém"};
                        case "date":
-                           return new String[]{"DD/MM/AAAA", "dia", "mes", "ano"};
+                           return new String[]{"antes de (DD/MM/AAAA)", "depois de (DD/MM/AAAA)", 
+                               "na data (DD/MM/AAAA)", "dia", "mes", "ano"};
                    }
                 }
             } catch(SQLException e) {
@@ -379,18 +375,225 @@ public abstract class AbstractJFrame extends javax.swing.JFrame implements Confi
         return new String[]{};
     }
     
-    public void removeRow(String tablename, String field, String code) {
-        if(tablename.isEmpty() || field.isEmpty() || code.isEmpty())
+    public void removeRow(String tablename, Object[] values) {
+        if(tablename.isEmpty())
             System.out.println("ERRO: String vazia!");
-        
-        System.out.println("DELETE FROM "+tablename+" WHERE "+field.toLowerCase()+" = "+code.toLowerCase());
         
         DBconnection dbcon;
         dbcon = new DBconnection();
-        boolean res;
+        String sql;
+        ResultSet res;
+        
         try{
-               res = dbcon.execute("DELETE FROM "+tablename+" WHERE "+field.toLowerCase()+" = "+code.toLowerCase());
-               System.out.println(res);
+               sql = "SELECT cols.column_name, cols.position" +
+                                " FROM all_constraints cons, all_cons_columns cols " +
+                                " WHERE lower(cols.table_name) = '" + tablename.toLowerCase()+ "' " +
+                                " AND cons.constraint_type = 'P' " +
+                                " AND cons.constraint_name = cols.constraint_name " +
+                                " AND cons.owner = cols.owner " +
+                                " ORDER BY cols.table_name, cols.position";
+               System.out.println("Lista as PRIMARY KEYS: \n" + sql);
+               res = dbcon.query(sql);
+               
+               int i = 0;
+               sql = "DELETE FROM "+tablename+" WHERE ";
+               while(res.next()) {
+                   if(i > 0)
+                       sql += " AND ";
+                   sql += res.getString(1) + " = " + values[res.getInt(2)-1].toString();
+                   i++;
+               }
+               System.out.println(sql);
+               dbcon.execute(sql);
+               
+            } catch(SQLException e) {
+                switch(e.getErrorCode()){
+                    case 911: // Erro de sintaxe! q feio ...
+                    {
+                        System.out.println("Erro de sintaxe do comando sql. Obs.: Talvez você tenha se esquecido de tirar o ; do final. :P ");
+                        break;
+                    }
+                    default:
+                    {
+                        System.out.println("ERROR CODE: "+e.getErrorCode());
+                        break;
+                    }
+                }
+            }
+            
+        try {
+            dbcon.disconect();
+        } catch (SQLException e) {
+            System.out.println("ERROR CODE: "+e.getErrorCode());
+            System.out.println("Problema para desconectar");
+        }
+    }
+    
+    
+    public void getSearch(String tablename, ArrayList<ArrayList<Object>> filters) {
+        if(tablename.isEmpty())
+            System.out.println("ERRO: String vazia!");
+        
+        DBconnection dbcon;
+        dbcon = new DBconnection();
+        String sql;
+        int flag = 0;
+        ResultSet res;
+        
+        try{
+               sql = this.sqlBasic;
+               if(sql.contains("WHERE")){
+                   flag = 1;
+               }
+                       //"SELECT "+ this.getStringList() + " FROM "+tablename+" WHERE ";
+               // itera pelos filtros, adicionando os mesmos na busca
+               for(int i = 0; i < filters.size(); i++) {
+                   if(flag == 1) {
+                       sql += " AND ";
+                   }
+                   flag = 1;
+                   switch(filters.get(i).get(1).toString()) {
+                       case "<":
+                       case ">":
+                       case "<=":
+                       case ">=":
+                       case "=":
+                       case "!=":
+                           sql += filters.get(i).get(0).toString() + " " +// campo
+                                   filters.get(i).get(1).toString() + " " +  // operador
+                                   filters.get(i).get(2).toString();        // valor
+                           break;
+                       case "igual à":
+                           sql += "lower(" + filters.get(i).get(0).toString() + ") = '" + 
+                                   filters.get(i).get(2).toString().toLowerCase() + "'";
+                           break;
+                       case "contém":
+                           sql += "lower(" + filters.get(i).get(0).toString() + ") LIKE '%" + 
+                                   filters.get(i).get(2).toString().toLowerCase() + "%'";
+                           break;
+                       case "antes de (DD/MM/AAAA)":
+                           sql += filters.get(i).get(0).toString() + " < TO_DATE('" + 
+                                   filters.get(i).get(2).toString().toLowerCase() + "', 'DD/MM/YYYY')";
+                           break;
+                       case "depois de (DD/MM/AAAA)":
+                           sql += filters.get(i).get(0).toString() + " > TO_DATE('" + 
+                                   filters.get(i).get(2).toString().toLowerCase() + "', 'DD/MM/YYYY')";
+                           break;
+                       case "na data (DD/MM/AAAA)":
+                           sql += filters.get(i).get(0).toString() + " = TO_DATE('" + 
+                                   filters.get(i).get(2).toString().toLowerCase() + "', 'DD/MM/YYYY')";
+                           break;
+                       case "dia":
+                           sql += "EXTRACT( DAY FROM " + filters.get(i).get(0).toString() + ") = " + 
+                                   filters.get(i).get(2).toString().toLowerCase();
+                           break;
+                       case "mes":
+                           sql += "EXTRACT( MONTH FROM " + filters.get(i).get(0).toString() + ") = " + 
+                                   filters.get(i).get(2).toString().toLowerCase();
+                           break;
+                       case "ano":
+                           sql += "EXTRACT( YEAR FROM " + filters.get(i).get(0).toString() + ") = " + 
+                                   filters.get(i).get(2).toString().toLowerCase();
+                           break;
+                   }
+               }
+               System.out.println(sql);
+               
+               res = dbcon.query(sql);
+               
+               while(res.next()) {
+                   System.out.println(res.getString(1));
+               }
+               
+            } catch(SQLException e) {
+                switch(e.getErrorCode()){
+                    case 911: // Erro de sintaxe! q feio ...
+                    {
+                        System.out.println("Erro de sintaxe do comando sql. Obs.: Talvez você tenha se esquecido de tirar o ; do final. :P ");
+                        break;
+                    }
+                    default:
+                    {
+                        System.out.println("ERROR CODE: "+e.getErrorCode());
+                        break;
+                    }
+                }
+            }
+            
+        try {
+            dbcon.disconect();
+        } catch (SQLException e) {
+            System.out.println("ERROR CODE: "+e.getErrorCode());
+            System.out.println("Problema para desconectar");
+        }
+    }
+    
+    
+    // Tentativa fiasco de fazer o update generico. Vanessa se vc nao for mexer 
+    // com isso pode deletar. Só deixei aqui pra modi ajuda ocê se caso
+    // cê tentasse se aventura por essa zágua.
+    public void updateTable(String tablename, String values[]){
+        // Não está sendo feita verificacoes de tipo aqui. 
+        //Assume-se que os parâmetros já estão prontos para montar o comando sql.
+        /*int i = 0;
+        String sql = "UPDATE "+tableName+" SET ";
+        for(i = 0; i < params.length-1; i++){
+            sql += params[i]+" = "+values[i]+", ";
+        }
+        sql += params[i]+" = "+values[i];
+        sql += " WHERE ";
+        for(i=0; i < key.length-1; i++){
+            sql += key[i]+" = "+keyValue[i]+" AND ";
+        }
+        sql += key[i]+" = "+keyValue[i];
+        
+        System.out.println("SQL [UPDATE] = "+sql);
+        */
+    
+        if(tablename.isEmpty())
+            System.out.println("ERRO: String vazia!");
+        
+        DBconnection dbcon;
+        dbcon = new DBconnection();
+        String sql, sql2 = "";
+        ResultSet res;
+        
+        try{
+               sql = "SELECT cols.column_name, cols.position" +
+                                " FROM all_constraints cons, all_cons_columns cols " +
+                                " WHERE lower(cols.table_name) = '" + tablename.toLowerCase()+ "' " +
+                                " AND cons.constraint_type = 'P' " +
+                                " AND cons.constraint_name = cols.constraint_name " +
+                                " AND cons.owner = cols.owner " +
+                                " ORDER BY cols.table_name, cols.position";
+               System.out.println("Lista as PRIMARY KEYS: \n" + sql);
+               res = dbcon.query(sql);
+               int i = 0;
+               ArrayList<Integer> keys = new ArrayList<Integer>();
+               
+               // Aqui não precisa fazer verificação de tipo, pois todas as chaves primárias são números
+               while(res.next()) {
+                   if(i > 0)
+                       sql2 += " AND ";
+                   sql2 += res.getString(1) + " = " + values[res.getInt(2)-1].toString();
+                   keys.add(res.getInt(2)-1);
+                   i++;
+               }
+               
+               sql = "UPDATE "+tablename+" SET ";
+               // aqui eu tem que verificar, eu coloquei como se fosse número
+               for(i = 0; i < values.length; i++) {
+                   if(keys.contains(i)) {
+                       continue;
+                   }
+                   sql += this.tableAttr.get(i) + " = " + values[res.getInt(2)-1].toString();
+               }
+               
+               sql += " WHERE " + sql2;
+               
+               System.out.println(sql);
+               dbcon.execute(sql);
+               
             } catch(SQLException e) {
                 switch(e.getErrorCode()){
                     case 911: // Erro de sintaxe! q feio ...
