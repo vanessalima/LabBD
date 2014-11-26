@@ -429,9 +429,8 @@ public class LoadFrame extends AbstractJFrame {
 
     private void removerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removerButtonActionPerformed
         String tablename = this.getTableName(this.table);
-        this.removeRow(tablename, 
-                       this.getAttr().get(0), 
-                       String.valueOf(this.tablePopulation[this.tableAll.getSelectedRow()][0]) );
+        this.removeRow(tablename,
+                       this.tablePopulation[this.tableAll.getSelectedRow()] );
         
         try {
             this.tablePopulation = this.populateTable(tablename);

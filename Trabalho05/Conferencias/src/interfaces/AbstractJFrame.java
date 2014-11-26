@@ -135,8 +135,8 @@ public abstract class AbstractJFrame extends javax.swing.JFrame implements Confi
                 while(res.next()) {
                     list2.add(new ArrayList<String>() {});
                     for (int j = 0; j < tableAttr.size(); j++){
-                        System.out.println(tableAttr.get(j));
-                        System.out.println(res.getString(tableAttr.get(j)));
+                        //System.out.println(tableAttr.get(j));
+                        //System.out.println(res.getString(tableAttr.get(j)));
                         list2.get(k).add(res.getString(tableAttr.get(j)));
                     }
                     k++;
@@ -195,9 +195,9 @@ public abstract class AbstractJFrame extends javax.swing.JFrame implements Confi
                 while(res.next()) {
                      this.tableAttr.add(res.getString(1));
                 }
-                for(int i = 0; i < this.tableAttr.size(); i++){
+                /*for(int i = 0; i < this.tableAttr.size(); i++){
                     System.out.println(this.tableAttr.get(i));
-                }
+                }*/
                 
             
             } catch(SQLException e) {
@@ -274,18 +274,35 @@ public abstract class AbstractJFrame extends javax.swing.JFrame implements Confi
         return new String[]{};
     }
     
-    public void removeRow(String tablename, String field, String code) {
-        if(tablename.isEmpty() || field.isEmpty() || code.isEmpty())
+    public void removeRow(String tablename, Object[] values) {
+        if(tablename.isEmpty())
             System.out.println("ERRO: String vazia!");
-        
-        System.out.println("DELETE FROM "+tablename+" WHERE "+field.toLowerCase()+" = "+code.toLowerCase());
         
         DBconnection dbcon;
         dbcon = new DBconnection();
-        boolean res;
+        String sql;
+        ResultSet res;
+        
         try{
-               res = dbcon.execute("DELETE FROM "+tablename+" WHERE "+field.toLowerCase()+" = "+code.toLowerCase());
-               System.out.println(res);
+               res = dbcon.query("SELECT cols.column_name, cols.position" +
+                                " FROM all_constraints cons, all_cons_columns cols " +
+                                " WHERE lower(cols.table_name) = '" + tablename.toLowerCase()+ "' " +
+                                " AND cons.constraint_type = 'P' " +
+                                " AND cons.constraint_name = cols.constraint_name " +
+                                " AND cons.owner = cols.owner " +
+                                " ORDER BY cols.table_name, cols.position");
+               
+               int i = 0;
+               sql = "DELETE FROM "+tablename+" WHERE ";
+               while(res.next()) {
+                   if(i > 0)
+                       sql += " AND ";
+                   sql += res.getString(1) + " = " + values[res.getInt(2)-1].toString();
+                   i++;
+               }
+               System.out.println(sql);
+               dbcon.execute(sql);
+               
             } catch(SQLException e) {
                 switch(e.getErrorCode()){
                     case 911: // Erro de sintaxe! q feio ...
