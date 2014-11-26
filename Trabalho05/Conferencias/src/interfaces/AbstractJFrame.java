@@ -29,7 +29,7 @@ public abstract class AbstractJFrame extends javax.swing.JFrame implements Confi
     private String sqlBasic = new String();
     
      // true : Cadastro, false : Atualizacao
-    protected boolean flagCadastro; // ta ruim, mas foi o que consegui pensar, sugestoes?
+    protected boolean flagCadastro; // Usada em LoadFrame
     
     public AbstractJFrame(JFrame ant) {
         // Faz a janela de fundo ficar invisível

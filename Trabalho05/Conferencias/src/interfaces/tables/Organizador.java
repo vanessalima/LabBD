@@ -5,7 +5,15 @@
  */
 package interfaces.tables;
 
+import conferencias.DBconnection;
 import interfaces.AbstractJFrame;
+import interfaces.LoadFrame;
+import interfaces.Mensagem;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
 
 /**
@@ -22,6 +30,11 @@ public class Organizador extends AbstractJFrame {
         initComponents();
     }
 
+    public Organizador(JFrame ant, Object obj) {
+        super(ant);
+        initComponents();
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -31,22 +44,198 @@ public class Organizador extends AbstractJFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        cbEvento = new javax.swing.JComboBox();
+        lEvento = new javax.swing.JLabel();
+        lEdicao = new javax.swing.JLabel();
+        cbEdicao = new javax.swing.JComboBox();
+        jLabel1 = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox();
+        jButton1 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+
+        cbEvento.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cbEventoMouseClicked(evt);
+            }
+        });
+        cbEvento.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                cbEventoFocusLost(evt);
+            }
+        });
+
+        lEvento.setText("Evento*");
+
+        lEdicao.setText("Edição*");
+
+        jLabel1.setText("Pessoa*");
+
+        jButton1.setText("Cadastrar Organizador");
+
+        jLabel2.setText("Cargo");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 691, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lEvento)
+                            .addComponent(lEdicao))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(cbEdicao, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(487, 487, 487))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(cbEvento, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addContainerGap())))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(18, 18, 18)
+                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton1)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 328, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lEvento)
+                    .addComponent(cbEvento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cbEdicao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lEdicao))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1)
+                    .addComponent(jButton1))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel2)
+                .addContainerGap(158, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void cbEventoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cbEventoMouseClicked
+
+    }//GEN-LAST:event_cbEventoMouseClicked
+
+    private void cbEventoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cbEventoFocusLost
+        // Se for atualizacao nao faz nada
+        if(cadastrarButton.getText().matches("Atualizar")){return;}
+        // Limpa o combobox
+        cbEdicao.removeAllItems();
+        cbEdicao.addItem("-");
+        if(!cbEvento.getSelectedItem().toString().matches("-")){
+            // Busca as edicoes associadas ao evento selecionado
+            DBconnection conn = new DBconnection();
+            ResultSet rs;
+            String sql;
+            Integer aux;
+
+            try { // Edicoes
+                sql = "SELECT numed from edicao WHERE codEv = "+listaEventos.get(cbEvento.getSelectedItem().toString());
+                rs = conn.query(sql);
+                while(rs != null && rs.next()){
+                    aux = rs.getInt("numed");
+                    cbEdicao.addItem(aux);
+                }
+                if (rs != null) { rs.close(); }
+                conn.disconect();
+            } catch (SQLException ex) {
+                Logger.getLogger(Patrocinio.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_cbEventoFocusLost
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox cbEdicao;
+    private javax.swing.JComboBox cbEvento;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JComboBox jComboBox1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel lEdicao;
+    private javax.swing.JLabel lEvento;
     // End of variables declaration//GEN-END:variables
+
+private void mInitialize(String cnpj, String codev) {
+        if(this.cadastrarButton.getText().matches("Cadastrar")){
+            cbEvento.addItem("-");
+            cbEdicao.addItem("-");
+            cbPatrocinador.addItem("-");
+        }
+        // New nas listas
+        this.listaEventos = new HashMap<String, Integer>();
+        this.listaPatrocinadores = new HashMap<String, Long>();
+        
+        // popula os comboboxes de Evento e Patrocinador:
+        DBconnection conn = new DBconnection();
+        ResultSet rs = null;
+        String sql;
+        String auxNome=null;
+              
+        
+        try { // Eventos
+            if(codev == null) { // No caso de cadastro:
+                sql = "SELECT codEv, nomeEv from evento";
+            
+                rs = conn.query(sql);
+                while(rs != null && rs.next()){
+                    auxNome = rs.getString("nomeEv");
+                    cbEvento.addItem(auxNome);
+                    this.listaEventos.put(auxNome, rs.getInt("codEv"));
+                }
+            } else { // No caso de atualizacao:
+                sql = "SELECT nomeEv from evento WHERE codEv = "+codev;
+                rs = conn.query(sql);
+                if(rs != null && rs.next()){
+                    cbEvento.addItem(rs.getString("nomeEv"));
+                }
+            } 
+            if (rs != null) { rs.close(); } 
+            conn.disconect();
+        } catch (SQLException ex) {
+            Logger.getLogger(Patrocinio.class.getName()).log(Level.SEVERE, null, ex);
+        }
+            
+        try { // Patrocinador
+            conn = new DBconnection();
+            if(cnpj == null) { // No caso de cadastro:
+                sql = "SELECT cnpjPat, razaoSocialPat FROM patrocinador";
+                rs = conn.query(sql);
+
+                while(rs != null && rs.next()){
+                    auxNome = rs.getString("razaoSocialPat");
+                    cbPatrocinador.addItem(auxNome);
+                    this.listaPatrocinadores.put(auxNome, rs.getLong("cnpjPat"));
+                }
+            }else{ // No caso de atualizacao:
+                sql = "SELECT razaoSocialPat from patrocinador WHERE cnpjPat = "+cnpj;
+                rs = conn.query(sql);
+                if(rs != null && rs.next()){
+                    cbPatrocinador.addItem(rs.getString("razaoSocialPat"));
+                }
+            }
+            if (rs != null) { rs.close(); } 
+            conn.disconect();
+        } catch (SQLException ex) {
+            Logger.getLogger(Patrocinio.class.getName()).log(Level.SEVERE, null, ex);
+        }                  
+    }
+
 }

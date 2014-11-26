@@ -86,7 +86,10 @@ public class LoadFrame extends AbstractJFrame {
                 this.form = new Inscrito(this);
                 break;
             case Config.ORGANIZADOR:
-                this.form = new Organizador(this);
+                if(flagCadastro) { this.form = new Organizador(this); }
+                else{
+                    this.form = new Organizador(this, obj);
+                }
                 break;
             case Config.PATROCINADOR:
                 if(flagCadastro) { this.form = new Patrocinador(this); }
@@ -614,6 +617,23 @@ public class LoadFrame extends AbstractJFrame {
                         this.tableAll.getValueAt(linha, 1).toString(), 
                         this.tableAll.getValueAt(linha, 2).toString(), 
                         dataPat, valorPat);
+            }else if (this.table == Config.ORGANIZADOR){
+                String telefone=null;
+                String nacionalidade=null;
+                String endereco = null;
+                if(this.tableAll.getValueAt(linha, 4) != null){
+                    telefone = this.tableAll.getValueAt(linha, 4).toString();
+                }
+                if(this.tableAll.getValueAt(linha, 5) != null){
+                    nacionalidade = this.tableAll.getValueAt(linha, 5).toString();
+                }
+                if(this.tableAll.getValueAt(linha, 6) != null){
+                    endereco = this.tableAll.getValueAt(linha, 6).toString();
+                }
+                o = new EPessoa(this.tableAll.getValueAt(linha, 0).toString(), 
+                        this.tableAll.getValueAt(linha,1).toString(), 
+                        this.tableAll.getValueAt(linha, 2).toString(), 
+                        this.tableAll.getValueAt(linha, 3).toString(), telefone, nacionalidade, endereco);
             }
 
 
