@@ -136,7 +136,7 @@ public class Organizador extends AbstractJFrame {
 
     private void cbEventoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cbEventoFocusLost
         // Se for atualizacao nao faz nada
-        if(cadastrarButton.getText().matches("Atualizar")){return;}
+        /*if(cadastrarButton.getText().matches("Atualizar")){return;}
         // Limpa o combobox
         cbEdicao.removeAllItems();
         cbEdicao.addItem("-");
@@ -159,7 +159,7 @@ public class Organizador extends AbstractJFrame {
             } catch (SQLException ex) {
                 Logger.getLogger(Patrocinio.class.getName()).log(Level.SEVERE, null, ex);
             }
-        }
+        }*/
     }//GEN-LAST:event_cbEventoFocusLost
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -174,7 +174,7 @@ public class Organizador extends AbstractJFrame {
     // End of variables declaration//GEN-END:variables
 
 private void mInitialize(String cnpj, String codev) {
-        if(this.cadastrarButton.getText().matches("Cadastrar")){
+        /*if(this.cadastrarButton.getText().matches("Cadastrar")){
             cbEvento.addItem("-");
             cbEdicao.addItem("-");
             cbPatrocinador.addItem("-");
@@ -235,7 +235,7 @@ private void mInitialize(String cnpj, String codev) {
             conn.disconect();
         } catch (SQLException ex) {
             Logger.getLogger(Patrocinio.class.getName()).log(Level.SEVERE, null, ex);
-        }                  
+        }   */               
     }
 
 }

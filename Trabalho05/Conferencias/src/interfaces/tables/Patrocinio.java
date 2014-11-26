@@ -247,18 +247,18 @@ public class Patrocinio extends AbstractJFrame {
                     System.out.println("SQL: "+sql);
                     conn.execute(sql);
                     conn.disconect();
-                    (new Mensagem(this, null, SUCCESS, CADASTRO)).setEnabled(true);
+                    (new Mensagem(this, this.anterior, null, SUCCESS, CADASTRO)).setEnabled(true);
                 }catch(SQLException e){
                     String sujeito = "Patrocínio";
                     switch(e.getErrorCode()){
                         case -1 : // Chave duplicada
                         {
-                            (new Mensagem(this, sujeito+" já cadastrado no sistema.", FAIL, CADASTRO)).setEnabled(true);
+                            (new Mensagem(this, this.anterior, sujeito+" já cadastrado no sistema.", FAIL, CADASTRO)).setEnabled(true);
                             break;
                         }
                         case 1 : // Violacao de constraint UNIQUE
                         {
-                            (new Mensagem(this, sujeito+" já cadastrado no sistema.", FAIL, CADASTRO)).setEnabled(true);
+                            (new Mensagem(this, this.anterior, sujeito+" já cadastrado no sistema.", FAIL, CADASTRO)).setEnabled(true);
                             break;
                         }
                         case 911: // Erro de sintaxe! q feio ...
@@ -284,7 +284,7 @@ public class Patrocinio extends AbstractJFrame {
                 System.out.println("SQL: "+sql);
                 conn.execute(sql);
                 conn.disconect();
-                (new Mensagem(this, null, SUCCESS, ATUALIZACAO)).setEnabled(true);
+                (new Mensagem(this, this.anterior, null, SUCCESS, ATUALIZACAO)).setEnabled(true);
             }catch(SQLException e){
                 String sujeito = "Patrocínio";
                 switch(e.getErrorCode()){
@@ -295,12 +295,12 @@ public class Patrocinio extends AbstractJFrame {
                     }
                     case 904:
                     {
-                        (new Mensagem(this,"Uso de caracter não permitido.", FAIL, ATUALIZACAO)).setEnabled(true);
+                        (new Mensagem(this, this.anterior, "Uso de caracter não permitido.", FAIL, ATUALIZACAO)).setEnabled(true);
                         break;
                     }
                     default:
                     {
-                        (new Mensagem(this, e.getMessage(), FAIL, ATUALIZACAO)).setEnabled(true);
+                        (new Mensagem(this, this.anterior, e.getMessage(), FAIL, ATUALIZACAO)).setEnabled(true);
                         System.out.println("ERROR CODE: "+e.getErrorCode());
                         e.printStackTrace();
                         break;
