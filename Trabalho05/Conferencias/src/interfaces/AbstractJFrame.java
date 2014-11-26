@@ -23,6 +23,10 @@ public abstract class AbstractJFrame extends javax.swing.JFrame implements Confi
     protected JFrame anterior;
 
     private ArrayList<String> tableAttr = new ArrayList<>();
+    private ArrayList<String> fromAttr = new ArrayList<>();
+    private ArrayList<String> whereAttr = new ArrayList<>();
+    private String tablename;
+    private String sqlBasic = new String();
     
      // true : Cadastro, false : Atualizacao
     protected boolean flagCadastro; // ta ruim, mas foi o que consegui pensar, sugestoes?
@@ -104,13 +108,52 @@ public abstract class AbstractJFrame extends javax.swing.JFrame implements Confi
      * 
      * @return 
      */
-    public String getStringList(){
+    public String prepareSelect(){
         String conv = new String();
-        for(int i = 0; i < tableAttr.size()-1; i++ ){
+        
+        //int size = tableAttr.size();
+        conv = conv.concat("SELECT ");
+        
+        for(int i = 0; i < tableAttr.size(); i++ ){          
+            if(i != 0)
+                conv = conv.concat(",");
+            
+            if( this.tableAttr.get(i).equalsIgnoreCase("codev") && !this.tablename.equalsIgnoreCase("evento")){
+               conv = conv.concat("evento." + tableAttr.get(i));
+               continue;
+            }
+            if( this.tableAttr.get(i).equalsIgnoreCase("cnpjpat") && !this.tablename.equalsIgnoreCase("patrocinador")){
+                conv = conv.concat("patrocinador." + tableAttr.get(i));
+                continue;
+            }
+            if( this.tableAttr.get(i).equalsIgnoreCase("idpe") && !this.tablename.equalsIgnoreCase("pessoa")){
+                conv = conv.concat("pessoa." + tableAttr.get(i));
+                continue;
+            }
+             if( this.tableAttr.get(i).equalsIgnoreCase("idart") && !this.tablename.equalsIgnoreCase("artigo")){
+                conv = conv.concat("artigo." + tableAttr.get(i));
+                continue;
+            }
             conv = conv.concat(tableAttr.get(i));
-            conv = conv.concat(",");
         }
-        conv = conv.concat(tableAttr.get(tableAttr.size()-1));
+        
+        conv = conv.concat(" FROM ");
+        for(int i = 0; i < fromAttr.size(); i++ ){          
+            conv = conv.concat(fromAttr.get(i));
+            if(i != (fromAttr.size()-1))
+                conv = conv.concat(",");
+        }
+        
+        if(fromAttr.size() > 1){
+            conv = conv.concat(" WHERE ");
+            for(int i = 0; i < whereAttr.size(); i++ ){          
+                conv = conv.concat(whereAttr.get(i));
+                if(i != (whereAttr.size()-1))
+                    conv = conv.concat(" AND ");
+        }
+        
+        }
+        
         return conv;
     }
     
@@ -125,11 +168,16 @@ public abstract class AbstractJFrame extends javax.swing.JFrame implements Confi
         DBconnection dbcon;
         dbcon = new DBconnection();
         ResultSet res;
+        
         int k;
+        
+        this.sqlBasic = prepareSelect();
+        System.out.println(this.sqlBasic + "\n");
 
         if(!tablename.isEmpty()){
             try{
-               res = dbcon.query("SELECT "+ getStringList() +" FROM "+ tablename.toLowerCase());
+//           
+               res = dbcon.query(this.sqlBasic);
                k = 0;
 
                 while(res.next()) {
@@ -175,8 +223,60 @@ public abstract class AbstractJFrame extends javax.swing.JFrame implements Confi
             
         }
       }
-        return (Object[][]) new Object();
+        return null;
     } 
+    
+    public void findAllAttr(){
+        
+         for(int i = 0; i < this.tableAttr.size(); i++ ){
+            if( this.tableAttr.get(i).equalsIgnoreCase("codev") && !this.tablename.equalsIgnoreCase("evento")){
+                this.tableAttr.add("NOMEEV");
+                this.fromAttr.add("evento");
+                this.whereAttr.add(this.tablename + ".codev = evento.codev");
+            }
+            if( this.tableAttr.get(i).equalsIgnoreCase("cnpjpat") && !this.tablename.equalsIgnoreCase("patrocinador")){
+                this.tableAttr.add("RAZAOSOCIALPAT");
+                this.fromAttr.add("patrocinador"); 
+                this.whereAttr.add(this.tablename + ".cnpjpat = patrocinador.cnpjpat");
+            }
+            if( this.tableAttr.get(i).equalsIgnoreCase("idpe") && !this.tablename.equalsIgnoreCase("pessoa")){
+                this.tableAttr.add("NOMEPE");
+                this.fromAttr.add("pessoa");
+                this.whereAttr.add(this.tablename + ".idpe = pessoa.idpe");
+            }
+            if( this.tableAttr.get(i).equalsIgnoreCase("idorg") && !this.tablename.equalsIgnoreCase("pessoa")){
+                this.tableAttr.add("NOMEPE");
+                this.fromAttr.add("pessoa"); 
+                this.whereAttr.add(this.tablename + ".idorg = pessoa.idpe");
+            }
+            if( this.tableAttr.get(i).equalsIgnoreCase("idaut") && !this.tablename.equalsIgnoreCase("pessoa")){
+                this.tableAttr.add("NOMEPE");
+                this.fromAttr.add("pessoa"); 
+                this.whereAttr.add(this.tablename + ".idaut = pessoa.idpe");
+            }
+            if( this.tableAttr.get(i).equalsIgnoreCase("idapr") && !this.tablename.equalsIgnoreCase("pessoa")){
+                this.tableAttr.add("NOMEPE");
+                this.fromAttr.add("pessoa");
+                this.whereAttr.add(this.tablename + ".idapr = pessoa.idpe");
+            }
+            if( this.tableAttr.get(i).equalsIgnoreCase("idpart") && !this.tablename.equalsIgnoreCase("pessoa")){
+                this.tableAttr.add("NOMEPE");
+                this.fromAttr.add("pessoa");
+                this.whereAttr.add(this.tablename + ".idpart = pessoa.idpe");
+            }
+             if( this.tableAttr.get(i).equalsIgnoreCase("idart") && !this.tablename.equalsIgnoreCase("artigo")){
+                this.tableAttr.add("TITULOART");
+                this.fromAttr.add("artigo"); 
+                this.whereAttr.add(this.tablename + ".idart = artigo.idart");
+            }
+//            if( this.tableAttr.get(i).equalsIgnoreCase("codevpat") && !this.tablename.equalsIgnoreCase("evento")){
+//                this.tableAttr.add("NOMEEV");
+//                this.fromAttr.add("evento");
+//                this.whereAttr.add(this.tablename + ".codevpat = evento.codev");
+//            }
+            
+        }
+    }
     
     /**
      * 
@@ -187,6 +287,9 @@ public abstract class AbstractJFrame extends javax.swing.JFrame implements Confi
         DBconnection dbcon;
         dbcon = new DBconnection();
         ResultSet res;
+        this.tablename = tablename;
+        this.fromAttr.add(tablename);
+        
         if(!tablename.isEmpty()){
             try{
                res = dbcon.query("SELECT COLUMN_NAME FROM ALL_TAB_COLUMNS WHERE lower(TABLE_NAME) = '" + tablename.toLowerCase() +"'");
@@ -195,6 +298,9 @@ public abstract class AbstractJFrame extends javax.swing.JFrame implements Confi
                 while(res.next()) {
                      this.tableAttr.add(res.getString(1));
                 }
+                
+                findAllAttr();
+
                 for(int i = 0; i < this.tableAttr.size(); i++){
                     System.out.println(this.tableAttr.get(i));
                 }
@@ -213,7 +319,6 @@ public abstract class AbstractJFrame extends javax.swing.JFrame implements Confi
                         break;
                     }
             }
-            
             dbcon.disconect();
         }
       }

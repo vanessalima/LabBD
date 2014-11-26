@@ -123,7 +123,7 @@ public class LoadFrame extends AbstractJFrame {
             case 8:
                 return "inscrito";
             case 9:
-                return "organizador";
+                return "organiza";
             case 10:
                 return "patrocinador";
             case 11:
