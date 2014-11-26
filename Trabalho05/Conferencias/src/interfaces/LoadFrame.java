@@ -630,10 +630,14 @@ public class LoadFrame extends AbstractJFrame {
                 if(this.tableAll.getValueAt(linha, 6) != null){
                     endereco = this.tableAll.getValueAt(linha, 6).toString();
                 }
-                o = new EPessoa(this.tableAll.getValueAt(linha, 0).toString(), 
-                        this.tableAll.getValueAt(linha,1).toString(), 
+        // (String idOrg, String cargoOrg, String codEv, String numEd, String nomePe, String nomeEv)         
+                o = new EOrganizador(this.tableAll.getValueAt(linha, 0).toString(), 
+                        this.tableAll.getValueAt(linha, 3).toString(), 
+                        this.tableAll.getValueAt(linha, 1).toString(), 
                         this.tableAll.getValueAt(linha, 2).toString(), 
-                        this.tableAll.getValueAt(linha, 3).toString(), telefone, nacionalidade, endereco);
+                        this.tableAll.getValueAt(linha, 4).toString(), 
+                        this.tableAll.getValueAt(linha, 5).toString());
+                
             }
 
 
