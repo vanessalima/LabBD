@@ -238,6 +238,7 @@ public class Patrocinador extends AbstractJFrame {
                         }
                         default:
                         {
+                            (new Mensagem(this, e.getMessage(), FAIL, CADASTRO)).setEnabled(true);
                             System.out.println("ERROR CODE: "+e.getErrorCode());
                             e.printStackTrace();
                             break;
@@ -263,6 +264,7 @@ public class Patrocinador extends AbstractJFrame {
                     }
                     default:
                     {
+                        (new Mensagem(this, e.getMessage(), FAIL, ATUALIZACAO)).setEnabled(true);
                         System.out.println("ERROR CODE: "+e.getErrorCode());
                         e.printStackTrace();
                         break;

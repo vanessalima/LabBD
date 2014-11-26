@@ -5,8 +5,7 @@
  */
 package interfaces;
 
-import entidades.EEdicao;
-import entidades.EEvento;
+import entidades.*;
 import entidades.EPatrocinador;
 import interfaces.tables.*;
 import java.sql.SQLException;
@@ -96,10 +95,16 @@ public class LoadFrame extends AbstractJFrame {
                 }
                 break;
             case Config.PATROCINIO:
-                this.form = new Patrocinio(this);
+                if (flagCadastro) { this.form = new Patrocinio(this); }
+                else{
+                    this.form = new Patrocinio(this, obj);
+                }
                 break;
             case Config.PESSOA:
-                this.form = new Pessoa(this);
+                if (flagCadastro) { this.form = new Pessoa(this); }
+                else {
+                    this.form = new Pessoa(anterior, obj);
+                }
                 break;
             default:
                 System.out.println("ERROR!!!");
@@ -572,7 +577,40 @@ public class LoadFrame extends AbstractJFrame {
                 }
                 o = new EPatrocinador(this.tableAll.getValueAt(linha, 0).toString(), 
                         razaoSocial, endereco, telefone);
-                
+            }if (this.table == Config.PESSOA){
+                String telefone=null;
+                String nacionalidade=null;
+                String endereco = null;
+                if(this.tableAll.getValueAt(linha, 4) != null){
+                    telefone = this.tableAll.getValueAt(linha, 4).toString();
+                }
+                if(this.tableAll.getValueAt(linha, 5) != null){
+                    nacionalidade = this.tableAll.getValueAt(linha, 5).toString();
+                }
+                if(this.tableAll.getValueAt(linha, 6) != null){
+                    endereco = this.tableAll.getValueAt(linha, 6).toString();
+                }
+                o = new EPessoa(this.tableAll.getValueAt(linha, 0).toString(), 
+                        this.tableAll.getValueAt(linha,1).toString(), 
+                        this.tableAll.getValueAt(linha, 2).toString(), 
+                        this.tableAll.getValueAt(linha, 3).toString(), telefone, nacionalidade, endereco);
+            }if (this.table == Config.PATROCINIO){
+                String dataPat = null;
+                String valorPat = null;
+                String auxDataHora[] = null;
+                String auxData[] = null;
+                if(this.tableAll.getValueAt(linha, 3) != null){
+                    auxDataHora = this.tableAll.getValueAt(linha, 3).toString().split(" ");
+                    auxData = auxDataHora[0].split("-");
+                    dataPat = auxData[2]+"/"+auxData[1]+"/"+auxData[0];
+                }
+                if(this.tableAll.getValueAt(linha, 4) != null){
+                    valorPat = this.tableAll.getValueAt(linha, 4).toString();
+                }
+                o = new EPatrocinio(this.tableAll.getValueAt(linha, 0).toString(),
+                        this.tableAll.getValueAt(linha, 1).toString(), 
+                        this.tableAll.getValueAt(linha, 2).toString(), 
+                        dataPat, valorPat);
             }
 
 

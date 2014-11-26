@@ -41,19 +41,23 @@ public abstract class AbstractJFrame extends javax.swing.JFrame implements Confi
         // fecha a janela
         this.dispose();
         // reabre a janela anterior
-        this.anterior.setEnabled(true);
+//        this.anterior.setEnabled(true);
         this.anterior.setVisible(true);
     }                  
     
     protected void onClose(){
         this.dispose();
         // reabre a janela anterior
-        this.anterior.setEnabled(true);
+//        this.anterior.setEnabled(true);
         this.anterior.setVisible(true);
     }
     
-    protected void onDispose(){
-        this.anterior.dispose(); // fecha a janela anterior
+    protected void onDispose(){ // Fecha todas as janelas anteriores 
+        if(this.anterior instanceof AbstractJFrame){// fecha a janela anterior
+            ((AbstractJFrame)this.anterior).onDispose();
+        }else{
+            this.anterior.dispose(); // fecha a janela progenitora
+        }
         this.dispose();          // fecha a janela atual
     }
     
@@ -63,27 +67,15 @@ public abstract class AbstractJFrame extends javax.swing.JFrame implements Confi
     
     // Nos metodos abaixo seto a flag para cadastro ou atualizacao
     // Isso deve ser feito em LoadFrame, antes de dar setEnable() na classe
-    
-    /**
-     * 
-     */
+    // (Possivelmente vai sair esses metodos)
     public void setCadastro(){
         this.flagCadastro = true;
         System.out.println("Setou flagCadastro = "+flagCadastro);
     }
-    
-    /**
-     * 
-     */
     public void setAtualizacao(){
         this.flagCadastro = false;
         System.out.println("Setou flagCadastro = "+flagCadastro);
     }
-    
-    /**
-     * 
-     * @return 
-     */
     public boolean isCadastro(){
         System.out.println(" ---- flagCadastro: "+flagCadastro);
         return this.flagCadastro;
@@ -324,6 +316,27 @@ public abstract class AbstractJFrame extends javax.swing.JFrame implements Confi
             System.out.println("ERROR CODE: "+e.getErrorCode());
             System.out.println("Problema para desconectar");
         }
+    }
+    
+    
+    // Tentativa fiasco de fazer o update generico. Vanessa se vc nao for mexer 
+    // com isso pode deletar. Só deixei aqui pra modi ajuda ocê se caso
+    // cê tentasse se aventura por essa zágua.
+    public void updateTable(String tableName, String[] params, String values[], String key[], String keyValue[]){
+        // Não está sendo feita verificacoes de tipo aqui. Assume-se que os parâmetros já estão prontos para montar o comando sql.
+        int i = 0;
+        String sql = "UPDATE "+tableName+" SET ";
+        for(i = 0; i < params.length-1; i++){
+            sql += params[i]+" = "+values[i]+", ";
+        }
+        sql += params[i]+" = "+values[i];
+        sql += " WHERE ";
+        for(i=0; i < key.length-1; i++){
+            sql += key[i]+" = "+keyValue[i]+" AND ";
+        }
+        sql += key[i]+" = "+keyValue[i];
+        
+        System.out.println("SQL [UPDATE] = "+sql);
     }
 
 }

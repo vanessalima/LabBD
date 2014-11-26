@@ -7,6 +7,8 @@ package interfaces.tables;
 import conferencias.DBconnection;
 import entidades.EPessoa;
 import interfaces.AbstractJFrame;
+import static interfaces.Config.ATUALIZACAO;
+import static interfaces.Config.SUCCESS;
 import interfaces.Mensagem;
 import java.awt.Color;
 import java.sql.SQLException;
@@ -19,11 +21,13 @@ import javax.swing.JFrame;
 
 public class Pessoa extends AbstractJFrame {
     
+    private EPessoa p;
+    
     // Construtor para Cadastro
     public Pessoa(JFrame ant) { 
         super(ant);
         initComponents();
-        this.setTitle("Cadastro de Evento");
+        this.setTitle("Cadastro de Pessoa");
         this.cadastrarButton.setText("Cadastrar");
     }
     
@@ -31,10 +35,18 @@ public class Pessoa extends AbstractJFrame {
     public Pessoa(JFrame ant, Object obj){
         super(ant);
         initComponents();
+        this.setTitle("Atualização de Pessoa");
+        this.cadastrarButton.setText("Atualizar");
+        tfEmail.setEditable(false);
+//        tfInstituicao.setEditable(false);
+//        tfNome.setEditable(false);
         if(obj instanceof EPessoa){
-            EPessoa p = (EPessoa)obj;
-            this.setTitle("Atualização de Evento");
-            this.cadastrarButton.setText("Atualizar");
+            this.p = (EPessoa)obj;
+            tfEmail.setText(p.getEmail());
+            tfEndereco.setText(p.getEndereco());
+            tfInstituicao.setText(p.getInstituicao());
+            tfNome.setText(p.getNome());
+            tfTelefone.setText(p.getTelefone());
         }
     }
     
@@ -245,6 +257,7 @@ public class Pessoa extends AbstractJFrame {
                         }
                         default:
                         {
+                            (new Mensagem(this, e.getMessage(), FAIL, CADASTRO)).setEnabled(true);
                             System.out.println("ERROR CODE: "+e.getErrorCode());
                             e.printStackTrace();
                             break;
@@ -253,7 +266,40 @@ public class Pessoa extends AbstractJFrame {
                 }
             }
         } else { // É Atualizacao!
+            if(tfNome.getText().matches("") || tfEmail.getText().matches("") || tfInstituicao.getText().matches("")){
+               infoLabel.setForeground(Color.red);
+               lNome.setForeground(Color.red);
+               lEmail.setForeground(Color.red);
+               lInstituicao.setForeground(Color.red);
+           }else{
+                try{
+                    conn = new DBconnection();
+                    //TODO: testar:
+                    sql = "UPDATE PESSOA SET nomePe = '"+tfNome.getText()+"', instituicaoPe = '"+
+                            tfInstituicao.getText()+"', telefonePe = '"+tfTelefone.getText()+"', nacionalidadePe = '"+
+                            cbNacionalidade.getSelectedItem().toString()+"', enderecoPe = '"+
+                            tfEndereco.getText()+"' WHERE idPe = "+this.p.getIdPe();
+                    conn.executeCommand(sql);
+                    conn.disconect();
+                    (new Mensagem(this.anterior, null, SUCCESS, ATUALIZACAO)).setEnabled(true);
+                }catch(SQLException e){
+                    switch(e.getErrorCode()){
+                        case 911: // Erro de sintaxe! q feio ...
+                        {
+                            System.out.println("Erro de sintaxe do comando sql. Obs.: Talvez você tenha se esquecido de tirar o ; do final. :P ");
+                            break;
+                        }
+                        default:
+                        {
+                            (new Mensagem(this, e.getMessage(), FAIL, ATUALIZACAO)).setEnabled(true);
+                            System.out.println("ERROR CODE: "+e.getErrorCode());
+                            e.printStackTrace();
+                            break;
+                        }
+                    }
+                }
 
+            }
         }
     }//GEN-LAST:event_cadastrarButtonActionPerformed
 
