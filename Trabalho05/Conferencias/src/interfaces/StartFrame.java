@@ -8,6 +8,7 @@ package interfaces;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFrame;
 
 /**
  *
@@ -20,6 +21,7 @@ public class StartFrame extends javax.swing.JFrame {
      * Creates new form StartFrame
      */
     public StartFrame() {
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         initComponents();
     }
 
@@ -442,7 +444,6 @@ public class StartFrame extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(StartFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
