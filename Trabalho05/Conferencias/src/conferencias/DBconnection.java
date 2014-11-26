@@ -92,6 +92,16 @@ public class DBconnection {
      * @throws java.sql.SQLException
      */
     public boolean execute(String sql) throws SQLException{
+        /* CODIGO PARA FAZER USO DE TRANSACTIONS
+        String updateTableSQL = "UPDATE DBUSER SET USERNAME =? "
+                                + "WHERE USER_ID = ?";
+
+        preparedStatementUpdate = dbConnection.prepareStatement(updateTableSQL);
+        preparedStatementUpdate.setString(1, "A very very long string caused DATABASE ERROR"); 
+        preparedStatementUpdate.setInt(2, 999);
+
+        preparedStatementUpdate.executeUpdate();
+        */
         Statement stmt = this.con.createStatement();
 //        System.out.println(" .. . STMT: "+stmt.toString()+"\n | SQL: "+sql);
         boolean ret = stmt.execute(sql); // insert, create

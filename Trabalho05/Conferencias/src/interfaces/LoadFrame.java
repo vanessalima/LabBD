@@ -481,6 +481,8 @@ public class LoadFrame extends AbstractJFrame {
         line.add(String.valueOf(this.numberFiltro.getSelectedItem()));
         line.add(this.textfiltro.getText());
         
+        this.textfiltro.setText("");
+        
         this.filters.add(line);
         this.reloadFiltersTable();
     }//GEN-LAST:event_addFiltroActionPerformed
@@ -505,6 +507,7 @@ public class LoadFrame extends AbstractJFrame {
         // TODO add your handling code here:
         
         //FAZER BUSCA
+        this.getSearch(this.getTableName(this.table), this.filters);
     }//GEN-LAST:event_selectFiltrosActionPerformed
 
     private void tableAllMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableAllMouseClicked
