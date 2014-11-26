@@ -169,7 +169,7 @@ public class Edicao extends AbstractJFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(layout.createSequentialGroup()
-                .addContainerGap(20, Short.MAX_VALUE)
+                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                     .add(layout.createSequentialGroup()
                         .add(infoLabel)
@@ -214,7 +214,7 @@ public class Edicao extends AbstractJFrame {
                                     .add(18, 18, 18)
                                     .add(cadastrarButton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 130, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
                             .add(tfTaxa, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 106, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                        .add(20, 20, 20))))
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -231,9 +231,9 @@ public class Edicao extends AbstractJFrame {
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(jLabel7)
                     .add(tfLocal, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                .add(18, 18, 18)
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                     .add(layout.createSequentialGroup()
-                        .add(18, 18, 18)
                         .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                             .add(jLabel8)
                             .add(tfTaxa, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
@@ -255,7 +255,7 @@ public class Edicao extends AbstractJFrame {
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 49, Short.MAX_VALUE)
                         .add(infoLabel))
                     .add(layout.createSequentialGroup()
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .add(0, 0, Short.MAX_VALUE)
                         .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                             .add(cancelarButton)
                             .add(cadastrarButton))))
@@ -338,6 +338,7 @@ public class Edicao extends AbstractJFrame {
                         }
                         default:
                         {
+                            (new Mensagem(this, e.getMessage(), FAIL, CADASTRO)).setEnabled(true);
                             System.out.println("ERROR CODE: "+e.getErrorCode());
                             e.printStackTrace();
                             break;
@@ -357,7 +358,6 @@ public class Edicao extends AbstractJFrame {
                 } else {
                     sqlDataInicio = "to_date('"+tfDataInicio.getText()+"', 'DD/MM/YYYY')";
                 }
-
                 if (tfDataFim.getText().matches("  /  /    ")){
                     sqlDataFim = null;
                 } else {
@@ -369,6 +369,7 @@ public class Edicao extends AbstractJFrame {
                 } else {
                     taxaEv = tfTaxa.getText();
                 }
+                                
                 sql = "UPDATE EDICAO SET descricaoEd = '"+taDescricao.getText().trim()+"', taxaEd = "+
                         taxaEv+", localEd = '"+tfLocal.getText()+"', dataFimEd = "+
                         sqlDataFim+", dataInicioEd = "+sqlDataInicio+
@@ -387,6 +388,7 @@ public class Edicao extends AbstractJFrame {
                     }
                     default:
                     {
+                        (new Mensagem(this, e.getMessage(), FAIL, ATUALIZACAO)).setEnabled(true);
                         System.out.println("ERROR CODE: "+e.getErrorCode());
                         e.printStackTrace();
                         break;

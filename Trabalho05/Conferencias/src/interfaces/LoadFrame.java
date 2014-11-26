@@ -95,7 +95,10 @@ public class LoadFrame extends AbstractJFrame {
                 }
                 break;
             case Config.PATROCINIO:
-                this.form = new Patrocinio(this);
+                if (flagCadastro) { this.form = new Patrocinio(this); }
+                else{
+                    this.form = new Patrocinio(this, obj);
+                }
                 break;
             case Config.PESSOA:
                 if (flagCadastro) { this.form = new Pessoa(this); }
@@ -592,6 +595,23 @@ public class LoadFrame extends AbstractJFrame {
                         this.tableAll.getValueAt(linha,1).toString(), 
                         this.tableAll.getValueAt(linha, 2).toString(), 
                         this.tableAll.getValueAt(linha, 3).toString(), telefone, nacionalidade, endereco);
+            }if (this.table == Config.PATROCINIO){
+                String dataPat = null;
+                String valorPat = null;
+                String auxDataHora[] = null;
+                String auxData[] = null;
+                if(this.tableAll.getValueAt(linha, 3) != null){
+                    auxDataHora = this.tableAll.getValueAt(linha, 3).toString().split(" ");
+                    auxData = auxDataHora[0].split("-");
+                    dataPat = auxData[2]+"/"+auxData[1]+"/"+auxData[0];
+                }
+                if(this.tableAll.getValueAt(linha, 4) != null){
+                    valorPat = this.tableAll.getValueAt(linha, 4).toString();
+                }
+                o = new EPatrocinio(this.tableAll.getValueAt(linha, 0).toString(),
+                        this.tableAll.getValueAt(linha, 1).toString(), 
+                        this.tableAll.getValueAt(linha, 2).toString(), 
+                        dataPat, valorPat);
             }
 
 

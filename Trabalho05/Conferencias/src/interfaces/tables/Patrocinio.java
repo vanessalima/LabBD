@@ -6,7 +6,9 @@
 package interfaces.tables;
 
 import conferencias.DBconnection;
+import entidades.EPatrocinio;
 import interfaces.AbstractJFrame;
+import interfaces.LoadFrame;
 import interfaces.Mensagem;
 import java.awt.Color;
 import java.sql.ResultSet;
@@ -25,7 +27,7 @@ import javax.swing.JFrame;
 public class Patrocinio extends AbstractJFrame {
     private HashMap<String, Integer> listaEventos;    
     private HashMap<String, Long> listaPatrocinadores;
-
+    private EPatrocinio p;
     
     /**
      * Creates new form Patrocinios
@@ -33,7 +35,27 @@ public class Patrocinio extends AbstractJFrame {
     public Patrocinio(JFrame ant) {
         super(ant);
         initComponents();
-        this.mInitialize();
+        this.mInitialize(null, null);
+        this.setTitle("Cadastro de Patrocínio");
+        this.cadastrarButton.setText("Cadastrar");
+    }
+
+    public Patrocinio(JFrame ant, Object obj) {
+        super(ant);
+        initComponents();
+        this.setTitle("Atualização de Patrocínio");
+        this.cadastrarButton.setText("Atualizar");
+        this.infoLabel.setText("*Campos que não podem ser alterados");
+        this.cbEvento.setEditable(false);
+        this.cbEdicao.setEditable(false);
+        this.cbPatrocinador.setEditable(false);
+        if (obj instanceof EPatrocinio){
+            this.p = (EPatrocinio)obj;
+            this.mInitialize(this.p.getCnpj(), this.p.getCodEv());
+            this.tfValor.setText(this.p.getValorPat());
+            this.tfDataPatrocinio.setText(this.p.getDataPat());
+            this.cbEdicao.addItem(this.p.getNumEd());
+        }
     }
 
     /**
@@ -193,7 +215,14 @@ public class Patrocinio extends AbstractJFrame {
     private void cadastrarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarButtonActionPerformed
         DBconnection conn;
         String sql;
-        String sqlDataPatrocinio;
+        String sqlDataPatrocinio=null;
+        String valorPat=null;
+        if (!tfDataPatrocinio.getText().matches("  /  /    ")){
+            sqlDataPatrocinio = "to_date('"+tfDataPatrocinio.getText()+"', 'DD/MM/YYYY')";
+        }
+        if(!tfValor.getText().matches("")){
+            valorPat = tfValor.getText();
+        }
         if(this.cadastrarButton.getText().matches("Cadastrar")){ // testa se é cadastro
             if(cbEvento.getSelectedItem().toString().matches("-") || cbEdicao.getSelectedItem().toString().matches("-") || cbPatrocinador.getSelectedItem().toString().matches("-")){
                 infoLabel.setForeground(Color.red);
@@ -201,17 +230,21 @@ public class Patrocinio extends AbstractJFrame {
                 lEdicao.setForeground(Color.red);
                 lPatrocinador.setForeground(Color.red);
             } else {
-                if (tfDataPatrocinio.getText().matches("  /  /    ")){
-                    sqlDataPatrocinio = null;
-                } else {
-                    sqlDataPatrocinio = "to_date('"+tfDataPatrocinio.getText()+"', 'DD/MM/YYYY')";
-                }
+//                if (tfDataPatrocinio.getText().matches("  /  /    ")){
+//                    sqlDataPatrocinio = null;
+//                } else {
+//                    sqlDataPatrocinio = "to_date('"+tfDataPatrocinio.getText()+"', 'DD/MM/YYYY')";
+//                }
+//                if(!tfValor.getText().matches("")){
+//                    valorPat = tfValor.getText();
+//                }
                 try{
                     conn = new DBconnection();
                     sql = "INSERT INTO patrocinio(cnpjPat, codEv, numEd, valorPat, dataPat) VALUES("+
                             this.listaPatrocinadores.get(cbPatrocinador.getSelectedItem().toString())+", "+
                             this.listaEventos.get(cbEvento.getSelectedItem().toString())+", "+cbEdicao.getSelectedItem().toString()+", "+
-                            tfValor.getText()+", "+sqlDataPatrocinio+")";
+                            valorPat+", "+sqlDataPatrocinio+")";
+                    System.out.println("SQL: "+sql);
                     conn.execute(sql);
                     conn.disconect();
                     (new Mensagem(this, null, SUCCESS, CADASTRO)).setEnabled(true);
@@ -242,8 +275,38 @@ public class Patrocinio extends AbstractJFrame {
                     }
                 }
             }
-        } else { // É Atualizacao!
-
+        } else { // É Atualizacao! 
+             
+            try{
+                conn = new DBconnection();
+                sql = "UPDATE patrocinio SET dataPat = "+sqlDataPatrocinio+", valorPat = "+valorPat+" WHERE cnpjPat = "+
+                        this.p.getCnpj()+" AND codEv = "+this.p.getCodEv()+" AND numEd = "+this.p.getNumEd();
+                System.out.println("SQL: "+sql);
+                conn.execute(sql);
+                conn.disconect();
+                (new Mensagem(this, null, SUCCESS, ATUALIZACAO)).setEnabled(true);
+            }catch(SQLException e){
+                String sujeito = "Patrocínio";
+                switch(e.getErrorCode()){
+                    case 911: // Erro de sintaxe! q feio ...
+                    {
+                        System.out.println("Erro de sintaxe do comando sql. Obs.: Talvez você tenha se esquecido de tirar o ; do final. :P ");
+                        break;
+                    }
+                    case 904:
+                    {
+                        (new Mensagem(this,"Uso de caracter não permitido.", FAIL, ATUALIZACAO)).setEnabled(true);
+                        break;
+                    }
+                    default:
+                    {
+                        (new Mensagem(this, e.getMessage(), FAIL, ATUALIZACAO)).setEnabled(true);
+                        System.out.println("ERROR CODE: "+e.getErrorCode());
+                        e.printStackTrace();
+                        break;
+                    }
+                }
+            }
         }
 
     }//GEN-LAST:event_cadastrarButtonActionPerformed
@@ -253,6 +316,8 @@ public class Patrocinio extends AbstractJFrame {
     }//GEN-LAST:event_cbEventoMouseClicked
 
     private void cbEventoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cbEventoFocusLost
+        // Se for atualizacao nao faz nada
+        if(cadastrarButton.getText().matches("Atualizar")){return;}
         // Limpa o combobox
         cbEdicao.removeAllItems();
         cbEdicao.addItem("-");
@@ -301,30 +366,40 @@ public class Patrocinio extends AbstractJFrame {
     private javax.swing.JTextField tfValor;
     // End of variables declaration//GEN-END:variables
 
-    private void mInitialize() {
-        cbEvento.addItem("-");
-        cbEdicao.addItem("-");
-        cbPatrocinador.addItem("-");
-        
+    private void mInitialize(String cnpj, String codev) {
+        if(this.cadastrarButton.getText().matches("Cadastrar")){
+            cbEvento.addItem("-");
+            cbEdicao.addItem("-");
+            cbPatrocinador.addItem("-");
+        }
         // New nas listas
         this.listaEventos = new HashMap<String, Integer>();
         this.listaPatrocinadores = new HashMap<String, Long>();
         
         // popula os comboboxes de Evento e Patrocinador:
         DBconnection conn = new DBconnection();
-        ResultSet rs;
+        ResultSet rs = null;
         String sql;
         String auxNome=null;
               
         
         try { // Eventos
-            sql = "SELECT codEv, nomeEv from evento";
-            rs = conn.query(sql);
-            while(rs != null && rs.next()){
-                auxNome = rs.getString("nomeEv");
-                cbEvento.addItem(auxNome);
-                this.listaEventos.put(auxNome, rs.getInt("codEv"));
-            }
+            if(codev == null) { // No caso de cadastro:
+                sql = "SELECT codEv, nomeEv from evento";
+            
+                rs = conn.query(sql);
+                while(rs != null && rs.next()){
+                    auxNome = rs.getString("nomeEv");
+                    cbEvento.addItem(auxNome);
+                    this.listaEventos.put(auxNome, rs.getInt("codEv"));
+                }
+            } else { // No caso de atualizacao:
+                sql = "SELECT nomeEv from evento WHERE codEv = "+codev;
+                rs = conn.query(sql);
+                if(rs != null && rs.next()){
+                    cbEvento.addItem(rs.getString("nomeEv"));
+                }
+            } 
             if (rs != null) { rs.close(); } 
             conn.disconect();
         } catch (SQLException ex) {
@@ -333,13 +408,21 @@ public class Patrocinio extends AbstractJFrame {
             
         try { // Patrocinador
             conn = new DBconnection();
-            sql = "SELECT cnpjPat, razaoSocialPat FROM patrocinador";
-            rs = conn.query(sql);
-            
-            while(rs != null && rs.next()){
-                auxNome = rs.getString("razaoSocialPat");
-                cbPatrocinador.addItem(auxNome);
-                this.listaPatrocinadores.put(auxNome, rs.getLong("cnpjPat"));
+            if(cnpj == null) { // No caso de cadastro:
+                sql = "SELECT cnpjPat, razaoSocialPat FROM patrocinador";
+                rs = conn.query(sql);
+
+                while(rs != null && rs.next()){
+                    auxNome = rs.getString("razaoSocialPat");
+                    cbPatrocinador.addItem(auxNome);
+                    this.listaPatrocinadores.put(auxNome, rs.getLong("cnpjPat"));
+                }
+            }else{ // No caso de atualizacao:
+                sql = "SELECT razaoSocialPat from patrocinador WHERE cnpjPat = "+cnpj;
+                rs = conn.query(sql);
+                if(rs != null && rs.next()){
+                    cbPatrocinador.addItem(rs.getString("razaoSocialPat"));
+                }
             }
             if (rs != null) { rs.close(); } 
             conn.disconect();
