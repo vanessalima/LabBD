@@ -13,8 +13,12 @@ import javax.swing.JFrame;
  *
  * @author ch
  */
-public class Mensagem extends AbstractJFrame {
+public class Mensagem extends javax.swing.JFrame implements Config {
    
+    private JFrame cadastro;
+    private JFrame loadFrame;
+    private int status;
+    
     /**
      * Create new form Mensagem
      * @param ant ponteiro pra tela anterior
@@ -23,8 +27,14 @@ public class Mensagem extends AbstractJFrame {
      * @param status pode ser SUCCESS ou FAIL. 
      * @param tipo pode ser CADASTRO, ATUALIZACAO ou REMOCAO
      */  
-    public Mensagem(JFrame ant, String msgInfo, int status, int tipo){
-        super(ant);
+    public Mensagem(JFrame cadastro, JFrame load, String msgInfo, int status, int tipo){
+        this.cadastro = cadastro;
+        this.loadFrame = load;
+        this.status = status;
+        
+        this.cadastro.setEnabled(false);
+        this.cadastro.setVisible(false);
+        
         initComponents();
         
         // Mostra a msg de acordo com seu tipo:
@@ -139,11 +149,11 @@ public class Mensagem extends AbstractJFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-        super.onClose();
+        this.onClose();
     }//GEN-LAST:event_formWindowClosing
 
     private void doneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_doneActionPerformed
-        super.onClose();
+        this.onClose();
     }//GEN-LAST:event_doneActionPerformed
 
     /**
@@ -181,6 +191,20 @@ public class Mensagem extends AbstractJFrame {
 //        });
 //    }
 
+    
+    protected void onClose() {
+        this.dispose();
+        if(this.status == SUCCESS) {
+            this.cadastro.dispose();
+            this.loadFrame.setEnabled(true);
+            this.loadFrame.setVisible(true);
+        }
+        else {
+            this.cadastro.setVisible(true);
+            this.cadastro.setEnabled(true);
+        }
+        
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton done;
     private javax.swing.JLabel jLabel2;

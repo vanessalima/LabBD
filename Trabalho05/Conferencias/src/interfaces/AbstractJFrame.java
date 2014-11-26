@@ -63,6 +63,7 @@ public abstract class AbstractJFrame extends javax.swing.JFrame implements Confi
             this.anterior.dispose(); // fecha a janela progenitora
         }
         this.dispose();          // fecha a janela atual
+        System.exit(1);
     }
     
     public void teste() {
@@ -155,7 +156,7 @@ public abstract class AbstractJFrame extends javax.swing.JFrame implements Confi
      * @return
      * @throws SQLException 
      */
-    public Object[][] populateTable(String tablename) throws SQLException{
+    public Object[][] populateTable(String tablename) {
         ArrayList<ArrayList<String>> list2 = new ArrayList<ArrayList<String>>();
         DBconnection dbcon;
         dbcon = new DBconnection();
@@ -430,21 +431,27 @@ public abstract class AbstractJFrame extends javax.swing.JFrame implements Confi
     }
     
     
-    public void getSearch(String tablename, ArrayList<ArrayList<Object>> filters) {
-        if(tablename.isEmpty())
+    public Object[][] getSearch(String tablename, ArrayList<ArrayList<Object>> filters) {
+        if(tablename.isEmpty() || filters.isEmpty()) {
             System.out.println("ERRO: String vazia!");
+            return this.populateTable(tablename);
+        }
         
         DBconnection dbcon;
         dbcon = new DBconnection();
         String sql;
         int flag = 0;
-        ResultSet res;
+        ResultSet res = null;
+        int k = 0;
+        ArrayList<ArrayList<String>> list = new ArrayList<ArrayList<String>>();;
         
         try{
                sql = this.sqlBasic;
-               if(sql.contains("WHERE")){
+               if(sql.contains("WHERE"))
                    flag = 1;
-               }
+               else
+                   sql += " WHERE ";
+               
                        //"SELECT "+ this.getStringList() + " FROM "+tablename+" WHERE ";
                // itera pelos filtros, adicionando os mesmos na busca
                for(int i = 0; i < filters.size(); i++) {
@@ -452,6 +459,15 @@ public abstract class AbstractJFrame extends javax.swing.JFrame implements Confi
                        sql += " AND ";
                    }
                    flag = 1;
+                   
+                   // adiciona o nome da tabela caso seja o código da mesma
+                   if(filters.get(i).get(0).toString().toLowerCase().equals("codev") ||
+                           filters.get(i).get(0).toString().toLowerCase().equals("idpe") ||
+                           filters.get(i).get(0).toString().toLowerCase().equals("idart") ||
+                           filters.get(i).get(0).toString().toLowerCase().equals("cnpjpat") ) {
+                       sql += tablename + ".";
+                   }
+                   
                    switch(filters.get(i).get(1).toString()) {
                        case "<":
                        case ">":
@@ -502,8 +518,14 @@ public abstract class AbstractJFrame extends javax.swing.JFrame implements Confi
                res = dbcon.query(sql);
                
                while(res.next()) {
-                   System.out.println(res.getString(1));
-               }
+                    list.add(new ArrayList<String>() {});
+                    for (int j = 0; j < tableAttr.size(); j++){
+                        //System.out.println(tableAttr.get(j));
+                        //System.out.println(res.getString(tableAttr.get(j)));
+                        list.get(k).add(res.getString(tableAttr.get(j)));
+                    }
+                    k++;
+                }
                
             } catch(SQLException e) {
                 switch(e.getErrorCode()){
@@ -526,6 +548,17 @@ public abstract class AbstractJFrame extends javax.swing.JFrame implements Confi
             System.out.println("ERROR CODE: "+e.getErrorCode());
             System.out.println("Problema para desconectar");
         }
+        
+        if(res == null || list.isEmpty()) {
+            return this.populateTable(tablename);
+        }
+                
+        Object[][] b = new Object[list.size()][tableAttr.size()];
+        for(int i = 0; i < list.size(); i++){
+            b[i] = list.get(i).toArray();
+        }
+        
+        return b;
     }
     
     

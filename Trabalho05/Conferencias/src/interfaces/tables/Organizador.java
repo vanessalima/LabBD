@@ -34,23 +34,28 @@ public class Organizador extends AbstractJFrame {
     public Organizador(JFrame ant) {
         super(ant);
         initComponents();
-        this.mInitialize(null);
-        this.setTitle("Cadastro de Patrocínio");
+        this.mInitialize();
+        this.setTitle("Cadastro de Organizador");
         this.cadastrarButton.setText("Cadastrar");
     }
 
     public Organizador(JFrame ant, Object obj) {
         super(ant);
         initComponents();
-         this.setTitle("Atualização de Patrocínio");
+        this.setTitle("Atualização de Organizador");
         this.cadastrarButton.setText("Atualizar");
         this.infoLabel.setText("*Campos que não podem ser alterados");
         this.cbEvento.setEditable(false);
         this.cbEdicao.setEditable(false);
+        this.cbPessoa.setEditable(false);
+        this.cadastrarOrgButton.setEnabled(false);
+        this.cadastrarOrgButton.setVisible(false);
         if (obj instanceof EOrganizador){
             this.p = (EOrganizador)obj;
-//            this.mInitialize(this.p.getCodEv());
-//            this.cbEdicao.addItem(this.p.getNumEd());
+            this.cbPessoa.addItem(this.p.getNomePe());
+            this.cbEdicao.addItem(this.p.getNumEd());
+            this.cbEvento.addItem(this.p.getNomeEv());
+            this.tfCargo.setText(this.p.getCargoOrg());
         }
     }
 
@@ -77,6 +82,18 @@ public class Organizador extends AbstractJFrame {
         tfCargo = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        addWindowFocusListener(new java.awt.event.WindowFocusListener() {
+            public void windowGainedFocus(java.awt.event.WindowEvent evt) {
+                formWindowGainedFocus(evt);
+            }
+            public void windowLostFocus(java.awt.event.WindowEvent evt) {
+            }
+        });
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         cbEvento.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -95,7 +112,12 @@ public class Organizador extends AbstractJFrame {
 
         lPessoa.setText("Pessoa*");
 
-        cadastrarOrgButton.setText("Cadastrar Organizador");
+        cadastrarOrgButton.setText("Cadastrar Pessoa");
+        cadastrarOrgButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cadastrarOrgButtonActionPerformed(evt);
+            }
+        });
 
         jLabel2.setText("Cargo");
 
@@ -129,32 +151,28 @@ public class Organizador extends AbstractJFrame {
                             .addComponent(lEdicao))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cbEvento, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(cbEdicao, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGap(487, 487, 487))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(cbEvento, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addContainerGap())))
+                                .addComponent(cbEdicao, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(infoLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 151, Short.MAX_VALUE)
+                        .addComponent(cancelarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(cadastrarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(infoLabel)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(cancelarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(cadastrarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lPessoa)
-                                    .addComponent(jLabel2))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(cbPessoa, 0, 349, Short.MAX_VALUE)
-                                    .addComponent(tfCargo))
-                                .addGap(18, 18, 18)
-                                .addComponent(cadastrarOrgButton)
-                                .addGap(0, 0, Short.MAX_VALUE)))
-                        .addContainerGap())))
+                            .addComponent(lPessoa)
+                            .addComponent(jLabel2))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(cbPessoa, 0, 349, Short.MAX_VALUE)
+                            .addComponent(tfCargo))
+                        .addGap(18, 18, 18)
+                        .addComponent(cadastrarOrgButton)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -193,8 +211,9 @@ public class Organizador extends AbstractJFrame {
 
     private void cbEventoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cbEventoFocusLost
         // Se for atualizacao nao faz nada
-        if(cadastrarButton.getText().matches("Atualizar")){return;}
+        // if(cadastrarButton.getText().matches("Atualizar")){return;}
         // Limpa o combobox
+        if (cadastrarButton.getText().matches("Atualizar")){ return; }
         cbEdicao.removeAllItems();
         cbEdicao.addItem("-");
         if(!cbEvento.getSelectedItem().toString().matches("-")){
@@ -205,8 +224,9 @@ public class Organizador extends AbstractJFrame {
             Integer aux;
 
             try { // Edicoes
-                sql = "SELECT numed from edicao WHERE codEv = "+listaEventos.get(cbEvento.getSelectedItem().toString());
+                sql = "SELECT numed from edicao WHERE codEv = "+listaEventos.get(cbEvento.getSelectedItem().toString())+" ORDER BY numEd";
                 rs = conn.query(sql);
+                System.out.println("SQL: "+sql);
                 while(rs != null && rs.next()){
                     aux = rs.getInt("numed");
                     cbEdicao.addItem(aux);
@@ -241,17 +261,17 @@ public class Organizador extends AbstractJFrame {
                     this.listaPessoas.get(cbPessoa.getSelectedItem().toString())+", "+
                     this.listaEventos.get(cbEvento.getSelectedItem().toString())+", "+
                     cbEdicao.getSelectedItem().toString()+", '"+
-                    tfCargo+"')";
+                    tfCargo.getText()+"')";
                     System.out.println("SQL: "+sql);
                     conn.execute(sql);
                     conn.disconect();
-                    (new Mensagem(this, null, SUCCESS, CADASTRO)).setEnabled(true);
+                    (new Mensagem(this, this.anterior, null, SUCCESS, CADASTRO)).setEnabled(true);
                 }catch(SQLException e){
                     String sujeito = "Organizador ";
                     switch(e.getErrorCode()){
                         case -1 : // Chave duplicada
                         {
-                            (new Mensagem(this, sujeito+" já organiza essa edição do evento.", FAIL, CADASTRO)).setEnabled(true);
+                            (new Mensagem(this, this.anterior, sujeito+" já organiza essa edição do evento.", FAIL, CADASTRO)).setEnabled(true);
                             break;
                         }
                         case 911: // Erro de sintaxe! q feio ...
@@ -261,7 +281,7 @@ public class Organizador extends AbstractJFrame {
                         }
                         default:
                         {
-                            (new Mensagem(this, null, FAIL, CADASTRO)).setEnabled(true);
+                            (new Mensagem(this, this.anterior, null, FAIL, CADASTRO)).setEnabled(true);
                             System.out.println("ERROR CODE: "+e.getErrorCode());
                             e.printStackTrace();
                             break;
@@ -273,12 +293,12 @@ public class Organizador extends AbstractJFrame {
 
             try{
                 conn = new DBconnection();
-                sql = "UPDATE organiza SET cargoOrg = "+tfCargo+" WHERE idOrg = "+
+                sql = "UPDATE organiza SET cargoOrg = '"+tfCargo.getText()+"' WHERE idOrg = "+
                 this.p.getIdOrg()+" AND codEv = "+this.p.getCodEv()+" AND numEd = "+this.p.getNumEd();
                 System.out.println("SQL: "+sql);
                 conn.execute(sql);
                 conn.disconect();
-                (new Mensagem(this, null, SUCCESS, ATUALIZACAO)).setEnabled(true);
+                (new Mensagem(this, this.anterior, null, SUCCESS, ATUALIZACAO)).setEnabled(true);
             }catch(SQLException e){
                 switch(e.getErrorCode()){
                     case 911: // Erro de sintaxe! q feio ...
@@ -288,12 +308,12 @@ public class Organizador extends AbstractJFrame {
                     }
                     case 904:
                     {
-                        (new Mensagem(this,"Uso de caracter não permitido.", FAIL, ATUALIZACAO)).setEnabled(true);
+                        (new Mensagem(this, this.anterior,"Uso de caracter não permitido.", FAIL, ATUALIZACAO)).setEnabled(true);
                         break;
                     }
                     default:
                     {
-                        (new Mensagem(this, e.getMessage(), FAIL, ATUALIZACAO)).setEnabled(true);
+                        (new Mensagem(this, this.anterior, e.getMessage(), FAIL, ATUALIZACAO)).setEnabled(true);
                         System.out.println("ERROR CODE: "+e.getErrorCode());
                         e.printStackTrace();
                         break;
@@ -302,6 +322,38 @@ public class Organizador extends AbstractJFrame {
             }
         }
     }//GEN-LAST:event_cadastrarButtonActionPerformed
+
+    private void cadastrarOrgButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarOrgButtonActionPerformed
+        // TODO add your handling code here:
+        Pessoa framePessoa = new Pessoa(this);
+        framePessoa.setVisible(true);
+    }//GEN-LAST:event_cadastrarOrgButtonActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        // TODO add your handling code here:
+        this.onClose();
+    }//GEN-LAST:event_formWindowClosing
+
+    private void formWindowGainedFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowGainedFocus
+        // TODO add your handling code here:
+        try { // Pessoa
+            String sql;
+            ResultSet rs;
+            DBconnection conn = new DBconnection();
+            if(this.cadastrarButton.getText().matches("Cadastrar")) { // No caso de cadastro:
+                sql = "SELECT idPe, nomePe from pessoa ORDER BY nomePe";
+                System.out.println("SQL: "+sql);
+                rs = conn.query(sql);
+                while(rs != null && rs.next()){
+                    String auxNome = rs.getString("nomePe");
+                    cbPessoa.addItem(auxNome);
+                    this.listaPessoas.put(auxNome, rs.getInt("idPe"));
+                }
+            } 
+        } catch (SQLException ex) {
+            Logger.getLogger(Patrocinio.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_formWindowGainedFocus
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cadastrarButton;
@@ -318,7 +370,8 @@ public class Organizador extends AbstractJFrame {
     private javax.swing.JTextField tfCargo;
     // End of variables declaration//GEN-END:variables
 
-private void mInitialize(String codev) {
+
+    private void mInitialize() {
         if(this.cadastrarButton.getText().matches("Cadastrar")){
             cbEvento.addItem("-");
             cbEdicao.addItem("-");
@@ -333,57 +386,25 @@ private void mInitialize(String codev) {
         ResultSet rs = null;
         String sql;
         String auxNome=null;
-              
+        
         
         try { // Eventos
-            if(codev == null) { // No caso de cadastro:
-                sql = "SELECT codEv, nomeEv from evento";
+//            if(codev == null) { // No caso de cadastro:
+                sql = "SELECT codEv, nomeEv from evento order by nomeEv";
             
                 rs = conn.query(sql);
                 while(rs != null && rs.next()){
                     auxNome = rs.getString("nomeEv");
                     cbEvento.addItem(auxNome);
+                    System.out.println("inseriu...");
                     this.listaEventos.put(auxNome, rs.getInt("codEv"));
-                }
-            } 
-            else { // No caso de atualizacao:
-                cbEvento.addItem(this.p.getNomeEv());
-//                sql = "SELECT nomeEv from evento WHERE codEv = "+codev;
-//                rs = conn.query(sql);
-//                if(rs != null && rs.next()){
-//                    cbEvento.addItem(rs.getString("nomeEv"));
 //                }
             } 
-//            if (rs != null) { rs.close(); } 
-//            conn.disconect();
+            if (rs != null) { rs.close(); } 
+            conn.disconect();
         } catch (SQLException ex) {
             Logger.getLogger(Patrocinio.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        try { // Pessoa
-            if(codev == null) { // No caso de cadastro:
-                sql = "SELECT idPe, nomePe from pessoa";
-                System.out.println("SQL: "+sql);
-                rs = conn.query(sql);
-                while(rs != null && rs.next()){
-                    auxNome = rs.getString("nomePe");
-                    cbPessoa.addItem(auxNome);
-                    this.listaPessoas.put(auxNome, rs.getInt("idPe"));
-                }
-            } else { // No caso de atualizacao:
-                cbPessoa.addItem(this.p.getNomePe());
-//                sql = "SELECT nomeEv from evento WHERE codEv = "+codev;
-//                rs = conn.query(sql);
-//                if(rs != null && rs.next()){
-//                    cbEvento.addItem(rs.getString("nomeEv"));
-//                }
-            } 
-//            if (rs != null) { rs.close(); } 
-//            conn.disconect();
-        } catch (SQLException ex) {
-            Logger.getLogger(Patrocinio.class.getName()).log(Level.SEVERE, null, ex);
-        }
-                     
+        }         
     }
 
 }
