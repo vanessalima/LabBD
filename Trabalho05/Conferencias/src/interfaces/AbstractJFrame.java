@@ -178,7 +178,30 @@ public abstract class AbstractJFrame extends javax.swing.JFrame implements Confi
                     for (int j = 0; j < tableAttr.size(); j++){
                         //System.out.println(tableAttr.get(j));
                         //System.out.println(res.getString(tableAttr.get(j)));
-                        list2.get(k).add(res.getString(tableAttr.get(j)));
+                        if(this.tablename.equalsIgnoreCase("artigo")){
+                            String atr = tableAttr.get(j);
+                            if(atr.equalsIgnoreCase("horaapresart")){
+                                String temp = res.getString(atr);
+                                if(temp != null){
+                                    String value[] = temp.split(" ");
+                                    list2.get(k).add(value[1]);                                    
+                                }else{
+                                    list2.get(k).add(null);
+                                }
+                            }else if(atr.equalsIgnoreCase("dataapresart")){
+                                String temp = res.getString(atr);
+                                if(temp != null){
+                                    String value[] = temp.split(" ");
+                                    list2.get(k).add(value[0]);
+                                }else{
+                                    list2.get(k).add(null);
+                                }
+                            }else{
+                                list2.get(k).add(res.getString(atr));
+                            }
+                        }else{
+                            list2.get(k).add(res.getString(tableAttr.get(j)));
+                        }
                     }
                     k++;
                 }
