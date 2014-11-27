@@ -1,0 +1,330 @@
+----------------------------------------------------------- 
+                    RELATORIO PATROCINIO                    
+ EVENTO: ACM SIGSPATIAL International Conference on Advance
+-----------------------------------------------------------
+-----------------------------------------------------------
+ EDICAO: 18
+-----------------------------------------------------------
+-----------------------------------------------------------
+ PATROCINADOR: GOOGLE BRASIL INTERNET LTDA.
+-----------------------------------------------------------
+Descrição                  Data da Despesa            Valor da Despesa  
+-------------------------  -------------------------  --------------------
+Kit do evento               10-06-30                   $4,200.00           
+Marketing digital           10-06-21                   $2,000.00           
+Visita turística para ins   10-07-02                   $1,800.00           
+Limpeza do espaço           10-07-01                   $2,000.00           
+Apresentador                Título do artigo apresentado                                                                Tipo do auxílio            Valor
+-------------------------   -----------------------------------------------------------------------------------------   -----------------------    ----------------
+Não há auxílios cadastrados na edição 18
+-----------------------------------------------------------
+TOTAL GASTOS                                     $10,000.00
+-----------------------------------------------------------
+-----------------------------------------------------------
+ PATROCINADOR: Facebook Serviços Online do Brasil Ltda.
+-----------------------------------------------------------
+Descrição                  Data da Despesa            Valor da Despesa  
+-------------------------  -------------------------  --------------------
+Serviços de Transporte      10-06-19                   $5,000.00           
+Apresentador                Título do artigo apresentado                                                                Tipo do auxílio            Valor
+-------------------------   -----------------------------------------------------------------------------------------   -----------------------    ----------------
+Não há auxílios cadastrados na edição 18
+-----------------------------------------------------------
+TOTAL GASTOS                                     $5,000.00
+-----------------------------------------------------------
+-----------------------------------------------------------
+ PATROCINADOR: Intel Semicondutores do Brasil Ltda.
+-----------------------------------------------------------
+Descrição                  Data da Despesa            Valor da Despesa  
+-------------------------  -------------------------  --------------------
+Empréstimo de equipamento   10-06-19                   $2,000.00           
+Apresentador                Título do artigo apresentado                                                                Tipo do auxílio            Valor
+-------------------------   -----------------------------------------------------------------------------------------   -----------------------    ----------------
+Não há auxílios cadastrados na edição 18
+-----------------------------------------------------------
+TOTAL GASTOS                                     $2,000.00
+-----------------------------------------------------------
+-----------------------------------------------------------
+ PATROCINADOR: Oracle do Brasil Sistemas Ltda.
+-----------------------------------------------------------
+Descrição                  Data da Despesa            Valor da Despesa  
+-------------------------  -------------------------  --------------------
+Serviço de e-commerce       10-06-25                   $2,600.00           
+Limpeza do local            10-06-20                   $4,000.00           
+Apresentador                Título do artigo apresentado                                                                Tipo do auxílio            Valor
+-------------------------   -----------------------------------------------------------------------------------------   -----------------------    ----------------
+Gwen Wilke                  Tolerance Geometry - Euclids First Postulate for Points and Lines with Extension            Flight ticket aid          $650.00             
+Jan Oliver Wallgrün         Qualitative Matching of Spatial Information                                                 Flight ticket aid          $650.00             
+Sarana Nutanong             Local Network Voronoi Diagram                                                               Flight ticket aid          $650.00             
+Shuo Shang                  Best Point Detour Query in Road Networks                                                    Flight ticket aid          $650.00             
+-----------------------------------------------------------
+TOTAL GASTOS                                     $9,200.00
+-----------------------------------------------------------
+-----------------------------------------------------------
+ PATROCINADOR: Microsoft Informatica Ltda.
+-----------------------------------------------------------
+Descrição                  Data da Despesa            Valor da Despesa  
+-------------------------  -------------------------  --------------------
+Aluguel do hotel para Con   10-06-27                   $17,000.00          
+Construção de stands        10-06-29                   $1,900.00           
+Apresentador                Título do artigo apresentado                                                                Tipo do auxílio            Valor
+-------------------------   -----------------------------------------------------------------------------------------   -----------------------    ----------------
+Gabriel Ghinita             Privacy-Preserving Matching of Spatial Datasets with Protection against Background Knowled  Food aid                   $150.00             
+Matthew Weber               On Map Matching of Wireless Positioning Data: A Selective Look-ahead Approach               Food aid                   $150.00             
+Songhua Xing                Scalable Shortest Paths Browsing on Land Surface                                            Food aid                   $150.00             
+David Eppstein              Privacy-Preserving Data-Oblivious Geometric Algorithms for Geographic Data                  Hosting aid                $200.00             
+Gianluca Quercini           Determining the Spatial Reader-scope of News Sources with Local Lexicons                    Hosting aid                $200.00             
+Michael Evans               A Lagrangian Approach for Storage of Spatio-Temporal Network Datasets: A Summary of Result  Hosting aid                $200.00             
+Ryan Carlson                Bridge detection in grid terrains and improved drainage enforcement                         Hosting aid                $200.00             
+Xutong Liu                  Spatial Outlier Detection: Random Walk Based Approaches                                     Hosting aid                $200.00             
+Maike Buchin                An Algorithmic Framework for Segmenting Trajectories based on Spatio-Temporal Criteria      Transportation aid         $150.00             
+-----------------------------------------------------------
+TOTAL GASTOS                                     $20,500.00
+-----------------------------------------------------------
+-----------------------------------------------------------
+TOTAL EDICAO                                     $46,700.00
+-----------------------------------------------------------
+-----------------------------------------------------------
+ EDICAO: 19
+-----------------------------------------------------------
+-----------------------------------------------------------
+ PATROCINADOR: GOOGLE BRASIL INTERNET LTDA.
+-----------------------------------------------------------
+Descrição                  Data da Despesa            Valor da Despesa  
+-------------------------  -------------------------  --------------------
+Kit do evento               11-06-30                   $3,000.00           
+Coffee Break                11-06-27                   $9,500.00           
+Apresentador                Título do artigo apresentado                                                                Tipo do auxílio            Valor
+-------------------------   -----------------------------------------------------------------------------------------   -----------------------    ----------------
+Chenyun Dai                 Privacy-Preserving Assessment of Location Data Trustworthiness                              Hosting aid                $150.00             
+Daniel Chen                 Data-Driven Trajectory Smoothing                                                            Hosting aid                $150.00             
+Kevin Buchin                A New Method for Subdivision Simplification with Applications to Urban-Area Generalization  Hosting aid                $150.00             
+Kevin Buchin                A splitting line model for directional relations                                            Hosting aid                $150.00             
+Yunjun Gao                  On Efficient Obstructed Reverse Nearest Neighbor Query Processing                           Hosting aid                $150.00             
+-----------------------------------------------------------
+TOTAL GASTOS                                     $13,100.00
+-----------------------------------------------------------
+-----------------------------------------------------------
+ PATROCINADOR: Facebook Serviços Online do Brasil Ltda.
+-----------------------------------------------------------
+Descrição                  Data da Despesa            Valor da Despesa  
+-------------------------  -------------------------  --------------------
+Serviço de e-commerce       11-06-25                   $1,700.00           
+Limpeza do local            11-06-20                   $3,600.00           
+Apresentador                Título do artigo apresentado                                                                Tipo do auxílio            Valor
+-------------------------   -----------------------------------------------------------------------------------------   -----------------------    ----------------
+Não há auxílios cadastrados na edição 19
+-----------------------------------------------------------
+TOTAL GASTOS                                     $5,300.00
+-----------------------------------------------------------
+-----------------------------------------------------------
+ PATROCINADOR: Vmware Software e Servicos Brasil LTDA.
+-----------------------------------------------------------
+Descrição                  Data da Despesa            Valor da Despesa  
+-------------------------  -------------------------  --------------------
+Aluguel do espaço           11-06-21                   $18,000.00          
+Hospedagem palestrante      11-07-02                   $4,000.00           
+Apresentador                Título do artigo apresentado                                                                Tipo do auxílio            Valor
+-------------------------   -----------------------------------------------------------------------------------------   -----------------------    ----------------
+Yunjun Gao                  On Efficient Obstructed Reverse Nearest Neighbor Query Processing                           Flight ticket aid          $650.00             
+Marco Adelfio               Similarity Search on a Large Collection of Point Sets                                       Food aid                   $200.00             
+Shuo Shang                  Finding the Most Accessible Locations - Reverse Path Nearest Neighbor Query in Road Networ  Hosting aid                $150.00             
+-----------------------------------------------------------
+TOTAL GASTOS                                     $23,000.00
+-----------------------------------------------------------
+-----------------------------------------------------------
+ PATROCINADOR: IBM Brasil Ltda.
+-----------------------------------------------------------
+Descrição                  Data da Despesa            Valor da Despesa  
+-------------------------  -------------------------  --------------------
+Serviço de Transporte       11-07-01                   $4,300.00           
+Construção de stands        11-06-29                   $3,500.00           
+Apresentador                Título do artigo apresentado                                                                Tipo do auxílio            Valor
+-------------------------   -----------------------------------------------------------------------------------------   -----------------------    ----------------
+Jia-Ching Ying              Semantic Trajectory Mining for Next Location Prediction                                     Flight ticket aid          $650.00             
+Kevin Buchin                A New Method for Subdivision Simplification with Applications to Urban-Area Generalization  Flight ticket aid          $650.00             
+Kevin Buchin                A splitting line model for directional relations                                            Flight ticket aid          $650.00             
+Shunkai Fang                EnAcq: Energy-efficient Trajectory Data Acquisition Based on Improved Map Matching          Food aid                   $200.00             
+-----------------------------------------------------------
+TOTAL GASTOS                                     $9,300.00
+-----------------------------------------------------------
+-----------------------------------------------------------
+ PATROCINADOR: Hewlett-Packard Brasil Ltda.
+-----------------------------------------------------------
+Descrição                  Data da Despesa            Valor da Despesa  
+-------------------------  -------------------------  --------------------
+Empréstimo de equipamento   11-06-19                   $2,000.00           
+Apresentador                Título do artigo apresentado                                                                Tipo do auxílio            Valor
+-------------------------   -----------------------------------------------------------------------------------------   -----------------------    ----------------
+Benjamin Adams              Constructing Geo-Ontologies by Reification of Observation Data                              Food aid                   $200.00             
+Xun Zhou                    Discovering Interesting Sub-paths in Spatiotemporal Datasets: A Summary of Results          Hosting aid                $150.00             
+-----------------------------------------------------------
+TOTAL GASTOS                                     $2,350.00
+-----------------------------------------------------------
+-----------------------------------------------------------
+TOTAL EDICAO                                     $53,050.00
+-----------------------------------------------------------
+-----------------------------------------------------------
+ EDICAO: 20
+-----------------------------------------------------------
+-----------------------------------------------------------
+ PATROCINADOR: Facebook Serviços Online do Brasil Ltda.
+-----------------------------------------------------------
+Descrição                  Data da Despesa            Valor da Despesa  
+-------------------------  -------------------------  --------------------
+Limpeza do espaço           12-07-01                   $3,300.00           
+Serviço de e-commerce       12-06-25                   $1,200.00           
+Apresentador                Título do artigo apresentado                                                                Tipo do auxílio            Valor
+-------------------------   -----------------------------------------------------------------------------------------   -----------------------    ----------------
+Chenyun Dai                 Assessing The Trustworthiness of Location Data Based on Provenance                          Food aid                   $100.00             
+Hao Yuan                    Efficient and Secure Distribution of Massive Geo-Spatial Data                               Food aid                   $100.00             
+Jagan Sankaranarayanan      TwitterStand: News in Twitter                                                               Food aid                   $100.00             
+Ziyuan Wang                 Robust Traffic Merging Strategies for Sensor-Enabled Cars Using Time Geography              Food aid                   $100.00             
+Carla Macário               Annotating Geospatial Data Based on its Semantics                                           Hosting aid                $200.00             
+Darius Sidlauskas           Trees or Grids? Indexing Moving Objects in Main Memory                                      Hosting aid                $200.00             
+Marcos Vieira               On-Line Discovery of Flock Patterns in Spatio-Temporal Data                                 Hosting aid                $200.00             
+-----------------------------------------------------------
+TOTAL GASTOS                                     $5,500.00
+-----------------------------------------------------------
+-----------------------------------------------------------
+ PATROCINADOR: Vmware Software e Servicos Brasil LTDA.
+-----------------------------------------------------------
+Descrição                  Data da Despesa            Valor da Despesa  
+-------------------------  -------------------------  --------------------
+Aluguel do hotel para Con   12-06-27                   $23,000.00          
+Apresentador                Título do artigo apresentado                                                                Tipo do auxílio            Valor
+-------------------------   -----------------------------------------------------------------------------------------   -----------------------    ----------------
+Não há auxílios cadastrados na edição 20
+-----------------------------------------------------------
+TOTAL GASTOS                                     $23,000.00
+-----------------------------------------------------------
+-----------------------------------------------------------
+ PATROCINADOR: IBM Brasil Ltda.
+-----------------------------------------------------------
+Descrição                  Data da Despesa            Valor da Despesa  
+-------------------------  -------------------------  --------------------
+Empréstimo de equipamento   12-06-19                   $3,000.00           
+Serviços de Transporte      12-06-19                   $5,300.00           
+Apresentador                Título do artigo apresentado                                                                Tipo do auxílio            Valor
+-------------------------   -----------------------------------------------------------------------------------------   -----------------------    ----------------
+Carla Macário               Annotating Geospatial Data Based on its Semantics                                           Flight ticket aid          $600.00             
+Kevin Buchin                Finding Long and Similar Parts of Trajectories                                              Flight ticket aid          $600.00             
+-----------------------------------------------------------
+TOTAL GASTOS                                     $9,500.00
+-----------------------------------------------------------
+-----------------------------------------------------------
+ PATROCINADOR: Intel Semicondutores do Brasil Ltda.
+-----------------------------------------------------------
+Descrição                  Data da Despesa            Valor da Despesa  
+-------------------------  -------------------------  --------------------
+Construção de stands        12-06-29                   $2,300.00           
+Apresentador                Título do artigo apresentado                                                                Tipo do auxílio            Valor
+-------------------------   -----------------------------------------------------------------------------------------   -----------------------    ----------------
+Não há auxílios cadastrados na edição 20
+-----------------------------------------------------------
+TOTAL GASTOS                                     $2,300.00
+-----------------------------------------------------------
+-----------------------------------------------------------
+ PATROCINADOR: Microsoft Informatica Ltda.
+-----------------------------------------------------------
+Descrição                  Data da Despesa            Valor da Despesa  
+-------------------------  -------------------------  --------------------
+Kit do evento               12-06-30                   $7,000.00           
+Marketing digital           12-06-21                   $1,500.00           
+Visita turística para ins   12-07-02                   $3,000.00           
+Limpeza do local            12-06-20                   $1,000.00           
+Apresentador                Título do artigo apresentado                                                                Tipo do auxílio            Valor
+-------------------------   -----------------------------------------------------------------------------------------   -----------------------    ----------------
+Dalia Tiesyte               Assessing the Predictability of Scheduled-Vehicle Travel Times                              Transportation aid         $200.00             
+Houtan Shirani-Mehr         Efficient Viewpoint Assignment for Urban Texture Documentation                              Transportation aid         $200.00             
+Yu Zheng                    Mining Correlation between Locations Using Human Location History                           Transportation aid         $200.00             
+-----------------------------------------------------------
+TOTAL GASTOS                                     $13,100.00
+-----------------------------------------------------------
+-----------------------------------------------------------
+TOTAL EDICAO                                     $53,400.00
+-----------------------------------------------------------
+-----------------------------------------------------------
+ EDICAO: 21
+-----------------------------------------------------------
+-----------------------------------------------------------
+ PATROCINADOR: GOOGLE BRASIL INTERNET LTDA.
+-----------------------------------------------------------
+Descrição                  Data da Despesa            Valor da Despesa  
+-------------------------  -------------------------  --------------------
+Kit do evento               13-06-30                   $23,000.00          
+Aluguel do espaço           13-06-21                   $50,000.00          
+Apresentador                Título do artigo apresentado                                                                Tipo do auxílio            Valor
+-------------------------   -----------------------------------------------------------------------------------------   -----------------------    ----------------
+Não há auxílios cadastrados na edição 21
+-----------------------------------------------------------
+TOTAL GASTOS                                     $73,000.00
+-----------------------------------------------------------
+-----------------------------------------------------------
+ PATROCINADOR: Facebook Serviços Online do Brasil Ltda.
+-----------------------------------------------------------
+Descrição                  Data da Despesa            Valor da Despesa  
+-------------------------  -------------------------  --------------------
+Limpeza do local            13-06-20                   $4,500.00           
+Apresentador                Título do artigo apresentado                                                                Tipo do auxílio            Valor
+-------------------------   -----------------------------------------------------------------------------------------   -----------------------    ----------------
+Chang Liu                   SAC: Semantic Adaptive Caching for Spatial Mobile Applications                              Food aid                   $100.00             
+Chunyao Song                Discovering and Managing Quantitative Association Rules                                     Food aid                   $100.00             
+Chunyao Song                Query Execution Timing: Taming Real-time Anytime Queries on Multicore Processors            Food aid                   $100.00             
+Seyed Jalal Kazemitabar     Efficient Batch Processing of Proximity Queries by Optimized Probing                        Food aid                   $100.00             
+Weize Kong                  Improving Passage Ranking with User Behavior Information                                    Food aid                   $100.00             
+Song Gao                    A GeoSpatial Scientometrics Framework for Measuring the Citation Impact of Publications an  Hosting aid                $150.00             
+Bei Pan                     Crowd Sensing of Traffic Anomalies based on Human Mobility and Social Media                 Transportation aid         $100.00             
+Chang Liu                   SAC: Semantic Adaptive Caching for Spatial Mobile Applications                              Transportation aid         $100.00             
+Jie Bao                     GeoRank: An Efficient LocationAware News Feed Ranking System                                Transportation aid         $100.00             
+Karsten Jakobsen            Evaluating Eco-Driving Advice Using GPS/CANBus Data                                         Transportation aid         $100.00             
+Moritz Baum                 Energy-Optimal Routes for Electric Vehicles                                                 Transportation aid         $100.00             
+-----------------------------------------------------------
+TOTAL GASTOS                                     $5,550.00
+-----------------------------------------------------------
+-----------------------------------------------------------
+ PATROCINADOR: IBM Brasil Ltda.
+-----------------------------------------------------------
+Descrição                  Data da Despesa            Valor da Despesa  
+-------------------------  -------------------------  --------------------
+Construção de stands        13-06-29                   $5,000.00           
+Serviço de e-commerce       13-06-25                   $3,200.00           
+Apresentador                Título do artigo apresentado                                                                Tipo do auxílio            Valor
+-------------------------   -----------------------------------------------------------------------------------------   -----------------------    ----------------
+Alan Both                   Spatiotemporal Braitenberg Vehicles                                                         Flight ticket aid          $450.00             
+Christian Sengstock         A Probablistic Model for Spatio-Temporal Signal Extraction from Social Media                Flight ticket aid          $450.00             
+Chunyao Song                Query Execution Timing: Taming Real-time Anytime Queries on Multicore Processors            Flight ticket aid          $450.00             
+Chunyao Song                Discovering and Managing Quantitative Association Rules                                     Flight ticket aid          $450.00             
+Marc van Kreveld            Algorithms for Hotspot Computation on Trajectory Data                                       Flight ticket aid          $450.00             
+-----------------------------------------------------------
+TOTAL GASTOS                                     $10,000.00
+-----------------------------------------------------------
+-----------------------------------------------------------
+ PATROCINADOR: Intel Semicondutores do Brasil Ltda.
+-----------------------------------------------------------
+Descrição                  Data da Despesa            Valor da Despesa  
+-------------------------  -------------------------  --------------------
+Empréstimo de equipamento   13-06-19                   $2,200.00           
+Apresentador                Título do artigo apresentado                                                                Tipo do auxílio            Valor
+-------------------------   -----------------------------------------------------------------------------------------   -----------------------    ----------------
+Não há auxílios cadastrados na edição 21
+-----------------------------------------------------------
+TOTAL GASTOS                                     $2,200.00
+-----------------------------------------------------------
+-----------------------------------------------------------
+ PATROCINADOR: Oracle do Brasil Sistemas Ltda.
+-----------------------------------------------------------
+Descrição                  Data da Despesa            Valor da Despesa  
+-------------------------  -------------------------  --------------------
+Coffee Break                13-06-27                   $35,000.00          
+Hospedagem, viagem e paga   13-07-02                   $27,000.00          
+Serviço de Transporte       13-07-01                   $21,000.00          
+Apresentador                Título do artigo apresentado                                                                Tipo do auxílio            Valor
+-------------------------   -----------------------------------------------------------------------------------------   -----------------------    ----------------
+Não há auxílios cadastrados na edição 21
+-----------------------------------------------------------
+TOTAL GASTOS                                     $83,000.00
+-----------------------------------------------------------
+-----------------------------------------------------------
+TOTAL EDICAO                                     $173,750.00
+-----------------------------------------------------------

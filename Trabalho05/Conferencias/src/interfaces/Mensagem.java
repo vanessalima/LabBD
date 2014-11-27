@@ -6,6 +6,8 @@
 package interfaces;
 
 
+import static interfaces.Config.ATUALIZACAO;
+import static interfaces.Config.SUCCESS;
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 
@@ -55,6 +57,15 @@ public class Mensagem extends javax.swing.JFrame implements Config {
                     msg = new String("Atualização realizada com sucesso!");
                 } else {    
                     msg = new String("Não foi possível realizar atualização nos dados.\n");
+                }
+                break;
+            }
+            case RELATORIO:
+            {
+                if(status == SUCCESS) {
+                    msg = new String("Relatório exportado com sucesso!");
+                } else {    
+                    msg = new String("Não foi possível exportar o relatório.\n");
                 }
                 break;
             }

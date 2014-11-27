@@ -1,0 +1,83 @@
+----------------------------------------------------------- 
+                    RELATORIO PATROCINIO                    
+ EVENTO: International Conference on Very Large Data Bases 
+  EDICAO: 37
+-----------------------------------------------------------
+ PATROCINADOR: GOOGLE BRASIL INTERNET LTDA.
+-----------------------------------------------------------
+Descrição                  Data da Despesa            Valor da Despesa  
+-------------------------  -------------------------  --------------------
+Material de divulgação e    11-07-01                   $3,000.00           
+Palestrantes                11-07-20                   $2,000.00           
+Limpeza do local            11-08-20                   $1,000.00           
+Jantar de encerramento      11-07-13                   $3,000.00           
+Apresentador                Título do artigo apresentado                                                                Tipo do auxílio            Valor
+-------------------------   -----------------------------------------------------------------------------------------   -----------------------    ----------------
+Da Yan                      Efficient Algorithms for Finding Optimal Meeting Point on Road Networks                     Flight ticket aid          $400.00             
+João Rocha-Junior           Efficient Processing of Top-k Spatial Preference Queries                                    Flight ticket aid          $400.00             
+Nan Wang                    On Triangulation-based Dense Neighborhood Graph Discovery                                   Flight ticket aid          $400.00             
+Thomas Bernecker            Efficient Probabilistic Reverse Nearest Neighbor Query Processing on Uncertain Data         Flight ticket aid          $400.00             
+Guy Sagy                    Distributed Threshold Querying of General Functions by a Difference of Monotonic Represent  Food aid                   $50.00              
+Panagiotis Papadimitriou    Output URL Bidding                                                                          Food aid                   $50.00              
+Sudarshan Kadambi           Where in the World is My Data?                                                              Food aid                   $50.00              
+Da Yan                      Efficient Algorithms for Finding Optimal Meeting Point on Road Networks                     Hosting aid                $100.00             
+João Rocha-Junior           Efficient Processing of Top-k Spatial Preference Queries                                    Hosting aid                $100.00             
+Thomas Bernecker            Efficient Probabilistic Reverse Nearest Neighbor Query Processing on Uncertain Data         Hosting aid                $100.00             
+Michael Rice                Graph Indexing of Road Networks for Shortest Path Queries with Label Restrictions           Transportation aid         $75.00              
+Sanjeev Khanna              Queries with Difference on Probabilistic Databases                                          Transportation aid         $75.00              
+Zhao Cao                    Distributed Inference and Query Processing for RFID Tracking and Monitoring                 Transportation aid         $75.00              
+-----------------------------------------------------------
+TOTAL GASTOS                                     $11,275.00
+-----------------------------------------------------------
+-----------------------------------------------------------
+ PATROCINADOR: Facebook Serviços Online do Brasil Ltda.
+-----------------------------------------------------------
+Descrição                  Data da Despesa            Valor da Despesa  
+-------------------------  -------------------------  --------------------
+Construção de stands        11-07-25                   $5,000.00           
+Apresentador                Título do artigo apresentado                                                                Tipo do auxílio            Valor
+-------------------------   -----------------------------------------------------------------------------------------   -----------------------    ----------------
+Não há auxílios cadastrados na edição 37
+-----------------------------------------------------------
+TOTAL GASTOS                                     $5,000.00
+-----------------------------------------------------------
+-----------------------------------------------------------
+ PATROCINADOR: Oracle do Brasil Sistemas Ltda.
+-----------------------------------------------------------
+Descrição                  Data da Despesa            Valor da Despesa  
+-------------------------  -------------------------  --------------------
+Coffee Break                11-07-17                   $9,000.00           
+Apresentador                Título do artigo apresentado                                                                Tipo do auxílio            Valor
+-------------------------   -----------------------------------------------------------------------------------------   -----------------------    ----------------
+Não há auxílios cadastrados na edição 37
+-----------------------------------------------------------
+TOTAL GASTOS                                     $9,000.00
+-----------------------------------------------------------
+-----------------------------------------------------------
+ PATROCINADOR: Microsoft Informatica Ltda.
+-----------------------------------------------------------
+Descrição                  Data da Despesa            Valor da Despesa  
+-------------------------  -------------------------  --------------------
+Aluguel da sala de confer   11-07-25                   $20,000.00          
+Apresentador                Título do artigo apresentado                                                                Tipo do auxílio            Valor
+-------------------------   -----------------------------------------------------------------------------------------   -----------------------    ----------------
+Não há auxílios cadastrados na edição 37
+-----------------------------------------------------------
+TOTAL GASTOS                                     $20,000.00
+-----------------------------------------------------------
+-----------------------------------------------------------
+ PATROCINADOR: Hewlett-Packard Brasil Ltda.
+-----------------------------------------------------------
+Descrição                  Data da Despesa            Valor da Despesa  
+-------------------------  -------------------------  --------------------
+Empréstimo de equipamento   11-08-10                   $1,000.00           
+Mestre de Cerimônias        11-07-15                   $1,000.00           
+Apresentador                Título do artigo apresentado                                                                Tipo do auxílio            Valor
+-------------------------   -----------------------------------------------------------------------------------------   -----------------------    ----------------
+Não há auxílios cadastrados na edição 37
+-----------------------------------------------------------
+TOTAL GASTOS                                     $2,000.00
+-----------------------------------------------------------
+-----------------------------------------------------------
+TOTAL EDICAO                                     $47,275.00
+-----------------------------------------------------------
