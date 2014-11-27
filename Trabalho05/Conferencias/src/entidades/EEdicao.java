@@ -10,8 +10,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
- *
- * @author ch
+ * Template da classe edição para carregar informações de linhas da tabela
+ * @author Carlos Humberto dos Santos Baqueta, Marina Coimbra, Vanessa Apolinário de Lima
  */
 public class EEdicao {
     private String evento;

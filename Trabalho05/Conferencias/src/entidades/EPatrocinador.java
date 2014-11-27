@@ -5,8 +5,8 @@
 package entidades;
 
 /**
- *
- * @author ch
+ * Template da classe patrocinador para carregar informações de linhas da tabela
+ * @author Carlos Humberto dos Santos Baqueta, Marina Coimbra, Vanessa Apolinário de Lima
  */
 public class EPatrocinador {
     private String cnpj;

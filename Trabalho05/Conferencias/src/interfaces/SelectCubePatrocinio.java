@@ -54,6 +54,7 @@ public class SelectCubePatrocinio extends AbstractJFrame {
     private Object[][] getContent(){
         ArrayList<ArrayList<String>> content = new ArrayList<ArrayList<String>>();
         DBconnection conn = new DBconnection();
+        
         String sql = "SELECT  E.NOMEEV as \"Nome Evento\", Pat.NUMED as \"Numero da Edicao\", P.RAZAOSOCIALPAT as \"Patrocinador\", to_char( sum(Pat.VALORPAT), '$999,999.00') as \"Valor do Patrocinio\"\n" +
                         "FROM Patrocinador P, Patrocinio Pat, Evento E\n" +
                         "WHERE P.CNPJPAT = Pat.CNPJPAT\n" +

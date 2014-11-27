@@ -18,8 +18,8 @@ import java.util.logging.Logger;
 import javax.swing.JFrame;
 
 /**
- *
- * @author vanessalima
+ * Frame para realizar operações na tabela artigo
+ * @author Carlos Humberto dos Santos Baqueta, Marina Coimbra, Vanessa Apolinário de Lima
  */
 public class Artigo extends AbstractJFrame {
     private EArtigo artigo;

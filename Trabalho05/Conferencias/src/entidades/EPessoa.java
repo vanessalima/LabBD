@@ -6,8 +6,8 @@
 package entidades;
 
 /**
- *
- * @author ch
+ * Template da classe pessoa para carregar informações de linhas da tabela
+ * @author Carlos Humberto dos Santos Baqueta, Marina Coimbra, Vanessa Apolinário de Lima
  */
 public class EPessoa {
     private String idPe;
