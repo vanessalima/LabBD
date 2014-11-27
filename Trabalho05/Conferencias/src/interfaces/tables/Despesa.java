@@ -185,7 +185,7 @@ public class Despesa extends AbstractJFrame {
         });
 
         jLabel9.setFont(new java.awt.Font("Ubuntu", 2, 14)); // NOI18N
-        jLabel9.setText("formato: MM/DD/YYYY");
+        jLabel9.setText("formato: DD/MM/YYYY");
 
         cbPatrocinio.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {

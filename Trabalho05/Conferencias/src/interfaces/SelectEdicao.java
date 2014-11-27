@@ -9,6 +9,7 @@ import conferencias.DBconnection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Hashtable;
 
 /**
  * Classe para realização de consultas sobre a nacionalidade de inscritos da edição
@@ -18,6 +19,8 @@ public class SelectEdicao extends AbstractJFrame {
 
     ArrayList<String> header = new ArrayList<>();
     Object[][] tableRows;
+    Hashtable<String, ArrayList> listaEventos = new Hashtable<>(); // hash contendo o par evento e suas edições
+    Hashtable<String, Integer> eventoNum = new Hashtable<>(); //hash contendo o nome do evento e seu codev
     
     /**
      * Creates new form SelectEdicao
@@ -33,16 +36,56 @@ public class SelectEdicao extends AbstractJFrame {
     public SelectEdicao(AbstractJFrame ant) {
         super(ant);
         getHeaders(); 
-        this.tableRows = getContent(); 
+        this.createHashEventos();
         for( int i = 0; i < this.header.size(); i++ ){
             System.out.println(this.header.get(i));
         }
-        for( int i = 0; i < this.header.size(); i++ ){
+        /*for( int i = 0; i < this.header.size(); i++ ){
             for (int j = 0; j < tableRows[i].length; j++)
                 System.out.println(this.tableRows[i][j]);
-        }
+        }*/
         initComponents();
+    }
+    
+    /**
+     * Cria o par evento edição para serem selecionados pelos combo box
+     */
+    private void createHashEventos(){
+        DBconnection dbconn = new DBconnection();
+        // seleciona os pares
+        String sql = "SELECT EVENTO.CODEV, NOMEEV, NUMED FROM EVENTO, EDICAO WHERE EDICAO.CODEV = EVENTO.CODEV";
+        ResultSet res;
         
+        try {
+            res = dbconn.query(sql);
+            while(res.next()) {
+                // adiciona os pares em seus respectivos hashmaps
+                    if(!this.listaEventos.containsKey(res.getString("NOMEEV"))){
+                         this.listaEventos.put(res.getString("NOMEEV"), new ArrayList());
+                         this.listaEventos.get(res.getString("NOMEEV")).add("ALL");
+                    }
+                    if(!this.eventoNum.containsKey(res.getString("NOMEEV"))){
+                        this.eventoNum.put(res.getString("NOMEEV"), new Integer(res.getString("CODEV")));
+                    }
+                    this.listaEventos.get(res.getString("NOMEEV")).add(res.getString("NUMED"));
+                }
+            dbconn.disconect();
+        }
+        catch(SQLException e) {
+            switch(e.getErrorCode()){
+                    case 911: // Erro de sintaxe! q feio ...
+                    {
+                        System.out.println("Erro de sintaxe do comando sql. Obs.: Talvez você tenha se esquecido de tirar o ; do final. :P ");
+                        break;
+                    }
+                    default:
+                    {
+                        System.out.println("ERROR CODE: "+e.getErrorCode());
+                        break;
+                    }
+            }
+            
+        }
     }
 
     /**
@@ -54,55 +97,149 @@ public class SelectEdicao extends AbstractJFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tableConsulta = new javax.swing.JTable();
+        jComboBox1 = new javax.swing.JComboBox(listaEventos.keySet().toArray());
+        gerar = new javax.swing.JButton();
+        cancelar = new javax.swing.JButton();
+        jMenuBar2 = new javax.swing.JMenuBar();
+        jMenu3 = new javax.swing.JMenu();
+        jSeparator2 = new javax.swing.JPopupMenu.Separator();
+        sairApp = new javax.swing.JMenuItem();
+        jMenu4 = new javax.swing.JMenu();
+        openEquipe = new javax.swing.JMenuItem();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
+
+        tableConsulta.setModel(new myTableModel(this.getContent(), this.header.toArray()));
+        jScrollPane1.setViewportView(tableConsulta);
+
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
+
+        gerar.setText("Consultar");
+        gerar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                gerarActionPerformed(evt);
+            }
+        });
+
+        cancelar.setText("Cancelar");
+        cancelar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cancelarMouseClicked(evt);
+            }
+        });
+
+        jMenu3.setText("Opções");
+        jMenu3.add(jSeparator2);
+
+        sairApp.setText("Sair");
+        sairApp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sairAppActionPerformed(evt);
+            }
+        });
+        jMenu3.add(sairApp);
+
+        jMenuBar2.add(jMenu3);
+
+        jMenu4.setText("Sobre");
+
+        openEquipe.setText("Equipe");
+        jMenu4.add(openEquipe);
+
+        jMenuBar2.add(jMenu4);
+
+        setJMenuBar(jMenuBar2);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                        .addComponent(gerar, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(cancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(gerar)
+                        .addComponent(cancelar))
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        this.onClose();
+    }//GEN-LAST:event_formWindowClosing
+
+    private void sairAppActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sairAppActionPerformed
+        super.onDispose();
+    }//GEN-LAST:event_sairAppActionPerformed
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        
+    }//GEN-LAST:event_jComboBox1ActionPerformed
+
+    private void gerarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gerarActionPerformed
+        this.tableConsulta.setModel(new myTableModel(this.getContent(), this.header.toArray()));
+    }//GEN-LAST:event_gerarActionPerformed
+
+    private void cancelarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cancelarMouseClicked
+        super.onClose();
+    }//GEN-LAST:event_cancelarMouseClicked
+
     
     
     private void getHeaders(){
-        this.header.add("Nome Evento");
-        this.header.add("Numero da Edicao");
-        this.header.add("Patrocinador");
-        this.header.add("Valor do Patrocinio");
+        this.header.add("Nome Completo");
+        this.header.add("Contato");
+        this.header.add("Qnt Auxilios");
+        this.header.add("Total Recebido");
     }
     
     private Object[][] getContent(){
         ArrayList<ArrayList<String>> content = new ArrayList<ArrayList<String>>();
         DBconnection conn = new DBconnection();
+        String sql = null;
         
-        /*
-        SELECT P.nomePe AS "Nome Completo", 
-               RPAD( CONCAT(CONCAT(P.emailPe, ' / '), P.TELEFONEPE), 40, ' ') AS "Contato (email/telefone)",
-               count(AUX.tipoAux) AS "Qnt Auxilios",
-               to_char(sum(AUX.valorAux), 'FM$999,999,999,990.00') AS "Total Recebido"
-            FROM pessoa P, auxilio AUX
-            WHERE P.idPe = AUX.idApr
-                  AND AUX.codEvApr = (SELECT codEv 
-                                         FROM evento
-                                         WHERE UPPER(nomeEv) = 
-                                               UPPER('ACM SIGSPATIAL International Conference on Advances in Geographic Information Systems') )
-         GROUP BY P.nomePe, RPAD( CONCAT(CONCAT(P.emailPe, ' / '), P.TELEFONEPE), 40, ' ')
-         HAVING count(AUX.tipoAux) > 2;
-        */
+        sql = "SELECT P.nomePe AS \"Nome Completo\", "
+                + "RPAD( CONCAT(CONCAT(P.emailPe, ' / '), P.TELEFONEPE), 40, ' ') AS \"Contato\", "
+                + "count(AUX.tipoAux) AS \"Qnt Auxilios\", "
+                + "to_char(sum(AUX.valorAux), 'FM$999,999,999,990.00') AS \"Total Recebido\" "
+                + "FROM pessoa P, auxilio AUX "
+                + "WHERE P.idPe = AUX.idApr AND AUX.codEvApr = "
+                    + "(SELECT codEv FROM evento WHERE UPPER(nomeEv) = "
+                        + "UPPER('" +this.jComboBox1.getSelectedItem().toString()+ "') ) "
+                + "GROUP BY P.nomePe, "
+                + "RPAD( CONCAT(CONCAT(P.emailPe, ' / '), P.TELEFONEPE), 40, ' ') "
+                + "HAVING count(AUX.tipoAux) > 1";
         
-        String sql = "SELECT  E.NOMEEV as \"Nome Evento\", Pat.NUMED as \"Numero da Edicao\", P.RAZAOSOCIALPAT as \"Patrocinador\", to_char( sum(Pat.VALORPAT), '$999,999.00') as \"Valor do Patrocinio\"\n" +
-                        "FROM Patrocinador P, Patrocinio Pat, Evento E\n" +
-                        "WHERE P.CNPJPAT = Pat.CNPJPAT\n" +
-                        "  AND E.CODEV = Pat.CODEV\n" +
-                        "GROUP BY CUBE (E.NOMEEV,Pat.NUMED, P.RAZAOSOCIALPAT)";
         ResultSet res;
         int k = 0;
         
@@ -146,5 +283,16 @@ public class SelectEdicao extends AbstractJFrame {
     }                
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton cancelar;
+    private javax.swing.JButton gerar;
+    private javax.swing.JComboBox jComboBox1;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenuBar jMenuBar2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JPopupMenu.Separator jSeparator2;
+    private javax.swing.JMenuItem openEquipe;
+    private javax.swing.JMenuItem sairApp;
+    private javax.swing.JTable tableConsulta;
     // End of variables declaration//GEN-END:variables
 }

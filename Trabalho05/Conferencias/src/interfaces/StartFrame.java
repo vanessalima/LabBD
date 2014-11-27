@@ -56,16 +56,12 @@ public class StartFrame extends AbstractJFrame {//javax.swing.JFrame {
         openAvaliaApresentador = new javax.swing.JButton();
         openPessoa = new javax.swing.JButton();
         openRelatorios = new javax.swing.JButton();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
-        jMenuItem5 = new javax.swing.JMenuItem();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jSeparator1 = new javax.swing.JPopupMenu.Separator();
-        jMenuItem6 = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
+        openRelEd = new javax.swing.JButton();
+        jMenuBar2 = new javax.swing.JMenuBar();
+        jMenu3 = new javax.swing.JMenu();
+        jSeparator2 = new javax.swing.JPopupMenu.Separator();
+        sairApp = new javax.swing.JMenuItem();
+        jMenu4 = new javax.swing.JMenu();
         openEquipe = new javax.swing.JMenuItem();
 
         jTextArea1.setColumns(20);
@@ -165,7 +161,7 @@ public class StartFrame extends AbstractJFrame {//javax.swing.JFrame {
             }
         });
 
-        openAvaliaApresentador.setText("Avaliação Apresentador");
+        openAvaliaApresentador.setText("Pessoa x Auxilio");
         openAvaliaApresentador.setPreferredSize(new java.awt.Dimension(190, 30));
         openAvaliaApresentador.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -181,7 +177,7 @@ public class StartFrame extends AbstractJFrame {//javax.swing.JFrame {
             }
         });
 
-        openRelatorios.setText("Gerar Relatórios");
+        openRelatorios.setText("Relatório Patrocínio");
         openRelatorios.setPreferredSize(new java.awt.Dimension(190, 30));
         openRelatorios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -189,52 +185,35 @@ public class StartFrame extends AbstractJFrame {//javax.swing.JFrame {
             }
         });
 
-        jMenu1.setText("Opções");
-
-        jMenuItem2.setText("Cadastrar");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+        openRelEd.setText("Relatório Edição");
+        openRelEd.setPreferredSize(new java.awt.Dimension(190, 30));
+        openRelEd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
+                openRelEdActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem2);
 
-        jMenuItem3.setText("Pesquisar");
-        jMenu1.add(jMenuItem3);
+        jMenu3.setText("Opções");
+        jMenu3.add(jSeparator2);
 
-        jMenuItem4.setText("Atualizar");
-        jMenu1.add(jMenuItem4);
-
-        jMenuItem5.setText("Remover");
-        jMenu1.add(jMenuItem5);
-
-        jMenuItem1.setText("Gerar Relatórios");
-        jMenu1.add(jMenuItem1);
-        jMenu1.add(jSeparator1);
-
-        jMenuItem6.setText("Sair");
-        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+        sairApp.setText("Sair");
+        sairApp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem6ActionPerformed(evt);
+                sairAppActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem6);
+        jMenu3.add(sairApp);
 
-        jMenuBar1.add(jMenu1);
+        jMenuBar2.add(jMenu3);
 
-        jMenu2.setText("Sobre");
+        jMenu4.setText("Sobre");
 
         openEquipe.setText("Equipe");
-        openEquipe.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                openEquipeActionPerformed(evt);
-            }
-        });
-        jMenu2.add(openEquipe);
+        jMenu4.add(openEquipe);
 
-        jMenuBar1.add(jMenu2);
+        jMenuBar2.add(jMenu4);
 
-        setJMenuBar(jMenuBar1);
+        setJMenuBar(jMenuBar2);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -250,19 +229,18 @@ public class StartFrame extends AbstractJFrame {//javax.swing.JFrame {
                     .addComponent(openPessoa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(25, 25, 25)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(openArtigo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(openPatrocinio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(openOrganizador, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(openAuxilio, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(25, 25, 25)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(openDespesa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(openApresentacao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(openAvaliaArtigo, javax.swing.GroupLayout.DEFAULT_SIZE, 192, Short.MAX_VALUE)
-                            .addComponent(openAvaliaApresentador, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(openArtigo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(openPatrocinio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(openOrganizador, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(openAuxilio, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(openRelatorios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(25, 25, 25)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(openDespesa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(openApresentacao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(openAvaliaArtigo, javax.swing.GroupLayout.DEFAULT_SIZE, 192, Short.MAX_VALUE)
+                    .addComponent(openAvaliaApresentador, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(openRelEd, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(25, 25, 25))
         );
         layout.setVerticalGroup(
@@ -291,21 +269,13 @@ public class StartFrame extends AbstractJFrame {//javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(openPessoa, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(openRelatorios, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(openRelatorios, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(openRelEd, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(34, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
-
-    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
-        // TODO add your handling code here:
-        //this.dispose();
-    }//GEN-LAST:event_jMenuItem6ActionPerformed
 
     private void openInscritoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openInscritoActionPerformed
         try {
@@ -376,11 +346,7 @@ public class StartFrame extends AbstractJFrame {//javax.swing.JFrame {
     }//GEN-LAST:event_openAvaliaArtigoActionPerformed
 
     private void openAvaliaApresentadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openAvaliaApresentadorActionPerformed
-        /*try {
-            (new LoadFrame(this, Config.AVALIA_APRESENTADOR)).setEnabled(true);
-        } catch (SQLException ex) {
-            Logger.getLogger(StartFrame.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
+        (new SelectEdicao(this)).setEnabled(true);
     }//GEN-LAST:event_openAvaliaApresentadorActionPerformed
 
     private void openEdicaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openEdicaoActionPerformed
@@ -414,15 +380,19 @@ public class StartFrame extends AbstractJFrame {//javax.swing.JFrame {
 
     private void openRelatoriosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openRelatoriosActionPerformed
         //try {
-            (new Relatorio(this)).setEnabled(true);
+            (new RelatorioPat(this)).setEnabled(true);
 //        } catch (SQLException ex) {
 //            Logger.getLogger(StartFrame.class.getName()).log(Level.SEVERE, null, ex);
 //        }
     }//GEN-LAST:event_openRelatoriosActionPerformed
 
-    private void openEquipeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openEquipeActionPerformed
-        (new Equipe(this)).setEnabled(true);
-    }//GEN-LAST:event_openEquipeActionPerformed
+    private void openRelEdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openRelEdActionPerformed
+        (new RelatorioEd(this)).setEnabled(true);
+    }//GEN-LAST:event_openRelEdActionPerformed
+
+    private void sairAppActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sairAppActionPerformed
+        super.onDispose();
+    }//GEN-LAST:event_sairAppActionPerformed
 
     /**
      * @param args the command line arguments
@@ -459,17 +429,11 @@ public class StartFrame extends AbstractJFrame {//javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JPopupMenu.Separator jSeparator1;
+    private javax.swing.JPopupMenu.Separator jSeparator2;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JButton openApresentacao;
     private javax.swing.JButton openArtigo;
@@ -485,6 +449,8 @@ public class StartFrame extends AbstractJFrame {//javax.swing.JFrame {
     private javax.swing.JButton openPatrocinador;
     private javax.swing.JButton openPatrocinio;
     private javax.swing.JButton openPessoa;
+    private javax.swing.JButton openRelEd;
     private javax.swing.JButton openRelatorios;
+    private javax.swing.JMenuItem sairApp;
     // End of variables declaration//GEN-END:variables
 }

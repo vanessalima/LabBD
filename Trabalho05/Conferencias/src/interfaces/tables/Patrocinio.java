@@ -126,13 +126,18 @@ public class Patrocinio extends AbstractJFrame {
         });
 
         try {
-            tfDataPatrocinio.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+            tfDataPatrocinio.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        tfDataPatrocinio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfDataPatrocinioActionPerformed(evt);
+            }
+        });
 
         jLabel5.setFont(new java.awt.Font("Ubuntu", 2, 14)); // NOI18N
-        jLabel5.setText("formato: MM/DD/YYYY");
+        jLabel5.setText("formato: DD/MM/YYYY");
 
         jLabel6.setText("Data Patrocínio");
 
@@ -348,6 +353,10 @@ public class Patrocinio extends AbstractJFrame {
         // TODO add your handling code here:
         super.onClose();
     }//GEN-LAST:event_formWindowClosing
+
+    private void tfDataPatrocinioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfDataPatrocinioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfDataPatrocinioActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cadastrarButton;

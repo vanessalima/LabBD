@@ -117,11 +117,6 @@ public class SelectCubePatrocinio extends AbstractJFrame {
         jTable1 = new javax.swing.JTable();
         jMenuBar2 = new javax.swing.JMenuBar();
         jMenu3 = new javax.swing.JMenu();
-        jMenuItem8 = new javax.swing.JMenuItem();
-        jMenuItem9 = new javax.swing.JMenuItem();
-        jMenuItem10 = new javax.swing.JMenuItem();
-        jMenuItem11 = new javax.swing.JMenuItem();
-        jMenuItem12 = new javax.swing.JMenuItem();
         jSeparator2 = new javax.swing.JPopupMenu.Separator();
         sairApp = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
@@ -151,26 +146,6 @@ public class SelectCubePatrocinio extends AbstractJFrame {
         jScrollPane2.setViewportView(jTable1);
 
         jMenu3.setText("Opções");
-
-        jMenuItem8.setText("Cadastrar");
-        jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem8ActionPerformed(evt);
-            }
-        });
-        jMenu3.add(jMenuItem8);
-
-        jMenuItem9.setText("Pesquisar");
-        jMenu3.add(jMenuItem9);
-
-        jMenuItem10.setText("Atualizar");
-        jMenu3.add(jMenuItem10);
-
-        jMenuItem11.setText("Remover");
-        jMenu3.add(jMenuItem11);
-
-        jMenuItem12.setText("Gerar Relatórios");
-        jMenu3.add(jMenuItem12);
         jMenu3.add(jSeparator2);
 
         sairApp.setText("Sair");
@@ -197,13 +172,12 @@ public class SelectCubePatrocinio extends AbstractJFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(layout.createSequentialGroup()
+                .addContainerGap()
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                     .add(layout.createSequentialGroup()
-                        .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .add(0, 0, Short.MAX_VALUE)
                         .add(cancelar))
-                    .add(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .add(jScrollPane2, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 606, Short.MAX_VALUE)))
+                    .add(jScrollPane2, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 606, Short.MAX_VALUE))
                 .addContainerGap())
             .add(layout.createSequentialGroup()
                 .add(214, 214, 214)
@@ -225,14 +199,6 @@ public class SelectCubePatrocinio extends AbstractJFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem8ActionPerformed
-
-    private void sairAppActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sairAppActionPerformed
-        super.onClose();
-    }//GEN-LAST:event_sairAppActionPerformed
-
     private void cancelarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cancelarMouseClicked
         super.onClose();
     }//GEN-LAST:event_cancelarMouseClicked
@@ -241,17 +207,16 @@ public class SelectCubePatrocinio extends AbstractJFrame {
         this.onClose();
     }//GEN-LAST:event_formWindowClosing
 
+    private void sairAppActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sairAppActionPerformed
+        super.onDispose();
+    }//GEN-LAST:event_sairAppActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cancelar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar2;
-    private javax.swing.JMenuItem jMenuItem10;
-    private javax.swing.JMenuItem jMenuItem11;
-    private javax.swing.JMenuItem jMenuItem12;
-    private javax.swing.JMenuItem jMenuItem8;
-    private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JPopupMenu.Separator jSeparator2;
     private javax.swing.JTable jTable1;
