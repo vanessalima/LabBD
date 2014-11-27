@@ -150,14 +150,14 @@ public class StartFrame extends AbstractJFrame {//javax.swing.JFrame {
             }
         });
 
-        openApresentacao.setText("Apresentação");
+        openApresentacao.setText("Escreve");
         openApresentacao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 openApresentacaoActionPerformed(evt);
             }
         });
 
-        openAvaliaArtigo.setText("Avaliação Artigo");
+        openAvaliaArtigo.setText("Patrocinador x Evento");
         openAvaliaArtigo.setPreferredSize(new java.awt.Dimension(190, 30));
         openAvaliaArtigo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -365,18 +365,14 @@ public class StartFrame extends AbstractJFrame {//javax.swing.JFrame {
 
     private void openApresentacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openApresentacaoActionPerformed
         try {
-            (new LoadFrame(this, Config.APRESENTACAO)).setEnabled(true);
+            (new LoadFrame(this, Config.ESCREVE)).setEnabled(true);
         } catch (SQLException ex) {
             Logger.getLogger(StartFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_openApresentacaoActionPerformed
 
     private void openAvaliaArtigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openAvaliaArtigoActionPerformed
-        /*try {
-            (new LoadFrame(this, Config.AVALIA_ARTIGO)).setEnabled(true);
-        } catch (SQLException ex) {
-            Logger.getLogger(StartFrame.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
+        (new SelectCubePatrocinio(this)).setEnabled(true);
     }//GEN-LAST:event_openAvaliaArtigoActionPerformed
 
     private void openAvaliaApresentadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openAvaliaApresentadorActionPerformed

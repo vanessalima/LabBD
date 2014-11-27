@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+<Form version="1.5" maxVersion="1.8" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="2"/>
   </Properties>
@@ -59,7 +59,7 @@
                               <Component id="jLabel2" min="-2" pref="155" max="-2" attributes="0"/>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
-                          <Component id="cbApresentador" max="32767" attributes="0"/>
+                          <Component id="cbApresentador" alignment="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -75,7 +75,7 @@
                   <Component id="lNomeArtigo" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="tfNomeArtigo" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="separate" max="32767" attributes="0"/>
+              <EmptySpace type="separate" pref="20" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="lApresentador" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="cbApresentador" alignment="3" min="-2" max="-2" attributes="0"/>
