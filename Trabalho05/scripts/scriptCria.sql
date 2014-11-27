@@ -111,9 +111,9 @@ CREATE TABLE edicao (
         telefonePe Varchar2(18), -- +XXX(XXX)XXXX-XXXX
         nacionalidadePe Varchar2(50),
         enderecoPe Varchar2(100),
-        tipoOrganizador Char(1),
-        tipoParticipante Char(1),
-        tipoAutor Char(1),
+        tipoOrganizador Char(1) DEFAULT '0',
+        tipoParticipante Char(1) DEFAULT '0',
+        tipoAutor Char(1) DEFAULT '0',
         CONSTRAINT PK_PESSOA PRIMARY KEY (idPe),
         CONSTRAINT UN_EMAIL UNIQUE (emailPe),
         CONSTRAINT CHECK_TIPO_ORGANIZADOR CHECK (tipoOrganizador IN ('0', '1') ),
@@ -137,7 +137,7 @@ CREATE TABLE inscrito (
         numEd Number(5) NOT NULL, -- Chave estrangeira de edicao e chave primária
         idPart Number(5) NOT NULL,
         dataInsc Date,
-        tipoApresentador Char(1),
+        tipoApresentador Char(1) DEFAULT '0',
         CONSTRAINT PK_INSCRITO PRIMARY KEY (codEv, numEd, idPart), -- Restrição de chave primária
         CONSTRAINT FK_INSCRITO_PESSOA FOREIGN KEY (idPart) REFERENCES pessoa(idPe), -- Define uma restrição de integridade referencial
         CONSTRAINT PK_INSCRITO_EDICAO FOREIGN KEY (codEv, numEd) REFERENCES edicao(codEv, numEd) ON DELETE CASCADE, -- Define uma restrição de integridade referencial
@@ -164,7 +164,7 @@ CREATE TABLE artigo (
         numEd Number(5) NOT NULL,-- Chave estrangeira de inscrito
         idApr Number(5) NOT NULL,-- Chave estrangeira de inscrito
         CONSTRAINT PK_ARTIGO PRIMARY KEY (idArt), -- Restrição de chave primária
-        CONSTRAINT PK_ARTIGO_INSCRITO FOREIGN KEY (codEv, numEd, idApr) REFERENCES inscrito(codEv, numEd, idPart) ON DELETE CASCADE -- Restrição de integridade referencial
+        CONSTRAINT PK_ARTIGO_INSCRITO FOREIGN KEY (codEv, numEd, idApr) REFERENCES inscrito(codEv, numEd, idPart) ON DELETE SET NULL -- Restrição de integridade referencial
 );
 /
 -- Criação da tabela escreve
