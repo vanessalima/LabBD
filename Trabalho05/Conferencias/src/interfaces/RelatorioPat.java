@@ -29,7 +29,7 @@ import javax.swing.JFrame;
  * e podendo ter ou não um edição determinada para o relatório
  * @author Carlos Humberto dos Santos Baqueta, Marina Coimbra, Vanessa Apolinário de Lima
  */
-public class Relatorio extends AbstractJFrame {
+public class RelatorioPat extends AbstractJFrame {
 
     /**
      * Creates new form Relatorio
@@ -37,7 +37,7 @@ public class Relatorio extends AbstractJFrame {
     Hashtable<String, ArrayList> listaEventos = new Hashtable<>(); // hash contendo o par evento e suas edições
     Hashtable<String, Integer> eventoNum = new Hashtable<>(); //hash contendo o nome do evento e seu codev
 
-    public Relatorio(AbstractJFrame ant) {
+    public RelatorioPat(AbstractJFrame ant) {
         super(ant);
         // Cria os comboBox da interface e popula com os eventos
         createHashEventos();
@@ -390,7 +390,7 @@ public class Relatorio extends AbstractJFrame {
         DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy-HH-mm-ss");
         Date date = new Date();
         // criar o arquivo
-        try (FileWriter arq = new FileWriter("Relatório-"+dateFormat.format(date).toString()+".txt")) {
+        try (FileWriter arq = new FileWriter("RelatórioPat-"+dateFormat.format(date).toString()+".txt")) {
             arq.write(relatorio);
             arq.close();
             // sucesso
