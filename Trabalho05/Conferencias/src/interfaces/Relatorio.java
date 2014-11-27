@@ -34,11 +34,12 @@ public class Relatorio extends AbstractJFrame {
     /**
      * Creates new form Relatorio
      */
-    Hashtable<String, ArrayList> listaEventos = new Hashtable<>();
-    Hashtable<String, Integer> eventoNum = new Hashtable<>();
+    Hashtable<String, ArrayList> listaEventos = new Hashtable<>(); // hash contendo o par evento e suas edições
+    Hashtable<String, Integer> eventoNum = new Hashtable<>(); //hash contendo o nome do evento e seu codev
 
     public Relatorio(AbstractJFrame ant) {
         super(ant);
+        // Cria os comboBox da interface e popula com os eventos
         createHashEventos();
         initComponents();
         Set lista_keys = listaEventos.keySet();
@@ -51,16 +52,18 @@ public class Relatorio extends AbstractJFrame {
     }
     
     /**
-     * Cria o par evento edição para evitar a repetição de selects
+     * Cria o par evento edição para serem selecionados pelos combo box
      */
     private void createHashEventos(){
         DBconnection dbconn = new DBconnection();
+        // seleciona os pares
         String sql = "SELECT EVENTO.CODEV, NOMEEV, NUMED FROM EVENTO, EDICAO WHERE EDICAO.CODEV = EVENTO.CODEV";
         ResultSet res;
         
         try {
             res = dbconn.query(sql);
             while(res.next()) {
+                // adiciona os pares em seus respectivos hashmaps
                     if(!this.listaEventos.containsKey(res.getString("NOMEEV"))){
                          this.listaEventos.put(res.getString("NOMEEV"), new ArrayList());
                          this.listaEventos.get(res.getString("NOMEEV")).add("ALL");
@@ -88,17 +91,23 @@ public class Relatorio extends AbstractJFrame {
             
         }
     }
-    
+    /**
+     * Realiza o procedimento relatorio_evento localizado no pacote relatorio_pat
+     * O resultado é gravado na tabela result_pat
+     * Esse procedimento cria o relatório e salva na tabela.
+     * @param codev: é o numero do evento desejado
+     * @param numed: número da edição ou -1 para todas as edições
+     */
     private void gerarRelatorio(Integer codev, Integer numed){
         DBconnection dbconn = new DBconnection();
         boolean flag = true;
         String sql;
         System.out.println(numed);
-        if(numed == -1){
+        if(numed == -1){ // todas as edições
            sql = "begin relatorio_pat.relatorio_evento("+ codev.toString()+ ",NULL); end;";
            System.out.println(sql);
         }
-        else{
+        else{ // uma edição específica
             sql = "begin relatorio_pat.relatorio_evento("+ codev.toString()+ "," + numed.toString()+"); end;";
             System.out.println(sql);
         }
@@ -123,18 +132,23 @@ public class Relatorio extends AbstractJFrame {
             
         }
         
-
+            // função para ler os componentes da tabela
             getTableResults();
     }
     
+    /**
+     * Lê a tabela gerada por gerarRelatorio() e imprime no textarea.
+     */
     private void getTableResults(){
         DBconnection dbconn = new DBconnection();
         String sql = "SELECT text from result_pat ORDER BY ID";
         ResultSet res;
-        jTextArea1.setText(null);
+        // zera a textarea
+        jTextArea1.setText(null); 
         try {
             res = dbconn.query(sql);
             while(res.next()) {
+                // imprime na textarea as linhas da tabela contendo o output do relatorio
                 System.out.println(res.getString("text"));
                 jTextArea1.append(res.getString("text") + "\n");
             }
@@ -327,8 +341,13 @@ public class Relatorio extends AbstractJFrame {
         super.onClose();
     }//GEN-LAST:event_sairAppActionPerformed
 
+    /**
+     * Ação executada pelo botão de gerar relatório.
+     * @param evt 
+     */
     private void gerarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gerarActionPerformed
         Integer numed;
+        //coleta os valores do combo box
         if(jComboBox2.getSelectedItem().toString().equals("ALL") ){
             numed = -1;
         }
@@ -342,6 +361,12 @@ public class Relatorio extends AbstractJFrame {
         super.onClose();
     }//GEN-LAST:event_cancelarMouseClicked
 
+    /**
+     * jComboBox1ActionPerformed
+     * Quando o valor do combobox de evento é trocado, a lista do combobox de respectivas edições
+     * é trocado também.
+     * @param evt 
+     */
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         String new_key = jComboBox1.getSelectedItem().toString();
         ArrayList temp = listaEventos.get(new_key);
@@ -351,20 +376,28 @@ public class Relatorio extends AbstractJFrame {
         }
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
+    /**
+     * Exporta o relatório em .txt
+     * @param evt 
+     */
     private void exportarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exportarActionPerformed
         String relatorio = jTextArea1.getText();
         if (relatorio.length() < 1){
+            // relatório nao gerado
             (new Mensagem(this, this.anterior, "Por favor pressione o botão Gerar.", FAIL, RELATORIO)).setEnabled(true);
             return;
         }
         DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy-HH-mm-ss");
         Date date = new Date();
+        // criar o arquivo
         try (FileWriter arq = new FileWriter("Relatório-"+dateFormat.format(date).toString()+".txt")) {
             arq.write(relatorio);
             arq.close();
+            // sucesso
             (new Mensagem(this, this.anterior, null, SUCCESS, RELATORIO)).setEnabled(true);
         }
         catch (IOException ex) {
+            // erro de arquivo
             (new Mensagem(this, this.anterior, "O arquivo não pode ser criado", FAIL, RELATORIO)).setEnabled(true);
             Logger.getLogger(Relatorios.class.getName()).log(Level.SEVERE, null, ex);
         }
