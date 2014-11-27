@@ -24,7 +24,7 @@ import javax.swing.JFrame;
 public class Despesa extends AbstractJFrame {
 
     private HashMap<String, Integer> listaEventos;
-    private HashMap<String, Integer> listaPat;
+    private HashMap<String, String> listaPat;
     
     /**
      * Creates new form Despesa
@@ -373,7 +373,27 @@ public class Despesa extends AbstractJFrame {
         System.out.println(this.tfValor1.getText());
         this.tfValor1.selectAll();
         // load patrocinios
-        String sql = "SELECT cnpjPat, codEv, numEd FROM PATROCINIO WHERE saldoPat > " +this.tfValor1.getText();
+        String sql = "SELECT razaoSocialPat, nomeEv, patrocinio.numEd FROM PATROCINIO, EVENTO, PATROCINADOR"
+                    + " WHERE patrocinio.cnpjPat = patrocinador.cnpjPat AND "
+                        + " patrocinio.codEv = evento.codEv AND"
+                        + " saldoPat > " +this.tfValor1.getText();
+        ResultSet res;
+        DBconnection conn = new DBconnection();
+        
+        try {
+            res = conn.query(sql);
+            this.cbPatrocinio.removeAllItems();
+            this.cbPatrocinio.addItem("-");
+            while(res != null && res.next()){
+                String auxNome = res.getString("razaoSocialPat");
+                this.cbPatrocinio.addItem(auxNome + " " + res.getString("nomeEv") + " " + res.getString("numEd"));
+                this.listaPat.put(auxNome, res.getString("razaoSocialPat"));
+            }
+            //this.listaPat
+        } catch (SQLException ex) {
+            Logger.getLogger(Despesa.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
         
     }//GEN-LAST:event_tfValor1FocusLost
 
@@ -431,7 +451,7 @@ public class Despesa extends AbstractJFrame {
         }
         // New nas listas
         this.listaEventos = new HashMap<String, Integer>();
-        this.listaPat = new HashMap<String, Integer>();
+        this.listaPat = new HashMap<String, String>();
         
         // popula os comboboxes de Evento e Patrocinador:
         DBconnection conn = new DBconnection();
