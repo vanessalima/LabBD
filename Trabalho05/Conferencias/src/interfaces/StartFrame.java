@@ -166,7 +166,7 @@ public class StartFrame extends AbstractJFrame {//javax.swing.JFrame {
             }
         });
 
-        openAvaliaApresentador.setText("Avaliação Apresentador");
+        openAvaliaApresentador.setText("Pessoa x Auxilio");
         openAvaliaApresentador.setPreferredSize(new java.awt.Dimension(190, 30));
         openAvaliaApresentador.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
