@@ -125,7 +125,11 @@ public class Patrocinio extends AbstractJFrame {
             }
         });
 
-        tfDataPatrocinio.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        try {
+            tfDataPatrocinio.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
 
         jLabel5.setFont(new java.awt.Font("Ubuntu", 2, 14)); // NOI18N
         jLabel5.setText("formato: DD/MM/YYYY");

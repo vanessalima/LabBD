@@ -404,7 +404,7 @@ public class RelatorioPat extends AbstractJFrame {
     }//GEN-LAST:event_exportarActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-        this.onClose();
+        super.onClose();
     }//GEN-LAST:event_formWindowClosing
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
