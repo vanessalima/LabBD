@@ -37,10 +37,10 @@ public class SelectEdicao extends AbstractJFrame {
         super(ant);
         getHeaders(); 
         this.createHashEventos();
-        for( int i = 0; i < this.header.size(); i++ ){
+        /*for( int i = 0; i < this.header.size(); i++ ){
             System.out.println(this.header.get(i));
         }
-        /*for( int i = 0; i < this.header.size(); i++ ){
+        for( int i = 0; i < this.header.size(); i++ ){
             for (int j = 0; j < tableRows[i].length; j++)
                 System.out.println(this.tableRows[i][j]);
         }*/
@@ -242,14 +242,15 @@ public class SelectEdicao extends AbstractJFrame {
         
         ResultSet res;
         int k = 0;
+        System.out.println(sql);
         
         try {
             res = conn.query(sql);
             while(res.next()) {
                     content.add(new ArrayList<String>() {});
                     for (int j = 0; j < header.size(); j++){
-                        System.out.println(header.get(j));
-                        System.out.println(res.getString(header.get(j)));
+                        //System.out.println(header.get(j));
+                        //System.out.println(res.getString(header.get(j)));
                         content.get(k).add(res.getString(header.get(j)));
                     }
                     k++;

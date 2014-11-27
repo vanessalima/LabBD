@@ -263,7 +263,7 @@ CREATE OR REPLACE TRIGGER atualizaTaxaEd AFTER
 END atualizaTaxaEd;
 /
 /
-/
+/*
 -- trigger para atualizar saldo da edicao caso o valor da taxa da edicao seja alterado
 	-- ERRO TABELA MUTANTE ***********
 CREATE OR REPLACE TRIGGER recalculaSaldoPorTaxaEdicao AFTER
@@ -331,3 +331,4 @@ SELECT NVL(count(idArt), 0) FROM ESCREVE WHERE idAut = 350;
 /
 /
 --TRIGGERS! Tem outros???
+*/
