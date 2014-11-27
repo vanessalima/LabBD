@@ -57,12 +57,6 @@ public class LoadFrame extends AbstractJFrame {
             case Config.AUXILIO:
                 this.form = new Auxilio(this);
                 break;
-            case Config.AVALIA_APRESENTADOR:
-                this.form = new AvaliaApresentador(this);
-                break;
-            case Config.AVALIA_ARTIGO:
-                this.form = new AvaliaArtigo(this);
-                break;
             case Config.DESPESA:
                 // TODO : FAZER
                 if(flagCadastro){ this.form = new Despesa(this); }

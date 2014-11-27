@@ -23,7 +23,7 @@ import javax.swing.JFrame;
  */
 public class Inscrito extends AbstractJFrame {
     private EInscrito i;
-    private HashMap<String, Integer> listaEventos;    
+    private HashMap<String, Integer> listaEventos;
     private HashMap<String, Integer> listaPessoas;
     
     /**
@@ -90,14 +90,14 @@ public class Inscrito extends AbstractJFrame {
 
         lEvento.setText("Evento*");
 
-        cbEvento.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                cbEventoMouseClicked(evt);
-            }
-        });
         cbEvento.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 cbEventoFocusLost(evt);
+            }
+        });
+        cbEvento.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cbEventoMouseClicked(evt);
             }
         });
 

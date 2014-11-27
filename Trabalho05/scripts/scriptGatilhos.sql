@@ -85,11 +85,13 @@ CREATE OR REPLACE TRIGGER novoSaldoPatrocinioDespesa AFTER
 							  AND codEv = :antigo.codEvPat
 							  AND numEd = :antigo.numEdPat;
 			ELSIF inserting THEN
+				-- verificar se o valor eh negativo, e não trocar *******
 				UPDATE PATROCINIO SET saldoPat = (saldoPat - :novo.valorDesp)
 						WHERE cnpjPat = :novo.cnpjPat
 							  AND codEv = :novo.codEvPat
 							  AND numEd = :novo.numEdPat;
 			ELSIF updating THEN
+				-- verificar se o valor eh negativo, e não trocar *******
 				UPDATE PATROCINIO SET saldoPat = (saldoPat - (:novo.valorDesp - :antigo.valorDesp) )
 						WHERE cnpjPat = :novo.cnpjPat
 							  AND codEv = :novo.codEvPat
@@ -114,11 +116,13 @@ CREATE OR REPLACE TRIGGER novoSaldoPatrocinioAuxilio AFTER
 							  AND codEv = :antigo.codEvPat
 							  AND numEd = :antigo.numEdPat;
 			ELSIF inserting THEN
+				-- verificar se o valor eh negativo, e não trocar *******
 				UPDATE PATROCINIO SET saldoPat = (saldoPat - :novo.valorAux)
 						WHERE cnpjPat = :novo.cnpjPat
 							  AND codEv = :novo.codEvPat
 							  AND numEd = :novo.numEdPat;
 			ELSIF updating THEN
+				-- verificar se o valor eh negativo, e não trocar *******
 				UPDATE PATROCINIO SET saldoPat = (saldoPat - (:novo.valorAux - :antigo.valorAux) )
 						WHERE cnpjPat = :novo.cnpjPat
 							  AND codEv = :novo.codEvPat
@@ -174,12 +178,25 @@ CREATE OR REPLACE TRIGGER adicionarApresentador AFTER
 								  AND numEd = :novo.numEd
 								  AND idPart = :novo.idApr;
 				END IF;
-			--ELSIF updating THEN
-				--IF :antigo.idApr IS NOT NULL THEN
-			--END IF;
+			ELSIF updating THEN
+				IF :antigo.idApr IS NOT NULL THEN
+					UPDATE INSCRITO SET tipoApresentador = '0'
+							WHERE codEv = :antigo.codEv
+								  AND numEd = :antigo.numEd
+								  AND idPart = :antigo.idApr;
+				END IF;
+				-- NOVO
+				IF :novo.idApr IS NOT NULL THEN
+					UPDATE INSCRITO SET tipoApresentador = '1'
+							WHERE codEv = :novo.codEv
+								  AND numEd = :novo.numEd
+								  AND idPart = :novo.idApr;
+				END IF;
+			END IF;
 
 END adicionarApresentador;
 /
 /
 /
+-- trigger de inserção e remoção de inscritos para alterar o valor do saldo da Edicao *****
 --TRIGGERS! Tem outros???

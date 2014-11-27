@@ -366,19 +366,19 @@ public class StartFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_openApresentacaoActionPerformed
 
     private void openAvaliaArtigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openAvaliaArtigoActionPerformed
-        try {
+        /*try {
             (new LoadFrame(this, Config.AVALIA_ARTIGO)).setEnabled(true);
         } catch (SQLException ex) {
             Logger.getLogger(StartFrame.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        }*/
     }//GEN-LAST:event_openAvaliaArtigoActionPerformed
 
     private void openAvaliaApresentadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openAvaliaApresentadorActionPerformed
-        try {
+        /*try {
             (new LoadFrame(this, Config.AVALIA_APRESENTADOR)).setEnabled(true);
         } catch (SQLException ex) {
             Logger.getLogger(StartFrame.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        }*/
     }//GEN-LAST:event_openAvaliaApresentadorActionPerformed
 
     private void openEdicaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openEdicaoActionPerformed
