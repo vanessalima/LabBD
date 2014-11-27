@@ -149,7 +149,7 @@ public class Edicao extends AbstractJFrame {
         }
 
         jLabel2.setFont(new java.awt.Font("Ubuntu", 2, 14)); // NOI18N
-        jLabel2.setText("formato: MM/DD/YYYY");
+        jLabel2.setText("formato: DD/MM/YYYY");
 
         jLabel3.setText("Data início");
 
@@ -162,7 +162,7 @@ public class Edicao extends AbstractJFrame {
         }
 
         jLabel5.setFont(new java.awt.Font("Ubuntu", 2, 14)); // NOI18N
-        jLabel5.setText("formato: MM/DD/YYYY");
+        jLabel5.setText("formato: DD/MM/YYYY");
 
         lNumEd.setText("Número da edição*");
 

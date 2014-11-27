@@ -21,7 +21,7 @@ import javax.swing.JFrame;
  *
  * @author Rina
  */
-public class Relatorios extends AbstractJFrame {
+public class SelectCubePatrocinio extends AbstractJFrame {
 
     /**
      * Creates new form Relatorios
@@ -29,7 +29,7 @@ public class Relatorios extends AbstractJFrame {
     ArrayList<String> header = new ArrayList<>();
     Object[][] tableRows;
     
-    public Relatorios(AbstractJFrame ant) {
+    public SelectCubePatrocinio(AbstractJFrame ant) {
         super(ant);
         getHeaders(); 
         this.tableRows = getContent(); 
@@ -111,9 +111,7 @@ public class Relatorios extends AbstractJFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        gerar = new javax.swing.JButton();
         cancelar = new javax.swing.JButton();
-        exportar = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jMenuBar2 = new javax.swing.JMenuBar();
@@ -135,14 +133,7 @@ public class Relatorios extends AbstractJFrame {
             }
         });
 
-        jLabel1.setText("Relatório de Patrocínios");
-
-        gerar.setText("Gerar");
-        gerar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                gerarActionPerformed(evt);
-            }
-        });
+        jLabel1.setText("Relação Patrocínio x Evento");
 
         cancelar.setText("Cancelar");
         cancelar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -150,8 +141,6 @@ public class Relatorios extends AbstractJFrame {
                 cancelarMouseClicked(evt);
             }
         });
-
-        exportar.setText("Exportar");
 
         jTable1.setModel(new myTableModel(
             this.tableRows,
@@ -209,18 +198,14 @@ public class Relatorios extends AbstractJFrame {
             .add(layout.createSequentialGroup()
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                     .add(layout.createSequentialGroup()
-                        .add(188, 328, Short.MAX_VALUE)
-                        .add(gerar)
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                        .add(exportar)
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                        .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .add(cancelar))
                     .add(layout.createSequentialGroup()
                         .addContainerGap()
-                        .add(jScrollPane2)))
+                        .add(jScrollPane2, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 606, Short.MAX_VALUE)))
                 .addContainerGap())
             .add(layout.createSequentialGroup()
-                .add(233, 233, 233)
+                .add(214, 214, 214)
                 .add(jLabel1)
                 .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -232,10 +217,7 @@ public class Relatorios extends AbstractJFrame {
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(jScrollPane2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 444, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(gerar)
-                    .add(cancelar)
-                    .add(exportar))
+                .add(cancelar)
                 .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -250,19 +232,6 @@ public class Relatorios extends AbstractJFrame {
         super.onClose();
     }//GEN-LAST:event_sairAppActionPerformed
 
-    private void gerarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gerarActionPerformed
-        jTable1.getTableHeader();
-        DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy-HH-mm-ss");
-        Date date = new Date();
-        try (FileWriter arq = new FileWriter("Relatório-"+dateFormat.format(date).toString()+".txt")) {
-                arq.write("lalala");
-                arq.close();
-        }
-        catch (IOException ex) {
-            Logger.getLogger(Relatorios.class.getName()).log(Level.SEVERE, null, ex);
-        }          
-    }//GEN-LAST:event_gerarActionPerformed
-
     private void cancelarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cancelarMouseClicked
         super.onClose();
     }//GEN-LAST:event_cancelarMouseClicked
@@ -273,8 +242,6 @@ public class Relatorios extends AbstractJFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cancelar;
-    private javax.swing.JButton exportar;
-    private javax.swing.JButton gerar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;

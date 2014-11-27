@@ -399,7 +399,7 @@ public class Relatorio extends AbstractJFrame {
         catch (IOException ex) {
             // erro de arquivo
             (new Mensagem(this, this.anterior, "O arquivo não pode ser criado", FAIL, RELATORIO)).setEnabled(true);
-            Logger.getLogger(Relatorios.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SelectCubePatrocinio.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_exportarActionPerformed
 
