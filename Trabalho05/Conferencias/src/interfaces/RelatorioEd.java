@@ -76,7 +76,6 @@ public class RelatorioEd extends AbstractJFrame {
      * O resultado é gravado na tabela result_pat
      * Esse procedimento cria o relatório e salva na tabela.
      * @param codev: é o numero do evento desejado
-     * @param numed: número da edição ou -1 para todas as edições
      */
     private void gerarRelatorio(Integer codev){
         DBconnection dbconn = new DBconnection();

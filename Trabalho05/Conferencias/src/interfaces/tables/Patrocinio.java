@@ -126,15 +126,10 @@ public class Patrocinio extends AbstractJFrame {
         });
 
         try {
-            tfDataPatrocinio.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("")));
+            tfDataPatrocinio.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        tfDataPatrocinio.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfDataPatrocinioActionPerformed(evt);
-            }
-        });
 
         jLabel5.setFont(new java.awt.Font("Ubuntu", 2, 14)); // NOI18N
         jLabel5.setText("formato: DD/MM/YYYY");

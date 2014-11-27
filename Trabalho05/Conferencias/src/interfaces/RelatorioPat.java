@@ -372,7 +372,7 @@ public class RelatorioPat extends AbstractJFrame {
     }//GEN-LAST:event_exportarActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-        this.onClose();
+        super.onClose();
     }//GEN-LAST:event_formWindowClosing
 
     private void sairAppActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sairAppActionPerformed
