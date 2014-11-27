@@ -27,7 +27,7 @@ public class Artigo extends AbstractJFrame {
     /**
      * Creates new form Artigos
      */
-    public Artigo(JFrame ant) {
+    public Artigo(AbstractJFrame ant) {
         super(ant);
         initComponents();
         this.mInitialize();
@@ -35,7 +35,7 @@ public class Artigo extends AbstractJFrame {
         this.cadastrarButton.setText("Cadastrar");
     }
     
-    public Artigo(JFrame ant, Object obj){
+    public Artigo(AbstractJFrame ant, Object obj){
         super(ant);
         initComponents();
         this.setTitle("Atualização de Artigos");

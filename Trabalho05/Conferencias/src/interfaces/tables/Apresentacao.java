@@ -17,7 +17,7 @@ public class Apresentacao extends AbstractJFrame {
     /**
      * Creates new form Apresentacao
      */
-    public Apresentacao(JFrame ant) {
+    public Apresentacao(AbstractJFrame ant) {
         super(ant);
         initComponents();
     }

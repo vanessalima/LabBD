@@ -31,7 +31,7 @@ public class Organizador extends AbstractJFrame {
     /**
      * Creates new form Organizador
      */
-    public Organizador(JFrame ant) {
+    public Organizador(AbstractJFrame ant) {
         super(ant);
         initComponents();
         this.mInitialize();
@@ -39,7 +39,7 @@ public class Organizador extends AbstractJFrame {
         this.cadastrarButton.setText("Cadastrar");
     }
 
-    public Organizador(JFrame ant, Object obj) {
+    public Organizador(AbstractJFrame ant, Object obj) {
         super(ant);
         initComponents();
         this.setTitle("Atualização de Organizador");

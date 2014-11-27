@@ -24,7 +24,7 @@ public class Patrocinador extends AbstractJFrame {
     /**
      * Creates new form Patrocinador
      */
-    public Patrocinador(JFrame ant) {
+    public Patrocinador(AbstractJFrame ant) {
         super(ant);
         initComponents();
         this.setTitle("Cadastro de Patrocinador");
@@ -32,7 +32,7 @@ public class Patrocinador extends AbstractJFrame {
 
     }
 
-    public Patrocinador(JFrame ant, Object obj){
+    public Patrocinador(AbstractJFrame ant, Object obj){
         super(ant);
         initComponents();
         this.setTitle("Atualização de Patrocinador");

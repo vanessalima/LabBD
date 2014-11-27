@@ -32,7 +32,7 @@ public class Patrocinio extends AbstractJFrame {
     /**
      * Creates new form Patrocinios
      */
-    public Patrocinio(JFrame ant) {
+    public Patrocinio(AbstractJFrame ant) {
         super(ant);
         initComponents();
         this.mInitialize(null, null);
@@ -40,7 +40,7 @@ public class Patrocinio extends AbstractJFrame {
         this.cadastrarButton.setText("Cadastrar");
     }
 
-    public Patrocinio(JFrame ant, Object obj) {
+    public Patrocinio(AbstractJFrame ant, Object obj) {
         super(ant);
         initComponents();
         this.setTitle("Atualização de Patrocínio");

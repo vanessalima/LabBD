@@ -16,7 +16,7 @@ public class Equipe extends AbstractJFrame {
     /**
      * Creates new form Equipe
      */
-    public Equipe(JFrame ant) {
+    public Equipe(AbstractJFrame ant) {
         super(ant);
         initComponents();
         this.setVisible(true);
