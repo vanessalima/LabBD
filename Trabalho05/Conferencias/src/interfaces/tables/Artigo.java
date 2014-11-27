@@ -206,11 +206,14 @@ public class Artigo extends AbstractJFrame {
     private void cadastrarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarButtonActionPerformed
         DBconnection conn;
         String sql;
+        
+        if(tfNomeArtigo.getText().matches("")){
+            infoLabel.setForeground(Color.red);
+            lNomeArtigo.setForeground(Color.red);
+            return;
+        }
+        
         if(this.cadastrarButton.getText().matches("Cadastrar")){
-            if(tfNomeArtigo.getText().matches("")){
-                infoLabel.setForeground(Color.red);
-                lNomeArtigo.setForeground(Color.red);
-            } else {
                 // Tratamento de datas:
                 String sqlDataApr=null;
                 String sqlHora=null;
@@ -267,7 +270,6 @@ public class Artigo extends AbstractJFrame {
                         }
                     }
                 }
-            }
         } else { // Atualizacao
             try{
                 conn = new DBconnection();
@@ -280,19 +282,24 @@ public class Artigo extends AbstractJFrame {
                 }
                 if (!tfHora.getText().matches("  :  ")){
                     //	TO_TIMESTAMP('02/09/2014, 10:30:00','DD/MM/YYYY, HH24:MI:SS')
-                    sqlHora = "to_timestamp('"+tfDataApr.getText()+", "+tfHora.getText()+":00', 'DD/MM/YYYY, HH24:MI:SS')";
+                    if (!tfDataApr.getText().matches("  /  /    ")){
+                        sqlHora = "to_timestamp('"+tfDataApr.getText()+", "+tfHora.getText()+":00', 'DD/MM/YYYY, HH24:MI:SS')";
+                    }else{
+                        sqlHora = "to_timestamp('"+tfHora.getText()+":00', 'HH24:MI:SS')";
+                    }
                 }
                 if(!cbApresentador.getSelectedItem().toString().matches("-")){
                     sqlFinal = this.listaInscritos.get(cbApresentador.getSelectedItem().toString());
                 }
-
-//                sql = "UPDATE ARTIGO SET descricaoEd = '"+taDescricao.getText().trim()+"', taxaEd = "+
-//                taxaEv+", localEd = '"+tfLocal.getText()+"', dataFimEd = "+
-//                sqlDataFim+", dataInicioEd = "+sqlDataInicio+
-//                " WHERE idArt = "+this.e.getCodEv();
-                //                sql = "UPDATE EDICAO SET LOCALED = '', TAXAED = 122, DATAINICIOED = null, DESCRICAOED = '', DATAFIMED = null WHERE CODEV = 23 AND NUMED = 1";
-//                System.out.println("SQL: "+sql);
-//                conn.executeCommand(sql);
+                if(!cbApresentador.getSelectedItem().toString().matches("-")){
+                    sqlFinal = this.listaInscritos.get(cbApresentador.getSelectedItem().toString());
+                    System.out.println("sqlFInal: "+sqlFinal);
+                }
+                String aux[] = sqlFinal.split(", ");
+                
+                sql = "UPDATE ARTIGO SET tituloArt = '"+tfNomeArtigo.getText()+"', dataApresArt = "+sqlDataApr+", horaApresArt = "+sqlHora+", codEv = "+aux[0]+", numEd = "+aux[1]+", idApr = "+aux[2]+" WHERE idArt = "+this.artigo.getIdArt();
+                System.out.println("SQL: "+sql);
+                conn.executeCommand(sql);
                 conn.disconect();
                 (new Mensagem(this, this.anterior, null, SUCCESS, ATUALIZACAO)).setEnabled(true);
             }catch(SQLException e){

@@ -50,7 +50,7 @@ public class Inscrito extends AbstractJFrame {
         this.cadastrarInscButton.setVisible(false);
         if(obj instanceof EInscrito){
             this.i = (EInscrito) obj;
-            ///TODO
+            
         }
     }
 
