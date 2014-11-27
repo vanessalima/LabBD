@@ -296,23 +296,37 @@ END recalculaSaldoPorTaxaEdicao;
 	-- lebrar de verificar se a pessoa não possui outros artigos
 	-- ERRO TABELA MUTANTE ***********
 CREATE OR REPLACE TRIGGER atualizarAutor AFTER
-	INSERT OR DELETE ON ESCREVE
+	DELETE ON ESCREVE
 	REFERENCING OLD AS antigo NEW AS novo
 	FOR EACH ROW
 		DECLARE
+			PRAGMA AUTONOMOUS_TRANSACTION;
 			artigos Number(10);
 		BEGIN
-			IF deleting THEN
 				-- verifica se a pessoa tem mais algum artigo escrito
 				SELECT NVL(count(idArt), 0) INTO artigos FROM ESCREVE WHERE idAut = :antigo.idAut;
 				IF artigos = 0 THEN 
-					UPDATE PESSOA SET tipoAutor = '0' WHERE idPe = :novo.idAut;
+					UPDATE PESSOA SET tipoAutor = '0' WHERE idPe = :antigo.idAut;
 				END IF;
-			ELSIF inserting THEN
-				UPDATE PESSOA SET tipoAutor = '1' WHERE idPe = :novo.idAut;
-			END IF;
 
 END atualizarAutor;
+/
+/
+/
+CREATE OR REPLACE TRIGGER atualizarAutorInsert AFTER
+	INSERT ON ESCREVE
+	REFERENCING OLD AS antigo NEW AS novo
+	FOR EACH ROW
+		BEGIN
+			UPDATE PESSOA SET tipoAutor = '1' WHERE idPe = :novo.idAut;
+
+END atualizarAutorInsert;
+
+INSERT INTO ESCREVE VALUES(350, 2);
+
+DELETE FROM ESCREVE WHERE IDART = 2 AND IDAUT=350;
+
+SELECT NVL(count(idArt), 0) FROM ESCREVE WHERE idAut = 350;
 /
 /
 /
