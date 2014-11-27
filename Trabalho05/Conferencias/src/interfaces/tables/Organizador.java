@@ -344,6 +344,7 @@ public class Organizador extends AbstractJFrame {
                 sql = "SELECT idPe, nomePe from pessoa ORDER BY nomePe";
                 System.out.println("SQL: "+sql);
                 rs = conn.query(sql);
+                cbPessoa.removeAllItems();
                 while(rs != null && rs.next()){
                     String auxNome = rs.getString("nomePe");
                     cbPessoa.addItem(auxNome);
