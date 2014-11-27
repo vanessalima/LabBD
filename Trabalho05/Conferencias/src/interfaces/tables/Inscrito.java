@@ -75,6 +75,7 @@ public class Inscrito extends AbstractJFrame {
         cadastrarButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setResizable(false);
         addWindowFocusListener(new java.awt.event.WindowFocusListener() {
             public void windowGainedFocus(java.awt.event.WindowEvent evt) {
                 formWindowGainedFocus(evt);
@@ -90,14 +91,14 @@ public class Inscrito extends AbstractJFrame {
 
         lEvento.setText("Evento*");
 
-        cbEvento.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                cbEventoFocusLost(evt);
-            }
-        });
         cbEvento.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 cbEventoMouseClicked(evt);
+            }
+        });
+        cbEvento.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                cbEventoFocusLost(evt);
             }
         });
 
