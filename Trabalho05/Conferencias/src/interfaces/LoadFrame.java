@@ -52,7 +52,10 @@ public class LoadFrame extends AbstractJFrame {
                 this.form = new Apresentacao(this);
                 break;
             case Config.ARTIGO:
-                this.form = new Artigo(this);
+                if(flagCadastro){ this.form = new Artigo(this); }
+                else {
+                    this.form = new Artigo(this, obj);
+                }
                 break;
             case Config.AUXILIO:
                 this.form = new Auxilio(this);
@@ -642,7 +645,27 @@ public class LoadFrame extends AbstractJFrame {
                         this.tableAll.getValueAt(linha, 2).toString(), 
                         this.tableAll.getValueAt(linha, 4).toString(), 
                         this.tableAll.getValueAt(linha, 5).toString());
-                
+            }else if(this.table == Config.ARTIGO){
+                String auxDataHora[];
+                String auxData[];
+                String data = null;
+                String hora = null;
+                if(this.tableAll.getValueAt(linha, 2) != null){
+                    auxData = this.tableAll.getValueAt(linha, 2).toString().split("-");
+                    data = auxData[2]+"/"+auxData[1]+"/"+auxData[0];
+                }
+                if(this.tableAll.getValueAt(linha, 3) != null){
+                    auxData = this.tableAll.getValueAt(linha, 3).toString().split(":");
+                    hora = auxData[0]+":"+auxData[1];
+                }
+    //(String idArt, String tituloArt, String data, String hora, String codEv, String numEd, String idPart, String nomePe)
+                o = new EArtigo(this.tableAll.getValueAt(linha, 0).toString(), 
+                        this.tableAll.getValueAt(linha, 1).toString(),
+                        data, hora, 
+                        this.tableAll.getValueAt(linha, 4).toString(), 
+                        this.tableAll.getValueAt(linha, 5).toString(),
+                        this.tableAll.getValueAt(linha, 6).toString(),
+                        this.tableAll.getValueAt(linha, 8).toString());
             }
 
             this.selectJFrame(false, o);
@@ -777,6 +800,27 @@ public class LoadFrame extends AbstractJFrame {
                         this.tableAll.getValueAt(linha,1).toString(), 
                         this.tableAll.getValueAt(linha, 2).toString(), 
                         this.tableAll.getValueAt(linha, 3).toString(), telefone, nacionalidade, endereco);
+            }else if(this.table == Config.ARTIGO){
+                String auxDataHora[];
+                String auxData[];
+                String data = null;
+                String hora = null;
+                if(this.tableAll.getValueAt(linha, 2) != null){
+                    auxData = this.tableAll.getValueAt(linha, 2).toString().split("-");
+                    data = auxData[2]+"/"+auxData[1]+"/"+auxData[0];
+                }
+                if(this.tableAll.getValueAt(linha, 3) != null){
+                    auxData = this.tableAll.getValueAt(linha, 3).toString().split(":");
+                    hora = auxData[0]+":"+auxData[1];
+                }
+    //(String idArt, String tituloArt, String data, String hora, String codEv, String numEd, String idPart, String nomePe)
+                o = new EArtigo(this.tableAll.getValueAt(linha, 0).toString(), 
+                        this.tableAll.getValueAt(linha, 1).toString(),
+                        data, hora, 
+                        this.tableAll.getValueAt(linha, 4).toString(), 
+                        this.tableAll.getValueAt(linha, 5).toString(),
+                        this.tableAll.getValueAt(linha, 6).toString(),
+                        this.tableAll.getValueAt(linha, 8).toString());
             }
 
             this.selectJFrame(false, o);
