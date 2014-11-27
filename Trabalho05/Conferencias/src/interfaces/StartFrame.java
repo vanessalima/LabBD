@@ -411,7 +411,11 @@ public class StartFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_openPessoaActionPerformed
 
     private void openRelatoriosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openRelatoriosActionPerformed
-        // TODO add your handling code here:
+        //try {
+            (new Relatorio(this)).setEnabled(true);
+//        } catch (SQLException ex) {
+//            Logger.getLogger(StartFrame.class.getName()).log(Level.SEVERE, null, ex);
+//        }
     }//GEN-LAST:event_openRelatoriosActionPerformed
 
     private void openEquipeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openEquipeActionPerformed
