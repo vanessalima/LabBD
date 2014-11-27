@@ -385,7 +385,7 @@ public class Patrocinio extends AbstractJFrame {
         
         try { // Eventos
             if(codev == null) { // No caso de cadastro:
-                sql = "SELECT codEv, nomeEv from evento";
+                sql = "SELECT codEv, nomeEv from evento order by nomeEv";
             
                 rs = conn.query(sql);
                 while(rs != null && rs.next()){

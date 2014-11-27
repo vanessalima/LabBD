@@ -83,7 +83,10 @@ public class LoadFrame extends AbstractJFrame {
                 }
                 break;
             case Config.INSCRITO:
-                this.form = new Inscrito(this);
+                 if(flagCadastro){ this.form = new Inscrito(this); }
+                 else {
+                     this.form = new Inscrito(this, obj);
+                 }
                 break;
             case Config.ORGANIZADOR:
                 if(flagCadastro) { this.form = new Organizador(this); }
@@ -634,32 +637,26 @@ public class LoadFrame extends AbstractJFrame {
                         this.tableAll.getValueAt(linha, 2).toString(), 
                         dataPat, valorPat);
             }else if (this.table == Config.ORGANIZADOR){
-                String telefone=null;
-                String nacionalidade=null;
-                String endereco = null;
-                if(this.tableAll.getValueAt(linha, 4) != null){
-                    telefone = this.tableAll.getValueAt(linha, 4).toString();
+                String cargo = null;
+                if(this.tableAll.getValueAt(linha, 3) != null){
+                    cargo = this.tableAll.getValueAt(linha, 3).toString();
                 }
-                if(this.tableAll.getValueAt(linha, 5) != null){
-                    nacionalidade = this.tableAll.getValueAt(linha, 5).toString();
-                }
-                if(this.tableAll.getValueAt(linha, 6) != null){
-                    endereco = this.tableAll.getValueAt(linha, 6).toString();
-                }
-                o = new EPessoa(this.tableAll.getValueAt(linha, 0).toString(), 
-                        this.tableAll.getValueAt(linha,1).toString(), 
+        // (String idOrg, String cargoOrg, String codEv, String numEd, String nomePe, String nomeEv)         
+                o = new EOrganizador(this.tableAll.getValueAt(linha, 0).toString(), 
+                        cargo, 
+                        this.tableAll.getValueAt(linha, 1).toString(), 
                         this.tableAll.getValueAt(linha, 2).toString(), 
-                        this.tableAll.getValueAt(linha, 3).toString(), telefone, nacionalidade, endereco);
+                        this.tableAll.getValueAt(linha, 4).toString(), 
+                        this.tableAll.getValueAt(linha, 5).toString());
+                
             }
-
-
 
             this.selectJFrame(false, o);
             this.form.setVisible(true);
             
             // Chamar código de edicao da tupla:
             
-            System.out.println(" --- > DoubleClick !");
+//            System.out.println(" --- > DoubleClick !");
         }
     }//GEN-LAST:event_tableAllMouseClicked
 
