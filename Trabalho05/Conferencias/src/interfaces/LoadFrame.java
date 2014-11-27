@@ -896,6 +896,26 @@ public class LoadFrame extends AbstractJFrame {
                         this.tableAll.getValueAt(linha, 5).toString(),
                         this.tableAll.getValueAt(linha, 6).toString(),
                         this.tableAll.getValueAt(linha, 8).toString());
+            } else if(this.table == Config.DESPESA) {
+                String auxData[];
+                String data = null;
+                System.out.println(this.tableAll.getValueAt(linha, 6));
+                if(this.tableAll.getValueAt(linha, 6) != null){
+                    auxData = this.tableAll.getValueAt(linha, 6).toString().split(" ");
+                    auxData = auxData[0].split("-");
+                    data = auxData[2]+"/"+auxData[1]+"/"+auxData[0];
+                }
+                o = new EDespesa(this.tableAll.getValueAt(linha, 9).toString(),
+                                 this.tableAll.getValueAt(linha, 0).toString(),
+                                 this.tableAll.getValueAt(linha, 1).toString(), 
+                                 this.tableAll.getValueAt(linha, 2).toString(), 
+                                 this.tableAll.getValueAt(linha, 3).toString(), 
+                                 this.tableAll.getValueAt(linha, 4).toString(), 
+                                 this.tableAll.getValueAt(linha, 5).toString(),
+                                 data, 
+                                 this.tableAll.getValueAt(linha, 7).toString(), 
+                                 this.tableAll.getValueAt(linha, 8).toString(),
+                                 this.tableAll.getValueAt(linha, 10).toString());
             }
 
             this.selectJFrame(false, o);
