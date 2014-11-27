@@ -66,6 +66,31 @@ public class Edicao extends AbstractJFrame {
             this.taDescricao.setText(e.getDescricao());
         }
     }
+    
+    @Override
+    public void reloadTable() {
+        this.setVisible(true);
+        this.setEnabled(true);
+        try { // Pessoa
+            String sql;
+            ResultSet rs;
+            DBconnection conn = new DBconnection();
+            if(this.cadastrarButton.getText().matches("Cadastrar")) { // No caso de cadastro:
+                sql = "SELECT codEv, nomeEv from evento ORDER BY nomeEv";
+                System.out.println("SQL: "+sql);
+                rs = conn.query(sql);
+                this.cbEventos.removeAllItems();
+                this.cbEventos.addItem("-");
+                while(rs != null && rs.next()){
+                    String auxNome = rs.getString("nomeEv");
+                    this.cbEventos.addItem(auxNome);
+                    this.listaEventos.put(auxNome, rs.getInt("codEv"));
+                }
+            } 
+        } catch (SQLException ex) {
+            Logger.getLogger(Patrocinio.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
