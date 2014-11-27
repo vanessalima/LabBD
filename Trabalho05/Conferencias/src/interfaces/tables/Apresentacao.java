@@ -22,11 +22,6 @@ public class Apresentacao extends AbstractJFrame {
         initComponents();
     }
 
-    @Override
-    public void teste() {
-        System.out.println("Ok");
-    }
-    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

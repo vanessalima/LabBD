@@ -11,13 +11,10 @@ import interfaces.tables.*;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JFrame;
 
 /**
- *
- * @author vanessalima
+ * Frame para geração de mensagens ao usuário
+ * @author Carlos Humberto dos Santos Baqueta, Marina Coimbra, Vanessa Apolinário de Lima
  */
 public class LoadFrame extends AbstractJFrame {
 
@@ -27,7 +24,11 @@ public class LoadFrame extends AbstractJFrame {
     private ArrayList<ArrayList<Object>> filters;
     
     /**
-     * Creates new form LoadFrame
+     * Cria uma interface geral para carregar os dados de qualquer
+     * tabela da base de dados
+     * @param ant ponteiro para a interface anterior
+     * @param table número da tabela segundo o Config
+     * @throws SQLException 
      */
     public LoadFrame(AbstractJFrame ant, int table) throws SQLException {
         super(ant);
@@ -35,14 +36,21 @@ public class LoadFrame extends AbstractJFrame {
         Arrays.toString(this.getAttr().toArray());
         // select form class
 //        this.selectJFrame();
+        // Inicializa os campos da tabela
         this.loadInitialTable(this.getTableName(this.table));
+        // popula a tabela com os devidos valores
         this.tablePopulation = this.populateTable(this.getTableName(this.table));
+        // Inicializa a lista de filtros
         this.filters = new ArrayList<ArrayList<Object>>();
         initComponents();
         this.setVisible(true);
 //        tableAll.setModel(new myTableModel(this.tablePopulation, (String[]) this.getAttr().toArray()));
     }
     
+    /**
+     * Recarrega os valores da tabela após uma operação
+     * de inserção ou atualização
+     */
     public void reloadTable() {
         this.setVisible(true);
         this.setEnabled(true);
@@ -150,8 +158,8 @@ public class LoadFrame extends AbstractJFrame {
     }
     
     /**
-     * Inserts the right value to the filter
-     * @return 
+     * Retorna as opções de filtros para o campo selecionado
+     * @return vetor de string com as opções de filtros
      */
     public String[] getFiltersListByType() {
         return this.getFieldType(this.getTableName(this.table), String.valueOf(this.tableFields.getSelectedItem()));
@@ -450,10 +458,18 @@ public class LoadFrame extends AbstractJFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem8ActionPerformed
 
+    /**
+     * Fecha a janela e retorna a tela inicial com todas as tabelas
+     * @param evt 
+     */
     private void sairAppActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sairAppActionPerformed
         this.onDispose();
     }//GEN-LAST:event_sairAppActionPerformed
 
+    /**
+     * Deleta o campo selecionado e recarrega a tabela para excluir o valor
+     * @param evt 
+     */
     private void removerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removerButtonActionPerformed
         String tablename = this.getTableName(this.table);
         this.removeRow(tablename,
@@ -467,17 +483,24 @@ public class LoadFrame extends AbstractJFrame {
         
     }//GEN-LAST:event_removerButtonActionPerformed
 
+    /**
+     * Abre a interface de cadastro da devida tabela
+     * @param evt 
+     */
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
 //        this.form.setCadastro();
 //        this.form.configuraViews(); // Escrever os títulos, labels adequadamente
         this.selectJFrame(true, null);
-        this.form.teste();
         this.form.setVisible(true);
         // Close the screen before
         //this.setEnabled(false);
         //this.setVisible(false);
     }//GEN-LAST:event_addButtonActionPerformed
 
+    /**
+     * Recarrega os valores da tabela de filtros de acordo com 
+     * o array filters
+     */
     protected void reloadFiltersTable() {
         Object[][] f = new Object[this.filters.size()][3];
         for(int i = 0; i < this.filters.size(); i++){
@@ -493,6 +516,10 @@ public class LoadFrame extends AbstractJFrame {
         ));
     }
     
+    /**
+     * Adiciona um novo filtro na tabela e na lista filters
+     * @param evt 
+     */
     private void addFiltroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addFiltroActionPerformed
         ArrayList<Object> line = new ArrayList<Object>();
         line.add(String.valueOf(this.tableFields.getSelectedItem()));
@@ -505,6 +532,11 @@ public class LoadFrame extends AbstractJFrame {
         this.reloadFiltersTable();
     }//GEN-LAST:event_addFiltroActionPerformed
 
+    /**
+     * Remove todos os filtros selecionados da tabela 
+     * e limpa o resultado da busca na tabela principal
+     * @param evt 
+     */
     private void removerTodosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removerTodosActionPerformed
         this.filters.clear();
         this.reloadFiltersTable();
@@ -516,6 +548,11 @@ public class LoadFrame extends AbstractJFrame {
         ));
     }//GEN-LAST:event_removerTodosActionPerformed
 
+    /**
+     * Remove um filtro selecionado da tabela de filtros e do 
+     * array filters
+     * @param evt 
+     */
     private void removerFiltroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removerFiltroActionPerformed
         if(this.tableFiltros.getSelectedRow() != -1) {
             this.filters.remove(this.tableFiltros.getSelectedRow());
@@ -523,14 +560,20 @@ public class LoadFrame extends AbstractJFrame {
         }
     }//GEN-LAST:event_removerFiltroActionPerformed
 
+    /**
+     * Fecha a janela e retorna a jabela principal com todas as tabelas
+     * @param evt 
+     */
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         this.onClose(evt);
     }//GEN-LAST:event_formWindowClosing
 
+    /**
+     * Realiza a busca com os filtros que estão na tabela,
+     * caso não haja nenhum filtro, retorna a busca geral da tabela
+     * @param evt 
+     */
     private void selectFiltrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectFiltrosActionPerformed
-        // TODO add your handling code here:
-        
-        //FAZER BUSCA
         this.tablePopulation = this.getSearch(this.getTableName(this.table), this.filters);
         tableAll.setModel(new myTableModel(
             this.tablePopulation,
@@ -538,6 +581,11 @@ public class LoadFrame extends AbstractJFrame {
         ));
     }//GEN-LAST:event_selectFiltrosActionPerformed
 
+    /**
+     * Aceita double click em item da tabela principal para realizar atualização
+     * do cadastro da devida tabela
+     * @param evt 
+     */
     private void tableAllMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableAllMouseClicked
         // TODO add your handling code here:
         if (evt.getClickCount() == 2){ // Checa se é duplo click
@@ -695,12 +743,21 @@ public class LoadFrame extends AbstractJFrame {
         }
     }//GEN-LAST:event_tableAllMouseClicked
 
+    /**
+     * Carrega os valores do filtro no campo de seleção quando um 
+     * campo de busca é selecionado
+     * @param evt 
+     */
     private void tableFieldsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tableFieldsActionPerformed
         // TODO add your handling code here:
         System.out.println(String.valueOf(this.tableFields.getSelectedItem()));
         numberFiltro.setModel(new javax.swing.DefaultComboBoxModel(this.getFiltersListByType()));
     }//GEN-LAST:event_tableFieldsActionPerformed
 
+    /**
+     * Abre interface de atualização do cadastro selecionado na tabela principal
+     * @param evt 
+     */
     private void atualizarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atualizarButtonActionPerformed
             Object o = null;
             int linha = this.tableAll.getSelectedRow();

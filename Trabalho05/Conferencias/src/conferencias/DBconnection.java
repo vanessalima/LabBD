@@ -12,21 +12,21 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 /**
- *
- * @author vanessalima
+ * Classe para criação, coneção e operações com a base de dados Oracle
+ * @author Carlos Humberto dos Santos Baqueta, Marina Coimbra, Vanessa Apolinário de Lima
  */
 public class DBconnection {
     private Connection con = null;
     
     /**
-     * Efetua a conexão com o banco de dados
+     * Cria e efetua a conexão com o banco de dados
      *
      * @throws java.lang.Exception
      */
     public DBconnection(){
         try{
             Class.forName("oracle.jdbc.driver.OracleDriver");
-            System.out.println("nao deu erro... ");
+            //System.out.println("nao deu erro... ");
         }catch(Exception e){
             System.out.println("Classe "+e);
         }
@@ -44,17 +44,17 @@ public class DBconnection {
     
     /**
      * Método para fechar a conexão com o banco de dados
-     *
+     * e enviar as alterações ao banco de dados
      * @param con
      * @throws SQLException
      */
     public void disconect() throws SQLException{
+        this.commit(this.con);
         this.con.close();
     }
     
     /**
      * Metodo para efetuar o commit no banco
-     *
      *
      * @param con
      * @throws SQLException
@@ -74,7 +74,7 @@ public class DBconnection {
     }
  
     /**
-     * Executa o comando sql
+     * Executa os comandos sql de update
      * 
      * @param command comando que será executado
      * @return retorna 0 caso a execução tenha falhado e 1 caso contrário
@@ -89,23 +89,13 @@ public class DBconnection {
      * Para execucao de insert, create
      * @param sql
      * @return true para sucesso, false, c.c.
-     * @throws java.sql.SQLException
+     * @throws SQLException
      */
     public boolean execute(String sql) throws SQLException{
-        /* CODIGO PARA FAZER USO DE TRANSACTIONS
-        String updateTableSQL = "UPDATE DBUSER SET USERNAME =? "
-                                + "WHERE USER_ID = ?";
-
-        preparedStatementUpdate = dbConnection.prepareStatement(updateTableSQL);
-        preparedStatementUpdate.setString(1, "A very very long string caused DATABASE ERROR"); 
-        preparedStatementUpdate.setInt(2, 999);
-
-        preparedStatementUpdate.executeUpdate();
-        */
         Statement stmt = this.con.createStatement();
-//        System.out.println(" .. . STMT: "+stmt.toString()+"\n | SQL: "+sql);
+        //System.out.println(" .. . STMT: "+stmt.toString()+"\n | SQL: "+sql);
         boolean ret = stmt.execute(sql); // insert, create
-        System.out.println(".. pelo menos mandou pro servidor.");
+        //System.out.println(".. pelo menos mandou pro servidor.");
         this.commit(con);
         return ret;
     }
@@ -114,7 +104,7 @@ public class DBconnection {
      * Para execucao do comando select
      * @param sql
      * @return
-     * @throws java.sql.SQLException
+     * @throws SQLException
      */
     public ResultSet query(String sql) throws SQLException {
         Statement stmt = this.con.createStatement();

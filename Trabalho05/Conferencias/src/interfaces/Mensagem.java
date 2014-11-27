@@ -5,29 +5,26 @@
  */
 package interfaces;
 
-
 import static interfaces.Config.ATUALIZACAO;
 import static interfaces.Config.SUCCESS;
-import javax.imageio.ImageIO;
-import javax.swing.JFrame;
 
 /**
- *
- * @author ch
+ * Frame para geração de mensagens ao usuário
+ * @author Carlos Humberto dos Santos Baqueta, Marina Coimbra, Vanessa Apolinário de Lima
  */
 public class Mensagem extends javax.swing.JFrame implements Config {
    
-    private AbstractJFrame cadastro;
-    private AbstractJFrame loadFrame;
+    private AbstractJFrame cadastro; // armazena a tela anterior (cadastro)
+    private AbstractJFrame loadFrame; // armazena a tela principal
     private int status;
     
     /**
-     * Create new form Mensagem
+     * Cria uma nova mensagem com os parâmtros passados
      * @param ant ponteiro pra tela anterior
      * @param msgInfo mensagem adicional que pode ser inserida na mensagem em caso
      *                de falha na operação. Pode ser null.
      * @param status pode ser SUCCESS ou FAIL. 
-     * @param tipo pode ser CADASTRO, ATUALIZACAO ou REMOCAO
+     * @param tipo pode ser CADASTRO, ATUALIZACAO ou RELATORIO
      */  
     public Mensagem(AbstractJFrame cadastro, AbstractJFrame load, String msgInfo, int status, int tipo){
         this.cadastro = cadastro;
@@ -69,15 +66,6 @@ public class Mensagem extends javax.swing.JFrame implements Config {
                 }
                 break;
             }
-            /*case REMOCAO:
-            {
-                if(status == SUCCESS) {
-                    msg = new String("Remoção realizada com sucesso!");
-                } else {    
-                    msg = new String("Não foi possível realizar a remoção dos dados.\n");
-                }
-                break;
-            }*/
         }
         if(msg != null)
             msgLabel.setText(msg);

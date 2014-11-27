@@ -6,8 +6,8 @@
 package interfaces;
 
 /**
- *
- * @author ch
+ * Classe para padronizar parâmetros
+ * @author Carlos Humberto dos Santos Baqueta, Marina Coimbra, Vanessa Apolinário de Lima
  */
 public interface Config {
     // Definicoes para mostrar as mensagens apropriadamente no form Mensagem
