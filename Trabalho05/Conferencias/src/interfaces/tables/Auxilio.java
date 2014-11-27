@@ -5,21 +5,34 @@
  */
 package interfaces.tables;
 
+import conferencias.DBconnection;
 import interfaces.AbstractJFrame;
-import javax.swing.JFrame;
+import interfaces.Mensagem;
+import java.awt.Color;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import oracle.net.aso.i;
 
 /**
  *
  * @author vanessalima
  */
 public class Auxilio extends AbstractJFrame {
-
+    HashMap<String, Integer> listaPessoas;
+    private ArrayList<ArrayList<String>> listaPat;
     /**
      * Creates new form Auxilio
      */
     public Auxilio(AbstractJFrame ant) {
         super(ant);
         initComponents();
+        this.setTitle("Cadastro de Auxílio");
+        this.cadastrarButton.setText("Cadastrar");
+        mInitialize();
     }
 
     /**
@@ -31,22 +44,424 @@ public class Auxilio extends AbstractJFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jLabel1 = new javax.swing.JLabel();
+        tfValor1 = new javax.swing.JTextField();
+        tfDataPatrocinio1 = new javax.swing.JFormattedTextField();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        lEdicao1 = new javax.swing.JLabel();
+        cbPatrocinio = new javax.swing.JComboBox();
+        cadastrarButton = new javax.swing.JButton();
+        cancelarButton = new javax.swing.JButton();
+        infoLabel = new javax.swing.JLabel();
+        cbPessoa = new javax.swing.JComboBox();
+        lPessoa = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
+
+        jLabel1.setText("Valor");
+
+        tfValor1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfValor1ActionPerformed(evt);
+            }
+        });
+        tfValor1.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                tfValor1FocusLost(evt);
+            }
+        });
+        tfValor1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                tfValor1KeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                tfValor1KeyReleased(evt);
+            }
+        });
+
+        try {
+            tfDataPatrocinio1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        tfDataPatrocinio1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfDataPatrocinio1ActionPerformed(evt);
+            }
+        });
+
+        jLabel8.setText("Data Auxílio");
+
+        jLabel9.setFont(new java.awt.Font("Ubuntu", 2, 14)); // NOI18N
+        jLabel9.setText("formato: MM/DD/YYYY");
+
+        lEdicao1.setText("Patrocínio");
+
+        cbPatrocinio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbPatrocinioActionPerformed(evt);
+            }
+        });
+        cbPatrocinio.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                cbPatrocinioFocusLost(evt);
+            }
+        });
+
+        cadastrarButton.setText("Cadastrar");
+        cadastrarButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cadastrarButtonActionPerformed(evt);
+            }
+        });
+
+        cancelarButton.setText("Cancelar");
+        cancelarButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelarButtonActionPerformed(evt);
+            }
+        });
+
+        infoLabel.setFont(new java.awt.Font("Ubuntu", 2, 15)); // NOI18N
+        infoLabel.setText("* Campos obrigatórios");
+
+        lPessoa.setText("Inscrito*");
+
+        jLabel2.setText("Tipo Auxílio*");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 657, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lEdicao1)
+                            .addComponent(jLabel1))
+                        .addGap(33, 33, 33)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(tfValor1, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                                .addComponent(jLabel8)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(tfDataPatrocinio1, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(cbPatrocinio, javax.swing.GroupLayout.PREFERRED_SIZE, 403, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(infoLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(cancelarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(cadastrarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(27, 27, 27))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lPessoa)
+                        .addGap(45, 45, 45)
+                        .addComponent(cbPessoa, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addGap(18, 18, 18)
+                        .addComponent(jTextField1)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 364, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cbPessoa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lPessoa))
+                .addGap(11, 11, 11)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cbPatrocinio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lEdicao1))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tfDataPatrocinio1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel9)
+                    .addComponent(jLabel8)
+                    .addComponent(tfValor1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addGap(18, 18, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(infoLabel)
+                    .addComponent(cadastrarButton)
+                    .addComponent(cancelarButton))
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        // TODO add your handling code here:
+        this.onClose();
+    }//GEN-LAST:event_formWindowClosing
+
+    private void tfValor1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfValor1ActionPerformed
+
+    }//GEN-LAST:event_tfValor1ActionPerformed
+
+    private void tfValor1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfValor1FocusLost
+        System.out.println(this.tfValor1.getText());
+        this.tfValor1.selectAll();
+        // load patrocinios
+        String sql = "SELECT patrocinio.cnpjPat, razaoSocialPat, patrocinio.codEv, nomeEv, patrocinio.numEd "
+        + "FROM PATROCINIO, EVENTO, PATROCINADOR"
+        + " WHERE patrocinio.cnpjPat = patrocinador.cnpjPat AND "
+        + " patrocinio.codEv = evento.codEv AND"
+        + " saldoPat > " +this.tfValor1.getText();
+        ResultSet res;
+        DBconnection conn = new DBconnection();
+        listaPat = new ArrayList<ArrayList<String>>();
+        try {
+            res = conn.query(sql);
+            this.cbPatrocinio.removeAllItems();
+            if(res != null)
+            this.cbPatrocinio.addItem("-");
+            while(res != null && res.next()){
+                ArrayList<String> tmp = new ArrayList<String>();
+                tmp.add(res.getString(1));
+                System.out.println(res.getString(1));
+                tmp.add(res.getString(3));
+                System.out.println(res.getString(3));
+                tmp.add(res.getString(5));
+                System.out.println(res.getString(5));
+                listaPat.add(tmp);
+                String auxNome = res.getString("razaoSocialPat");
+                this.cbPatrocinio.addItem(auxNome + " (" +
+                    res.getString("nomeEv").substring(0, res.getString("nomeEv").length()) +
+                    "-" + res.getString("numEd") + ")");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Despesa.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }//GEN-LAST:event_tfValor1FocusLost
+
+    private void tfValor1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfValor1KeyPressed
+
+    }//GEN-LAST:event_tfValor1KeyPressed
+
+    private void tfValor1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfValor1KeyReleased
+
+    }//GEN-LAST:event_tfValor1KeyReleased
+
+    private void tfDataPatrocinio1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfDataPatrocinio1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfDataPatrocinio1ActionPerformed
+
+    private void cbPatrocinioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbPatrocinioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbPatrocinioActionPerformed
+
+    private void cbPatrocinioFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cbPatrocinioFocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbPatrocinioFocusLost
+
+    private void cadastrarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarButtonActionPerformed
+        DBconnection conn;
+        String sql;
+
+//        if(this.cadastrarButton.getText().matches("Cadastrar")){ // testa se é cadastro
+//            if(cbEvento.getSelectedItem().toString().matches("-") || cbEdicao.getSelectedItem().toString().matches("-") ){
+//                infoLabel.setForeground(Color.red);
+//                lEvento.setForeground(Color.red);
+//                lEdicao.setForeground(Color.red);
+//            } else {
+//                try{
+//                    conn = new DBconnection();
+//                    sql = "INSERT INTO despesa VALUES( "+
+//                    this.listaEventos.get(cbEvento.getSelectedItem().toString())+", "+
+//                    cbEdicao.getSelectedItem().toString()+", SEQ_CODDESP_DESPESA.NEXTVAL, ";
+//
+//                    if(this.cbPatrocinio.getSelectedItem().equals("-") ||
+//                        this.cbPatrocinio.getSelectedItem().equals("Insira um valor")) {
+//                        sql += "null, null, null, ";
+//                    }
+//                    else {
+//                        int item = this.cbPatrocinio.getSelectedIndex();
+//                        sql += this.listaPat.get(item).get(0) + ", " + this.listaPat.get(item).get(1) + ", " +
+//                        this.listaPat.get(item).get(2) + ", ";
+//                    }
+//
+//                    if (!tfDataPatrocinio1.getText().matches("  /  /    ")){
+//                        sql += "to_date('"+tfDataPatrocinio1.getText()+"', 'DD/MM/YYYY'), ";
+//                    }
+//                    else
+//                    sql += "null, ";
+//
+//                    if(this.tfValor1.getText().isEmpty()) {
+//                        sql += "null, ";
+//                    }
+//                    else
+//                    sql += this.tfValor1.getText() + ", ";
+//
+//                    sql += "'" + this.tfDescricao.getText() + "')";
+//                    System.out.println("SQL: "+sql);
+//                    conn.execute(sql);
+//                    conn.disconect();
+//                    (new Mensagem(this, this.anterior, null, SUCCESS, CADASTRO)).setEnabled(true);
+//                }catch(SQLException e){
+//                    String sujeito = "Patrocínio";
+//                    switch(e.getErrorCode()){
+//                        case -1 : // Chave duplicada
+//                        {
+//                            (new Mensagem(this, this.anterior, sujeito+" já cadastrado no sistema.", FAIL, CADASTRO)).setEnabled(true);
+//                            break;
+//                        }
+//                        case 1 : // Violacao de constraint UNIQUE
+//                        {
+//                            (new Mensagem(this, this.anterior, sujeito+" já cadastrado no sistema.", FAIL, CADASTRO)).setEnabled(true);
+//                            break;
+//                        }
+//                        case 911: // Erro de sintaxe! q feio ...
+//                        {
+//                            System.out.println("Erro de sintaxe do comando sql. Obs.: Talvez você tenha se esquecido de tirar o ; do final. :P ");
+//                            break;
+//                        }
+//                        default:
+//                        {
+//                            System.out.println("ERROR CODE: "+e.getErrorCode());
+//                            e.printStackTrace();
+//                            break;
+//                        }
+//                    }
+//                }
+//            }
+//        }
+//        else {
+//            try{
+//                conn = new DBconnection();
+//                sql = "UPDATE despesa  SET ";
+//
+//                if(i.getCnpjPat().isEmpty()) {
+//                    sql += "cnpjPat = null, codEvPat = null, numEdPat = null, ";
+//                }
+//                else {
+//                    sql += "cnpjPat = " + i.getCnpjPat() +
+//                    ", codEvPat = " + i.getCodEvPat() +
+//                    ", numEdPat = " + i.getNumEdPat() + ", ";
+//                }
+//
+//                if (!i.getDataDesp().matches("  /  /    ")){
+//                    sql += "dataDesp = to_date('"+i.getDataDesp()+"', 'DD/MM/YYYY'), ";
+//                }
+//                else
+//                sql += "dataDesp = null, ";
+//
+//                if(i.getValorDesp().isEmpty()) {
+//                    sql += "valorDesp = null, ";
+//                }
+//                else
+//                sql += "valorDesp = "+i.getValorDesp() + ", ";
+//
+//                sql += "descricaoDesp = '" + i.getDescricaoDesp() + "'";
+//
+//                sql += " WHERE codEv = " + i.getCodEv()+" AND numEd = "+
+//                i.getNumEd()+" AND codDesp = " + i.getCodDesp();
+//                System.out.println("SQL: "+sql);
+//                conn.execute(sql);
+//                conn.disconect();
+//                (new Mensagem(this, this.anterior, null, SUCCESS, CADASTRO)).setEnabled(true);
+//            }catch(SQLException e){
+//                String sujeito = "Patrocínio";
+//                switch(e.getErrorCode()){
+//                    case -1 : // Chave duplicada
+//                    {
+//                        (new Mensagem(this, this.anterior, sujeito+" já cadastrado no sistema.", FAIL, CADASTRO)).setEnabled(true);
+//                        break;
+//                    }
+//                    case 1 : // Violacao de constraint UNIQUE
+//                    {
+//                        (new Mensagem(this, this.anterior, sujeito+" já cadastrado no sistema.", FAIL, CADASTRO)).setEnabled(true);
+//                        break;
+//                    }
+//                    case 911: // Erro de sintaxe! q feio ...
+//                    {
+//                        System.out.println("Erro de sintaxe do comando sql. Obs.: Talvez você tenha se esquecido de tirar o ; do final. :P ");
+//                        break;
+//                    }
+//                    default:
+//                    {
+//                        System.out.println("ERROR CODE: "+e.getErrorCode());
+//                        e.printStackTrace();
+//                        break;
+//                    }
+//                }
+//            }
+//        }
+    }//GEN-LAST:event_cadastrarButtonActionPerformed
+
+    private void cancelarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarButtonActionPerformed
+        super.onClose();
+    }//GEN-LAST:event_cancelarButtonActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton cadastrarButton;
+    private javax.swing.JButton cancelarButton;
+    private javax.swing.JComboBox cbPatrocinio;
+    private javax.swing.JComboBox cbPessoa;
+    private javax.swing.JLabel infoLabel;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JLabel lEdicao1;
+    private javax.swing.JLabel lPessoa;
+    private javax.swing.JFormattedTextField tfDataPatrocinio1;
+    private javax.swing.JTextField tfValor1;
     // End of variables declaration//GEN-END:variables
+ 
+    private void mInitialize() {
+        if(this.cadastrarButton.getText().matches("Cadastrar")){
+            cbPatrocinio.addItem("-");
+            cbPessoa.addItem("-");
+        }
+        // New nas listas
+//        this.listaEventos = new HashMap<String, Integer>();
+        this.listaPessoas = new HashMap<String, Integer>();
+        
+        // popula os comboboxes de Evento e Patrocinador:
+        DBconnection conn = new DBconnection();
+        ResultSet rs = null;
+        String sql;
+        String auxNome=null;
+        
+        
+        try { // Pessoa
+           
+            if(this.cadastrarButton.getText().matches("Cadastrar")) { // No caso de cadastro:
+                sql = "SELECT distinct idPe, nomePe from pessoa, inscrito where idpe = idPart ORDER BY nomePe";
+                System.out.println("SQL: "+sql);
+                rs = conn.query(sql);
+                while(rs != null && rs.next()){
+                    auxNome = rs.getString("nomePe");
+                    cbPessoa.addItem(auxNome);
+                    this.listaPessoas.put(auxNome, rs.getInt("idPe"));
+                }
+            } 
+        } catch (SQLException ex) {
+            Logger.getLogger(Patrocinio.class.getName()).log(Level.SEVERE, null, ex);
+        }         
+    }
+
+
 }
