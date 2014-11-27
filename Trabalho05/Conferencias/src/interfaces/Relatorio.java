@@ -5,6 +5,10 @@
 package interfaces;
 
 import conferencias.DBconnection;
+import static interfaces.Config.CADASTRO;
+import static interfaces.Config.FAIL;
+import static interfaces.Config.RELATORIO;
+import static interfaces.Config.SUCCESS;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.sql.CallableStatement;
@@ -341,13 +345,19 @@ public class Relatorio extends AbstractJFrame {
 
     private void exportarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exportarActionPerformed
         String relatorio = jTextArea1.getText();
+        if (relatorio.length() < 1){
+            (new Mensagem(this, this.anterior, "Por favor pressione o botão Gerar.", FAIL, RELATORIO)).setEnabled(true);
+            return;
+        }
         DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy-HH-mm-ss");
         Date date = new Date();
         try (FileWriter arq = new FileWriter("Relatório-"+dateFormat.format(date).toString()+".txt")) {
             arq.write(relatorio);
             arq.close();
+            (new Mensagem(this, this.anterior, null, SUCCESS, RELATORIO)).setEnabled(true);
         }
         catch (IOException ex) {
+            (new Mensagem(this, this.anterior, "O arquivo não pode ser criado", FAIL, RELATORIO)).setEnabled(true);
             Logger.getLogger(Relatorios.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_exportarActionPerformed
