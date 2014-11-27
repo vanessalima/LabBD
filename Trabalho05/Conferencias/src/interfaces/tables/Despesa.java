@@ -6,12 +6,14 @@
 package interfaces.tables;
 
 import conferencias.DBconnection;
+import entidades.EDespesa;
 import entidades.EInscrito;
 import interfaces.AbstractJFrame;
 import interfaces.Mensagem;
 import java.awt.Color;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -24,7 +26,8 @@ import javax.swing.JFrame;
 public class Despesa extends AbstractJFrame {
 
     private HashMap<String, Integer> listaEventos;
-    private HashMap<String, String> listaPat;
+    private ArrayList<ArrayList<String>> listaPat;
+    private EDespesa i;
     
     /**
      * Cria interface de despesa para cadastro/inserção
@@ -33,8 +36,8 @@ public class Despesa extends AbstractJFrame {
     public Despesa(AbstractJFrame ant) {
         super(ant);
         initComponents();
-        this.setTitle("Cadastro de Despesa");
-        this.cadastrarButton.setText("Cadastro");
+        this.setTitle("Cadastrar de Despesa");
+        this.cadastrarButton.setText("Cadastrar");
         this.mInitialize(null, null);
         this.loadEdicao();
         // TODO : SEtar as views para cadastro
@@ -54,11 +57,18 @@ public class Despesa extends AbstractJFrame {
         this.infoLabel.setText("*Campos que não podem ser alterados");
         this.cbEvento.setEditable(false);
         this.cbEdicao.setEditable(false);
-        //this.cbEvento.setSize(52, 27);
-        /*if(obj instanceof EInscrito){
-            this.i = (EInscrito) obj;
-            ///TODO
-        }*/
+        if(obj instanceof EDespesa){
+            this.i = (EDespesa) obj;
+            this.cbEvento.getModel().setSelectedItem(i.getNomeEv());
+            //this.cbEvento.setEditable(false);
+            this.cbEdicao.getModel().setSelectedItem(i.getNumEd());
+            //this.cbEdicao.setEditable(false);
+            this.tfValor1.setText(i.getValorDesp());
+            this.tfDataPatrocinio1.setText(i.getDataDesp());
+            this.cbPatrocinio.getModel().setSelectedItem(i.getRazaoSocial() + " (" + i.getNomeEv() + "-" + 
+                    i.getNumEd() + ")");
+            this.tfDescricao.setText(i.getDescricaoDesp());
+        }
     }
 
     /**
@@ -107,6 +117,11 @@ public class Despesa extends AbstractJFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         lEvento.setText("Evento*");
 
@@ -163,6 +178,11 @@ public class Despesa extends AbstractJFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        tfDataPatrocinio1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfDataPatrocinio1ActionPerformed(evt);
+            }
+        });
 
         jLabel9.setFont(new java.awt.Font("Ubuntu", 2, 14)); // NOI18N
         jLabel9.setText("formato: MM/DD/YYYY");
@@ -218,41 +238,43 @@ public class Despesa extends AbstractJFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lEvento)
-                            .addComponent(lEdicao))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(infoLabel)
-                        .addGap(157, 157, 157)
-                        .addComponent(cancelarButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(12, 12, 12)
-                        .addComponent(cadastrarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel10)
-                        .addGap(33, 33, 33)
-                        .addComponent(tfDescricao))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lEdicao1)
                             .addComponent(jLabel1))
                         .addGap(33, 33, 33)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(tfValor1)
-                                .addGap(18, 18, 18)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel8)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(tfDataPatrocinio1, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(cbEvento, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(cbEvento, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 560, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(cbEdicao, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(cbPatrocinio, javax.swing.GroupLayout.PREFERRED_SIZE, 403, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(161, 161, 161)))
-                                .addContainerGap())))))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(cbPatrocinio, javax.swing.GroupLayout.PREFERRED_SIZE, 403, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(cbEdicao, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(167, 210, Short.MAX_VALUE)))
+                        .addGap(18, 18, 18))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lEvento)
+                            .addComponent(lEdicao))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel10)
+                                .addGap(33, 33, 33)
+                                .addComponent(tfDescricao))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addComponent(infoLabel)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(cancelarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(cadastrarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(26, 26, 26))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -324,12 +346,33 @@ public class Despesa extends AbstractJFrame {
             } else {
                 try{
                     conn = new DBconnection();
-                    sql = "INSERT INTO despesa VALUES( SEQ_CODDESP_DESPESA.NEXTVAL, "+
+                    sql = "INSERT INTO despesa VALUES( "+
                             this.listaEventos.get(cbEvento.getSelectedItem().toString())+", "+
-                            cbEdicao.getSelectedItem().toString()+", " +
-                            //falta a parte do cnpj
-                            this.tfDataPatrocinio1.getText() + ", " + this.tfValor.getText() + ", " +
-                            this.tfDescricao.getText() + ")";
+                            cbEdicao.getSelectedItem().toString()+", SEQ_CODDESP_DESPESA.NEXTVAL, ";
+                    
+                    if(this.cbPatrocinio.getSelectedItem().equals("-") || 
+                            this.cbPatrocinio.getSelectedItem().equals("Insira um valor")) {
+                        sql += "null, null, null, ";
+                    }
+                    else {
+                        int item = this.cbPatrocinio.getSelectedIndex();
+                        sql += this.listaPat.get(item).get(0) + ", " + this.listaPat.get(item).get(1) + ", " +
+                            this.listaPat.get(item).get(2) + ", ";
+                    }
+                    
+                    if (!tfDataPatrocinio1.getText().matches("  /  /    ")){
+                        sql += "to_date('"+tfDataPatrocinio1.getText()+"', 'DD/MM/YYYY'), ";
+                    }
+                    else
+                        sql += "null, ";
+                    
+                    if(this.tfValor1.getText().isEmpty()) {
+                        sql += "null, ";
+                    }
+                    else
+                        sql += this.tfValor1.getText() + ", ";
+                    
+                    sql += "'" + this.tfDescricao.getText() + "')";
                     System.out.println("SQL: "+sql);
                     conn.execute(sql);
                     conn.disconect();
@@ -362,6 +405,67 @@ public class Despesa extends AbstractJFrame {
                 }
             }
         }
+        else {
+            try{
+                    conn = new DBconnection();
+                    sql = "UPDATE despesa  SET ";
+                    
+                    if(i.getCnpjPat().isEmpty()) {
+                        sql += "cnpjPat = null, codEvPat = null, numEdPat = null, ";
+                    }
+                    else {
+                        sql += "cnpjPat = " + i.getCnpjPat() + 
+                                ", codEvPat = " + i.getCodEvPat() + 
+                                ", numEdPat = " + i.getNumEdPat() + ", ";
+                    }
+                    
+                    if (!i.getDataDesp().matches("  /  /    ")){
+                        sql += "dataDesp = to_date('"+i.getDataDesp()+"', 'DD/MM/YYYY'), ";
+                    }
+                    else
+                        sql += "dataDesp = null, ";
+                    
+                    if(i.getValorDesp().isEmpty()) {
+                        sql += "valorDesp = null, ";
+                    }
+                    else
+                        sql += "valorDesp = "+i.getValorDesp() + ", ";
+                    
+                    sql += "descricaoDesp = '" + i.getDescricaoDesp() + "'";
+                    
+                    sql += " WHERE codEv = " + i.getCodEv()+" AND numEd = "+
+                            i.getNumEd()+" AND codDesp = " + i.getCodDesp();
+                    System.out.println("SQL: "+sql);
+                    conn.execute(sql);
+                    conn.disconect();
+                    (new Mensagem(this, this.anterior, null, SUCCESS, CADASTRO)).setEnabled(true);
+                }catch(SQLException e){
+                    String sujeito = "Patrocínio";
+                    switch(e.getErrorCode()){
+                        case -1 : // Chave duplicada
+                        {
+                            (new Mensagem(this, this.anterior, sujeito+" já cadastrado no sistema.", FAIL, CADASTRO)).setEnabled(true);
+                            break;
+                        }
+                        case 1 : // Violacao de constraint UNIQUE
+                        {
+                            (new Mensagem(this, this.anterior, sujeito+" já cadastrado no sistema.", FAIL, CADASTRO)).setEnabled(true);
+                            break;
+                        }
+                        case 911: // Erro de sintaxe! q feio ...
+                        {
+                            System.out.println("Erro de sintaxe do comando sql. Obs.: Talvez você tenha se esquecido de tirar o ; do final. :P ");
+                            break;
+                        }
+                        default:
+                        {
+                            System.out.println("ERROR CODE: "+e.getErrorCode());
+                            e.printStackTrace();
+                            break;
+                        }
+                    }
+                }
+        }
     }//GEN-LAST:event_cadastrarButtonActionPerformed
 
     private void cbEdicaoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cbEdicaoFocusLost
@@ -393,23 +497,33 @@ public class Despesa extends AbstractJFrame {
         System.out.println(this.tfValor1.getText());
         this.tfValor1.selectAll();
         // load patrocinios
-        String sql = "SELECT razaoSocialPat, nomeEv, patrocinio.numEd FROM PATROCINIO, EVENTO, PATROCINADOR"
+        String sql = "SELECT patrocinio.cnpjPat, razaoSocialPat, patrocinio.codEv, nomeEv, patrocinio.numEd "
+                    + "FROM PATROCINIO, EVENTO, PATROCINADOR"
                     + " WHERE patrocinio.cnpjPat = patrocinador.cnpjPat AND "
                         + " patrocinio.codEv = evento.codEv AND"
                         + " saldoPat > " +this.tfValor1.getText();
         ResultSet res;
         DBconnection conn = new DBconnection();
-        
+        listaPat = new ArrayList<ArrayList<String>>();
         try {
             res = conn.query(sql);
             this.cbPatrocinio.removeAllItems();
-            this.cbPatrocinio.addItem("-");
+            if(res != null)
+                this.cbPatrocinio.addItem("-");
             while(res != null && res.next()){
+                ArrayList<String> tmp = new ArrayList<String>();
+                tmp.add(res.getString(1));
+                System.out.println(res.getString(1));
+                tmp.add(res.getString(3));
+                System.out.println(res.getString(3));
+                tmp.add(res.getString(5));
+                System.out.println(res.getString(5));
+                listaPat.add(tmp);
                 String auxNome = res.getString("razaoSocialPat");
-                this.cbPatrocinio.addItem(auxNome + " " + res.getString("nomeEv") + " " + res.getString("numEd"));
-                this.listaPat.put(auxNome, res.getString("razaoSocialPat"));
+                this.cbPatrocinio.addItem(auxNome + " (" + 
+                        res.getString("nomeEv").substring(0, res.getString("nomeEv").length()) + 
+                        "-" + res.getString("numEd") + ")");
             }
-            //this.listaPat
         } catch (SQLException ex) {
             Logger.getLogger(Despesa.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -436,6 +550,18 @@ public class Despesa extends AbstractJFrame {
     private void tfValor1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfValor1KeyPressed
         
     }//GEN-LAST:event_tfValor1KeyPressed
+
+    /**
+     * Fecha a janela atual e retorna a anterior
+     * @param evt 
+     */
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        this.onClose(evt);
+    }//GEN-LAST:event_formWindowClosing
+
+    private void tfDataPatrocinio1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfDataPatrocinio1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfDataPatrocinio1ActionPerformed
 
     /**
      * Busca na base de dados e carrega os possíveis valores da edição
@@ -480,11 +606,10 @@ public class Despesa extends AbstractJFrame {
         if(this.cadastrarButton.getText().matches("Cadastrar")){
             cbEvento.addItem("-");
             cbEdicao.addItem("-");
-            cbPatrocinio.addItem("-");
+            cbPatrocinio.addItem("Insira um valor");
         }
         // New nas listas
         this.listaEventos = new HashMap<String, Integer>();
-        this.listaPat = new HashMap<String, String>();
         
         // popula os comboboxes de Evento e Patrocinador:
         DBconnection conn = new DBconnection();

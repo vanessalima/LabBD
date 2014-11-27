@@ -93,6 +93,11 @@ public class Artigo extends AbstractJFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        tfDataApr.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfDataAprActionPerformed(evt);
+            }
+        });
 
         try {
             tfHora.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##:##")));
@@ -329,6 +334,10 @@ public class Artigo extends AbstractJFrame {
         // TODO add your handling code here:
         this.onClose();
     }//GEN-LAST:event_formWindowClosing
+
+    private void tfDataAprActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfDataAprActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfDataAprActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cadastrarButton;
