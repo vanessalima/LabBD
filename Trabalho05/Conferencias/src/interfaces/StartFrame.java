@@ -15,12 +15,18 @@ import javax.swing.JFrame;
  * @author vanessalima
  */
 
-public class StartFrame extends javax.swing.JFrame {
+public class StartFrame extends AbstractJFrame {//javax.swing.JFrame {
 
     /**
      * Creates new form StartFrame
      */
     public StartFrame() {
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        initComponents();
+    }
+    
+    public StartFrame(AbstractJFrame ant) {
+        super(null);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         initComponents();
     }

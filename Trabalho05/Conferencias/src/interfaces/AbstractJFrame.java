@@ -20,7 +20,7 @@ import javax.swing.JFrame;
  * @author vanessalima
  */
 public abstract class AbstractJFrame extends javax.swing.JFrame implements Config{
-    protected JFrame anterior;
+    protected AbstractJFrame anterior;
 
     private ArrayList<String> tableAttr = new ArrayList<>();
     private ArrayList<String> fromAttr = new ArrayList<>();
@@ -31,7 +31,11 @@ public abstract class AbstractJFrame extends javax.swing.JFrame implements Confi
      // true : Cadastro, false : Atualizacao
     protected boolean flagCadastro; // Usada em LoadFrame
     
-    public AbstractJFrame(JFrame ant) {
+    public AbstractJFrame() {
+        
+    }
+    
+    public AbstractJFrame(AbstractJFrame ant) {
         // Faz a janela de fundo ficar invisível
         if (ant == null) System.out.println("VC tá passando o ponteiro null para tela anterior!!!");
         this.anterior = ant;
@@ -671,6 +675,11 @@ public abstract class AbstractJFrame extends javax.swing.JFrame implements Confi
             System.out.println("ERROR CODE: "+e.getErrorCode());
             System.out.println("Problema para desconectar");
         }
+    }
+    
+    public void reloadTable() {
+        this.setVisible(true);
+        this.setEnabled(true);
     }
 
 }

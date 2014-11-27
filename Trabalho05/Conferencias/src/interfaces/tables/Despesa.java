@@ -29,16 +29,17 @@ public class Despesa extends AbstractJFrame {
     /**
      * Creates new form Despesa
      */
-    public Despesa(JFrame ant) {
+    public Despesa(AbstractJFrame ant) {
         super(ant);
         initComponents();
         this.setTitle("Cadastro de Despesa");
         this.cadastrarButton.setText("Cadastro");
         this.mInitialize(null, null);
+        this.loadEdicao();
         // TODO : SEtar as views para cadastro
     }
 
-    public Despesa(JFrame ant, Object obj) {
+    public Despesa(AbstractJFrame ant, Object obj) {
         super(ant);
         initComponents();
         this.setTitle("Atualização de Despesa");
@@ -74,15 +75,15 @@ public class Despesa extends AbstractJFrame {
         infoLabel = new javax.swing.JLabel();
         cancelarButton = new javax.swing.JButton();
         cadastrarButton = new javax.swing.JButton();
-        jLabel7 = new javax.swing.JLabel();
-        tfValor1 = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         tfDataPatrocinio1 = new javax.swing.JFormattedTextField();
         jLabel9 = new javax.swing.JLabel();
         cbPatrocinio = new javax.swing.JComboBox();
         lEdicao1 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        tfValor2 = new javax.swing.JTextField();
+        tfDescricao = new javax.swing.JTextField();
+        tfValor1 = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
 
         jLabel4.setText("Valor");
 
@@ -112,6 +113,16 @@ public class Despesa extends AbstractJFrame {
                 cbEventoMouseClicked(evt);
             }
         });
+        cbEvento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbEventoActionPerformed(evt);
+            }
+        });
+        cbEvento.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                cbEventoKeyTyped(evt);
+            }
+        });
 
         lEdicao.setText("Edição*");
 
@@ -137,8 +148,6 @@ public class Despesa extends AbstractJFrame {
                 cadastrarButtonActionPerformed(evt);
             }
         });
-
-        jLabel7.setText("Valor");
 
         jLabel8.setText("Data Despesa");
 
@@ -166,11 +175,32 @@ public class Despesa extends AbstractJFrame {
 
         jLabel10.setText("Descrição");
 
-        tfValor2.addActionListener(new java.awt.event.ActionListener() {
+        tfDescricao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfValor2ActionPerformed(evt);
+                tfDescricaoActionPerformed(evt);
             }
         });
+
+        tfValor1.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                tfValor1FocusLost(evt);
+            }
+        });
+        tfValor1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfValor1ActionPerformed(evt);
+            }
+        });
+        tfValor1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                tfValor1KeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                tfValor1KeyReleased(evt);
+            }
+        });
+
+        jLabel1.setText("Valor");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -180,39 +210,42 @@ public class Despesa extends AbstractJFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(infoLabel)
-                        .addGap(157, 157, 157)
-                        .addComponent(cancelarButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(12, 12, 12)
-                        .addComponent(cadastrarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
-                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lEvento)
                             .addComponent(lEdicao))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
+                        .addComponent(infoLabel)
+                        .addGap(157, 157, 157)
+                        .addComponent(cancelarButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(12, 12, 12)
+                        .addComponent(cadastrarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel10)
+                        .addGap(33, 33, 33)
+                        .addComponent(tfDescricao))
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lEdicao1)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel10))
+                            .addComponent(jLabel1))
                         .addGap(33, 33, 33)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(tfValor2)
-                            .addComponent(cbEvento, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 560, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cbEdicao, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(tfValor1)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel8)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(tfDataPatrocinio1, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(cbPatrocinio, javax.swing.GroupLayout.PREFERRED_SIZE, 403, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(cbEvento, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 560, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(cbEdicao, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(tfValor1)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jLabel8)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(tfDataPatrocinio1, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(6, 6, 6))))
+                                        .addComponent(cbPatrocinio, javax.swing.GroupLayout.PREFERRED_SIZE, 403, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(161, 161, 161)))
+                                .addContainerGap())))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -225,60 +258,34 @@ public class Despesa extends AbstractJFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cbEdicao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lEdicao))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tfDataPatrocinio1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel9)
+                    .addComponent(jLabel8)
+                    .addComponent(tfValor1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cbPatrocinio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lEdicao1))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tfDataPatrocinio1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel9)
-                    .addComponent(jLabel8)
-                    .addComponent(tfValor1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
-                    .addComponent(tfValor2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                    .addComponent(tfDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(infoLabel)
                     .addComponent(cadastrarButton)
                     .addComponent(cancelarButton))
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void cbEventoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cbEventoFocusLost
-        // Se for atualizacao nao faz nada
-        // if(cadastrarButton.getText().matches("Atualizar")){return;}
-        // Limpa o combobox
-        if (cadastrarButton.getText().matches("Atualizar")){ return; }
-        cbEdicao.removeAllItems();
-        cbEdicao.addItem("-");
-        if(!cbEvento.getSelectedItem().toString().matches("-")){
-            // Busca as edicoes associadas ao evento selecionado
-            DBconnection conn = new DBconnection();
-            ResultSet rs;
-            String sql;
-            Integer aux;
-
-            try { // Edicoes
-                sql = "SELECT numed from edicao WHERE codEv = "+listaEventos.get(cbEvento.getSelectedItem().toString())+" ORDER BY numEd";
-                rs = conn.query(sql);
-                System.out.println("SQL: "+sql);
-                while(rs != null && rs.next()){
-                    aux = rs.getInt("numed");
-                    cbEdicao.addItem(aux);
-                }
-                if (rs != null) { rs.close(); }
-                conn.disconect();
-            } catch (SQLException ex) {
-                Logger.getLogger(Patrocinio.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
+        //this.loadEdicao();
     }//GEN-LAST:event_cbEventoFocusLost
 
     private void cbEventoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cbEventoMouseClicked
@@ -301,9 +308,12 @@ public class Despesa extends AbstractJFrame {
             } else {
                 try{
                     conn = new DBconnection();
-                    sql = "INSERT INTO despesa VALUES("+
-                    this.listaEventos.get(cbEvento.getSelectedItem().toString())+", "+
-                    cbEdicao.getSelectedItem().toString()+", sysdate, 1)";
+                    sql = "INSERT INTO despesa VALUES( SEQ_CODDESP_DESPESA.NEXTVAL, "+
+                            this.listaEventos.get(cbEvento.getSelectedItem().toString())+", "+
+                            cbEdicao.getSelectedItem().toString()+", " +
+                            //falta a parte do cnpj
+                            this.tfDataPatrocinio1.getText() + ", " + this.tfValor.getText() + ", " +
+                            this.tfDescricao.getText() + ")";
                     System.out.println("SQL: "+sql);
                     conn.execute(sql);
                     conn.disconect();
@@ -346,14 +356,73 @@ public class Despesa extends AbstractJFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_cbPatrocinioFocusLost
 
-    private void tfValor2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfValor2ActionPerformed
+    private void tfDescricaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfDescricaoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_tfValor2ActionPerformed
+    }//GEN-LAST:event_tfDescricaoActionPerformed
 
     private void cbPatrocinioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbPatrocinioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cbPatrocinioActionPerformed
 
+    private void tfValor1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfValor1ActionPerformed
+        System.out.println(this.tfValor1.getText());
+        this.tfValor1.selectAll();
+    }//GEN-LAST:event_tfValor1ActionPerformed
+
+    private void tfValor1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfValor1FocusLost
+        System.out.println(this.tfValor1.getText());
+        this.tfValor1.selectAll();
+        // load patrocinios
+        String sql = "SELECT cnpjPat, codEv, numEd FROM PATROCINIO WHERE saldoPat > " +this.tfValor1.getText();
+        
+    }//GEN-LAST:event_tfValor1FocusLost
+
+    private void cbEventoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbEventoActionPerformed
+        this.loadEdicao();
+    }//GEN-LAST:event_cbEventoActionPerformed
+
+    private void cbEventoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cbEventoKeyTyped
+        
+    }//GEN-LAST:event_cbEventoKeyTyped
+
+    private void tfValor1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfValor1KeyReleased
+        
+    }//GEN-LAST:event_tfValor1KeyReleased
+
+    private void tfValor1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfValor1KeyPressed
+        
+    }//GEN-LAST:event_tfValor1KeyPressed
+
+    private void loadEdicao() {
+        // Se for atualizacao nao faz nada
+        // if(cadastrarButton.getText().matches("Atualizar")){return;}
+        // Limpa o combobox
+        if (cadastrarButton.getText().matches("Atualizar")){ return; }
+        cbEdicao.removeAllItems();
+        cbEdicao.addItem("-");
+        if(!cbEvento.getSelectedItem().toString().matches("-")){
+            // Busca as edicoes associadas ao evento selecionado
+            DBconnection conn = new DBconnection();
+            ResultSet rs;
+            String sql;
+            Integer aux;
+
+            try { // Edicoes
+                sql = "SELECT numed from edicao WHERE codEv = "+listaEventos.get(cbEvento.getSelectedItem().toString())+" ORDER BY numEd";
+                rs = conn.query(sql);
+                System.out.println("SQL: "+sql);
+                while(rs != null && rs.next()){
+                    aux = rs.getInt("numed");
+                    cbEdicao.addItem(aux);
+                }
+                if (rs != null) { rs.close(); }
+                conn.disconect();
+            } catch (SQLException ex) {
+                Logger.getLogger(Patrocinio.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
+    
     private void mInitialize(String cnpj, String codev) {
         if(this.cadastrarButton.getText().matches("Cadastrar")){
             cbEvento.addItem("-");
@@ -407,11 +476,11 @@ public class Despesa extends AbstractJFrame {
     private javax.swing.JComboBox cbEvento;
     private javax.swing.JComboBox cbPatrocinio;
     private javax.swing.JLabel infoLabel;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel lEdicao;
@@ -419,8 +488,8 @@ public class Despesa extends AbstractJFrame {
     private javax.swing.JLabel lEvento;
     private javax.swing.JFormattedTextField tfDataPatrocinio;
     private javax.swing.JFormattedTextField tfDataPatrocinio1;
+    private javax.swing.JTextField tfDescricao;
     private javax.swing.JTextField tfValor;
     private javax.swing.JTextField tfValor1;
-    private javax.swing.JTextField tfValor2;
     // End of variables declaration//GEN-END:variables
 }

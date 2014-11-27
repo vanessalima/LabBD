@@ -29,7 +29,7 @@ public class Inscrito extends AbstractJFrame {
     /**
      * Creates new form CadastrarInscrito
      */
-    public Inscrito(JFrame ant) {
+    public Inscrito(AbstractJFrame ant) {
         super(ant);
         initComponents();
         this.mInitialize(null, null);
@@ -37,7 +37,7 @@ public class Inscrito extends AbstractJFrame {
         this.cadastrarButton.setText("Cadastrar");
     }
 
-    public Inscrito(JFrame ant, Object obj) {
+    public Inscrito(AbstractJFrame ant, Object obj) {
         super(ant);
         initComponents();
         this.setTitle("Atualização de Inscrito");

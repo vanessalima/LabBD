@@ -29,7 +29,7 @@ public class Relatorios extends AbstractJFrame {
     ArrayList<String> header = new ArrayList<>();
     Object[][] tableRows;
     
-    public Relatorios(JFrame ant) {
+    public Relatorios(AbstractJFrame ant) {
         super(ant);
         getHeaders(); 
         this.tableRows = getContent(); 

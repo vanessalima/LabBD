@@ -71,6 +71,29 @@ END quantidadeArtigosEvento;
 /
 /
 /
+CREATE OR REPLACE TRIGGER verificaLimiteSaldoPatDespesa
+	BEFORE INSERT OR UPDATE OF valorDesp ON DESPESA
+	REFERENCING OLD AS antigo NEW AS novo
+	FOR EACH ROW
+		DECLARE   
+		   saldo patrocinio.saldoPat%Type;
+		   negativo EXCEPTION;
+		   PRAGMA EXCEPTION_INIT( negativo, -1722 );
+		BEGIN
+			SELECT saldoPat INTO saldo FROM PATROCINIO 
+						WHERE cnpjPat = :novo.cnpjPat
+							  AND codEv = :novo.codEvPat
+							  AND numEd = :novo.numEdPat;
+			IF inserting AND (saldo - :novo.valorDesp) < 0 THEN
+				-- verifica se é negativo
+				RAISE negativo;
+			ELSIF updating AND (saldo - (:novo.valorDesp - :antigo.valorDesp) ) < 0 THEN
+				RAISE negativo;
+			END IF;
+END verificaLimiteSaldoPatDespesa;
+/
+/
+/
 -- trigger para atualizar saldoPat
 	-- depende da:
 		-- inserção, remoção ou atualização do valorDesp tabela despesa
@@ -105,8 +128,31 @@ END novoSaldoPatrocinioDespesa;
 -- trigger para atualizar saldoPat
 	-- depende da:
 		-- inserção, remoção ou atualização do valorAux tabela auxilio
-CREATE OR REPLACE TRIGGER novoSaldoPatrocinioAuxilio AFTER
-	INSERT OR DELETE OR UPDATE OF valorAux ON AUXILIO
+CREATE OR REPLACE TRIGGER verificaLimiteSaldoPatAuxilio
+	BEFORE INSERT OR UPDATE OF valorAux ON AUXILIO
+	REFERENCING OLD AS antigo NEW AS novo
+	FOR EACH ROW
+		DECLARE   
+		   saldo patrocinio.saldoPat%Type;
+		   negativo EXCEPTION;
+		   PRAGMA EXCEPTION_INIT( negativo, -1722 );
+		BEGIN
+			SELECT saldoPat INTO saldo FROM PATROCINIO 
+						WHERE cnpjPat = :novo.cnpjPat
+							  AND codEv = :novo.codEvPat
+							  AND numEd = :novo.numEdPat;
+			IF inserting AND (saldo - :novo.valorAux) < 0 THEN
+				-- verifica se é negativo
+				RAISE negativo;
+			ELSIF updating AND (saldo - (:novo.valorAux - :antigo.valorAux) ) < 0 THEN
+				RAISE negativo;
+			END IF;
+END verificaLimiteSaldoPatAuxilio;
+/
+/
+/
+CREATE OR REPLACE TRIGGER novoSaldoPatrocinioAuxilio
+	AFTER INSERT OR DELETE OR UPDATE OF valorAux ON AUXILIO
 	REFERENCING OLD AS antigo NEW AS novo
 	FOR EACH ROW
 		BEGIN
@@ -135,7 +181,7 @@ END novoSaldoPatrocinioAuxilio;
 /
 -- trigger para atualizar saldoFinanceiroEd
 	-- depende da inserção, remoção ou atualização (saldoPat) de patrocinio
-CREATE OR REPLACE TRIGGER novoSaldoEdicao AFTER
+CREATE OR REPLACE TRIGGER novoSaldoEdicao AFTER 
 	INSERT OR DELETE OR UPDATE OF saldoPat ON PATROCINIO
 	REFERENCING OLD AS antigo NEW AS novo
 	FOR EACH ROW
@@ -198,5 +244,76 @@ END adicionarApresentador;
 /
 /
 /
--- trigger de inserção e remoção de inscritos para alterar o valor do saldo da Edicao *****
+-- trigger de inserção e remoção de inscritos para alterar o valor do saldo da Edicao
+CREATE OR REPLACE TRIGGER atualizaTaxaEd AFTER
+	INSERT OR DELETE ON INSCRITO
+	REFERENCING OLD AS antigo NEW AS novo
+	FOR EACH ROW
+		BEGIN
+			IF deleting THEN
+				UPDATE EDICAO SET saldoFinanceiroEd = (saldoFinanceiroEd - taxaEd)
+						WHERE codEv = :antigo.codEv
+							  AND numEd = :antigo.numEd;
+			ELSIF inserting THEN
+				UPDATE EDICAO SET saldoFinanceiroEd = (saldoFinanceiroEd + taxaEd)
+						WHERE codEv = :novo.codEv
+							  AND numEd = :novo.numEd;
+			END IF;
+
+END atualizaTaxaEd;
+/
+/
+/
+-- trigger para atualizar saldo da edicao caso o valor da taxa da edicao seja alterado
+	-- ERRO TABELA MUTANTE ***********
+CREATE OR REPLACE TRIGGER recalculaSaldoPorTaxaEdicao AFTER
+	UPDATE OF taxaEd ON EDICAO
+	REFERENCING OLD AS antigo NEW AS novo
+	FOR EACH ROW
+		DECLARE
+			--novoValor Number(20);
+      numInsc Number(10);
+      sumSaldoPat Number(20);
+		BEGIN
+      SELECT count(inscrito.idPart)
+            INTO numInsc
+						FROM inscrito
+						WHERE inscrito.codEv = :novo.codEv
+							AND inscrito.numEd = :novo.numEd;
+      SELECT NVL(sum(patrocinio.saldoPat), 0)
+            INTO sumSaldoPat
+						FROM patrocinio
+			      		WHERE patrocinio.codEv = :novo.codEv
+			        			AND patrocinio.numEd = :novo.numEd
+			        	GROUP BY patrocinio.numEd, patrocinio.codEv;
+			:novo.saldoFinanceiroEd := ( :novo.taxaEd * numInsc ) + sumSaldoPat;
+
+END recalculaSaldoPorTaxaEdicao;
+/
+/
+/
+-- trigger para alterar tipoAutor pessoa quando inserir, remover ou fazer update da tabela escreve
+	-- lebrar de verificar se a pessoa não possui outros artigos
+	-- ERRO TABELA MUTANTE ***********
+CREATE OR REPLACE TRIGGER atualizarAutor AFTER
+	INSERT OR DELETE ON ESCREVE
+	REFERENCING OLD AS antigo NEW AS novo
+	FOR EACH ROW
+		DECLARE
+			artigos Number(10);
+		BEGIN
+			IF deleting THEN
+				-- verifica se a pessoa tem mais algum artigo escrito
+				SELECT NVL(count(idArt), 0) INTO artigos FROM ESCREVE WHERE idAut = :antigo.idAut;
+				IF artigos = 0 THEN 
+					UPDATE PESSOA SET tipoAutor = '0' WHERE idPe = :novo.idAut;
+				END IF;
+			ELSIF inserting THEN
+				UPDATE PESSOA SET tipoAutor = '1' WHERE idPe = :novo.idAut;
+			END IF;
+
+END atualizarAutor;
+/
+/
+/
 --TRIGGERS! Tem outros???

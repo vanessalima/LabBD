@@ -24,7 +24,7 @@ public class Pessoa extends AbstractJFrame {
     private EPessoa p;
     
     // Construtor para Cadastro
-    public Pessoa(JFrame ant) { 
+    public Pessoa(AbstractJFrame ant) { 
         super(ant);
         initComponents();
         this.setTitle("Cadastro de Pessoa");
@@ -32,7 +32,7 @@ public class Pessoa extends AbstractJFrame {
     }
     
     // Construtor para atualizacao
-    public Pessoa(JFrame ant, Object obj){
+    public Pessoa(AbstractJFrame ant, Object obj){
         super(ant);
         initComponents();
         this.setTitle("Atualização de Pessoa");

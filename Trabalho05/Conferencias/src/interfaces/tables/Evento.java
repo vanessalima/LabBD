@@ -22,14 +22,14 @@ import javax.swing.JFrame;
 public class Evento extends AbstractJFrame {
 
     private EEvento e;
-    public Evento(JFrame ant) {
+    public Evento(AbstractJFrame ant) {
         super(ant);
         initComponents();
         this.setTitle("Cadastro de Evento");
         this.cadastrarButton.setText("Cadastrar");
     }
 
-    public Evento(JFrame ant, Object obj) {
+    public Evento(AbstractJFrame ant, Object obj) {
         super(ant);
         initComponents();
         if(obj instanceof EEvento){

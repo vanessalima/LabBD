@@ -29,7 +29,7 @@ public class LoadFrame extends AbstractJFrame {
     /**
      * Creates new form LoadFrame
      */
-    public LoadFrame(JFrame ant, int table) throws SQLException {
+    public LoadFrame(AbstractJFrame ant, int table) throws SQLException {
         super(ant);
         this.table = table;
         Arrays.toString(this.getAttr().toArray());
@@ -43,6 +43,15 @@ public class LoadFrame extends AbstractJFrame {
 //        tableAll.setModel(new myTableModel(this.tablePopulation, (String[]) this.getAttr().toArray()));
     }
     
+    public void reloadTable() {
+        this.setVisible(true);
+        this.setEnabled(true);
+        this.tablePopulation = this.populateTable(this.getTableName(this.table));
+        tableAll.setModel(new myTableModel(
+            this.tablePopulation,
+            this.getAttr().toArray()
+        ));
+    }
     
     // TODO : MUDAR TODOS OS CONSTRUTORES DOS FRAMES ABAIXO QUE TIVEREM CADASTRO E ATUALIZACAO PARA RECEBEREM UM BOOLEANO, ALEM DO THIS,
     // QUE INDICARA SE É CADASTRO OU ATUALIZACAO
@@ -666,6 +675,15 @@ public class LoadFrame extends AbstractJFrame {
                         this.tableAll.getValueAt(linha, 5).toString(),
                         this.tableAll.getValueAt(linha, 6).toString(),
                         this.tableAll.getValueAt(linha, 8).toString());
+            } else if(this.table == Config.DESPESA) {
+                String auxDataHora[];
+                String auxData[];
+                String data = null;
+                String hora = null;
+                if(this.tableAll.getValueAt(linha, 2) != null){
+                    auxData = this.tableAll.getValueAt(linha, 2).toString().split("-");
+                    data = auxData[2]+"/"+auxData[1]+"/"+auxData[0];
+                }
             }
 
             this.selectJFrame(false, o);

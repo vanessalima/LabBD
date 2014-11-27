@@ -17,7 +17,7 @@ public class Auxilio extends AbstractJFrame {
     /**
      * Creates new form Auxilio
      */
-    public Auxilio(JFrame ant) {
+    public Auxilio(AbstractJFrame ant) {
         super(ant);
         initComponents();
     }

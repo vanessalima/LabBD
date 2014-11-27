@@ -17,8 +17,8 @@ import javax.swing.JFrame;
  */
 public class Mensagem extends javax.swing.JFrame implements Config {
    
-    private JFrame cadastro;
-    private JFrame loadFrame;
+    private AbstractJFrame cadastro;
+    private AbstractJFrame loadFrame;
     private int status;
     
     /**
@@ -29,7 +29,7 @@ public class Mensagem extends javax.swing.JFrame implements Config {
      * @param status pode ser SUCCESS ou FAIL. 
      * @param tipo pode ser CADASTRO, ATUALIZACAO ou REMOCAO
      */  
-    public Mensagem(JFrame cadastro, JFrame load, String msgInfo, int status, int tipo){
+    public Mensagem(AbstractJFrame cadastro, AbstractJFrame load, String msgInfo, int status, int tipo){
         this.cadastro = cadastro;
         this.loadFrame = load;
         this.status = status;
@@ -207,8 +207,9 @@ public class Mensagem extends javax.swing.JFrame implements Config {
         this.dispose();
         if(this.status == SUCCESS) {
             this.cadastro.dispose();
-            this.loadFrame.setEnabled(true);
             this.loadFrame.setVisible(true);
+            this.loadFrame.setEnabled(true);
+            this.loadFrame.reloadTable();
         }
         else {
             this.cadastro.setVisible(true);

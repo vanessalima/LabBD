@@ -32,7 +32,7 @@ public class Edicao extends AbstractJFrame {
     /**
      * Creates new form CadastrarEdicao
      */
-    public Edicao(JFrame frame) {
+    public Edicao(AbstractJFrame frame) {
         super(frame);
         initComponents();  
         this.setTitle("Cadastro de Edição");
@@ -43,7 +43,7 @@ public class Edicao extends AbstractJFrame {
         this.getEventos();
     }
 
-    public Edicao(JFrame frame, Object obj) {
+    public Edicao(AbstractJFrame frame, Object obj) {
         super(frame);
         initComponents();
         this.setTitle("Atualização de Edição");
