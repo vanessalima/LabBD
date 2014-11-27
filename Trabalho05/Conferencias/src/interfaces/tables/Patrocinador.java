@@ -217,18 +217,18 @@ public class Patrocinador extends AbstractJFrame {
                             tfTelefone.getText()+"', '"+tfEndereco.getText()+"')";
                     conn.execute(sql);
                     conn.disconect();
-                    (new Mensagem(this, null, SUCCESS, CADASTRO)).setEnabled(true);
+                    (new Mensagem(this, this.anterior, null, SUCCESS, CADASTRO)).setEnabled(true);
                 }catch(SQLException e){
                     String sujeito = "Patrocinador";
                     switch(e.getErrorCode()){
                         case -1 : // Chave duplicada
                         {
-                            (new Mensagem(this, sujeito+" já cadastrado no sistema.", FAIL, CADASTRO)).setEnabled(true);
+                            (new Mensagem(this, this.anterior, sujeito+" já cadastrado no sistema.", FAIL, CADASTRO)).setEnabled(true);
                             break;
                         }
                         case 1 : // Violacao de constraint UNIQUE
                         {
-                            (new Mensagem(this, sujeito+" já cadastrado no sistema.", FAIL, CADASTRO)).setEnabled(true);
+                            (new Mensagem(this, this.anterior, sujeito+" já cadastrado no sistema.", FAIL, CADASTRO)).setEnabled(true);
                             break;
                         }
                         case 911: // Erro de sintaxe! q feio ...
@@ -238,7 +238,7 @@ public class Patrocinador extends AbstractJFrame {
                         }
                         default:
                         {
-                            (new Mensagem(this, e.getMessage(), FAIL, CADASTRO)).setEnabled(true);
+                            (new Mensagem(this, this.anterior, e.getMessage(), FAIL, CADASTRO)).setEnabled(true);
                             System.out.println("ERROR CODE: "+e.getErrorCode());
                             e.printStackTrace();
                             break;
@@ -254,7 +254,7 @@ public class Patrocinador extends AbstractJFrame {
                         tfTelefone.getText()+"', enderecoPat = '"+tfEndereco.getText()+"' WHERE cnpjPat = "+p.getCnpj();
                 conn.executeCommand(sql);
                 conn.disconect();
-                (new Mensagem(this.anterior, null, SUCCESS, ATUALIZACAO)).setEnabled(true);
+                (new Mensagem(this, this.anterior, null, SUCCESS, ATUALIZACAO)).setEnabled(true);
             }catch(SQLException e){
                 switch(e.getErrorCode()){
                     case 911: // Erro de sintaxe! q feio ...
@@ -264,7 +264,7 @@ public class Patrocinador extends AbstractJFrame {
                     }
                     default:
                     {
-                        (new Mensagem(this, e.getMessage(), FAIL, ATUALIZACAO)).setEnabled(true);
+                        (new Mensagem(this, this.anterior, e.getMessage(), FAIL, ATUALIZACAO)).setEnabled(true);
                         System.out.println("ERROR CODE: "+e.getErrorCode());
                         e.printStackTrace();
                         break;

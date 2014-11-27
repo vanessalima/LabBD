@@ -5,8 +5,16 @@
  */
 package interfaces.tables;
 
+import conferencias.DBconnection;
+import entidades.EInscrito;
 import interfaces.AbstractJFrame;
-import interfaces.LoadFrame;
+import interfaces.Mensagem;
+import java.awt.Color;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
 
 /**
@@ -15,19 +23,34 @@ import javax.swing.JFrame;
  */
 public class Despesa extends AbstractJFrame {
 
+    private HashMap<String, Integer> listaEventos;
+    private HashMap<String, Integer> listaPat;
+    
     /**
      * Creates new form Despesa
      */
     public Despesa(JFrame ant) {
         super(ant);
         initComponents();
+        this.setTitle("Cadastro de Despesa");
+        this.cadastrarButton.setText("Cadastro");
+        this.mInitialize(null, null);
         // TODO : SEtar as views para cadastro
     }
 
     public Despesa(JFrame ant, Object obj) {
         super(ant);
         initComponents();
-        // TODO : SEtar as views para atualizacao
+        this.setTitle("Atualização de Despesa");
+        this.cadastrarButton.setText("Atualizar");
+        this.infoLabel.setText("*Campos que não podem ser alterados");
+        this.cbEvento.setEditable(false);
+        this.cbEdicao.setEditable(false);
+        //this.cbEvento.setSize(52, 27);
+        /*if(obj instanceof EInscrito){
+            this.i = (EInscrito) obj;
+            ///TODO
+        }*/
     }
 
     /**
@@ -39,22 +62,365 @@ public class Despesa extends AbstractJFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel4 = new javax.swing.JLabel();
+        tfValor = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        tfDataPatrocinio = new javax.swing.JFormattedTextField();
+        jLabel5 = new javax.swing.JLabel();
+        lEvento = new javax.swing.JLabel();
+        cbEvento = new javax.swing.JComboBox();
+        lEdicao = new javax.swing.JLabel();
+        cbEdicao = new javax.swing.JComboBox();
+        infoLabel = new javax.swing.JLabel();
+        cancelarButton = new javax.swing.JButton();
+        cadastrarButton = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
+        tfValor1 = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        tfDataPatrocinio1 = new javax.swing.JFormattedTextField();
+        jLabel9 = new javax.swing.JLabel();
+        cbPatrocinio = new javax.swing.JComboBox();
+        lEdicao1 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        tfValor2 = new javax.swing.JTextField();
+
+        jLabel4.setText("Valor");
+
+        jLabel6.setText("Data Patrocínio");
+
+        try {
+            tfDataPatrocinio.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
+        jLabel5.setFont(new java.awt.Font("Ubuntu", 2, 14)); // NOI18N
+        jLabel5.setText("formato: MM/DD/YYYY");
+
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setResizable(false);
+
+        lEvento.setText("Evento*");
+
+        cbEvento.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                cbEventoFocusLost(evt);
+            }
+        });
+        cbEvento.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cbEventoMouseClicked(evt);
+            }
+        });
+
+        lEdicao.setText("Edição*");
+
+        cbEdicao.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                cbEdicaoFocusLost(evt);
+            }
+        });
+
+        infoLabel.setFont(new java.awt.Font("Ubuntu", 2, 15)); // NOI18N
+        infoLabel.setText("* Campos obrigatórios");
+
+        cancelarButton.setText("Cancelar");
+        cancelarButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelarButtonActionPerformed(evt);
+            }
+        });
+
+        cadastrarButton.setText("Cadastrar");
+        cadastrarButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cadastrarButtonActionPerformed(evt);
+            }
+        });
+
+        jLabel7.setText("Valor");
+
+        jLabel8.setText("Data Despesa");
+
+        try {
+            tfDataPatrocinio1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
+        jLabel9.setFont(new java.awt.Font("Ubuntu", 2, 14)); // NOI18N
+        jLabel9.setText("formato: MM/DD/YYYY");
+
+        cbPatrocinio.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                cbPatrocinioFocusLost(evt);
+            }
+        });
+        cbPatrocinio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbPatrocinioActionPerformed(evt);
+            }
+        });
+
+        lEdicao1.setText("Patrocínio");
+
+        jLabel10.setText("Descrição");
+
+        tfValor2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfValor2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 622, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(infoLabel)
+                        .addGap(157, 157, 157)
+                        .addComponent(cancelarButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(12, 12, 12)
+                        .addComponent(cadastrarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lEvento)
+                            .addComponent(lEdicao))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lEdicao1)
+                            .addComponent(jLabel7)
+                            .addComponent(jLabel10))
+                        .addGap(33, 33, 33)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(tfValor2)
+                            .addComponent(cbEvento, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 560, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cbEdicao, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(cbPatrocinio, javax.swing.GroupLayout.PREFERRED_SIZE, 403, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(tfValor1)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jLabel8)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(tfDataPatrocinio1, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(6, 6, 6))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 377, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lEvento)
+                    .addComponent(cbEvento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cbEdicao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lEdicao))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cbPatrocinio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lEdicao1))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tfDataPatrocinio1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel9)
+                    .addComponent(jLabel8)
+                    .addComponent(tfValor1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel10)
+                    .addComponent(tfValor2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(infoLabel)
+                    .addComponent(cadastrarButton)
+                    .addComponent(cancelarButton))
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void cbEventoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cbEventoFocusLost
+        // Se for atualizacao nao faz nada
+        // if(cadastrarButton.getText().matches("Atualizar")){return;}
+        // Limpa o combobox
+        if (cadastrarButton.getText().matches("Atualizar")){ return; }
+        cbEdicao.removeAllItems();
+        cbEdicao.addItem("-");
+        if(!cbEvento.getSelectedItem().toString().matches("-")){
+            // Busca as edicoes associadas ao evento selecionado
+            DBconnection conn = new DBconnection();
+            ResultSet rs;
+            String sql;
+            Integer aux;
+
+            try { // Edicoes
+                sql = "SELECT numed from edicao WHERE codEv = "+listaEventos.get(cbEvento.getSelectedItem().toString())+" ORDER BY numEd";
+                rs = conn.query(sql);
+                System.out.println("SQL: "+sql);
+                while(rs != null && rs.next()){
+                    aux = rs.getInt("numed");
+                    cbEdicao.addItem(aux);
+                }
+                if (rs != null) { rs.close(); }
+                conn.disconect();
+            } catch (SQLException ex) {
+                Logger.getLogger(Patrocinio.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_cbEventoFocusLost
+
+    private void cbEventoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cbEventoMouseClicked
+
+    }//GEN-LAST:event_cbEventoMouseClicked
+
+    private void cancelarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarButtonActionPerformed
+        super.onClose();
+    }//GEN-LAST:event_cancelarButtonActionPerformed
+
+    private void cadastrarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarButtonActionPerformed
+        DBconnection conn;
+        String sql;
+
+        if(this.cadastrarButton.getText().matches("Cadastrar")){ // testa se é cadastro
+            if(cbEvento.getSelectedItem().toString().matches("-") || cbEdicao.getSelectedItem().toString().matches("-") ){
+                infoLabel.setForeground(Color.red);
+                lEvento.setForeground(Color.red);
+                lEdicao.setForeground(Color.red);
+            } else {
+                try{
+                    conn = new DBconnection();
+                    sql = "INSERT INTO despesa VALUES("+
+                    this.listaEventos.get(cbEvento.getSelectedItem().toString())+", "+
+                    cbEdicao.getSelectedItem().toString()+", sysdate, 1)";
+                    System.out.println("SQL: "+sql);
+                    conn.execute(sql);
+                    conn.disconect();
+                    (new Mensagem(this, this.anterior, null, SUCCESS, CADASTRO)).setEnabled(true);
+                }catch(SQLException e){
+                    String sujeito = "Patrocínio";
+                    switch(e.getErrorCode()){
+                        case -1 : // Chave duplicada
+                        {
+                            (new Mensagem(this, this.anterior, sujeito+" já cadastrado no sistema.", FAIL, CADASTRO)).setEnabled(true);
+                            break;
+                        }
+                        case 1 : // Violacao de constraint UNIQUE
+                        {
+                            (new Mensagem(this, this.anterior, sujeito+" já cadastrado no sistema.", FAIL, CADASTRO)).setEnabled(true);
+                            break;
+                        }
+                        case 911: // Erro de sintaxe! q feio ...
+                        {
+                            System.out.println("Erro de sintaxe do comando sql. Obs.: Talvez você tenha se esquecido de tirar o ; do final. :P ");
+                            break;
+                        }
+                        default:
+                        {
+                            System.out.println("ERROR CODE: "+e.getErrorCode());
+                            e.printStackTrace();
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+    }//GEN-LAST:event_cadastrarButtonActionPerformed
+
+    private void cbEdicaoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cbEdicaoFocusLost
+        
+    }//GEN-LAST:event_cbEdicaoFocusLost
+
+    private void cbPatrocinioFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cbPatrocinioFocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbPatrocinioFocusLost
+
+    private void tfValor2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfValor2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfValor2ActionPerformed
+
+    private void cbPatrocinioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbPatrocinioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbPatrocinioActionPerformed
+
+    private void mInitialize(String cnpj, String codev) {
+        if(this.cadastrarButton.getText().matches("Cadastrar")){
+            cbEvento.addItem("-");
+            cbEdicao.addItem("-");
+            cbPatrocinio.addItem("-");
+        }
+        // New nas listas
+        this.listaEventos = new HashMap<String, Integer>();
+        this.listaPat = new HashMap<String, Integer>();
+        
+        // popula os comboboxes de Evento e Patrocinador:
+        DBconnection conn = new DBconnection();
+        ResultSet rs = null;
+        String sql;
+        String auxNome=null;
+              
+        try { // Eventos
+            if(codev == null) { // No caso de cadastro:
+                sql = "SELECT codEv, nomeEv from evento order by nomeEv";
+            
+                rs = conn.query(sql);
+                while(rs != null && rs.next()){
+                    auxNome = rs.getString("nomeEv");
+                    cbEvento.addItem(auxNome);
+                    this.listaEventos.put(auxNome, rs.getInt("codEv"));
+                }
+            } else { // No caso de atualizacao:
+                sql = "SELECT nomeEv from evento WHERE codEv = "+codev;
+                rs = conn.query(sql);
+                if(rs != null && rs.next()){
+                    cbEvento.addItem(rs.getString("nomeEv"));
+                }
+            }
+            if (rs != null) { rs.close(); } 
+            
+            // inserir código para carregar patrocinador ******
+            
+            conn.disconect();
+        } catch (SQLException ex) {
+            Logger.getLogger(Patrocinio.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+             
+    }
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton cadastrarButton;
+    private javax.swing.JButton cancelarButton;
+    private javax.swing.JComboBox cbEdicao;
+    private javax.swing.JComboBox cbEvento;
+    private javax.swing.JComboBox cbPatrocinio;
+    private javax.swing.JLabel infoLabel;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel lEdicao;
+    private javax.swing.JLabel lEdicao1;
+    private javax.swing.JLabel lEvento;
+    private javax.swing.JFormattedTextField tfDataPatrocinio;
+    private javax.swing.JFormattedTextField tfDataPatrocinio1;
+    private javax.swing.JTextField tfValor;
+    private javax.swing.JTextField tfValor1;
+    private javax.swing.JTextField tfValor2;
     // End of variables declaration//GEN-END:variables
 }
