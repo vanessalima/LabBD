@@ -6,8 +6,8 @@
 package entidades;
 
 /**
- *
- * @author vanessalima
+ * Template da classe despesa para carregar informações de linhas da tabela
+ * @author Carlos Humberto dos Santos Baqueta, Marina Coimbra, Vanessa Apolinário de Lima
  */
 public class EDespesa {
     private String nomeEv;

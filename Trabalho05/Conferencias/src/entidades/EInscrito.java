@@ -6,8 +6,9 @@
 package entidades;
 
 /**
- *
- * @author ch
+ * Template da classe inscrito para carregar informações de linhas da tabela
+ * Lembrando que para esta tabela não há processo de atualização
+ * @author Carlos Humberto dos Santos Baqueta, Marina Coimbra, Vanessa Apolinário de Lima
  */
 public class EInscrito {
     private String codEv;

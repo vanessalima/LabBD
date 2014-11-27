@@ -349,6 +349,10 @@ public class Patrocinio extends AbstractJFrame {
         super.onClose();
     }//GEN-LAST:event_formWindowClosing
 
+    private void tfDataPatrocinioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfDataPatrocinioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfDataPatrocinioActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cadastrarButton;
     private javax.swing.JButton cancelarButton;

@@ -234,7 +234,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Ubuntu" size="14" style="2"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="formato: MM/DD/YYYY"/>
+        <Property name="text" type="java.lang.String" value="formato: DD/MM/YYYY"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JComboBox" name="cbPatrocinio">

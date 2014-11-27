@@ -76,7 +76,6 @@ public class RelatorioEd extends AbstractJFrame {
      * O resultado é gravado na tabela result_pat
      * Esse procedimento cria o relatório e salva na tabela.
      * @param codev: é o numero do evento desejado
-     * @param numed: número da edição ou -1 para todas as edições
      */
     private void gerarRelatorio(Integer codev){
         DBconnection dbconn = new DBconnection();
@@ -165,17 +164,17 @@ public class RelatorioEd extends AbstractJFrame {
         jTextArea1 = new javax.swing.JTextArea();
         jMenuBar2 = new javax.swing.JMenuBar();
         jMenu3 = new javax.swing.JMenu();
-        jMenuItem8 = new javax.swing.JMenuItem();
-        jMenuItem9 = new javax.swing.JMenuItem();
-        jMenuItem10 = new javax.swing.JMenuItem();
-        jMenuItem11 = new javax.swing.JMenuItem();
-        jMenuItem12 = new javax.swing.JMenuItem();
         jSeparator2 = new javax.swing.JPopupMenu.Separator();
         sairApp = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         openEquipe = new javax.swing.JMenuItem();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -211,26 +210,6 @@ public class RelatorioEd extends AbstractJFrame {
         jScrollPane1.setViewportView(jTextArea1);
 
         jMenu3.setText("Opções");
-
-        jMenuItem8.setText("Cadastrar");
-        jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem8ActionPerformed(evt);
-            }
-        });
-        jMenu3.add(jMenuItem8);
-
-        jMenuItem9.setText("Pesquisar");
-        jMenu3.add(jMenuItem9);
-
-        jMenuItem10.setText("Atualizar");
-        jMenu3.add(jMenuItem10);
-
-        jMenuItem11.setText("Remover");
-        jMenu3.add(jMenuItem11);
-
-        jMenuItem12.setText("Gerar Relatórios");
-        jMenu3.add(jMenuItem12);
         jMenu3.add(jSeparator2);
 
         sairApp.setText("Sair");
@@ -294,14 +273,6 @@ public class RelatorioEd extends AbstractJFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem8ActionPerformed
-
-    private void sairAppActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sairAppActionPerformed
-        super.onClose();
-    }//GEN-LAST:event_sairAppActionPerformed
-
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
        
     }//GEN-LAST:event_jComboBox1ActionPerformed
@@ -340,6 +311,14 @@ public class RelatorioEd extends AbstractJFrame {
         super.onClose();
     }//GEN-LAST:event_cancelarMouseClicked
 
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        this.onClose(evt);
+    }//GEN-LAST:event_formWindowClosing
+
+    private void sairAppActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sairAppActionPerformed
+        super.onDispose();
+    }//GEN-LAST:event_sairAppActionPerformed
+
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cancelar;
@@ -350,11 +329,6 @@ public class RelatorioEd extends AbstractJFrame {
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar2;
-    private javax.swing.JMenuItem jMenuItem10;
-    private javax.swing.JMenuItem jMenuItem11;
-    private javax.swing.JMenuItem jMenuItem12;
-    private javax.swing.JMenuItem jMenuItem8;
-    private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPopupMenu.Separator jSeparator2;
     private javax.swing.JTextArea jTextArea1;

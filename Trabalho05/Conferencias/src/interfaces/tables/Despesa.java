@@ -20,8 +20,8 @@ import java.util.logging.Logger;
 import javax.swing.JFrame;
 
 /**
- *
- * @author vanessalima
+ * Frame para cadastrar, buscar, atualizar e remover despesas
+ * @author Carlos Humberto dos Santos Baqueta, Marina Coimbra, Vanessa Apolinário de Lima
  */
 public class Despesa extends AbstractJFrame {
 
@@ -185,7 +185,7 @@ public class Despesa extends AbstractJFrame {
         });
 
         jLabel9.setFont(new java.awt.Font("Ubuntu", 2, 14)); // NOI18N
-        jLabel9.setText("formato: MM/DD/YYYY");
+        jLabel9.setText("formato: DD/MM/YYYY");
 
         cbPatrocinio.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
@@ -332,6 +332,7 @@ public class Despesa extends AbstractJFrame {
     /**
      * Insere o valor da despesa na base de dados, a partir das informações que o usuário inseriu
      * e retorna uma mensagem, seja esta de erro ou de sucesso
+     * Ou então realiza a atualização do cadastro carregado
      * @param evt 
      */
     private void cadastrarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarButtonActionPerformed
@@ -598,7 +599,7 @@ public class Despesa extends AbstractJFrame {
     }
     
     /**
-     * 
+     * Inicializa os campos de evento e edição
      * @param cnpj
      * @param codev 
      */

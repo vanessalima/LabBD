@@ -279,134 +279,134 @@ public class Auxilio extends AbstractJFrame {
         DBconnection conn;
         String sql;
 
-        if(this.cadastrarButton.getText().matches("Cadastrar")){ // testa se é cadastro
-            if(cbEvento.getSelectedItem().toString().matches("-") || cbEdicao.getSelectedItem().toString().matches("-") ){
-                infoLabel.setForeground(Color.red);
-                lEvento.setForeground(Color.red);
-                lEdicao.setForeground(Color.red);
-            } else {
-                try{
-                    conn = new DBconnection();
-                    sql = "INSERT INTO despesa VALUES( "+
-                    this.listaEventos.get(cbEvento.getSelectedItem().toString())+", "+
-                    cbEdicao.getSelectedItem().toString()+", SEQ_CODDESP_DESPESA.NEXTVAL, ";
-
-                    if(this.cbPatrocinio.getSelectedItem().equals("-") ||
-                        this.cbPatrocinio.getSelectedItem().equals("Insira um valor")) {
-                        sql += "null, null, null, ";
-                    }
-                    else {
-                        int item = this.cbPatrocinio.getSelectedIndex();
-                        sql += this.listaPat.get(item).get(0) + ", " + this.listaPat.get(item).get(1) + ", " +
-                        this.listaPat.get(item).get(2) + ", ";
-                    }
-
-                    if (!tfDataPatrocinio1.getText().matches("  /  /    ")){
-                        sql += "to_date('"+tfDataPatrocinio1.getText()+"', 'DD/MM/YYYY'), ";
-                    }
-                    else
-                    sql += "null, ";
-
-                    if(this.tfValor1.getText().isEmpty()) {
-                        sql += "null, ";
-                    }
-                    else
-                    sql += this.tfValor1.getText() + ", ";
-
-                    sql += "'" + this.tfDescricao.getText() + "')";
-                    System.out.println("SQL: "+sql);
-                    conn.execute(sql);
-                    conn.disconect();
-                    (new Mensagem(this, this.anterior, null, SUCCESS, CADASTRO)).setEnabled(true);
-                }catch(SQLException e){
-                    String sujeito = "Patrocínio";
-                    switch(e.getErrorCode()){
-                        case -1 : // Chave duplicada
-                        {
-                            (new Mensagem(this, this.anterior, sujeito+" já cadastrado no sistema.", FAIL, CADASTRO)).setEnabled(true);
-                            break;
-                        }
-                        case 1 : // Violacao de constraint UNIQUE
-                        {
-                            (new Mensagem(this, this.anterior, sujeito+" já cadastrado no sistema.", FAIL, CADASTRO)).setEnabled(true);
-                            break;
-                        }
-                        case 911: // Erro de sintaxe! q feio ...
-                        {
-                            System.out.println("Erro de sintaxe do comando sql. Obs.: Talvez você tenha se esquecido de tirar o ; do final. :P ");
-                            break;
-                        }
-                        default:
-                        {
-                            System.out.println("ERROR CODE: "+e.getErrorCode());
-                            e.printStackTrace();
-                            break;
-                        }
-                    }
-                }
-            }
-        }
-        else {
-            try{
-                conn = new DBconnection();
-                sql = "UPDATE despesa  SET ";
-
-                if(i.getCnpjPat().isEmpty()) {
-                    sql += "cnpjPat = null, codEvPat = null, numEdPat = null, ";
-                }
-                else {
-                    sql += "cnpjPat = " + i.getCnpjPat() +
-                    ", codEvPat = " + i.getCodEvPat() +
-                    ", numEdPat = " + i.getNumEdPat() + ", ";
-                }
-
-                if (!i.getDataDesp().matches("  /  /    ")){
-                    sql += "dataDesp = to_date('"+i.getDataDesp()+"', 'DD/MM/YYYY'), ";
-                }
-                else
-                sql += "dataDesp = null, ";
-
-                if(i.getValorDesp().isEmpty()) {
-                    sql += "valorDesp = null, ";
-                }
-                else
-                sql += "valorDesp = "+i.getValorDesp() + ", ";
-
-                sql += "descricaoDesp = '" + i.getDescricaoDesp() + "'";
-
-                sql += " WHERE codEv = " + i.getCodEv()+" AND numEd = "+
-                i.getNumEd()+" AND codDesp = " + i.getCodDesp();
-                System.out.println("SQL: "+sql);
-                conn.execute(sql);
-                conn.disconect();
-                (new Mensagem(this, this.anterior, null, SUCCESS, CADASTRO)).setEnabled(true);
-            }catch(SQLException e){
-                String sujeito = "Patrocínio";
-                switch(e.getErrorCode()){
-                    case -1 : // Chave duplicada
-                    {
-                        (new Mensagem(this, this.anterior, sujeito+" já cadastrado no sistema.", FAIL, CADASTRO)).setEnabled(true);
-                        break;
-                    }
-                    case 1 : // Violacao de constraint UNIQUE
-                    {
-                        (new Mensagem(this, this.anterior, sujeito+" já cadastrado no sistema.", FAIL, CADASTRO)).setEnabled(true);
-                        break;
-                    }
-                    case 911: // Erro de sintaxe! q feio ...
-                    {
-                        System.out.println("Erro de sintaxe do comando sql. Obs.: Talvez você tenha se esquecido de tirar o ; do final. :P ");
-                        break;
-                    }
-                    default:
-                    {
-                        System.out.println("ERROR CODE: "+e.getErrorCode());
-                        e.printStackTrace();
-                        break;
-                    }
-                }
-            }
-        }
+//        if(this.cadastrarButton.getText().matches("Cadastrar")){ // testa se é cadastro
+//            if(cbEvento.getSelectedItem().toString().matches("-") || cbEdicao.getSelectedItem().toString().matches("-") ){
+//                infoLabel.setForeground(Color.red);
+//                lEvento.setForeground(Color.red);
+//                lEdicao.setForeground(Color.red);
+//            } else {
+//                try{
+//                    conn = new DBconnection();
+//                    sql = "INSERT INTO despesa VALUES( "+
+//                    this.listaEventos.get(cbEvento.getSelectedItem().toString())+", "+
+//                    cbEdicao.getSelectedItem().toString()+", SEQ_CODDESP_DESPESA.NEXTVAL, ";
+//
+//                    if(this.cbPatrocinio.getSelectedItem().equals("-") ||
+//                        this.cbPatrocinio.getSelectedItem().equals("Insira um valor")) {
+//                        sql += "null, null, null, ";
+//                    }
+//                    else {
+//                        int item = this.cbPatrocinio.getSelectedIndex();
+//                        sql += this.listaPat.get(item).get(0) + ", " + this.listaPat.get(item).get(1) + ", " +
+//                        this.listaPat.get(item).get(2) + ", ";
+//                    }
+//
+//                    if (!tfDataPatrocinio1.getText().matches("  /  /    ")){
+//                        sql += "to_date('"+tfDataPatrocinio1.getText()+"', 'DD/MM/YYYY'), ";
+//                    }
+//                    else
+//                    sql += "null, ";
+//
+//                    if(this.tfValor1.getText().isEmpty()) {
+//                        sql += "null, ";
+//                    }
+//                    else
+//                    sql += this.tfValor1.getText() + ", ";
+//
+//                    sql += "'" + this.tfDescricao.getText() + "')";
+//                    System.out.println("SQL: "+sql);
+//                    conn.execute(sql);
+//                    conn.disconect();
+//                    (new Mensagem(this, this.anterior, null, SUCCESS, CADASTRO)).setEnabled(true);
+//                }catch(SQLException e){
+//                    String sujeito = "Patrocínio";
+//                    switch(e.getErrorCode()){
+//                        case -1 : // Chave duplicada
+//                        {
+//                            (new Mensagem(this, this.anterior, sujeito+" já cadastrado no sistema.", FAIL, CADASTRO)).setEnabled(true);
+//                            break;
+//                        }
+//                        case 1 : // Violacao de constraint UNIQUE
+//                        {
+//                            (new Mensagem(this, this.anterior, sujeito+" já cadastrado no sistema.", FAIL, CADASTRO)).setEnabled(true);
+//                            break;
+//                        }
+//                        case 911: // Erro de sintaxe! q feio ...
+//                        {
+//                            System.out.println("Erro de sintaxe do comando sql. Obs.: Talvez você tenha se esquecido de tirar o ; do final. :P ");
+//                            break;
+//                        }
+//                        default:
+//                        {
+//                            System.out.println("ERROR CODE: "+e.getErrorCode());
+//                            e.printStackTrace();
+//                            break;
+//                        }
+//                    }
+//                }
+//            }
+//        }
+//        else {
+//            try{
+//                conn = new DBconnection();
+//                sql = "UPDATE despesa  SET ";
+//
+//                if(i.getCnpjPat().isEmpty()) {
+//                    sql += "cnpjPat = null, codEvPat = null, numEdPat = null, ";
+//                }
+//                else {
+//                    sql += "cnpjPat = " + i.getCnpjPat() +
+//                    ", codEvPat = " + i.getCodEvPat() +
+//                    ", numEdPat = " + i.getNumEdPat() + ", ";
+//                }
+//
+//                if (!i.getDataDesp().matches("  /  /    ")){
+//                    sql += "dataDesp = to_date('"+i.getDataDesp()+"', 'DD/MM/YYYY'), ";
+//                }
+//                else
+//                sql += "dataDesp = null, ";
+//
+//                if(i.getValorDesp().isEmpty()) {
+//                    sql += "valorDesp = null, ";
+//                }
+//                else
+//                sql += "valorDesp = "+i.getValorDesp() + ", ";
+//
+//                sql += "descricaoDesp = '" + i.getDescricaoDesp() + "'";
+//
+//                sql += " WHERE codEv = " + i.getCodEv()+" AND numEd = "+
+//                i.getNumEd()+" AND codDesp = " + i.getCodDesp();
+//                System.out.println("SQL: "+sql);
+//                conn.execute(sql);
+//                conn.disconect();
+//                (new Mensagem(this, this.anterior, null, SUCCESS, CADASTRO)).setEnabled(true);
+//            }catch(SQLException e){
+//                String sujeito = "Patrocínio";
+//                switch(e.getErrorCode()){
+//                    case -1 : // Chave duplicada
+//                    {
+//                        (new Mensagem(this, this.anterior, sujeito+" já cadastrado no sistema.", FAIL, CADASTRO)).setEnabled(true);
+//                        break;
+//                    }
+//                    case 1 : // Violacao de constraint UNIQUE
+//                    {
+//                        (new Mensagem(this, this.anterior, sujeito+" já cadastrado no sistema.", FAIL, CADASTRO)).setEnabled(true);
+//                        break;
+//                    }
+//                    case 911: // Erro de sintaxe! q feio ...
+//                    {
+//                        System.out.println("Erro de sintaxe do comando sql. Obs.: Talvez você tenha se esquecido de tirar o ; do final. :P ");
+//                        break;
+//                    }
+//                    default:
+//                    {
+//                        System.out.println("ERROR CODE: "+e.getErrorCode());
+//                        e.printStackTrace();
+//                        break;
+//                    }
+//                }
+//            }
+//        }
     }//GEN-LAST:event_cadastrarButtonActionPerformed
 
     private void cancelarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarButtonActionPerformed

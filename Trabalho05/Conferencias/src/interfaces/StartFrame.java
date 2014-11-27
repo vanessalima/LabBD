@@ -57,16 +57,11 @@ public class StartFrame extends AbstractJFrame {//javax.swing.JFrame {
         openPessoa = new javax.swing.JButton();
         openRelatorios = new javax.swing.JButton();
         openRelEd = new javax.swing.JButton();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
-        jMenuItem5 = new javax.swing.JMenuItem();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jSeparator1 = new javax.swing.JPopupMenu.Separator();
-        jMenuItem6 = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
+        jMenuBar2 = new javax.swing.JMenuBar();
+        jMenu3 = new javax.swing.JMenu();
+        jSeparator2 = new javax.swing.JPopupMenu.Separator();
+        sairApp = new javax.swing.JMenuItem();
+        jMenu4 = new javax.swing.JMenu();
         openEquipe = new javax.swing.JMenuItem();
 
         jTextArea1.setColumns(20);
@@ -198,52 +193,27 @@ public class StartFrame extends AbstractJFrame {//javax.swing.JFrame {
             }
         });
 
-        jMenu1.setText("Opções");
+        jMenu3.setText("Opções");
+        jMenu3.add(jSeparator2);
 
-        jMenuItem2.setText("Cadastrar");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+        sairApp.setText("Sair");
+        sairApp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
+                sairAppActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem2);
+        jMenu3.add(sairApp);
 
-        jMenuItem3.setText("Pesquisar");
-        jMenu1.add(jMenuItem3);
+        jMenuBar2.add(jMenu3);
 
-        jMenuItem4.setText("Atualizar");
-        jMenu1.add(jMenuItem4);
-
-        jMenuItem5.setText("Remover");
-        jMenu1.add(jMenuItem5);
-
-        jMenuItem1.setText("Gerar Relatórios");
-        jMenu1.add(jMenuItem1);
-        jMenu1.add(jSeparator1);
-
-        jMenuItem6.setText("Sair");
-        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem6ActionPerformed(evt);
-            }
-        });
-        jMenu1.add(jMenuItem6);
-
-        jMenuBar1.add(jMenu1);
-
-        jMenu2.setText("Sobre");
+        jMenu4.setText("Sobre");
 
         openEquipe.setText("Equipe");
-        openEquipe.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                openEquipeActionPerformed(evt);
-            }
-        });
-        jMenu2.add(openEquipe);
+        jMenu4.add(openEquipe);
 
-        jMenuBar1.add(jMenu2);
+        jMenuBar2.add(jMenu4);
 
-        setJMenuBar(jMenuBar1);
+        setJMenuBar(jMenuBar2);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -306,15 +276,6 @@ public class StartFrame extends AbstractJFrame {//javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
-
-    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
-        // TODO add your handling code here:
-        //this.dispose();
-    }//GEN-LAST:event_jMenuItem6ActionPerformed
 
     private void openInscritoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openInscritoActionPerformed
         try {
@@ -385,11 +346,7 @@ public class StartFrame extends AbstractJFrame {//javax.swing.JFrame {
     }//GEN-LAST:event_openAvaliaArtigoActionPerformed
 
     private void openAvaliaApresentadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openAvaliaApresentadorActionPerformed
-        /*try {
-            (new LoadFrame(this, Config.AVALIA_APRESENTADOR)).setEnabled(true);
-        } catch (SQLException ex) {
-            Logger.getLogger(StartFrame.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
+        (new SelectEdicao(this)).setEnabled(true);
     }//GEN-LAST:event_openAvaliaApresentadorActionPerformed
 
     private void openEdicaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openEdicaoActionPerformed
@@ -429,13 +386,13 @@ public class StartFrame extends AbstractJFrame {//javax.swing.JFrame {
 //        }
     }//GEN-LAST:event_openRelatoriosActionPerformed
 
-    private void openEquipeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openEquipeActionPerformed
-        (new Equipe(this)).setEnabled(true);
-    }//GEN-LAST:event_openEquipeActionPerformed
-
     private void openRelEdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openRelEdActionPerformed
         (new RelatorioEd(this)).setEnabled(true);
     }//GEN-LAST:event_openRelEdActionPerformed
+
+    private void sairAppActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sairAppActionPerformed
+        super.onDispose();
+    }//GEN-LAST:event_sairAppActionPerformed
 
     /**
      * @param args the command line arguments
@@ -472,17 +429,11 @@ public class StartFrame extends AbstractJFrame {//javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JPopupMenu.Separator jSeparator1;
+    private javax.swing.JPopupMenu.Separator jSeparator2;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JButton openApresentacao;
     private javax.swing.JButton openArtigo;
@@ -500,5 +451,6 @@ public class StartFrame extends AbstractJFrame {//javax.swing.JFrame {
     private javax.swing.JButton openPessoa;
     private javax.swing.JButton openRelEd;
     private javax.swing.JButton openRelatorios;
+    private javax.swing.JMenuItem sairApp;
     // End of variables declaration//GEN-END:variables
 }

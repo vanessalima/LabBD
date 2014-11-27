@@ -18,8 +18,8 @@ import java.util.logging.Logger;
 import javax.swing.JFrame;
 
 /**
- *
- * @author vanessalima
+ * Frame para realizar operações na tabela artigo
+ * @author Carlos Humberto dos Santos Baqueta, Marina Coimbra, Vanessa Apolinário de Lima
  */
 public class Artigo extends AbstractJFrame {
     private EArtigo artigo;
@@ -111,7 +111,7 @@ public class Artigo extends AbstractJFrame {
         });
 
         jLabel2.setFont(new java.awt.Font("Ubuntu", 2, 14)); // NOI18N
-        jLabel2.setText("formato: MM/DD/YYYY");
+        jLabel2.setText("formato: DD/MM/YYYY");
 
         jLabel3.setFont(new java.awt.Font("Ubuntu", 2, 14)); // NOI18N
         jLabel3.setText("formato: HH:mm");
