@@ -44,6 +44,10 @@ public class LoadFrame extends AbstractJFrame {
         this.filters = new ArrayList<ArrayList<Object>>();
         initComponents();
         this.setVisible(true);
+        if(this.table == Config.INSCRITO){
+            this.atualizarButton.setEnabled(false);
+            this.atualizarButton.setVisible(false);
+        }
 //        tableAll.setModel(new myTableModel(this.tablePopulation, (String[]) this.getAttr().toArray()));
     }
     
@@ -98,9 +102,7 @@ public class LoadFrame extends AbstractJFrame {
                 break;
             case Config.INSCRITO:
                  if(flagCadastro){ this.form = new Inscrito(this); }
-                 else {
-                     this.form = new Inscrito(this, obj);
-                 }
+                 
                 break;
             case Config.ORGANIZADOR:
                 if(flagCadastro) { this.form = new Organizador(this); }
@@ -124,6 +126,12 @@ public class LoadFrame extends AbstractJFrame {
                 if (flagCadastro) { this.form = new Pessoa(this); }
                 else {
                     this.form = new Pessoa(anterior, obj);
+                }
+                break;
+            case Config.ESCREVE:
+                if (flagCadastro) { this.form = new Escreve(this); }
+                else {
+                    this.form = new Escreve(anterior, obj);
                 }
                 break;
             default:
@@ -152,7 +160,9 @@ public class LoadFrame extends AbstractJFrame {
             case 11:
                 return "patrocinio";
             case 12:
-                return "pessoa";      
+                return "pessoa"; 
+            case Config.ESCREVE:
+                return "escreve";
         }
         return null;   
     }
@@ -592,7 +602,8 @@ public class LoadFrame extends AbstractJFrame {
             Object o = null;
             int linha = this.tableAll.getSelectedRow();
             
-            
+            //excecoes:
+            if(this.table == Config.INSCRITO){ return; }
             
 //            System.out.println(" VALORES: "+this.tableAll.getValueAt(linha, 1).toString()+", "+
 //                                String.valueOf(this.tableAll.getValueAt(linha, 3))+", "+
@@ -793,7 +804,7 @@ public class LoadFrame extends AbstractJFrame {
                     taxa = this.tableAll.getValueAt(linha, 5).toString();
                 }
                 if(this.tableAll.getValueAt(linha, 8) != null){
-                    descricao = this.tableAll.getValueAt(linha, 8).toString();
+                    descricao = this.tableAll.getValueAt(linha, 6).toString();
                 }
                 if(this.tableAll.getValueAt(linha, 2) != null){
                     auxDataHora = this.tableAll.getValueAt(linha, 2).toString().split(" ");

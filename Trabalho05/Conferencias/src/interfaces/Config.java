@@ -32,5 +32,6 @@ public interface Config {
     int PATROCINADOR = 10;
     int PATROCINIO = 11;
     int PESSOA = 12;
+    int ESCREVE = 13;
     
 }
