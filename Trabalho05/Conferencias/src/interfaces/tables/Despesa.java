@@ -27,7 +27,8 @@ public class Despesa extends AbstractJFrame {
     private HashMap<String, String> listaPat;
     
     /**
-     * Creates new form Despesa
+     * Cria interface de despesa para cadastro/inserção
+     * @param ant 
      */
     public Despesa(AbstractJFrame ant) {
         super(ant);
@@ -39,6 +40,12 @@ public class Despesa extends AbstractJFrame {
         // TODO : SEtar as views para cadastro
     }
 
+    /**
+     * Cria a interface de despesa
+     * recebendo os parâmetros que serão atualizados
+     * @param ant
+     * @param obj 
+     */
     public Despesa(AbstractJFrame ant, Object obj) {
         super(ant);
         initComponents();
@@ -285,17 +292,26 @@ public class Despesa extends AbstractJFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cbEventoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cbEventoFocusLost
-        //this.loadEdicao();
+        
     }//GEN-LAST:event_cbEventoFocusLost
 
     private void cbEventoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cbEventoMouseClicked
 
     }//GEN-LAST:event_cbEventoMouseClicked
 
+    /**
+     * Fecha a janela de cadastro ou atualização de despesa sem nenhuma ação
+     * @param evt 
+     */
     private void cancelarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarButtonActionPerformed
         super.onClose();
     }//GEN-LAST:event_cancelarButtonActionPerformed
 
+    /**
+     * Insere o valor da despesa na base de dados, a partir das informações que o usuário inseriu
+     * e retorna uma mensagem, seja esta de erro ou de sucesso
+     * @param evt 
+     */
     private void cadastrarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarButtonActionPerformed
         DBconnection conn;
         String sql;
@@ -365,10 +381,14 @@ public class Despesa extends AbstractJFrame {
     }//GEN-LAST:event_cbPatrocinioActionPerformed
 
     private void tfValor1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfValor1ActionPerformed
-        System.out.println(this.tfValor1.getText());
-        this.tfValor1.selectAll();
+        
     }//GEN-LAST:event_tfValor1ActionPerformed
 
+    /**
+     * Carrega os possíveis patrocínios para serem utilizados no combobox de patrocinios
+     * a partir do valor passado para o valor da despesa
+     * @param evt 
+     */
     private void tfValor1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfValor1FocusLost
         System.out.println(this.tfValor1.getText());
         this.tfValor1.selectAll();
@@ -397,6 +417,10 @@ public class Despesa extends AbstractJFrame {
         
     }//GEN-LAST:event_tfValor1FocusLost
 
+    /**
+     * Carrega os valores da edição quando um evento selecionado
+     * @param evt 
+     */
     private void cbEventoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbEventoActionPerformed
         this.loadEdicao();
     }//GEN-LAST:event_cbEventoActionPerformed
@@ -413,6 +437,10 @@ public class Despesa extends AbstractJFrame {
         
     }//GEN-LAST:event_tfValor1KeyPressed
 
+    /**
+     * Busca na base de dados e carrega os possíveis valores da edição
+     * para o evento selecionado pelo usuário
+     */
     private void loadEdicao() {
         // Se for atualizacao nao faz nada
         // if(cadastrarButton.getText().matches("Atualizar")){return;}
@@ -443,6 +471,11 @@ public class Despesa extends AbstractJFrame {
         }
     }
     
+    /**
+     * 
+     * @param cnpj
+     * @param codev 
+     */
     private void mInitialize(String cnpj, String codev) {
         if(this.cadastrarButton.getText().matches("Cadastrar")){
             cbEvento.addItem("-");

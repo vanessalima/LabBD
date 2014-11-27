@@ -25,8 +25,9 @@ import java.util.logging.Logger;
 import javax.swing.JFrame;
 
 /**
- *
- * @author Rina
+ * Interface de geração de relatórios em texto de acordo com um evento
+ * e podendo ter ou não um edição determinada para o relatório
+ * @author Carlos Humberto dos Santos Baqueta, Marina Coimbra, Vanessa Apolinário de Lima
  */
 public class Relatorio extends AbstractJFrame {
 
@@ -49,6 +50,9 @@ public class Relatorio extends AbstractJFrame {
         }
     }
     
+    /**
+     * Cria o par evento edição para evitar a repetição de selects
+     */
     private void createHashEventos(){
         DBconnection dbconn = new DBconnection();
         String sql = "SELECT EVENTO.CODEV, NOMEEV, NUMED FROM EVENTO, EDICAO WHERE EDICAO.CODEV = EVENTO.CODEV";
@@ -185,7 +189,12 @@ public class Relatorio extends AbstractJFrame {
         jMenu4 = new javax.swing.JMenu();
         openEquipe = new javax.swing.JMenuItem();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         jLabel1.setText("Relatório de Auxílios e Despesas por Evento");
 
@@ -360,6 +369,10 @@ public class Relatorio extends AbstractJFrame {
             Logger.getLogger(Relatorios.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_exportarActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        this.onClose();
+    }//GEN-LAST:event_formWindowClosing
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cancelar;

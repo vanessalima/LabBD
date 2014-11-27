@@ -15,26 +15,32 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
 
-/** 
- *
- * @author vanessalima
+/**
+ * Classe abstrata para geração de fluxo de dados padrão
+ * @author Carlos Humberto dos Santos Baqueta, Marina Coimbra, Vanessa Apolinário de Lima
  */
 public abstract class AbstractJFrame extends javax.swing.JFrame implements Config{
+    
     protected AbstractJFrame anterior;
-
     private ArrayList<String> tableAttr = new ArrayList<>();
     private ArrayList<String> fromAttr = new ArrayList<>();
     private ArrayList<String> whereAttr = new ArrayList<>();
     private String tablename;
     private String sqlBasic = new String();
-    
      // true : Cadastro, false : Atualizacao
     protected boolean flagCadastro; // Usada em LoadFrame
     
+    /**
+     * Método de criação vazio para a classe inicial
+     */
     public AbstractJFrame() {
         
     }
     
+    /**
+     * Método de criação que abre e inicia a janela
+     * @param ant ponteiro para a interface anterior
+     */
     public AbstractJFrame(AbstractJFrame ant) {
         // Faz a janela de fundo ficar invisível
         if (ant == null) System.out.println("VC tá passando o ponteiro null para tela anterior!!!");
@@ -45,6 +51,10 @@ public abstract class AbstractJFrame extends javax.swing.JFrame implements Confi
         this.setResizable(false);
     }
     
+    /**
+     * Fecha a janela atual e reabre a anterior
+     * @param evt 
+     */
     protected void onClose(java.awt.event.WindowEvent evt) {                                   
         // fecha a janela
         this.dispose();
@@ -53,6 +63,9 @@ public abstract class AbstractJFrame extends javax.swing.JFrame implements Confi
         this.anterior.setVisible(true);
     }                  
     
+    /**
+     * Fecha a janela atual e reabre a anterior
+     */
     protected void onClose(){
         this.dispose();
         // reabre a janela anterior
@@ -60,6 +73,9 @@ public abstract class AbstractJFrame extends javax.swing.JFrame implements Confi
         this.anterior.setVisible(true);
     }
     
+    /**
+     * Fecha todas as janelas e finaliza a aplicação
+     */
     protected void onDispose(){ // Fecha todas as janelas anteriores 
         if(this.anterior instanceof AbstractJFrame){// fecha a janela anterior
             ((AbstractJFrame)this.anterior).onDispose();
@@ -68,10 +84,6 @@ public abstract class AbstractJFrame extends javax.swing.JFrame implements Confi
         }
         this.dispose();          // fecha a janela atual
         System.exit(1);
-    }
-    
-    public void teste() {
-        System.out.println("Funciona para override.");
     }
     
     // Nos metodos abaixo seto a flag para cadastro ou atualizacao
@@ -89,12 +101,10 @@ public abstract class AbstractJFrame extends javax.swing.JFrame implements Confi
         System.out.println(" ---- flagCadastro: "+flagCadastro);
         return this.flagCadastro;
     }
-    
-    
     // fim seta flag para Cadastro
     
     /**
-     * 
+     * Retorna a lista de atributos da tabela atual
      * @return 
      */
     public ArrayList<String> getAttr(){
@@ -102,7 +112,9 @@ public abstract class AbstractJFrame extends javax.swing.JFrame implements Confi
     }
     
     /**
-     * 
+     * Prepara a estrutura do select para cada tabela com todos
+     * os campos e mais os campos que correspondem ao nome de tabelas
+     * com chaves externas
      * @return 
      */
     public String prepareSelect(){
@@ -155,8 +167,8 @@ public abstract class AbstractJFrame extends javax.swing.JFrame implements Confi
     }
     
     /**
-     * 
-     * @param tablename
+     * Retorna a lista de objetos da tabela a qual está referindo
+     * @param tablename nome da tabela à qual se refere
      * @return
      * @throws SQLException 
      */
@@ -246,6 +258,9 @@ public abstract class AbstractJFrame extends javax.swing.JFrame implements Confi
         return null;
     } 
     
+    /**
+     * Encontra todos os atributos e os atributos de nome para chaves estrangeiras
+     */
     public void findAllAttr(){
         
          for(int i = 0; i < this.tableAttr.size(); i++ ){
@@ -299,8 +314,8 @@ public abstract class AbstractJFrame extends javax.swing.JFrame implements Confi
     }
     
     /**
-     * 
-     * @param tablename
+     * Carrega as colunas da tabela e salva em um array
+     * @param tablename nome da tabela à qual se refere
      * @throws SQLException 
      */
     public void loadInitialTable(String tablename) throws SQLException {
@@ -345,9 +360,10 @@ public abstract class AbstractJFrame extends javax.swing.JFrame implements Confi
     }
     
     /**
-     * 
-     * @param table
-     * @param field
+     * Retorna uma lista de strings de busca para os diferentes
+     * tipos de campos da tabela
+     * @param table nome da tabela
+     * @param field campo que está sendo buscado
      * @return 
      */
     public String[] getFieldType(String table, String field) {
@@ -403,6 +419,11 @@ public abstract class AbstractJFrame extends javax.swing.JFrame implements Confi
         return new String[]{};
     }
     
+    /**
+     * Deleta a linha da tabela principal selecionada na base de dados
+     * @param tablename
+     * @param values 
+     */
     public void removeRow(String tablename, Object[] values) {
         if(tablename.isEmpty())
             System.out.println("ERRO: String vazia!");
@@ -457,7 +478,13 @@ public abstract class AbstractJFrame extends javax.swing.JFrame implements Confi
         }
     }
     
-    
+    /**
+     * Realiza a busca na base de dados e retorna a tabela com os resultados 
+     * da busca
+     * @param tablename
+     * @param filters
+     * @return 
+     */
     public Object[][] getSearch(String tablename, ArrayList<ArrayList<Object>> filters) {
         if(tablename.isEmpty() || filters.isEmpty()) {
             System.out.println("ERRO: String vazia!");
@@ -677,6 +704,10 @@ public abstract class AbstractJFrame extends javax.swing.JFrame implements Confi
         }
     }
     
+    /**
+     * Método para reescrita para recarregamento das tabelas
+     * no retorna a tela principal após um cadastramento ou alteração
+     */
     public void reloadTable() {
         this.setVisible(true);
         this.setEnabled(true);
