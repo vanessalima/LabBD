@@ -167,14 +167,20 @@ public class Escreve extends AbstractJFrame{
             } else {
                 try{
                     conn = new DBconnection();
-                    if(!cbAutor2.getSelectedItem().toString().matches("-")){
+                    if(cbAutor2.getSelectedItem().toString().matches("-")){
                         sql = "UPDATE pessoa SET tipoAutor = '1' WHERE idPe = "+this.listaAutor.get(cbAutor.getSelectedItem());
                     }else{
-                        sql = "UPDATE pessoa SET tipoAutor = '1' WHERE idPe = "+this.listaAutor.get(cbAutor.getSelectedItem())+" OR idPe"+
+                        sql = "UPDATE pessoa SET tipoAutor = '1' WHERE idPe = "+this.listaAutor.get(cbAutor.getSelectedItem())+" OR idPe="+
                                 this.listaAutor.get(cbAutor2.getSelectedItem());
                     }
                     System.out.println("SQL: "+sql);
                     conn.execute(sql);
+                    
+                    //insere em escreve
+                    conn.execute("INSERT INTO escreve(idAut, idArt) VALUES ("+this.listaAutor.get(cbAutor.getSelectedItem())+", "+this.listaArtigo.get(cbArtigo.getSelectedItem())+")");
+                    if(!cbAutor2.getSelectedItem().toString().matches("-")){
+                        conn.execute("INSERT INTO escreve(idAut, idArt) VALUES ("+this.listaAutor.get(cbAutor2.getSelectedItem())+", "+this.listaArtigo.get(cbArtigo.getSelectedItem())+")");
+                    }
                     conn.disconect();
                     (new Mensagem(this, this.anterior, null, SUCCESS, CADASTRO)).setEnabled(true);
                 }catch(SQLException e){
@@ -309,7 +315,7 @@ public class Escreve extends AbstractJFrame{
                 while(rs != null && rs.next()){
                     auxNome = rs.getString("TITULOART");
                     cbArtigo.addItem(auxNome);
-                    this.listaAutor.put(auxNome, rs.getInt("IDART"));
+                    this.listaArtigo.put(auxNome, rs.getInt("IDART"));
                 }
                 if (rs != null) rs.close();
                 conn.disconect();
